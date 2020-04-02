@@ -58,6 +58,7 @@
 .\objects\delay.o: ..\Basic\OLED\bsp_oled.h
 .\objects\delay.o: ..\Basic\CONFIG\config_param.h
 .\objects\delay.o: ..\Basic\MOTOR\bsp_motor.h
+.\objects\delay.o: ..\Basic\ENCODER\bsp_encoder.h
 .\objects\delay.o: ..\Zui\inc\bmp.h
 .\objects\delay.o: ..\Zui\inc\main_ui.h
 .\objects\delay.o: ..\TASK\inc\LedTask.h

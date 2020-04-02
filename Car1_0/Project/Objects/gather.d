@@ -59,6 +59,7 @@
 .\objects\gather.o: ..\Basic\OLED\bsp_oled.h
 .\objects\gather.o: ..\Basic\CONFIG\config_param.h
 .\objects\gather.o: ..\Basic\MOTOR\bsp_motor.h
+.\objects\gather.o: ..\Basic\ENCODER\bsp_encoder.h
 .\objects\gather.o: ..\Zui\inc\bmp.h
 .\objects\gather.o: ..\Zui\inc\main_ui.h
 .\objects\gather.o: ..\TASK\inc\LedTask.h

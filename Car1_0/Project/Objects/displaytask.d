@@ -58,6 +58,7 @@
 .\objects\displaytask.o: ..\Basic\OLED\bsp_oled.h
 .\objects\displaytask.o: ..\Basic\CONFIG\config_param.h
 .\objects\displaytask.o: ..\Basic\MOTOR\bsp_motor.h
+.\objects\displaytask.o: ..\Basic\ENCODER\bsp_encoder.h
 .\objects\displaytask.o: ..\Zui\inc\bmp.h
 .\objects\displaytask.o: ..\Zui\inc\main_ui.h
 .\objects\displaytask.o: ..\TASK\inc\LedTask.h

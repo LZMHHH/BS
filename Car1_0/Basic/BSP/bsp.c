@@ -59,6 +59,10 @@ void bsp_Init(void)
 	
 	bsp_Motor_Init(7199,0);
 
+	Encoder1_Init_TIM();
+	Encoder2_Init_TIM();
+	Encoder3_Init_TIM();
+	Encoder4_Init_TIM();
 	
 //	bsp_KEY_Init();
 

@@ -58,6 +58,7 @@
 .\objects\bsp_dwt_delay.o: ..\Basic\OLED\bsp_oled.h
 .\objects\bsp_dwt_delay.o: ..\Basic\CONFIG\config_param.h
 .\objects\bsp_dwt_delay.o: ..\Basic\MOTOR\bsp_motor.h
+.\objects\bsp_dwt_delay.o: ..\Basic\ENCODER\bsp_encoder.h
 .\objects\bsp_dwt_delay.o: ..\Zui\inc\bmp.h
 .\objects\bsp_dwt_delay.o: ..\Zui\inc\main_ui.h
 .\objects\bsp_dwt_delay.o: ..\TASK\inc\LedTask.h

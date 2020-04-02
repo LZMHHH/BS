@@ -58,6 +58,7 @@
 .\objects\cputask.o: ..\Basic\OLED\bsp_oled.h
 .\objects\cputask.o: ..\Basic\CONFIG\config_param.h
 .\objects\cputask.o: ..\Basic\MOTOR\bsp_motor.h
+.\objects\cputask.o: ..\Basic\ENCODER\bsp_encoder.h
 .\objects\cputask.o: ..\Zui\inc\bmp.h
 .\objects\cputask.o: ..\Zui\inc\main_ui.h
 .\objects\cputask.o: ..\TASK\inc\LedTask.h

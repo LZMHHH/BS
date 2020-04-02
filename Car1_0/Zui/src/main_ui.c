@@ -50,6 +50,7 @@ void Main_ZUI(void)
 		
 	}
 	
+//	OLED_ShowNum(0,24,Read_Encoder(4),5,0,1);
 	
 	
 }

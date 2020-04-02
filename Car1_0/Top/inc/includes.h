@@ -101,6 +101,9 @@
 #include "bsp_oled.h"
 #include "config_param.h"
 #include "bsp_motor.h"
+#include "bsp_encoder.h"
+#include "bsp_iic.h"
+
 
 #include "bmp.h"
 #include "main_ui.h"

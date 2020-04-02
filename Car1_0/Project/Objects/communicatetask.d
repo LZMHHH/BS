@@ -58,6 +58,7 @@
 .\objects\communicatetask.o: ..\Basic\OLED\bsp_oled.h
 .\objects\communicatetask.o: ..\Basic\CONFIG\config_param.h
 .\objects\communicatetask.o: ..\Basic\MOTOR\bsp_motor.h
+.\objects\communicatetask.o: ..\Basic\ENCODER\bsp_encoder.h
 .\objects\communicatetask.o: ..\Zui\inc\bmp.h
 .\objects\communicatetask.o: ..\Zui\inc\main_ui.h
 .\objects\communicatetask.o: ..\TASK\inc\LedTask.h

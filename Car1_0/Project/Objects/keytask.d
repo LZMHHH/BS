@@ -58,6 +58,7 @@
 .\objects\keytask.o: ..\Basic\OLED\bsp_oled.h
 .\objects\keytask.o: ..\Basic\CONFIG\config_param.h
 .\objects\keytask.o: ..\Basic\MOTOR\bsp_motor.h
+.\objects\keytask.o: ..\Basic\ENCODER\bsp_encoder.h
 .\objects\keytask.o: ..\Zui\inc\bmp.h
 .\objects\keytask.o: ..\Zui\inc\main_ui.h
 .\objects\keytask.o: ..\TASK\inc\LedTask.h

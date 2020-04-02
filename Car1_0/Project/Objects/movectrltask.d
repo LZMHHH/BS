@@ -58,6 +58,7 @@
 .\objects\movectrltask.o: ..\Basic\OLED\bsp_oled.h
 .\objects\movectrltask.o: ..\Basic\CONFIG\config_param.h
 .\objects\movectrltask.o: ..\Basic\MOTOR\bsp_motor.h
+.\objects\movectrltask.o: ..\Basic\ENCODER\bsp_encoder.h
 .\objects\movectrltask.o: ..\Zui\inc\bmp.h
 .\objects\movectrltask.o: ..\Zui\inc\main_ui.h
 .\objects\movectrltask.o: ..\TASK\inc\LedTask.h

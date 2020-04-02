@@ -58,6 +58,7 @@
 .\objects\sys.o: ..\Basic\OLED\bsp_oled.h
 .\objects\sys.o: ..\Basic\CONFIG\config_param.h
 .\objects\sys.o: ..\Basic\MOTOR\bsp_motor.h
+.\objects\sys.o: ..\Basic\ENCODER\bsp_encoder.h
 .\objects\sys.o: ..\Zui\inc\bmp.h
 .\objects\sys.o: ..\Zui\inc\main_ui.h
 .\objects\sys.o: ..\TASK\inc\LedTask.h

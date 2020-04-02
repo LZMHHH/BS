@@ -41,6 +41,7 @@
 ".\objects\bsp_usart1.o"
 ".\objects\bsp_oled.o"
 ".\objects\bsp_motor.o"
+".\objects\bsp_encoder.o"
 ".\objects\heap_4.o"
 ".\objects\port.o"
 ".\objects\croutine.o"

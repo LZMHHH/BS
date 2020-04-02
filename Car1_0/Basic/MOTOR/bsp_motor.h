@@ -14,8 +14,8 @@
   *
   ******************************************************************************
   */
-#ifndef __MOTOR_H
-#define __MOTOR_H
+#ifndef _BSP_MOTOR_H
+#define _BSP_MOTOR_H
 #include "includes.h"	 
 
 //  ∑Ω±„“∆÷≤

@@ -58,6 +58,7 @@
 .\objects\diskio.o: ..\Basic\OLED\bsp_oled.h
 .\objects\diskio.o: ..\Basic\CONFIG\config_param.h
 .\objects\diskio.o: ..\Basic\MOTOR\bsp_motor.h
+.\objects\diskio.o: ..\Basic\ENCODER\bsp_encoder.h
 .\objects\diskio.o: ..\Zui\inc\bmp.h
 .\objects\diskio.o: ..\Zui\inc\main_ui.h
 .\objects\diskio.o: ..\TASK\inc\LedTask.h

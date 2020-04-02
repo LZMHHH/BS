@@ -57,6 +57,7 @@
 .\objects\sysinfotest.o: ..\Basic\OLED\bsp_oled.h
 .\objects\sysinfotest.o: ..\Basic\CONFIG\config_param.h
 .\objects\sysinfotest.o: ..\Basic\MOTOR\bsp_motor.h
+.\objects\sysinfotest.o: ..\Basic\ENCODER\bsp_encoder.h
 .\objects\sysinfotest.o: ..\Zui\inc\bmp.h
 .\objects\sysinfotest.o: ..\Zui\inc\main_ui.h
 .\objects\sysinfotest.o: ..\TASK\inc\LedTask.h
