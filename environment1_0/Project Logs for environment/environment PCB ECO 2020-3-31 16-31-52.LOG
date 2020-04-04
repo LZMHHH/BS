@@ -1,0 +1,3 @@
+Change Component Footprint: Designator=DJ Old Footprint=FMQ_tp New Footprint=HDR1X2_2.54
+Change Component Footprint: Designator=LED Old Footprint=FMQ_tp New Footprint=HDR1X2_2.54
+Added Room: Name=environment
