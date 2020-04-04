@@ -1,0 +1,9 @@
+Added Component: Designator=hw3(HDR1X2_2.54)
+Added Component: Designator=hw4(HDR1X2_2.54)
+Added Pin To Net: NetName=3V3 Pin=hw3-1
+Added Pin To Net: NetName=5V Pin=hw3-2
+Added Pin To Net: NetName=3V3 Pin=hw4-1
+Added Pin To Net: NetName=5V Pin=hw4-2
+Added Member To Class: ClassName=car Member=Component hw3 ∫ÏÕ‚
+Added Member To Class: ClassName=car Member=Component hw4 ∫ÏÕ‚
+Added Room: Name=car
