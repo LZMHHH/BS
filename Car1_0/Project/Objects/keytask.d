@@ -18,6 +18,7 @@
 .\objects\keytask.o: ..\FreeRTOS\inc\task.h
 .\objects\keytask.o: ..\FreeRTOS\inc\list.h
 .\objects\keytask.o: ..\FreeRTOS\inc\queue.h
+.\objects\keytask.o: ..\FreeRTOS\inc\semphr.h
 .\objects\keytask.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\keytask.o: ..\Libraries\CMSIS\core_cm3.h
 .\objects\keytask.o: ..\Libraries\CMSIS\system_stm32f10x.h
@@ -59,10 +60,19 @@
 .\objects\keytask.o: ..\Basic\CONFIG\config_param.h
 .\objects\keytask.o: ..\Basic\MOTOR\bsp_motor.h
 .\objects\keytask.o: ..\Basic\ENCODER\bsp_encoder.h
+.\objects\keytask.o: ..\Basic\IIC\bsp_iic.h
+.\objects\keytask.o: ..\Basic\MPU\bsp_mpu6050.h
+.\objects\keytask.o: ..\Basic\EXTI\bsp_exti.h
+.\objects\keytask.o: ..\Basic\MPU\inv_mpu.h
+.\objects\keytask.o: ..\Basic\MPU\inv_mpu_dmp_motion_driver.h
+.\objects\keytask.o: ..\Basic\MPU\dmpKey.h
+.\objects\keytask.o: ..\Basic\MPU\dmpmap.h
 .\objects\keytask.o: ..\Zui\inc\bmp.h
 .\objects\keytask.o: ..\Zui\inc\main_ui.h
+.\objects\keytask.o: ..\Basic\MPU\filter.h
 .\objects\keytask.o: ..\TASK\inc\LedTask.h
 .\objects\keytask.o: ..\TASK\inc\KeyTask.h
 .\objects\keytask.o: ..\TASK\inc\CommunicateTask.h
 .\objects\keytask.o: ..\TASK\inc\DisplayTask.h
 .\objects\keytask.o: ..\TASK\inc\MoveCtrlTask.h
+.\objects\keytask.o: ..\TASK\inc\MpuTask.h

@@ -17,6 +17,7 @@
 .\objects\sysinfotest.o: ..\FreeRTOS\inc\task.h
 .\objects\sysinfotest.o: ..\FreeRTOS\inc\list.h
 .\objects\sysinfotest.o: ..\FreeRTOS\inc\queue.h
+.\objects\sysinfotest.o: ..\FreeRTOS\inc\semphr.h
 .\objects\sysinfotest.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\sysinfotest.o: ..\Libraries\CMSIS\core_cm3.h
 .\objects\sysinfotest.o: ..\Libraries\CMSIS\system_stm32f10x.h
@@ -58,10 +59,19 @@
 .\objects\sysinfotest.o: ..\Basic\CONFIG\config_param.h
 .\objects\sysinfotest.o: ..\Basic\MOTOR\bsp_motor.h
 .\objects\sysinfotest.o: ..\Basic\ENCODER\bsp_encoder.h
+.\objects\sysinfotest.o: ..\Basic\IIC\bsp_iic.h
+.\objects\sysinfotest.o: ..\Basic\MPU\bsp_mpu6050.h
+.\objects\sysinfotest.o: ..\Basic\EXTI\bsp_exti.h
+.\objects\sysinfotest.o: ..\Basic\MPU\inv_mpu.h
+.\objects\sysinfotest.o: ..\Basic\MPU\inv_mpu_dmp_motion_driver.h
+.\objects\sysinfotest.o: ..\Basic\MPU\dmpKey.h
+.\objects\sysinfotest.o: ..\Basic\MPU\dmpmap.h
 .\objects\sysinfotest.o: ..\Zui\inc\bmp.h
 .\objects\sysinfotest.o: ..\Zui\inc\main_ui.h
+.\objects\sysinfotest.o: ..\Basic\MPU\filter.h
 .\objects\sysinfotest.o: ..\TASK\inc\LedTask.h
 .\objects\sysinfotest.o: ..\TASK\inc\KeyTask.h
 .\objects\sysinfotest.o: ..\TASK\inc\CommunicateTask.h
 .\objects\sysinfotest.o: ..\TASK\inc\DisplayTask.h
 .\objects\sysinfotest.o: ..\TASK\inc\MoveCtrlTask.h
+.\objects\sysinfotest.o: ..\TASK\inc\MpuTask.h

@@ -18,6 +18,7 @@
 .\objects\diskio.o: ..\FreeRTOS\inc\task.h
 .\objects\diskio.o: ..\FreeRTOS\inc\list.h
 .\objects\diskio.o: ..\FreeRTOS\inc\queue.h
+.\objects\diskio.o: ..\FreeRTOS\inc\semphr.h
 .\objects\diskio.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\diskio.o: ..\Libraries\CMSIS\core_cm3.h
 .\objects\diskio.o: ..\Libraries\CMSIS\system_stm32f10x.h
@@ -59,10 +60,19 @@
 .\objects\diskio.o: ..\Basic\CONFIG\config_param.h
 .\objects\diskio.o: ..\Basic\MOTOR\bsp_motor.h
 .\objects\diskio.o: ..\Basic\ENCODER\bsp_encoder.h
+.\objects\diskio.o: ..\Basic\IIC\bsp_iic.h
+.\objects\diskio.o: ..\Basic\MPU\bsp_mpu6050.h
+.\objects\diskio.o: ..\Basic\EXTI\bsp_exti.h
+.\objects\diskio.o: ..\Basic\MPU\inv_mpu.h
+.\objects\diskio.o: ..\Basic\MPU\inv_mpu_dmp_motion_driver.h
+.\objects\diskio.o: ..\Basic\MPU\dmpKey.h
+.\objects\diskio.o: ..\Basic\MPU\dmpmap.h
 .\objects\diskio.o: ..\Zui\inc\bmp.h
 .\objects\diskio.o: ..\Zui\inc\main_ui.h
+.\objects\diskio.o: ..\Basic\MPU\filter.h
 .\objects\diskio.o: ..\TASK\inc\LedTask.h
 .\objects\diskio.o: ..\TASK\inc\KeyTask.h
 .\objects\diskio.o: ..\TASK\inc\CommunicateTask.h
 .\objects\diskio.o: ..\TASK\inc\DisplayTask.h
 .\objects\diskio.o: ..\TASK\inc\MoveCtrlTask.h
+.\objects\diskio.o: ..\TASK\inc\MpuTask.h

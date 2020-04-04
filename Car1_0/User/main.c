@@ -43,12 +43,13 @@ void AppObjCreate  ( void );
 //void vTaskUart1Rx  ( void * pvParameters );
 //void vTaskUart1Tx  ( void * pvParameters );
 //void vTaskMoveCtrl ( void * pvParameters );
+//void vTaskMpu      ( void * pvParameters );
 
 
 
 /*
 **********************************************************************************************************
-											句柄变量声明
+											任务句柄
 **********************************************************************************************************
 */
 //static TaskHandle_t xHandleTaskStart = NULL;
@@ -61,12 +62,22 @@ static TaskHandle_t xHandleTaskCpu       = NULL;  //CPU任务
 //static TaskHandle_t xHandleTaskUart1Tx   = NULL;  //KEY任务
 			 TaskHandle_t xHandleTaskDisplay   = NULL;  //显示任务
 			 TaskHandle_t xHandleTaskMoveCtrl  = NULL;  //移动控制任务
+			 TaskHandle_t xHandleTaskMpu       = NULL;  //陀螺仪任务
 			 
-			 
+/********************************** 内核对象句柄 *********************************/
+/*
+ * 信号量，消息队列，事件标志组，软件定时器这些都属于内核的对象，要想使用这些内核
+ * 对象，必须先创建，创建成功之后会返回一个相应的句柄。实际上就是一个指针，后续我
+ * 们就可以通过这个句柄操作这些内核对象。
+ *
+ * 内核对象说白了就是一种全局的数据结构，通过这些数据结构我们可以实现任务间的通信，
+ * 任务间的事件同步等各种功能。至于这些功能的实现我们是通过调用这些内核对象的函数
+ * 来完成的
+ * 
+ */			 
        TaskHandle_t xQueue_uart1Rx       = NULL;  //uart1的接收消息队列
 			 TaskHandle_t xQueue_uart1Tx       = NULL;  //uart1的发送消息队列
-
-
+			 SemaphoreHandle_t BinarySem_Mpu   = NULL;  //mpu二值信号量
 
 
 
@@ -161,6 +172,13 @@ static void AppTaskCreate (void)
 							   NULL,              	    /* 任务参数  */
 							   11,                     	/* 任务优先级*/
 							   &xHandleTaskMoveCtrl );   /* 任务句柄  */
+								 
+		xTaskCreate( vTaskMpu,   	             /* 任务函数  */
+							   "Task Mpu",               /* 任务名    */
+							   256,                   	 /* 任务栈大小，单位word，也就是4字节 */
+							   NULL,              	     /* 任务参数  */
+							   11,                     	 /* 任务优先级*/
+							   &xHandleTaskMpu );        /* 任务句柄  */
 
 //	  xTaskCreate( vTaskUart1Rx,   	        /* 任务函数  */
 //								 "Task Uart1Rx",          /* 任务名    */
@@ -217,8 +235,15 @@ static void AppObjCreate (void)
 #endif	
 	if(NULL != xQueue_uart1Rx && NULL != xQueue_uart1Tx)
 	{
-		Uart1_DMA_SendString("创建消息队列成功!\r\n",-1);
+//		Uart1_DMA_SendString("创建消息队列成功!\r\n",-1);
 	}
 
+	
+	 /* 创建 BinarySem */
+  BinarySem_Mpu = xSemaphoreCreateBinary();	 
+  if(NULL != BinarySem_Mpu)
+	{
+//    Uart1_DMA_SendString("BinarySem_Handle二值信号量创建成功!\r\n",-1);
+	}
 }
 

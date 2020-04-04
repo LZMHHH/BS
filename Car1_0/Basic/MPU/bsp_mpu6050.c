@@ -1,10 +1,10 @@
 /**
   ******************************************************************************
-  * @file    MPU6050.c
+  * @file    bsp_mpu6050.c
   * @author  fire
   * @version V1.0
-  * @date    2017-xx-xx
-  * @brief   mpu6050上层文件
+  * @date    2020-xx-xx
+  * @brief   mpu6050底层文件
   ******************************************************************************
   * @attention
   *
@@ -15,13 +15,8 @@
   ******************************************************************************
   */
 
-#include "MPU6050.h"
+#include "bsp_mpu6050.h"
 
-//#include "bsp_i2c.h"
-
-extern u8 Flag_Stop,Flag_Show; //停止标志位和 显示标志位 默认停止 显示打开
-
-//#include "usart.h"
 
 #define PRINT_ACCEL     (0x01)
 #define PRINT_GYRO      (0x02)
@@ -284,29 +279,45 @@ void DMP_Init(void)
 { 
    u8 temp[1]={0};
    i2cRead(0x68,0x75,1,temp);
-	 printf("mpu_set_sensor complete ......\r\n");
+//	 printf("mpu_set_sensor complete ......\r\n");
 	if(temp[0]!=0x68)NVIC_SystemReset();
 	if(!mpu_init())
   {
 	  if(!mpu_set_sensors(INV_XYZ_GYRO | INV_XYZ_ACCEL))      //打开哪些传感器寄存器
-	  	 printf("mpu_set_sensor complete ......\r\n");
+		{
+//	  	 printf("mpu_set_sensor complete ......\r\n");
+		}
 	  if(!mpu_configure_fifo(INV_XYZ_GYRO | INV_XYZ_ACCEL))   //把哪些传感器数据传输到FIFO
-	  	 printf("mpu_configure_fifo complete ......\r\n");
+		{
+//	  	 printf("mpu_configure_fifo complete ......\r\n");
+		}
 	  if(!mpu_set_sample_rate(DEFAULT_MPU_HZ))                //设置DMP的输出频率（即是中断引脚的中断频率）
-	  	 printf("mpu_set_sample_rate complete ......\r\n");
+		{
+//	  	 printf("mpu_set_sample_rate complete ......\r\n");
+		}
 	  if(!dmp_load_motion_driver_firmware())                  //装载	DMP
-	  	printf("dmp_load_motion_driver_firmware complete ......\r\n");
+		{
+//	  	printf("dmp_load_motion_driver_firmware complete ......\r\n");
+		}
 	  if(!dmp_set_orientation(inv_orientation_matrix_to_scalar(gyro_orientation)))
-	  	 printf("dmp_set_orientation complete ......\r\n");
+		{
+//	  	 printf("dmp_set_orientation complete ......\r\n");
+		}
 	  if(!dmp_enable_feature(DMP_FEATURE_6X_LP_QUAT | DMP_FEATURE_TAP |
 	        DMP_FEATURE_ANDROID_ORIENT | DMP_FEATURE_SEND_RAW_ACCEL | DMP_FEATURE_SEND_CAL_GYRO |
 	        DMP_FEATURE_GYRO_CAL))
-	  	 printf("dmp_enable_feature complete ......\r\n");
+		{
+//	  	 printf("dmp_enable_feature complete ......\r\n");
+		}
 	  if(!dmp_set_fifo_rate(DEFAULT_MPU_HZ))
-	  	 printf("dmp_set_fifo_rate complete ......\r\n");
+		{
+//	  	 printf("dmp_set_fifo_rate complete ......\r\n");
+		}
 	  run_self_test();
 	  if(!mpu_set_dmp_state(1))
-	  	 printf("mpu_set_dmp_state complete ......\r\n");
+		{
+//	  	 printf("mpu_set_dmp_state complete ......\r\n");
+		}
   }
 }
 /**************************************************************************

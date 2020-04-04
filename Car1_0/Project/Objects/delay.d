@@ -19,6 +19,7 @@
 .\objects\delay.o: ..\FreeRTOS\inc\task.h
 .\objects\delay.o: ..\FreeRTOS\inc\list.h
 .\objects\delay.o: ..\FreeRTOS\inc\queue.h
+.\objects\delay.o: ..\FreeRTOS\inc\semphr.h
 .\objects\delay.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\delay.o: ..\Libraries\CMSIS\core_cm3.h
 .\objects\delay.o: ..\Libraries\CMSIS\system_stm32f10x.h
@@ -59,10 +60,19 @@
 .\objects\delay.o: ..\Basic\CONFIG\config_param.h
 .\objects\delay.o: ..\Basic\MOTOR\bsp_motor.h
 .\objects\delay.o: ..\Basic\ENCODER\bsp_encoder.h
+.\objects\delay.o: ..\Basic\IIC\bsp_iic.h
+.\objects\delay.o: ..\Basic\MPU\bsp_mpu6050.h
+.\objects\delay.o: ..\Basic\EXTI\bsp_exti.h
+.\objects\delay.o: ..\Basic\MPU\inv_mpu.h
+.\objects\delay.o: ..\Basic\MPU\inv_mpu_dmp_motion_driver.h
+.\objects\delay.o: ..\Basic\MPU\dmpKey.h
+.\objects\delay.o: ..\Basic\MPU\dmpmap.h
 .\objects\delay.o: ..\Zui\inc\bmp.h
 .\objects\delay.o: ..\Zui\inc\main_ui.h
+.\objects\delay.o: ..\Basic\MPU\filter.h
 .\objects\delay.o: ..\TASK\inc\LedTask.h
 .\objects\delay.o: ..\TASK\inc\KeyTask.h
 .\objects\delay.o: ..\TASK\inc\CommunicateTask.h
 .\objects\delay.o: ..\TASK\inc\DisplayTask.h
 .\objects\delay.o: ..\TASK\inc\MoveCtrlTask.h
+.\objects\delay.o: ..\TASK\inc\MpuTask.h

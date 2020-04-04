@@ -24,7 +24,7 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f10x_it.h"
+#include "includes.h"
 
 /** @addtogroup STM32F10x_StdPeriph_Template
   * @{
@@ -137,6 +137,30 @@ void DebugMon_Handler(void)
 //void SysTick_Handler(void)
 //{
 //}
+
+/// IO 线中断
+void EXTI_INT_FUNCTION (void)
+{
+	static u8 num = 0;
+	BaseType_t pxHigherPriorityTaskWoken;
+//	MPU_DEBUG("intterrupt");
+	if(EXTI_GetITStatus(EXTI_LINE) != RESET) //确保是否产生了EXTI Line中断
+	{
+		num++;
+		if(num >= 2)
+		{
+			//释放二值信号量，发送接收到新数据标志，供前台程序查询 
+			xSemaphoreGiveFromISR(BinarySem_Mpu,& 
+													pxHigherPriorityTaskWoken);
+			//如果需要的话进行一次任务切换，系统会判断是否需要进行切换
+			portYIELD_FROM_ISR(pxHigherPriorityTaskWoken);
+			
+			num = 0;
+		}
+
+		EXTI_ClearITPendingBit(EXTI_LINE);     //清除中断标志位
+	}  
+}
 
 /******************************************************************************/
 /*                 STM32F10x Peripherals Interrupt Handlers                   */

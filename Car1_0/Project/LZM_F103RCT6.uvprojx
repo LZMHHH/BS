@@ -369,7 +369,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Libraries\CMSIS;..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\User;..\User\OLED_SPI;..\Top\inc;..\Basic\SYSTICK;..\Basic\LED;..\FreeRTOS\inc;..\Basic\SYS;..\Basic\DWT;..\Basic\BSP;..\Basic\CONFIG;..\Basic\KEY;..\TASK\inc;..\Basic\USART1;..\Basic\SDIO;..\FATFS\src;..\FATFS\src\option;..\Basic\USMART;..\Zui\inc;..\Basic\OLED;..\Basic\MOTOR</IncludePath>
+              <IncludePath>..\Libraries\CMSIS;..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\User;..\User\OLED_SPI;..\Top\inc;..\Basic\SYSTICK;..\Basic\LED;..\FreeRTOS\inc;..\Basic\SYS;..\Basic\DWT;..\Basic\BSP;..\Basic\CONFIG;..\Basic\KEY;..\TASK\inc;..\Basic\USART1;..\Basic\SDIO;..\FATFS\src;..\FATFS\src\option;..\Basic\USMART;..\Zui\inc;..\Basic\OLED;..\Basic\MOTOR;..\Basic\ENCODER;..\Basic\IIC;..\Basic\MPU;..\Basic\EXTI</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -672,6 +672,41 @@
               <FileType>1</FileType>
               <FilePath>..\Basic\MOTOR\bsp_motor.c</FilePath>
             </File>
+            <File>
+              <FileName>bsp_encoder.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Basic\ENCODER\bsp_encoder.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_iic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Basic\IIC\bsp_iic.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_mpu6050.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Basic\MPU\bsp_mpu6050.c</FilePath>
+            </File>
+            <File>
+              <FileName>filter.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Basic\MPU\filter.c</FilePath>
+            </File>
+            <File>
+              <FileName>inv_mpu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Basic\MPU\inv_mpu.c</FilePath>
+            </File>
+            <File>
+              <FileName>inv_mpu_dmp_motion_driver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Basic\MPU\inv_mpu_dmp_motion_driver.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_exti.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Basic\EXTI\bsp_exti.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -761,6 +796,11 @@
               <FileName>MoveCtrlTask.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\TASK\src\MoveCtrlTask.c</FilePath>
+            </File>
+            <File>
+              <FileName>MpuTask.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\TASK\src\MpuTask.c</FilePath>
             </File>
           </Files>
         </Group>

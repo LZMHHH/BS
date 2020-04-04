@@ -18,6 +18,7 @@
 .\objects\file_sys.o: ..\FreeRTOS\inc\task.h
 .\objects\file_sys.o: ..\FreeRTOS\inc\list.h
 .\objects\file_sys.o: ..\FreeRTOS\inc\queue.h
+.\objects\file_sys.o: ..\FreeRTOS\inc\semphr.h
 .\objects\file_sys.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\file_sys.o: ..\Libraries\CMSIS\core_cm3.h
 .\objects\file_sys.o: ..\Libraries\CMSIS\system_stm32f10x.h
@@ -59,10 +60,19 @@
 .\objects\file_sys.o: ..\Basic\CONFIG\config_param.h
 .\objects\file_sys.o: ..\Basic\MOTOR\bsp_motor.h
 .\objects\file_sys.o: ..\Basic\ENCODER\bsp_encoder.h
+.\objects\file_sys.o: ..\Basic\IIC\bsp_iic.h
+.\objects\file_sys.o: ..\Basic\MPU\bsp_mpu6050.h
+.\objects\file_sys.o: ..\Basic\EXTI\bsp_exti.h
+.\objects\file_sys.o: ..\Basic\MPU\inv_mpu.h
+.\objects\file_sys.o: ..\Basic\MPU\inv_mpu_dmp_motion_driver.h
+.\objects\file_sys.o: ..\Basic\MPU\dmpKey.h
+.\objects\file_sys.o: ..\Basic\MPU\dmpmap.h
 .\objects\file_sys.o: ..\Zui\inc\bmp.h
 .\objects\file_sys.o: ..\Zui\inc\main_ui.h
+.\objects\file_sys.o: ..\Basic\MPU\filter.h
 .\objects\file_sys.o: ..\TASK\inc\LedTask.h
 .\objects\file_sys.o: ..\TASK\inc\KeyTask.h
 .\objects\file_sys.o: ..\TASK\inc\CommunicateTask.h
 .\objects\file_sys.o: ..\TASK\inc\DisplayTask.h
 .\objects\file_sys.o: ..\TASK\inc\MoveCtrlTask.h
+.\objects\file_sys.o: ..\TASK\inc\MpuTask.h

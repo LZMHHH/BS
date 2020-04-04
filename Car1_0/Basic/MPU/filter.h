@@ -18,6 +18,8 @@
 #ifndef __FILTER_H
 #define __FILTER_H
  
+#include "includes.h"
+ 
 extern float angle_X,angle_Y,angle_Z, angle_dotX, angle_dotY, angle_dotZ; 
 
 void Kalman_Filter(float Accel, float Gyro, int kind);		

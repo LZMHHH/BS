@@ -12,6 +12,8 @@
 #ifndef _INV_MPU_DMP_MOTION_DRIVER_H_
 #define _INV_MPU_DMP_MOTION_DRIVER_H_
 
+#include "includes.h"
+
 #define TAP_X               (0x01)
 #define TAP_Y               (0x02)
 #define TAP_Z               (0x04)

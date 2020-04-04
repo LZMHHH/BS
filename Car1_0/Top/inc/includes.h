@@ -80,6 +80,7 @@
 #include "task.h"
 #include "queue.h"
 
+#include "semphr.h"
 
 /*
 *********************************************************************************************************
@@ -103,6 +104,15 @@
 #include "bsp_motor.h"
 #include "bsp_encoder.h"
 #include "bsp_iic.h"
+#include "bsp_mpu6050.h"
+#include "bsp_exti.h"
+
+
+//6050的
+#include "inv_mpu.h"
+#include "inv_mpu_dmp_motion_driver.h"
+#include "dmpKey.h"
+#include "dmpmap.h"
 
 
 #include "bmp.h"
@@ -114,8 +124,8 @@
 #include "bsp_tim_pwm.h"
 #endif
 
-
-
+//应用层	
+#include "filter.h"
 
 //任务实体
 #include "LedTask.h"
@@ -126,6 +136,7 @@
 #include "CpuTask.h"
 #endif
 #include "MoveCtrlTask.h"
+#include "MpuTask.h"	
 
 
 /*  
@@ -155,12 +166,17 @@ extern void vSetupSysInfoTest(void);
 extern TaskHandle_t xQueue_uart1Rx;  //uart1的接收消息队列
 extern TaskHandle_t xQueue_uart1Tx;  //uart1的发送消息队列
 
+extern SemaphoreHandle_t BinarySem_Mpu;  //mpu二值信号量
+
 //事件标志组涉及的函数句柄广播
 extern TaskHandle_t xHandleTaskInit;  //file任务
 #if IFFILESYSTEM
 //文件系統
 extern FATFS fs_sd;  //sd卡
 #endif
+
+
+
 /*
 *********************************************************************************************************
 *                                            INCLUDES END

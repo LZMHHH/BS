@@ -18,6 +18,7 @@
 .\objects\movectrltask.o: ..\FreeRTOS\inc\task.h
 .\objects\movectrltask.o: ..\FreeRTOS\inc\list.h
 .\objects\movectrltask.o: ..\FreeRTOS\inc\queue.h
+.\objects\movectrltask.o: ..\FreeRTOS\inc\semphr.h
 .\objects\movectrltask.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\movectrltask.o: ..\Libraries\CMSIS\core_cm3.h
 .\objects\movectrltask.o: ..\Libraries\CMSIS\system_stm32f10x.h
@@ -59,10 +60,19 @@
 .\objects\movectrltask.o: ..\Basic\CONFIG\config_param.h
 .\objects\movectrltask.o: ..\Basic\MOTOR\bsp_motor.h
 .\objects\movectrltask.o: ..\Basic\ENCODER\bsp_encoder.h
+.\objects\movectrltask.o: ..\Basic\IIC\bsp_iic.h
+.\objects\movectrltask.o: ..\Basic\MPU\bsp_mpu6050.h
+.\objects\movectrltask.o: ..\Basic\EXTI\bsp_exti.h
+.\objects\movectrltask.o: ..\Basic\MPU\inv_mpu.h
+.\objects\movectrltask.o: ..\Basic\MPU\inv_mpu_dmp_motion_driver.h
+.\objects\movectrltask.o: ..\Basic\MPU\dmpKey.h
+.\objects\movectrltask.o: ..\Basic\MPU\dmpmap.h
 .\objects\movectrltask.o: ..\Zui\inc\bmp.h
 .\objects\movectrltask.o: ..\Zui\inc\main_ui.h
+.\objects\movectrltask.o: ..\Basic\MPU\filter.h
 .\objects\movectrltask.o: ..\TASK\inc\LedTask.h
 .\objects\movectrltask.o: ..\TASK\inc\KeyTask.h
 .\objects\movectrltask.o: ..\TASK\inc\CommunicateTask.h
 .\objects\movectrltask.o: ..\TASK\inc\DisplayTask.h
 .\objects\movectrltask.o: ..\TASK\inc\MoveCtrlTask.h
+.\objects\movectrltask.o: ..\TASK\inc\MpuTask.h

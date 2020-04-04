@@ -18,6 +18,7 @@
 .\objects\cputask.o: ..\FreeRTOS\inc\task.h
 .\objects\cputask.o: ..\FreeRTOS\inc\list.h
 .\objects\cputask.o: ..\FreeRTOS\inc\queue.h
+.\objects\cputask.o: ..\FreeRTOS\inc\semphr.h
 .\objects\cputask.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\cputask.o: ..\Libraries\CMSIS\core_cm3.h
 .\objects\cputask.o: ..\Libraries\CMSIS\system_stm32f10x.h
@@ -59,10 +60,19 @@
 .\objects\cputask.o: ..\Basic\CONFIG\config_param.h
 .\objects\cputask.o: ..\Basic\MOTOR\bsp_motor.h
 .\objects\cputask.o: ..\Basic\ENCODER\bsp_encoder.h
+.\objects\cputask.o: ..\Basic\IIC\bsp_iic.h
+.\objects\cputask.o: ..\Basic\MPU\bsp_mpu6050.h
+.\objects\cputask.o: ..\Basic\EXTI\bsp_exti.h
+.\objects\cputask.o: ..\Basic\MPU\inv_mpu.h
+.\objects\cputask.o: ..\Basic\MPU\inv_mpu_dmp_motion_driver.h
+.\objects\cputask.o: ..\Basic\MPU\dmpKey.h
+.\objects\cputask.o: ..\Basic\MPU\dmpmap.h
 .\objects\cputask.o: ..\Zui\inc\bmp.h
 .\objects\cputask.o: ..\Zui\inc\main_ui.h
+.\objects\cputask.o: ..\Basic\MPU\filter.h
 .\objects\cputask.o: ..\TASK\inc\LedTask.h
 .\objects\cputask.o: ..\TASK\inc\KeyTask.h
 .\objects\cputask.o: ..\TASK\inc\CommunicateTask.h
 .\objects\cputask.o: ..\TASK\inc\DisplayTask.h
 .\objects\cputask.o: ..\TASK\inc\MoveCtrlTask.h
+.\objects\cputask.o: ..\TASK\inc\MpuTask.h

@@ -12,11 +12,7 @@
  *                  MPU9150 (or MPU6050 w/ AK8975 on the auxiliary bus)
  *                  MPU9250 (or MPU6500 w/ AK8963 on the auxiliary bus)
  */
-#include "sys.h"
-
-#include "delay.h"
-
-#include "ioi2c.h"
+#include "inv_mpu.h"
 
 /* The following functions must be defined for this platform:
  * i2c_write(unsigned char slave_addr, unsigned char reg_addr,
@@ -41,7 +37,7 @@
 
 #define i2c_write   i2cWrite
 #define i2c_read    i2cRead
-#define delay_ms    SysTick_Delay_ms
+#define delay_ms    DwtDelay_mS
 #define get_ms      myget_ms
 
 //static int reg_int_cb(struct int_param_s *int_param)

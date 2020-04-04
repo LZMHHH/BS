@@ -3,8 +3,8 @@
   * @file    MPU6050.h
   * @author  fire
   * @version V1.0
-  * @date    2017-xx-xx
-  * @brief   mpu6050上层文件
+  * @date    2020-xx-xx
+  * @brief   mpu6050底层文件
   ******************************************************************************
   * @attention
   *
@@ -15,10 +15,10 @@
   ******************************************************************************
   */
 
-#ifndef __MPU6050_H
-#define __MPU6050_H
+#ifndef _BSP_MPU6050_H
+#define _BSP_MPU6050_H
 
-#include "sys.h"
+#include "includes.h"
 
 //#include "stm32f10x.h"
 //#include "inv_mpu.h"

@@ -53,6 +53,12 @@ void Main_ZUI(void)
 //	OLED_ShowNum(0,24,Read_Encoder(4),5,0,1);
 	
 	
+	OLED_ShowNum(0,0,mpu_data.Acceleration_X,4,2,1);
+	OLED_ShowNum(0,8,mpu_data.Acceleration_Y,4,2,1);
+
+	OLED_ShowNum(0,16,mpu_data.Acceleration_Z,4,2,1);
+	
+	OLED_ShowNum(60,16,mpu_data.Gyro_BalanceZ,4,2,1);
 }
 
 
