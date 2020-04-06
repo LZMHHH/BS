@@ -1,0 +1,28 @@
+Removed Pin From Net: NetName=PA0 Pin=ad1-4
+Removed Pin From Net: NetName=PA1 Pin=ad2-4
+Removed Pin From Net: NetName=PC2 Pin=ad3-4
+Removed Pin From Net: NetName=3V3 Pin=cj-1
+Removed Pin From Net: NetName=GND Pin=cj-2
+Removed Pin From Net: NetName=PB4 Pin=cj-3
+Removed Pin From Net: NetName=PB5 Pin=cj-4
+Removed Pin From Net: NetName=PC4 Pin=LED1-2
+Removed Pin From Net: NetName=PB3 Pin=wsd-3
+Removed Pin From Net: NetName=PA8 Pin=wsd-4
+Removed Member From Class: ClassName=environment Member=cj
+Added Component: Designator=dj3(HDR1X3_2.54)
+Added Component: Designator=dj4(HDR1X3_2.54)
+Added Pin To Net: NetName=PC2 Pin=ad1-4
+Added Pin To Net: NetName=PC3 Pin=ad2-4
+Added Pin To Net: NetName=PC4 Pin=ad3-4
+Added Pin To Net: NetName=5V Pin=dj3-1
+Added Pin To Net: NetName=PA0 Pin=dj3-2
+Added Pin To Net: NetName=GND Pin=dj3-3
+Added Pin To Net: NetName=5V Pin=dj4-1
+Added Pin To Net: NetName=PA1 Pin=dj4-2
+Added Pin To Net: NetName=GND Pin=dj4-3
+Added Pin To Net: NetName=PB3 Pin=LED1-2
+Added Pin To Net: NetName=PB4 Pin=wsd-3
+Added Pin To Net: NetName=PB5 Pin=wsd-4
+Added Member To Class: ClassName=environment Member=Component dj3 ¶æ»ú
+Added Member To Class: ClassName=environment Member=Component dj4 ¶æ»ú
+Added Room: Name=environment

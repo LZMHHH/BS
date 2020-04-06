@@ -1,0 +1,12 @@
+Board Information Report
+Filename     : C:\LSS\Myjiezuo\AD\ENVIRONMENT\environment1_0\environment.PcbDoc
+Date         : 2020/4/1
+Time         : 11:37:11
+Time Elapsed : 00:00:00
+
+Routing Information
+    Routing completion, 100.00%
+    Connections, 344
+    Connections routed, 344
+    Connections remaining, 0
+count : 4
