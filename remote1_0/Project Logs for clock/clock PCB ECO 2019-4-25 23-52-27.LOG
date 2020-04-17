@@ -1,0 +1,21 @@
+Removed Pin From Net: NetName=PB9 Pin=LED2-2
+Removed Pin From Net: NetName=PA15 Pin=PFMQ-1
+Removed Pin From Net: NetName=PB10 Pin=PINA-2
+Removed Pin From Net: NetName=PB11 Pin=PINA-3
+Removed Pin From Net: NetName=PA11 Pin=Rmos1-1
+Removed Pin From Net: NetName=PB8 Pin=S-3
+Removed Pin From Net: NetName=PB7 Pin=S-4
+Removed Pin From Net: NetName=PB6 Pin=S-5
+Removed Pin From Net: NetName=PB5 Pin=S-6
+Added Pin To Net: NetName=GND Pin=KEYA-1
+Added Pin To Net: NetName=PB9 Pin=KEYA-2
+Added Pin To Net: NetName=PB8 Pin=KEYA-3
+Added Pin To Net: NetName=PB7 Pin=KEYA-4
+Added Pin To Net: NetName=PB6 Pin=KEYA-5
+Added Pin To Net: NetName=PB5 Pin=KEYA-6
+Added Pin To Net: NetName=PB4 Pin=KEYA-7
+Added Pin To Net: NetName=PB3 Pin=KEYA-8
+Added Pin To Net: NetName=PB11 Pin=PINA-2
+Added Pin To Net: NetName=PB10 Pin=PINA-3
+Added Pin To Net: NetName=PA8 Pin=Rmos1-1
+Added Room: Name=clock

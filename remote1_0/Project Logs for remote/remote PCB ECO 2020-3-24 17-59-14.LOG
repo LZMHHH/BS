@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=PB9 Pin=Uh1-46
+Added Pin To Net: NetName=PB9 Pin=Uh1-45
+Change Net Name : Old Net Name=PB9 New Net Name=PB8
+Added Pin To Net: NetName=PB9 Pin=LED1-2
+Added Pin To Net: NetName=PB9 Pin=Uh1-46
+Added Net: Name=PB9
+Added Room: Name=remote

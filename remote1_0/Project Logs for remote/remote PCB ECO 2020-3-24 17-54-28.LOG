@@ -1,0 +1,14 @@
+Removed Pin From Net: NetName=PB9 Pin=LED3-2
+Removed Pin From Net: NetName=3V3 Pin=RL3-2
+Removed Pin From Net: NetName=PB8 Pin=Uh1-45
+Removed Pin From Net: NetName=PB9 Pin=Uh1-46
+Removed Member From Class: ClassName=remote Member=LED3
+Removed Member From Class: ClassName=remote Member=RL3
+Added Pin To Net: NetName=PB9 Pin=Uh1-38
+Added Pin To Net: NetName=PB8 Pin=Uh1-46
+Change Net Name : Old Net Name=PB8 New Net Name=PB9
+Change Net Name : Old Net Name=PB9 New Net Name=PA15
+Added Pin To Net: NetName=PB8 Pin=LED1-2
+Added Pin To Net: NetName=PB8 Pin=Uh1-45
+Added Net: Name=PB8
+Added Room: Name=remote

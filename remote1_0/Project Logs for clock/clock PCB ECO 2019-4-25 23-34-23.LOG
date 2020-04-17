@@ -1,0 +1,30 @@
+Removed Pin From Net: NetName=PC15 Pin=P2-5
+Removed Pin From Net: NetName=PC14 Pin=P2-6
+Removed Pin From Net: NetName=PC13 Pin=P2-7
+Removed Pin From Net: NetName=PB10 Pin=PINA-1
+Removed Pin From Net: NetName=PB11 Pin=PINA-2
+Removed Pin From Net: NetName=PA8 Pin=PINA-3
+Removed Pin From Net: NetName=PB14 Pin=PINA-4
+Removed Pin From Net: NetName=PA11 Pin=PINA-5
+Removed Pin From Net: NetName=PA0 Pin=PINA-6
+Removed Pin From Net: NetName=5V Pin=PINB-1
+Removed Pin From Net: NetName=3V3 Pin=PINB-2
+Removed Pin From Net: NetName=GND Pin=PINB-6
+Removed Pin From Net: NetName=PA7 Pin=Uh1-17
+Added Pin To Net: NetName=PA2 Pin=P2-5
+Added Pin To Net: NetName=PA1 Pin=P2-6
+Added Pin To Net: NetName=PA0 Pin=P2-7
+Added Pin To Net: NetName=5V Pin=PINA-1
+Added Pin To Net: NetName=PB10 Pin=PINA-2
+Added Pin To Net: NetName=PB11 Pin=PINA-3
+Added Pin To Net: NetName=PA6 Pin=PINA-5
+Added Pin To Net: NetName=PA5 Pin=PINA-6
+Added Pin To Net: NetName=3V3 Pin=PINA-7
+Added Pin To Net: NetName=GND Pin=PINA-8
+Added Pin To Net: NetName=PA11 Pin=Rmos1-1
+Added Pin To Net: NetName=PA7 Pin=Uh1-19
+Change Net Name : Old Net Name=PA7 New Net Name=PB1
+Added Pin To Net: NetName=PA7 Pin=PINA-4
+Added Pin To Net: NetName=PA7 Pin=Uh1-17
+Added Net: Name=PA7
+Added Room: Name=clock

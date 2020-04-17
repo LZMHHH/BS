@@ -1,0 +1,48 @@
+Removed Pin From Net: NetName=PB12 Pin=LED2-2
+Removed Pin From Net: NetName=PB14 Pin=PFMQ-1
+Removed Pin From Net: NetName=PB4 Pin=S-5
+Removed Pin From Net: NetName=PB3 Pin=S-6
+Removed Pin From Net: NetName=PC13 Pin=Uh1-2
+Removed Pin From Net: NetName=PC14 Pin=Uh1-3
+Removed Pin From Net: NetName=KEY1 Pin=Uh1-13
+Removed Pin From Net: NetName=KEY2 Pin=Uh1-14
+Removed Pin From Net: NetName=KEY5 Pin=Uh1-15
+Removed Pin From Net: NetName=KEY4 Pin=Uh1-16
+Removed Pin From Net: NetName=KEY3 Pin=Uh1-17
+Removed Pin From Net: NetName=PB13 Pin=Uh1-26
+Removed Pin From Net: NetName=PB15 Pin=yk2-J2
+Removed Pin From Net: NetName=PB15 Pin=yk2-J2
+Added Component: Designator=LED4(L0603)
+Added Component: Designator=RL4(R0603)
+Added Pin To Net: NetName=PC14 Pin=LED3-2
+Added Pin To Net: NetName=PA8 Pin=LED4-2
+Added Pin To Net: NetName=PB3 Pin=PFMQ-1
+Added Pin To Net: NetName=3V3 Pin=RL4-2
+Added Pin To Net: NetName=PB12 Pin=S-3
+Added Pin To Net: NetName=PB14 Pin=S-5
+Added Pin To Net: NetName=PB15 Pin=S-6
+Added Pin To Net: NetName=KEY2 Pin=Uh1-2
+Added Pin To Net: NetName=KEY1 Pin=Uh1-3
+Added Pin To Net: NetName=KEY5 Pin=Uh1-13
+Added Pin To Net: NetName=KEY4 Pin=Uh1-14
+Added Pin To Net: NetName=KEY3 Pin=Uh1-15
+Added Pin To Net: NetName=PB13 Pin=Uh1-17
+Added Pin To Net: NetName=PC13 Pin=Uh1-45
+Added Pin To Net: NetName=PC14 Pin=Uh1-46
+Added Pin To Net: NetName=PB4 Pin=yk2-J2
+Added Pin To Net: NetName=PB4 Pin=yk2-J2
+Change Net Name : Old Net Name=PB13 New Net Name=PA7
+Change Net Name : Old Net Name=PC13 New Net Name=PB8
+Change Net Name : Old Net Name=PC14 New Net Name=PB9
+Added Pin To Net: NetName=NetLED4_1 Pin=LED4-1
+Added Pin To Net: NetName=NetLED4_1 Pin=RL4-1
+Added Net: Name=NetLED4_1
+Added Pin To Net: NetName=PA6 Pin=LED2-2
+Added Pin To Net: NetName=PA6 Pin=Uh1-16
+Added Net: Name=PA6
+Added Pin To Net: NetName=PB13 Pin=S-4
+Added Pin To Net: NetName=PB13 Pin=Uh1-26
+Added Net: Name=PB13
+Added Member To Class: ClassName=remote Member=Component LED4 BLUE
+Added Member To Class: ClassName=remote Member=Component RL4 4.7K
+Added Room: Name=remote

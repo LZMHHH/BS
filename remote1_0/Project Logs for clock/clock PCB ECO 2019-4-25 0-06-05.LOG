@@ -1,0 +1,50 @@
+Removed Pin From Net: NetName=PB10 Pin=Jb1-1
+Removed Pin From Net: NetName=PB11 Pin=Jb1-2
+Removed Pin From Net: NetName=GND Pin=Jb1-3
+Removed Pin From Net: NetName=3V3 Pin=Jb1-4
+Removed Pin From Net: NetName=PA11 Pin=LED3-2
+Removed Pin From Net: NetName=PA0 Pin=LED4-2
+Removed Pin From Net: NetName=KEY1 Pin=Uh1-25
+Removed Pin From Net: NetName=KEY2 Pin=Uh1-26
+Removed Pin From Net: NetName=KEY3 Pin=Uh1-27
+Removed Pin From Net: NetName=KEY4 Pin=Uh1-28
+Removed Pin From Net: NetName=KEY5 Pin=Uh1-29
+Removed Member From Class: ClassName=clock Member=Jb1
+Change Component Designator: OldDesignator=GND NewDesignator=C2.
+Added Component: Designator=blA(M_HDR1X6_1_25)
+Added Component: Designator=blB(M_HDR1X6_1_25)
+Added Component: Designator=KEYA(M_HDR1X6_1_25)
+Added Component: Designator=KEYB(M_HDR1X6_1_25)
+Added Pin To Net: NetName=PB10 Pin=blA-1
+Added Pin To Net: NetName=PB11 Pin=blA-2
+Added Pin To Net: NetName=PA11 Pin=blA-5
+Added Pin To Net: NetName=PA0 Pin=blA-6
+Added Pin To Net: NetName=5V Pin=blB-1
+Added Pin To Net: NetName=3V3 Pin=blB-2
+Added Pin To Net: NetName=GND Pin=blB-6
+Added Pin To Net: NetName=5V Pin=KEYA-1
+Added Pin To Net: NetName=3V3 Pin=KEYA-2
+Added Pin To Net: NetName=GND Pin=KEYA-6
+Added Pin To Net: NetName=5V Pin=KEYB-1
+Added Pin To Net: NetName=3V3 Pin=KEYB-2
+Added Pin To Net: NetName=GND Pin=KEYB-6
+Added Pin To Net: NetName=PA8 Pin=blA-3
+Added Pin To Net: NetName=PA8 Pin=Uh1-29
+Added Net: Name=PA8
+Added Pin To Net: NetName=PB12 Pin=KEYA-4
+Added Pin To Net: NetName=PB12 Pin=Uh1-25
+Added Net: Name=PB12
+Added Pin To Net: NetName=PB13 Pin=KEYA-5
+Added Pin To Net: NetName=PB13 Pin=Uh1-26
+Added Net: Name=PB13
+Added Pin To Net: NetName=PB14 Pin=blA-4
+Added Pin To Net: NetName=PB14 Pin=Uh1-27
+Added Net: Name=PB14
+Added Pin To Net: NetName=PB15 Pin=KEYA-3
+Added Pin To Net: NetName=PB15 Pin=Uh1-28
+Added Net: Name=PB15
+Added Member To Class: ClassName=clock Member=Component blA bla
+Added Member To Class: ClassName=clock Member=Component blB blb
+Added Member To Class: ClassName=clock Member=Component KEYA keya
+Added Member To Class: ClassName=clock Member=Component KEYB keyb
+Added Room: Name=clock

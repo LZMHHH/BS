@@ -1,0 +1,5 @@
+Change Component Footprint: Designator=KEYA Old Footprint=M_HDR1X8 New Footprint=M_HDR1X8_1_25
+Change Component Footprint: Designator=KEYB Old Footprint=M_HDR1X8 New Footprint=M_HDR1X8_1_25
+Change Component Footprint: Designator=PINA Old Footprint=M_HDR1X8 New Footprint=M_HDR1X8_1_25
+Change Component Footprint: Designator=PINB Old Footprint=M_HDR1X8 New Footprint=M_HDR1X8_1_25
+Added Room: Name=clock

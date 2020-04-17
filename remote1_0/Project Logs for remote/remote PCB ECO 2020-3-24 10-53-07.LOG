@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=PB13 Pin=LED4-2
+Removed Pin From Net: NetName=PB8 Pin=PFMQ-1
+Removed Pin From Net: NetName=GND Pin=PWR-2
+Removed Pin From Net: NetName=3V3 Pin=RL4-2
+Removed Member From Class: ClassName=remote Member=LED4
+Removed Member From Class: ClassName=remote Member=PWR
+Removed Member From Class: ClassName=remote Member=RL4
+Added Pin To Net: NetName=PB13 Pin=PFMQ-1
+Added Pin To Net: NetName=GND Pin=Rm10-1
+Added Room: Name=remote

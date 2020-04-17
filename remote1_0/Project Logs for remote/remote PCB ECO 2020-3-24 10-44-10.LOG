@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=PB9 Pin=LED1-2
+Removed Pin From Net: NetName=PB13 Pin=LED2-2
+Removed Pin From Net: NetName=PB14 Pin=LED3-2
+Removed Pin From Net: NetName=PA15 Pin=LED4-2
+Added Pin To Net: NetName=PB14 Pin=LED1-2
+Added Pin To Net: NetName=PA15 Pin=LED2-2
+Added Pin To Net: NetName=PB9 Pin=LED3-2
+Added Pin To Net: NetName=PB13 Pin=LED4-2
+Added Room: Name=remote

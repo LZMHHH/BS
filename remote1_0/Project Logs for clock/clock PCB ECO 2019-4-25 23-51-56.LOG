@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=5V Pin=KEYA-1
+Removed Pin From Net: NetName=3V3 Pin=KEYA-2
+Removed Pin From Net: NetName=PB15 Pin=KEYA-3
+Removed Pin From Net: NetName=PB12 Pin=KEYA-4
+Removed Pin From Net: NetName=PB13 Pin=KEYA-5
+Removed Pin From Net: NetName=GND Pin=KEYA-6
+Removed Pin From Net: NetName=5V Pin=KEYB-1
+Removed Pin From Net: NetName=3V3 Pin=KEYB-2
+Removed Pin From Net: NetName=GND Pin=KEYB-6
+Added Room: Name=clock

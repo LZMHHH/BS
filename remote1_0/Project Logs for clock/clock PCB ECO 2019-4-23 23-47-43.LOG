@@ -1,0 +1,62 @@
+Removed Pin From Net: NetName=GND Pin=C1-2
+Removed Pin From Net: NetName=5V Pin=C3-1
+Removed Pin From Net: NetName=GND Pin=C3-2
+Removed Pin From Net: NetName=5V Pin=DHT11-1
+Removed Pin From Net: NetName=PA12 Pin=DHT11-2
+Removed Pin From Net: NetName=GND Pin=DHT11-4
+Removed Pin From Net: NetName=GND Pin=Jb3-1
+Removed Pin From Net: NetName=PA9 Pin=Jb3-2
+Removed Pin From Net: NetName=PA10 Pin=Jb3-3
+Removed Pin From Net: NetName=3V3 Pin=Jb3-4
+Removed Pin From Net: NetName=3V3 Pin=JGY-1
+Removed Pin From Net: NetName=PA6 Pin=JGY-2
+Removed Pin From Net: NetName=PA5 Pin=JGY-3
+Removed Pin From Net: NetName=GND Pin=JGY-4
+Removed Pin From Net: NetName=GND Pin=JGY-5
+Removed Pin From Net: NetName=5V Pin=JSA-1
+Removed Pin From Net: NetName=GND Pin=JSA-2
+Removed Pin From Net: NetName=PB4 Pin=JSA-3
+Removed Pin From Net: NetName=PB0 Pin=JSA-4
+Removed Pin From Net: NetName=5V Pin=JSB-1
+Removed Pin From Net: NetName=GND Pin=JSB-2
+Removed Pin From Net: NetName=PB3 Pin=JSB-3
+Removed Pin From Net: NetName=PB1 Pin=JSB-4
+Removed Pin From Net: NetName=5V Pin=PMS-1
+Removed Pin From Net: NetName=GND Pin=PMS-2
+Removed Pin From Net: NetName=PA1 Pin=PMS-3
+Removed Pin From Net: NetName=PA2 Pin=PMS-4
+Removed Pin From Net: NetName=PA3 Pin=PMS-5
+Removed Pin From Net: NetName=PA4 Pin=PMS-6
+Removed Pin From Net: NetName=5V Pin=RD1-1
+Removed Pin From Net: NetName=PA12 Pin=RD1-2
+Removed Pin From Net: NetName=GND Pin=Up2-1
+Removed Pin From Net: NetName=5V Pin=Up2-2
+Removed Pin From Net: NetName=5V Pin=Up2-4
+Removed Pin From Net: NetName=5V Pin=USB-1
+Removed Member From Class: ClassName=HJ Member=C3
+Removed Member From Class: ClassName=HJ Member=DHT11
+Removed Member From Class: ClassName=HJ Member=Jb3
+Removed Member From Class: ClassName=HJ Member=JGY
+Removed Member From Class: ClassName=HJ Member=JSA
+Removed Member From Class: ClassName=HJ Member=JSB
+Removed Member From Class: ClassName=HJ Member=PMS
+Removed Member From Class: ClassName=HJ Member=RD1
+Removed Member From Class: ClassName=HJ Member=Up2
+Change Component DesignItemId : Designator=C1 Old DesignItemId=Cap Pol2 New DesignItemId=1pin
+Change Component Footprint: Designator=C1 Old Footprint=C1206钽 New Footprint=1Pin
+Change Component Comment : Designator=C1 Old Comment=Cap Pol2 New Comment=充电板正极
+Added Component: Designator=C2.(1Pin)
+Added Pin To Net: NetName=GND Pin=C2.-1
+Added Pin To Net: NetName=5V Pin=Rcy1-1
+Added Pin To Net: NetName=5V Pin=SW1-3
+Added Pin To Net: NetName=5V Pin=SW1-6
+Added Pin To Net: NetName=PA10 Pin=USB-2
+Added Pin To Net: NetName=PA9 Pin=USB-3
+Added Net: Name=NetLED1_1
+Added Pin To Net: NetName=USB5V Pin=C1-1
+Added Pin To Net: NetName=USB5V Pin=SW1-2
+Added Pin To Net: NetName=USB5V Pin=USB-1
+Added Net: Name=USB5V
+Change Class Name : Old Net Name=HJ New Net Name=clock
+Added Member To Class: ClassName=clock Member=Component C2. 充电板负极
+Added Room: Name=clock

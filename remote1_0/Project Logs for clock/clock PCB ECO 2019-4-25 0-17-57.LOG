@@ -1,0 +1,39 @@
+Removed Pin From Net: NetName=PB10 Pin=blA-1
+Removed Pin From Net: NetName=PB11 Pin=blA-2
+Removed Pin From Net: NetName=PA8 Pin=blA-3
+Removed Pin From Net: NetName=PB14 Pin=blA-4
+Removed Pin From Net: NetName=PA11 Pin=blA-5
+Removed Pin From Net: NetName=PA0 Pin=blA-6
+Removed Pin From Net: NetName=5V Pin=blB-1
+Removed Pin From Net: NetName=3V3 Pin=blB-2
+Removed Pin From Net: NetName=GND Pin=blB-6
+Removed Member From Class: ClassName=clock Member=blA
+Removed Member From Class: ClassName=clock Member=blB
+Change Component DesignItemId : Designator=KEYA Old DesignItemId=Header 6 New DesignItemId=Header 1X8
+Change Component DesignItemId : Designator=KEYB Old DesignItemId=Header 6 New DesignItemId=Header 1X8
+Change Component Footprint: Designator=KEYA Old Footprint=M_HDR1X6_1_25 New Footprint=M_HDR1X8
+Change Component Footprint: Designator=KEYB Old Footprint=M_HDR1X6_1_25 New Footprint=M_HDR1X8
+Change Component Comment : Designator=KEYA Old Comment=keya New Comment=Header
+Change Component Comment : Designator=KEYB Old Comment=keyb New Comment=Header
+Added Component: Designator=LED1(0603)
+Added Component: Designator=PINA(M_HDR1X8)
+Added Component: Designator=PINB(M_HDR1X8)
+Added Component: Designator=RL1(0603P)
+Added Pin To Net: NetName=NetLED1_1 Pin=LED1-1
+Added Pin To Net: NetName=PB0 Pin=LED1-2
+Added Pin To Net: NetName=PB10 Pin=PINA-1
+Added Pin To Net: NetName=PB11 Pin=PINA-2
+Added Pin To Net: NetName=PA8 Pin=PINA-3
+Added Pin To Net: NetName=PB14 Pin=PINA-4
+Added Pin To Net: NetName=PA11 Pin=PINA-5
+Added Pin To Net: NetName=PA0 Pin=PINA-6
+Added Pin To Net: NetName=5V Pin=PINB-1
+Added Pin To Net: NetName=3V3 Pin=PINB-2
+Added Pin To Net: NetName=GND Pin=PINB-6
+Added Pin To Net: NetName=NetLED1_1 Pin=RL1-1
+Added Pin To Net: NetName=3V3 Pin=RL1-2
+Added Member To Class: ClassName=clock Member=Component LED1 BLUE
+Added Member To Class: ClassName=clock Member=Component PINA Header
+Added Member To Class: ClassName=clock Member=Component PINB Header
+Added Member To Class: ClassName=clock Member=Component RL1 4.7K
+Added Room: Name=clock

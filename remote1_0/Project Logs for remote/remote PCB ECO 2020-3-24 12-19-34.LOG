@@ -1,0 +1,17 @@
+Removed Pin From Net: NetName=PB14 Pin=LED1-2
+Removed Pin From Net: NetName=PA15 Pin=LED2-2
+Removed Pin From Net: NetName=PC13 Pin=Uh1-2
+Removed Pin From Net: NetName=PC14 Pin=Uh1-3
+Removed Pin From Net: NetName=PB12 Pin=Uh1-25
+Added Pin To Net: NetName=PA15 Pin=LED1-2
+Added Pin To Net: NetName=PB14 Pin=PFMQ-1
+Added Pin To Net: NetName=PB12 Pin=Uh1-2
+Added Pin To Net: NetName=PC13 Pin=Uh1-3
+Added Pin To Net: NetName=PC14 Pin=Uh1-26
+Change Net Name : Old Net Name=PB12 New Net Name=PC13
+Change Net Name : Old Net Name=PC13 New Net Name=PC14
+Change Net Name : Old Net Name=PC14 New Net Name=PB13
+Added Pin To Net: NetName=PB12 Pin=LED2-2
+Added Pin To Net: NetName=PB12 Pin=Uh1-25
+Added Net: Name=PB12
+Added Room: Name=remote

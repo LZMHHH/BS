@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=PB15 Pin=LED2-2
+Removed Pin From Net: NetName=PA2 Pin=P2-5
+Removed Pin From Net: NetName=PA0 Pin=P2-7
+Added Pin To Net: NetName=PB12 Pin=LED2-2
+Added Pin To Net: NetName=PA0 Pin=P2-5
+Added Pin To Net: NetName=PA2 Pin=P2-7
+Added Room: Name=clock
