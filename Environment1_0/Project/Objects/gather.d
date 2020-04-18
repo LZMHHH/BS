@@ -1,6 +1,5 @@
 .\objects\gather.o: ..\Top\src\gather.c
 .\objects\gather.o: ..\Top\inc\gather.h
-.\objects\gather.o: ..\Basic\SYS\sys.h
 .\objects\gather.o: ..\Top\inc\includes.h
 .\objects\gather.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
 .\objects\gather.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
@@ -49,6 +48,7 @@
 .\objects\gather.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\objects\gather.o: ..\Top\inc\control.h
 .\objects\gather.o: ..\Top\inc\includes.h
+.\objects\gather.o: ..\Top\inc\gather.h
 .\objects\gather.o: ..\Basic\BSP\bsp.h
 .\objects\gather.o: ..\Basic\DWT\bsp_dwt_delay.h
 .\objects\gather.o: ..\Basic\SYSTICK\delay.h
@@ -60,10 +60,13 @@
 .\objects\gather.o: ..\Basic\CONFIG\config_param.h
 .\objects\gather.o: ..\Basic\SHT3X\bsp_sht3x.h
 .\objects\gather.o: ..\Basic\COLOCK\bsp_DS3231.h
+.\objects\gather.o: ..\Basic\GY\bsp_gy30.h
 .\objects\gather.o: ..\Zui\inc\bmp.h
 .\objects\gather.o: ..\Zui\inc\main_ui.h
 .\objects\gather.o: ..\TASK\inc\LedTask.h
 .\objects\gather.o: ..\TASK\inc\KeyTask.h
 .\objects\gather.o: ..\TASK\inc\CommunicateTask.h
 .\objects\gather.o: ..\TASK\inc\DisplayTask.h
-.\objects\gather.o: ..\TASK\inc\HuimitureTask.h
+.\objects\gather.o: ..\TASK\inc\EnvironmentTask.h
+.\objects\gather.o: ..\TASK\inc\ClockTask.h
+.\objects\gather.o: ..\TASK\inc\LightTask.h

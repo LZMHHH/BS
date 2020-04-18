@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * @file    HuimitureTask.h
+  * @file    LightTask.c
   * @author  lss
   * @version V1.0
   * @date    2020-xx-xx
@@ -14,16 +14,24 @@
   *
   ******************************************************************************
   */
-#ifndef _HUIMITURE_H
-#define _HUIMITURE_H	 
-#include "includes.h"
+#include "LightTask.h"
 
-void vTaskHuimiture( void * pvParameters );
+CLASS_Light Light; 
 
+void vTaskLight( void * pvParameters )
+{
+	/* 先延时，让模块准备数据 */
+	vTaskDelay( 200 );
+	
+	while(1)
+	{
 
-#endif
-
-
+		Updata_BH1750(&Light);
+		
+		vTaskDelay( 200 );
+	}
+	
+}
 
 
 

@@ -1,10 +1,10 @@
 /**
   ******************************************************************************
-  * @file    HuimitureTask.c
+  * @file    EnvironmentTask.c
   * @author  lss
   * @version V1.0
   * @date    2020-xx-xx
-  * @brief   .
+  * @brief   普通环境数据采集
   ******************************************************************************
   * @attention
   *
@@ -14,11 +14,11 @@
   *
   ******************************************************************************
   */
-#include "HuimitureTask.h"
+#include "EnvironmentTask.h"
 
 CLASS_Huimiture Huimiture;
 
-void vTaskHuimiture( void * pvParameters )
+void vTaskEnvironment( void * pvParameters )
 {
 	
 	while(1)

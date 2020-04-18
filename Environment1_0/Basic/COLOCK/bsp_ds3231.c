@@ -27,10 +27,6 @@
 
 
 
-
-
- 
-
 #define DS3231_write 0
 #define DS3231_read  1
 
@@ -360,11 +356,11 @@ void bsp_DS3231_Init(void)
 	DS3231_IIC_Write ( DS3231_STATUS, 0x00 ); //32KHZ输出禁止，闹钟标志位清零
 	
 //	clock.Second = 2;
-//	clock.Minute = 56;
-//	clock.Hour = 20;
-//	clock.Day = 26;
-//	clock.Week = 4;
-//	clock.Month = 3;
+//	clock.Minute = 18;
+//	clock.Hour = 17;
+//	clock.Day = 18;
+//	clock.Week = 6;
+//	clock.Month = 4;
 //	clock.Year = 2020;
 //	DS3231_SetTime(&clock);
 

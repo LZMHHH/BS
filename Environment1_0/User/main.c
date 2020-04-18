@@ -45,8 +45,9 @@ void AppObjCreate  ( void );
 //void vTaskFile     ( void * pvParameters );
 //void vTaskCheck    ( void * pvParameters );
 //void vTaskInit     ( void * pvParameters );
-//void vTaskHuimiture( void * pvParameters );
-
+//void vTaskEnvironment( void * pvParameters );
+//void vTaskClock    ( void * pvParameters );
+//void vTaskLight    ( void * pvParameters );
 
 
 /*
@@ -63,7 +64,9 @@ static TaskHandle_t xHandleTaskKey       = NULL;  //KEY任务
 static TaskHandle_t xHandleTaskUart1Rx   = NULL;  //KEY任务
 static TaskHandle_t xHandleTaskUart1Tx   = NULL;  //KEY任务
 			 TaskHandle_t xHandleTaskDisplay   = NULL;  //显示任务
-			 TaskHandle_t xHandleTaskHuimiture = NULL;  //温湿度数据采集任务
+			 TaskHandle_t xHandleTaskEnvironment = NULL;  //环境数据采集任务
+			 TaskHandle_t xHandleTaskClock     = NULL;  //时钟任务
+			 TaskHandle_t xHandleTaskLight     = NULL;  //亮度任务
 			 
 			 
        TaskHandle_t xQueue_uart1Rx       = NULL;  //uart1的接收消息队列
@@ -93,6 +96,9 @@ int main(void)
 	
 	//bsp初始化
   bsp_Init();
+	
+	/* 参数初始化 */
+	ParametersInit();
 
 #if IFPRINTTASK
 	/* 1. 初始化一个定时器中断，精度高于滴答定时器中断，这样才可以获得准确的系统信息 仅供调试目的，实际项
@@ -178,16 +184,26 @@ static void AppTaskCreate (void)
 //								 &xHandleTaskUart1Tx );   /* 任务句柄  */
 		
 
-/* 数据采集 */
-//		xTaskCreate( vTaskHuimiture,   	      /* 任务函数  */
-//								 "Task Huimiture",        /* 任务名    */
-//								 128,                   	/* 任务栈大小，单位word，也就是4字节 */
-//								 NULL,              	    /* 任务参数  */
-//								 11,                 	    /* 任务优先级*/
-//								 &xHandleTaskHuimiture ); /* 任务句柄  */
+		xTaskCreate( vTaskEnvironment,   	      /* 任务函数  */
+								 "Task Environment",        /* 任务名    */
+								 512,                   	/* 任务栈大小，单位word，也就是4字节 */
+								 NULL,              	    /* 任务参数  */
+								 10,                 	    /* 任务优先级*/
+								 &xHandleTaskEnvironment ); /* 任务句柄  */
 
+		xTaskCreate( vTaskClock,   	            /* 任务函数  */
+								 "Task Clock",              /* 任务名    */
+								 128,                   	  /* 任务栈大小，单位word，也就是4字节 */
+								 NULL,              	      /* 任务参数  */
+								 10,                 	      /* 任务优先级*/
+								 &xHandleTaskClock );       /* 任务句柄  */
 
-
+		xTaskCreate( vTaskLight,   	            /* 任务函数  */
+								 "Task Light",              /* 任务名    */
+								 128,                   	  /* 任务栈大小，单位word，也就是4字节 */
+								 NULL,              	      /* 任务参数  */
+								 10,                 	      /* 任务优先级*/
+								 &xHandleTaskLight );       /* 任务句柄  */
 
 
 #if IFFILESYSTEM								 

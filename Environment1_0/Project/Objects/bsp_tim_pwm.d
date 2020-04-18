@@ -48,6 +48,7 @@
 .\objects\bsp_tim_pwm.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\objects\bsp_tim_pwm.o: ..\Top\inc\control.h
 .\objects\bsp_tim_pwm.o: ..\Top\inc\includes.h
+.\objects\bsp_tim_pwm.o: ..\Top\inc\gather.h
 .\objects\bsp_tim_pwm.o: ..\Basic\BSP\bsp.h
 .\objects\bsp_tim_pwm.o: ..\Basic\DWT\bsp_dwt_delay.h
 .\objects\bsp_tim_pwm.o: ..\Basic\SYSTICK\delay.h
@@ -59,10 +60,13 @@
 .\objects\bsp_tim_pwm.o: ..\Basic\CONFIG\config_param.h
 .\objects\bsp_tim_pwm.o: ..\Basic\SHT3X\bsp_sht3x.h
 .\objects\bsp_tim_pwm.o: ..\Basic\COLOCK\bsp_DS3231.h
+.\objects\bsp_tim_pwm.o: ..\Basic\GY\bsp_gy30.h
 .\objects\bsp_tim_pwm.o: ..\Zui\inc\bmp.h
 .\objects\bsp_tim_pwm.o: ..\Zui\inc\main_ui.h
 .\objects\bsp_tim_pwm.o: ..\TASK\inc\LedTask.h
 .\objects\bsp_tim_pwm.o: ..\TASK\inc\KeyTask.h
 .\objects\bsp_tim_pwm.o: ..\TASK\inc\CommunicateTask.h
 .\objects\bsp_tim_pwm.o: ..\TASK\inc\DisplayTask.h
-.\objects\bsp_tim_pwm.o: ..\TASK\inc\HuimitureTask.h
+.\objects\bsp_tim_pwm.o: ..\TASK\inc\EnvironmentTask.h
+.\objects\bsp_tim_pwm.o: ..\TASK\inc\ClockTask.h
+.\objects\bsp_tim_pwm.o: ..\TASK\inc\LightTask.h

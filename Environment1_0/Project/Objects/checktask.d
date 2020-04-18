@@ -48,6 +48,7 @@
 .\objects\checktask.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\objects\checktask.o: ..\Top\inc\control.h
 .\objects\checktask.o: ..\Top\inc\includes.h
+.\objects\checktask.o: ..\Top\inc\gather.h
 .\objects\checktask.o: ..\Basic\BSP\bsp.h
 .\objects\checktask.o: ..\Basic\DWT\bsp_dwt_delay.h
 .\objects\checktask.o: ..\Basic\SYSTICK\delay.h
@@ -59,10 +60,13 @@
 .\objects\checktask.o: ..\Basic\CONFIG\config_param.h
 .\objects\checktask.o: ..\Basic\SHT3X\bsp_sht3x.h
 .\objects\checktask.o: ..\Basic\COLOCK\bsp_DS3231.h
+.\objects\checktask.o: ..\Basic\GY\bsp_gy30.h
 .\objects\checktask.o: ..\Zui\inc\bmp.h
 .\objects\checktask.o: ..\Zui\inc\main_ui.h
 .\objects\checktask.o: ..\TASK\inc\LedTask.h
 .\objects\checktask.o: ..\TASK\inc\KeyTask.h
 .\objects\checktask.o: ..\TASK\inc\CommunicateTask.h
 .\objects\checktask.o: ..\TASK\inc\DisplayTask.h
-.\objects\checktask.o: ..\TASK\inc\HuimitureTask.h
+.\objects\checktask.o: ..\TASK\inc\EnvironmentTask.h
+.\objects\checktask.o: ..\TASK\inc\ClockTask.h
+.\objects\checktask.o: ..\TASK\inc\LightTask.h

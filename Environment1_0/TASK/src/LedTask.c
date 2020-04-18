@@ -23,10 +23,10 @@ void vTaskLed( void * pvParameters )
 	{
 
 
-		bsp_Led_Flash(&LedA,1);
+		bsp_Led_Flash(&LedA,100);
 		bsp_Led_Flash(&LedB,10);
-//		bsp_Led_Flash(&LedC,100);
-		vTaskDelay( 100 );
+		
+		vTaskDelay( 10 );
 	}
 	
 }

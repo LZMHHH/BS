@@ -369,7 +369,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Libraries\CMSIS;..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\User;..\User\OLED_SPI;..\Top\inc;..\Basic\SYSTICK;..\Basic\LED;..\FreeRTOS\inc;..\Basic\SYS;..\Basic\DWT;..\Basic\BSP;..\Basic\CONFIG;..\Basic\KEY;..\TASK\inc;..\Basic\USART1;..\Basic\SDIO;..\FATFS\src;..\FATFS\src\option;..\Basic\USMART;..\Zui\inc;..\Basic\OLED;..\Basic\SHT3X;..\Basic\COLOCK</IncludePath>
+              <IncludePath>..\Libraries\CMSIS;..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\User;..\User\OLED_SPI;..\Top\inc;..\Basic\SYSTICK;..\Basic\LED;..\FreeRTOS\inc;..\Basic\SYS;..\Basic\DWT;..\Basic\BSP;..\Basic\CONFIG;..\Basic\KEY;..\TASK\inc;..\Basic\USART1;..\Basic\SDIO;..\FATFS\src;..\FATFS\src\option;..\Basic\USMART;..\Zui\inc;..\Basic\OLED;..\Basic\SHT3X;..\Basic\COLOCK;..\Basic\GY</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -682,6 +682,11 @@
               <FileType>1</FileType>
               <FilePath>..\Basic\COLOCK\bsp_ds3231.c</FilePath>
             </File>
+            <File>
+              <FileName>bsp_gy30.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Basic\GY\bsp_gy30.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -783,9 +788,19 @@
               <FilePath>..\TASK\src\DisplayTask.c</FilePath>
             </File>
             <File>
-              <FileName>HuimitureTask.c</FileName>
+              <FileName>EnvironmentTask.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\TASK\src\HuimitureTask.c</FilePath>
+              <FilePath>..\TASK\src\EnvironmentTask.c</FilePath>
+            </File>
+            <File>
+              <FileName>ClockTask.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\TASK\src\ClockTask.c</FilePath>
+            </File>
+            <File>
+              <FileName>LightTask.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\TASK\src\LightTask.c</FilePath>
             </File>
           </Files>
         </Group>

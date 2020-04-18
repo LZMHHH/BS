@@ -48,6 +48,7 @@
 .\objects\ledtask.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\objects\ledtask.o: ..\Top\inc\control.h
 .\objects\ledtask.o: ..\Top\inc\includes.h
+.\objects\ledtask.o: ..\Top\inc\gather.h
 .\objects\ledtask.o: ..\Basic\BSP\bsp.h
 .\objects\ledtask.o: ..\Basic\DWT\bsp_dwt_delay.h
 .\objects\ledtask.o: ..\Basic\SYSTICK\delay.h
@@ -59,10 +60,13 @@
 .\objects\ledtask.o: ..\Basic\CONFIG\config_param.h
 .\objects\ledtask.o: ..\Basic\SHT3X\bsp_sht3x.h
 .\objects\ledtask.o: ..\Basic\COLOCK\bsp_DS3231.h
+.\objects\ledtask.o: ..\Basic\GY\bsp_gy30.h
 .\objects\ledtask.o: ..\Zui\inc\bmp.h
 .\objects\ledtask.o: ..\Zui\inc\main_ui.h
 .\objects\ledtask.o: ..\TASK\inc\LedTask.h
 .\objects\ledtask.o: ..\TASK\inc\KeyTask.h
 .\objects\ledtask.o: ..\TASK\inc\CommunicateTask.h
 .\objects\ledtask.o: ..\TASK\inc\DisplayTask.h
-.\objects\ledtask.o: ..\TASK\inc\HuimitureTask.h
+.\objects\ledtask.o: ..\TASK\inc\EnvironmentTask.h
+.\objects\ledtask.o: ..\TASK\inc\ClockTask.h
+.\objects\ledtask.o: ..\TASK\inc\LightTask.h

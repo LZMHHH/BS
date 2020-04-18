@@ -91,7 +91,11 @@
 
 
 // 用户开发的头文件
+/* soft */
 #include "control.h"
+#include "gather.h"	
+
+/* bsp */
 #include "bsp.h"
 #include "bsp_dwt_delay.h"
 #include "delay.h"
@@ -102,6 +106,7 @@
 #include "config_param.h"
 #include "bsp_sht3x.h"
 #include "bsp_DS3231.h"  
+#include "bsp_gy30.h"
 
 
 #include "bmp.h"
@@ -129,7 +134,9 @@
 #include "KeyTask.h"
 #include "CommunicateTask.h"
 #include "DisplayTask.h"
-#include "HuimitureTask.h"
+#include "EnvironmentTask.h"
+#include "ClockTask.h"
+#include "LightTask.h"
 #if IFPRINTTASK
 #include "CpuTask.h"
 #endif

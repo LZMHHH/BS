@@ -48,6 +48,7 @@
 .\objects\main_ui.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\objects\main_ui.o: ..\Top\inc\control.h
 .\objects\main_ui.o: ..\Top\inc\includes.h
+.\objects\main_ui.o: ..\Top\inc\gather.h
 .\objects\main_ui.o: ..\Basic\BSP\bsp.h
 .\objects\main_ui.o: ..\Basic\DWT\bsp_dwt_delay.h
 .\objects\main_ui.o: ..\Basic\SYSTICK\delay.h
@@ -59,10 +60,13 @@
 .\objects\main_ui.o: ..\Basic\CONFIG\config_param.h
 .\objects\main_ui.o: ..\Basic\SHT3X\bsp_sht3x.h
 .\objects\main_ui.o: ..\Basic\COLOCK\bsp_DS3231.h
+.\objects\main_ui.o: ..\Basic\GY\bsp_gy30.h
 .\objects\main_ui.o: ..\Zui\inc\bmp.h
 .\objects\main_ui.o: ..\Zui\inc\main_ui.h
 .\objects\main_ui.o: ..\TASK\inc\LedTask.h
 .\objects\main_ui.o: ..\TASK\inc\KeyTask.h
 .\objects\main_ui.o: ..\TASK\inc\CommunicateTask.h
 .\objects\main_ui.o: ..\TASK\inc\DisplayTask.h
-.\objects\main_ui.o: ..\TASK\inc\HuimitureTask.h
+.\objects\main_ui.o: ..\TASK\inc\EnvironmentTask.h
+.\objects\main_ui.o: ..\TASK\inc\ClockTask.h
+.\objects\main_ui.o: ..\TASK\inc\LightTask.h

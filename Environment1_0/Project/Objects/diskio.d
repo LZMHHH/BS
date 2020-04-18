@@ -48,6 +48,7 @@
 .\objects\diskio.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\objects\diskio.o: ..\Top\inc\control.h
 .\objects\diskio.o: ..\Top\inc\includes.h
+.\objects\diskio.o: ..\Top\inc\gather.h
 .\objects\diskio.o: ..\Basic\BSP\bsp.h
 .\objects\diskio.o: ..\Basic\DWT\bsp_dwt_delay.h
 .\objects\diskio.o: ..\Basic\SYSTICK\delay.h
@@ -59,10 +60,13 @@
 .\objects\diskio.o: ..\Basic\CONFIG\config_param.h
 .\objects\diskio.o: ..\Basic\SHT3X\bsp_sht3x.h
 .\objects\diskio.o: ..\Basic\COLOCK\bsp_DS3231.h
+.\objects\diskio.o: ..\Basic\GY\bsp_gy30.h
 .\objects\diskio.o: ..\Zui\inc\bmp.h
 .\objects\diskio.o: ..\Zui\inc\main_ui.h
 .\objects\diskio.o: ..\TASK\inc\LedTask.h
 .\objects\diskio.o: ..\TASK\inc\KeyTask.h
 .\objects\diskio.o: ..\TASK\inc\CommunicateTask.h
 .\objects\diskio.o: ..\TASK\inc\DisplayTask.h
-.\objects\diskio.o: ..\TASK\inc\HuimitureTask.h
+.\objects\diskio.o: ..\TASK\inc\EnvironmentTask.h
+.\objects\diskio.o: ..\TASK\inc\ClockTask.h
+.\objects\diskio.o: ..\TASK\inc\LightTask.h

@@ -20,54 +20,9 @@
 
 CLASS_UIconfigParam Main_uiconfigParam;
 
-CLASS_Clock ClockA; 
-
-
-
-void Main_ZUI(void)
-{
-	u8 h;    //显示行系数
-	u8 Ph;   //参数行系数
-	
-	DS3231_Readtime(&ClockA);
-	
-	OLED_ShowNum(30,56,ClockA.Second,3,0,1);
-	OLED_ShowNum(30,48,ClockA.Minute,3,0,1);
-	OLED_ShowNum(30,40,ClockA.Hour,3,0,1);
-	OLED_ShowNum(30,32,ClockA.Day,3,0,1);
-	OLED_ShowNum(30,24,ClockA.Week,3,0,1);
-	OLED_ShowNum(30,16,ClockA.Month,3,0,1);
-	OLED_ShowNum(30,8,ClockA.Year,5,0,1);
-	OLED_ShowNum(80,56,ClockA.Temp,3,1,1);
-	
-	OLED_ShowChar(115,3,'P',1);
-  OLED_ShowNum(121,3,Main_uiconfigParam.Page_Index,1,0,1);
-	
-	//第 0 页
-	if(Main_uiconfigParam.Page_Index == 0)
-	{  
-
-		OLED_DrawBMP(2,56,UI_NOSIGNAL8X8,8,8);
-		
-		OLED_DrawBMP(12,56,UI_ASIGNAL8X8,8,8);
-	
-	}
-	
-	//第 1 页
-	if(Main_uiconfigParam.Page_Index == 1)
-	{  
-
-		
-	}
-	
-	
-	
-}
-
-
 void Main_uiconfigParamInit(void)
 {
-	Main_uiconfigParam.Page_Index_Limit    = 3;
+	Main_uiconfigParam.Page_Index_Limit    = 5;
 	
 	Main_uiconfigParam.Para_Index_Limit[0] = 7;
 	Main_uiconfigParam.Para_Index_Limit[1] = 7;
@@ -83,7 +38,7 @@ void Main_uiconfigParamInit(void)
 	Main_uiconfigParam.Step_Size[4]        =  10.0;
 	Main_uiconfigParam.Step_Size[5]        = 100.0;
 	
-	Show_Para_Con(Main_uiconfigParam);
+	Show_Para_Con(&Main_uiconfigParam);
 	
 	Main_uiconfigParam.Step_Index          = 1;
 	Main_uiconfigParam.Page_Index          = 1;
@@ -92,6 +47,94 @@ void Main_uiconfigParamInit(void)
 	Main_uiconfigParam.Para_IfControl      = false;
 	
 }
+
+
+
+void Main_ZUI(void)
+{
+	u8 h;    //显示行系数
+	u8 Ph;   //参数行系数
+	
+	
+	
+	/* 页面 */
+	OLED_ShowChar(115,56,'P',1);
+  OLED_ShowNum(121,56,Main_uiconfigParam.Page_Index,1,0,1);
+	
+	/* 信号 */
+	OLED_DrawBMP(2,56,UI_NOSIGNAL8X8,8,8);	
+	OLED_DrawBMP(12,56,UI_ASIGNAL8X8,8,8);
+	
+	
+	//第 0 页
+	if(Main_uiconfigParam.Page_Index == 0)
+	{  
+		
+		
+		/* 显示时间 */
+		OLED_ShowNum(40,56,ClockA.Hour,2,0,1);
+		OLED_ShowString(52,56,":",1);
+		OLED_ShowNum(58,56,ClockA.Minute,2,0,1);
+		OLED_ShowString(70,56,":",1);
+		OLED_ShowNum(76,56,ClockA.Second,2,0,1);
+	
+	}
+	
+	//第 1 页
+	if(Main_uiconfigParam.Page_Index == 1)
+	{  
+
+		h = 1;
+		//1行
+	  Ph = 1;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			OLED_ShowString(0,(7-h)*8,"Temp :",1);
+			OLED_ShowNum(86,(7-h)*8,Huimiture.temperature,5,1,1);
+			h++;
+	  }
+		
+		//2行
+	  Ph = 2;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			OLED_ShowString(0,(7-h)*8,"Huim :",1);
+			OLED_ShowNum(86,(7-h)*8,Huimiture.huimidity,5,1,1);
+			h++;
+	  }
+	
+		//3行
+	  Ph = 3;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			OLED_ShowString(0,(7-h)*8,"Light:",1);
+			OLED_ShowNum(86,(7-h)*8,Light.BH_Voltage,5,1,1);
+			h++;
+	  }
+		
+	}
+	
+	//第 2 页
+	if(Main_uiconfigParam.Page_Index == 2)
+	{  
+
+		OLED_ShowNum(30,56,ClockA.Second,3,0,1);
+		OLED_ShowNum(30,48,ClockA.Minute,3,0,1);
+		OLED_ShowNum(30,40,ClockA.Hour,3,0,1);
+		OLED_ShowNum(30,32,ClockA.Day,3,0,1);
+		OLED_ShowNum(30,24,ClockA.Week,3,0,1);
+		OLED_ShowNum(30,16,ClockA.Month,3,0,1);
+		OLED_ShowNum(30,8,ClockA.Year,5,0,1);
+		OLED_ShowNum(80,56,ClockA.Temp,3,1,1);
+		
+	}
+	
+	
+	
+}
+
+
+
 
 //预备参数,防止无线控制更新参数   内部
 static void Para_Prepare(void)
@@ -140,7 +183,7 @@ void Main_uictrl(void)
     else
     {
       Main_uiconfigParam.Para_Index=1;         //参数复位
-			Show_Para_Con(Main_uiconfigParam);
+			Show_Para_Con(&Main_uiconfigParam);
 			Para_Prepare();
       if(Main_uiconfigParam.Page_Index<=0) 
         Main_uiconfigParam.Page_Index=Main_uiconfigParam.Page_Index_Limit; 
@@ -169,7 +212,7 @@ void Main_uictrl(void)
     else
     {
       Main_uiconfigParam.Para_Index=1;         //参数复位
-			Show_Para_Con(Main_uiconfigParam);
+			Show_Para_Con(&Main_uiconfigParam);
 			Para_Prepare();
       if(Main_uiconfigParam.Page_Index>=Main_uiconfigParam.Page_Index_Limit) 
         Main_uiconfigParam.Page_Index=0; 
@@ -193,7 +236,7 @@ void Main_uictrl(void)
     {
       if(Main_uiconfigParam.Para_Index<=1) Main_uiconfigParam.Para_Index = Main_uiconfigParam.Para_Index_Limit[Main_uiconfigParam.Page_Index];
       else              Main_uiconfigParam.Para_Index--;		
-			Show_Para_Con(Main_uiconfigParam);
+			Show_Para_Con(&Main_uiconfigParam);
     }
     else
     { 
@@ -239,7 +282,7 @@ void Main_uictrl(void)
     {
 			if(Main_uiconfigParam.Para_Index>=Main_uiconfigParam.Para_Index_Limit[Main_uiconfigParam.Page_Index]) Main_uiconfigParam.Para_Index = 1;
       else              Main_uiconfigParam.Para_Index++;
-			Show_Para_Con(Main_uiconfigParam);
+			Show_Para_Con(&Main_uiconfigParam);
     }
     else
     { 

@@ -1,9 +1,9 @@
 /**
   ******************************************************************************
-  * @file    control.h
+  * @file    gather.h
   * @author  fire
   * @version V1.0
-  * @date    2017-xx-xx
+  * @date    2020-xx-xx
   * @brief   Ö÷º¯Êý.
   ******************************************************************************
   * @attention
@@ -16,8 +16,9 @@
   */
 #ifndef __GATHER_H_
 #define __GATHER_H_
-#include "sys.h"
 
+#include "includes.h"
 
+void ParametersInit(void);
 
 #endif

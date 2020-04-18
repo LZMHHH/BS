@@ -28,3 +28,8 @@
 /*
 	SD卡 + FATFS文件系统已经调通，注意引脚区别（特别留意detect引脚，宏定义SD_DETECT_CON）
 */
+
+/*
+//禁止JTAG功能，把PB3，PB4作为普通IO口使用
+GPIO_PinRemapConfig(GPIO_Remap_SWJ_JTAGDisable , ENABLE);	
+*/

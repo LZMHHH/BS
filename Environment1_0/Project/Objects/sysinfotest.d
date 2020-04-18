@@ -47,6 +47,7 @@
 .\objects\sysinfotest.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\objects\sysinfotest.o: ..\Top\inc\control.h
 .\objects\sysinfotest.o: ..\Top\inc\includes.h
+.\objects\sysinfotest.o: ..\Top\inc\gather.h
 .\objects\sysinfotest.o: ..\Basic\BSP\bsp.h
 .\objects\sysinfotest.o: ..\Basic\DWT\bsp_dwt_delay.h
 .\objects\sysinfotest.o: ..\Basic\SYSTICK\delay.h
@@ -58,10 +59,13 @@
 .\objects\sysinfotest.o: ..\Basic\CONFIG\config_param.h
 .\objects\sysinfotest.o: ..\Basic\SHT3X\bsp_sht3x.h
 .\objects\sysinfotest.o: ..\Basic\COLOCK\bsp_DS3231.h
+.\objects\sysinfotest.o: ..\Basic\GY\bsp_gy30.h
 .\objects\sysinfotest.o: ..\Zui\inc\bmp.h
 .\objects\sysinfotest.o: ..\Zui\inc\main_ui.h
 .\objects\sysinfotest.o: ..\TASK\inc\LedTask.h
 .\objects\sysinfotest.o: ..\TASK\inc\KeyTask.h
 .\objects\sysinfotest.o: ..\TASK\inc\CommunicateTask.h
 .\objects\sysinfotest.o: ..\TASK\inc\DisplayTask.h
-.\objects\sysinfotest.o: ..\TASK\inc\HuimitureTask.h
+.\objects\sysinfotest.o: ..\TASK\inc\EnvironmentTask.h
+.\objects\sysinfotest.o: ..\TASK\inc\ClockTask.h
+.\objects\sysinfotest.o: ..\TASK\inc\LightTask.h

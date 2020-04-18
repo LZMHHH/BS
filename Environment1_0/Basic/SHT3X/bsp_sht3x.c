@@ -27,10 +27,6 @@
 
 
 
-
-
- 
-
 #define Sht3x_write 0
 #define Sht3x_read  1
 

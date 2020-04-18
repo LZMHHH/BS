@@ -29,23 +29,23 @@
 #define             SHT3X_I2C_CLK_CLK                         RCC_APB2Periph_GPIOB 
 #define             SHT3X_I2C_SDA_CLK                         RCC_APB2Periph_GPIOB    
 #define             SHT3X_I2C_SCL_PORT                        GPIOB   
-#define             SHT3X_I2C_SCL_PIN                         GPIO_Pin_6
+#define             SHT3X_I2C_SCL_PIN                         GPIO_Pin_15
 #define             SHT3X_I2C_SDA_PORT                        GPIOB 
-#define             SHT3X_I2C_SDA_PIN                         GPIO_Pin_7
+#define             SHT3X_I2C_SDA_PIN                         GPIO_Pin_14
 
 
 //IO方向设置
 //   CRL:0-7   CRH:8-15   第几个就移动4*x   且  0XFFFFFFF0 中 第x个至为0;
-#define SHT3X_SDA_IN()  {GPIOB->CRL&=0X0FFFFFFF;GPIOB->CRL|=8<<(4*7);}
-#define SHT3X_SDA_OUT() {GPIOB->CRL&=0X0FFFFFFF;GPIOB->CRL|=3<<(4*7);}
+#define SHT3X_SDA_IN()  {GPIOB->CRH&=0XF0FFFFFF;GPIOB->CRH|=8<<(4*6);}
+#define SHT3X_SDA_OUT() {GPIOB->CRH&=0XF0FFFFFF;GPIOB->CRH|=3<<(4*6);}
 
 #define PBout(n)   BIT_ADDR(GPIOB_ODR_Addr,n)  //输出 
 #define PBin(n)    BIT_ADDR(GPIOB_IDR_Addr,n)  //输入 
 
 //IO操作函数	 
-#define SHT3X_IIC_SCL    PBout(6) //SCL
-#define SHT3X_IIC_SDA    PBout(7) //SDA	 
-#define SHT3X_READ_SDA   PBin(7)  //输入SDA 
+#define SHT3X_IIC_SCL    PBout(15) //SCL
+#define SHT3X_IIC_SDA    PBout(14) //SDA	 
+#define SHT3X_READ_SDA   PBin(14)  //输入SDA 
 
 
 

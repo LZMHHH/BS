@@ -61,6 +61,10 @@ void bsp_Init(void)
 	bsp_LED_Init();
 	
 //	bsp_KEY_Init();
+
+	bsp_SHT3x_Init();
+	
+	bsp_BH1750_Init();
 	
 #if IFFILESYSTEM
 	File_sys_init();
