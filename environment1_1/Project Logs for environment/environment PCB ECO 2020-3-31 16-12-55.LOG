@@ -1,4 +1,0 @@
-Change Component Footprint: Designator=pm Old Footprint=HDR1X4 New Footprint=HDR1X8_2.0
-Added Pin To Net: NetName=PA3 Pin=pm-5
-Added Pin To Net: NetName=Netpm_6 Pin=pm-6
-Added Room: Name=environment

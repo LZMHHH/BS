@@ -1,6 +1,0 @@
-Removed Pin From Net: NetName=5V Pin=pm-1
-Removed Pin From Net: NetName=GND Pin=pm-2
-Removed Pin From Net: NetName=PA2 Pin=pm-4
-Removed Pin From Net: NetName=3V3 Pin=RL2-2
-Removed Member From Class: ClassName=environment Member=pm
-Removed Member From Class: ClassName=environment Member=RL2

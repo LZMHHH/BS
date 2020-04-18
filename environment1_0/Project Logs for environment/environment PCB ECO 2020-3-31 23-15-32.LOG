@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=PA0 Pin=dj3-2
+Removed Pin From Net: NetName=PA1 Pin=dj4-2
+Added Pin To Net: NetName=PA1 Pin=dj3-2
+Added Pin To Net: NetName=PA0 Pin=dj4-2
+Added Room: Name=environment
