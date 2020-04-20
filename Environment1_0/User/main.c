@@ -48,6 +48,7 @@ void AppObjCreate  ( void );
 //void vTaskEnvironment( void * pvParameters );
 //void vTaskClock    ( void * pvParameters );
 //void vTaskLight    ( void * pvParameters );
+//void vTaskPms      ( void * pvParameters );
 
 
 /*
@@ -67,10 +68,12 @@ static TaskHandle_t xHandleTaskUart1Tx   = NULL;  //KEY任务
 			 TaskHandle_t xHandleTaskEnvironment = NULL;  //环境数据采集任务
 			 TaskHandle_t xHandleTaskClock     = NULL;  //时钟任务
 			 TaskHandle_t xHandleTaskLight     = NULL;  //亮度任务
+			 TaskHandle_t xHandleTaskPms       = NULL;  //亮度任务
 			 
 			 
        TaskHandle_t xQueue_uart1Rx       = NULL;  //uart1的接收消息队列
 			 TaskHandle_t xQueue_uart1Tx       = NULL;  //uart1的发送消息队列
+			 TaskHandle_t xQueue_uart2Rx       = NULL;  //uart2的接收消息队列
 
 #if IFFILESYSTEM
 			 TaskHandle_t xHandleTaskFile      = NULL;  //file任务
@@ -142,7 +145,7 @@ static void AppTaskCreate (void)
 	
     xTaskCreate( vTaskLed,   	            /* 任务函数  */
                  "Task Led",     	        /* 任务名    */
-                 128,                   	/* 任务栈大小，单位word，也就是4字节 */
+                 64,                   	/* 任务栈大小，单位word，也就是4字节 */
                  NULL,              	    /* 任务参数  */
                  6,                     	/* 任务优先级*/
                  &xHandleTaskLed );       /* 任务句柄  */
@@ -186,7 +189,7 @@ static void AppTaskCreate (void)
 
 		xTaskCreate( vTaskEnvironment,   	      /* 任务函数  */
 								 "Task Environment",        /* 任务名    */
-								 512,                   	/* 任务栈大小，单位word，也就是4字节 */
+								 256,                   	/* 任务栈大小，单位word，也就是4字节 */
 								 NULL,              	    /* 任务参数  */
 								 10,                 	    /* 任务优先级*/
 								 &xHandleTaskEnvironment ); /* 任务句柄  */
@@ -204,6 +207,13 @@ static void AppTaskCreate (void)
 								 NULL,              	      /* 任务参数  */
 								 10,                 	      /* 任务优先级*/
 								 &xHandleTaskLight );       /* 任务句柄  */
+								 
+		xTaskCreate( vTaskPms,   	              /* 任务函数  */
+								 "Task Pms",                /* 任务名    */
+								 128,                   	  /* 任务栈大小，单位word，也就是4字节 */
+								 NULL,              	      /* 任务参数  */
+								 10,                 	      /* 任务优先级*/
+								 &xHandleTaskPms );         /* 任务句柄  */
 
 
 #if IFFILESYSTEM								 
@@ -266,6 +276,12 @@ static void AppObjCreate (void)
                                 (UBaseType_t ) sizeof(uint32_t));   /* 消息的大小 */
 	
 #endif	
+
+	/* 创建存储指针变量xQueue_uart2Tx */
+  xQueue_uart2Rx = xQueueCreate((UBaseType_t ) 5,                  /* 消息队列的长度 */
+                                (UBaseType_t ) DEBUG1_TX_BSIZE);   /* 消息的大小 */
+																
+																
 	if(NULL != xQueue_uart1Rx && NULL != xQueue_uart1Tx)
 	{
 		Uart1_DMA_SendString("创建消息队列成功!\r\n",-1);

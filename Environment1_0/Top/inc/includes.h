@@ -102,12 +102,13 @@
 #include "bsp_led.h"
 #include "bsp_key.h"
 #include "bsp_usart1.h"
+#include "bsp_usart2.h"
 #include "bsp_oled.h"
 #include "config_param.h"
 #include "bsp_sht3x.h"
 #include "bsp_DS3231.h"  
 #include "bsp_gy30.h"
-
+#include "bsp_bme280.h"
 
 #include "bmp.h"
 #include "main_ui.h"
@@ -137,6 +138,7 @@
 #include "EnvironmentTask.h"
 #include "ClockTask.h"
 #include "LightTask.h"
+#include "PmsTask.h"
 #if IFPRINTTASK
 #include "CpuTask.h"
 #endif
@@ -173,6 +175,8 @@ extern void vSetupSysInfoTest(void);
 //消息广播
 extern TaskHandle_t xQueue_uart1Rx;  //uart1的接收消息队列
 extern TaskHandle_t xQueue_uart1Tx;  //uart1的发送消息队列
+extern TaskHandle_t xQueue_uart2Rx;  //uart2的接收消息队列
+
 
 //事件标志组涉及的函数句柄广播
 extern TaskHandle_t xHandleTaskInit;  //file任务

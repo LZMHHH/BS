@@ -56,11 +56,13 @@
 .\objects\gather.o: ..\Basic\LED\bsp_led.h
 .\objects\gather.o: ..\Basic\KEY\bsp_key.h
 .\objects\gather.o: ..\Basic\USART1\bsp_usart1.h
+.\objects\gather.o: ..\Basic\USART2\bsp_usart2.h
 .\objects\gather.o: ..\Basic\OLED\bsp_oled.h
 .\objects\gather.o: ..\Basic\CONFIG\config_param.h
 .\objects\gather.o: ..\Basic\SHT3X\bsp_sht3x.h
 .\objects\gather.o: ..\Basic\COLOCK\bsp_DS3231.h
 .\objects\gather.o: ..\Basic\GY\bsp_gy30.h
+.\objects\gather.o: ..\Basic\BME\bsp_bme280.h
 .\objects\gather.o: ..\Zui\inc\bmp.h
 .\objects\gather.o: ..\Zui\inc\main_ui.h
 .\objects\gather.o: ..\TASK\inc\LedTask.h
@@ -70,3 +72,4 @@
 .\objects\gather.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\gather.o: ..\TASK\inc\ClockTask.h
 .\objects\gather.o: ..\TASK\inc\LightTask.h
+.\objects\gather.o: ..\TASK\inc\PmsTask.h

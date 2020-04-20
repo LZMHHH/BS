@@ -56,11 +56,13 @@
 .\objects\control.o: ..\Basic\LED\bsp_led.h
 .\objects\control.o: ..\Basic\KEY\bsp_key.h
 .\objects\control.o: ..\Basic\USART1\bsp_usart1.h
+.\objects\control.o: ..\Basic\USART2\bsp_usart2.h
 .\objects\control.o: ..\Basic\OLED\bsp_oled.h
 .\objects\control.o: ..\Basic\CONFIG\config_param.h
 .\objects\control.o: ..\Basic\SHT3X\bsp_sht3x.h
 .\objects\control.o: ..\Basic\COLOCK\bsp_DS3231.h
 .\objects\control.o: ..\Basic\GY\bsp_gy30.h
+.\objects\control.o: ..\Basic\BME\bsp_bme280.h
 .\objects\control.o: ..\Zui\inc\bmp.h
 .\objects\control.o: ..\Zui\inc\main_ui.h
 .\objects\control.o: ..\TASK\inc\LedTask.h
@@ -70,3 +72,4 @@
 .\objects\control.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\control.o: ..\TASK\inc\ClockTask.h
 .\objects\control.o: ..\TASK\inc\LightTask.h
+.\objects\control.o: ..\TASK\inc\PmsTask.h

@@ -56,11 +56,13 @@
 .\objects\environmenttask.o: ..\Basic\LED\bsp_led.h
 .\objects\environmenttask.o: ..\Basic\KEY\bsp_key.h
 .\objects\environmenttask.o: ..\Basic\USART1\bsp_usart1.h
+.\objects\environmenttask.o: ..\Basic\USART2\bsp_usart2.h
 .\objects\environmenttask.o: ..\Basic\OLED\bsp_oled.h
 .\objects\environmenttask.o: ..\Basic\CONFIG\config_param.h
 .\objects\environmenttask.o: ..\Basic\SHT3X\bsp_sht3x.h
 .\objects\environmenttask.o: ..\Basic\COLOCK\bsp_DS3231.h
 .\objects\environmenttask.o: ..\Basic\GY\bsp_gy30.h
+.\objects\environmenttask.o: ..\Basic\BME\bsp_bme280.h
 .\objects\environmenttask.o: ..\Zui\inc\bmp.h
 .\objects\environmenttask.o: ..\Zui\inc\main_ui.h
 .\objects\environmenttask.o: ..\TASK\inc\LedTask.h
@@ -70,3 +72,4 @@
 .\objects\environmenttask.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\environmenttask.o: ..\TASK\inc\ClockTask.h
 .\objects\environmenttask.o: ..\TASK\inc\LightTask.h
+.\objects\environmenttask.o: ..\TASK\inc\PmsTask.h

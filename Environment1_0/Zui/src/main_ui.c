@@ -90,6 +90,7 @@ void Main_ZUI(void)
 	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
 	  {
 			OLED_ShowString(0,(7-h)*8,"Temp :",1);
+			OLED_ShowString(54,(7-h)*8,"`C",1);
 			OLED_ShowNum(86,(7-h)*8,Huimiture.temperature,5,1,1);
 			h++;
 	  }
@@ -99,6 +100,7 @@ void Main_ZUI(void)
 	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
 	  {
 			OLED_ShowString(0,(7-h)*8,"Huim :",1);
+			OLED_ShowString(54,(7-h)*8,"%RH",1);
 			OLED_ShowNum(86,(7-h)*8,Huimiture.huimidity,5,1,1);
 			h++;
 	  }
@@ -108,7 +110,48 @@ void Main_ZUI(void)
 	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
 	  {
 			OLED_ShowString(0,(7-h)*8,"Light:",1);
+			OLED_ShowString(54,(7-h)*8,"lx",1);
 			OLED_ShowNum(86,(7-h)*8,Light.BH_Voltage,5,1,1);
+			h++;
+	  }
+		
+		//4行
+	  Ph = 4;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			OLED_ShowString(0,(7-h)*8,"PM2.5:",1);
+			OLED_ShowString(54,(7-h)*8,"ug/m3",1);
+			OLED_ShowNum(86,(7-h)*8,Pms.PM2_5_Vol,5,1,1);
+			h++;
+	  }
+		
+		//5行
+	  Ph = 5;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			OLED_ShowString(0,(7-h)*8,"PM10 :",1);
+			OLED_ShowString(54,(7-h)*8,"ug/m3",1);
+			OLED_ShowNum(86,(7-h)*8,Pms.PM10_Vol,5,1,1);
+			h++;
+	  }
+		
+		//6行
+	  Ph = 6;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			OLED_ShowString(0,(7-h)*8,"BME_P:",1);
+			OLED_ShowString(54,(7-h)*8,"hPa",1);
+			OLED_ShowNum(86,(7-h)*8,Bme.pressure,5,1,1);
+			h++;
+	  }
+		
+		//7行
+	  Ph = 7;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			OLED_ShowString(0,(7-h)*8,"BME_T:",1);
+			OLED_ShowString(54,(7-h)*8,"`C",1);
+			OLED_ShowNum(86,(7-h)*8,Bme.temperature,5,1,1);
 			h++;
 	  }
 		

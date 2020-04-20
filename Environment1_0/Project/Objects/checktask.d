@@ -56,11 +56,13 @@
 .\objects\checktask.o: ..\Basic\LED\bsp_led.h
 .\objects\checktask.o: ..\Basic\KEY\bsp_key.h
 .\objects\checktask.o: ..\Basic\USART1\bsp_usart1.h
+.\objects\checktask.o: ..\Basic\USART2\bsp_usart2.h
 .\objects\checktask.o: ..\Basic\OLED\bsp_oled.h
 .\objects\checktask.o: ..\Basic\CONFIG\config_param.h
 .\objects\checktask.o: ..\Basic\SHT3X\bsp_sht3x.h
 .\objects\checktask.o: ..\Basic\COLOCK\bsp_DS3231.h
 .\objects\checktask.o: ..\Basic\GY\bsp_gy30.h
+.\objects\checktask.o: ..\Basic\BME\bsp_bme280.h
 .\objects\checktask.o: ..\Zui\inc\bmp.h
 .\objects\checktask.o: ..\Zui\inc\main_ui.h
 .\objects\checktask.o: ..\TASK\inc\LedTask.h
@@ -70,3 +72,4 @@
 .\objects\checktask.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\checktask.o: ..\TASK\inc\ClockTask.h
 .\objects\checktask.o: ..\TASK\inc\LightTask.h
+.\objects\checktask.o: ..\TASK\inc\PmsTask.h

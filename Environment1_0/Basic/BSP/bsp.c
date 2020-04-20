@@ -66,6 +66,10 @@ void bsp_Init(void)
 	
 	bsp_BH1750_Init();
 	
+	bsp_PMS_Init();
+	
+	BME280_Init();
+	
 #if IFFILESYSTEM
 	File_sys_init();
 #endif

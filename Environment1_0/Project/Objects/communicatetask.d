@@ -56,11 +56,13 @@
 .\objects\communicatetask.o: ..\Basic\LED\bsp_led.h
 .\objects\communicatetask.o: ..\Basic\KEY\bsp_key.h
 .\objects\communicatetask.o: ..\Basic\USART1\bsp_usart1.h
+.\objects\communicatetask.o: ..\Basic\USART2\bsp_usart2.h
 .\objects\communicatetask.o: ..\Basic\OLED\bsp_oled.h
 .\objects\communicatetask.o: ..\Basic\CONFIG\config_param.h
 .\objects\communicatetask.o: ..\Basic\SHT3X\bsp_sht3x.h
 .\objects\communicatetask.o: ..\Basic\COLOCK\bsp_DS3231.h
 .\objects\communicatetask.o: ..\Basic\GY\bsp_gy30.h
+.\objects\communicatetask.o: ..\Basic\BME\bsp_bme280.h
 .\objects\communicatetask.o: ..\Zui\inc\bmp.h
 .\objects\communicatetask.o: ..\Zui\inc\main_ui.h
 .\objects\communicatetask.o: ..\TASK\inc\LedTask.h
@@ -70,3 +72,4 @@
 .\objects\communicatetask.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\communicatetask.o: ..\TASK\inc\ClockTask.h
 .\objects\communicatetask.o: ..\TASK\inc\LightTask.h
+.\objects\communicatetask.o: ..\TASK\inc\PmsTask.h

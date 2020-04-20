@@ -56,11 +56,13 @@
 .\objects\diskio.o: ..\Basic\LED\bsp_led.h
 .\objects\diskio.o: ..\Basic\KEY\bsp_key.h
 .\objects\diskio.o: ..\Basic\USART1\bsp_usart1.h
+.\objects\diskio.o: ..\Basic\USART2\bsp_usart2.h
 .\objects\diskio.o: ..\Basic\OLED\bsp_oled.h
 .\objects\diskio.o: ..\Basic\CONFIG\config_param.h
 .\objects\diskio.o: ..\Basic\SHT3X\bsp_sht3x.h
 .\objects\diskio.o: ..\Basic\COLOCK\bsp_DS3231.h
 .\objects\diskio.o: ..\Basic\GY\bsp_gy30.h
+.\objects\diskio.o: ..\Basic\BME\bsp_bme280.h
 .\objects\diskio.o: ..\Zui\inc\bmp.h
 .\objects\diskio.o: ..\Zui\inc\main_ui.h
 .\objects\diskio.o: ..\TASK\inc\LedTask.h
@@ -70,3 +72,4 @@
 .\objects\diskio.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\diskio.o: ..\TASK\inc\ClockTask.h
 .\objects\diskio.o: ..\TASK\inc\LightTask.h
+.\objects\diskio.o: ..\TASK\inc\PmsTask.h

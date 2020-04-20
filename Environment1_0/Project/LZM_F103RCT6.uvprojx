@@ -369,7 +369,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Libraries\CMSIS;..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\User;..\User\OLED_SPI;..\Top\inc;..\Basic\SYSTICK;..\Basic\LED;..\FreeRTOS\inc;..\Basic\SYS;..\Basic\DWT;..\Basic\BSP;..\Basic\CONFIG;..\Basic\KEY;..\TASK\inc;..\Basic\USART1;..\Basic\SDIO;..\FATFS\src;..\FATFS\src\option;..\Basic\USMART;..\Zui\inc;..\Basic\OLED;..\Basic\SHT3X;..\Basic\COLOCK;..\Basic\GY</IncludePath>
+              <IncludePath>..\Libraries\CMSIS;..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\User;..\User\OLED_SPI;..\Top\inc;..\Basic\SYSTICK;..\Basic\LED;..\FreeRTOS\inc;..\Basic\SYS;..\Basic\DWT;..\Basic\BSP;..\Basic\CONFIG;..\Basic\KEY;..\TASK\inc;..\Basic\USART1;..\Basic\SDIO;..\FATFS\src;..\FATFS\src\option;..\Basic\USMART;..\Zui\inc;..\Basic\OLED;..\Basic\SHT3X;..\Basic\COLOCK;..\Basic\GY;..\Basic\USART2;..\Basic\BME</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -687,6 +687,16 @@
               <FileType>1</FileType>
               <FilePath>..\Basic\GY\bsp_gy30.c</FilePath>
             </File>
+            <File>
+              <FileName>bsp_usart2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Basic\USART2\bsp_usart2.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_bme280.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Basic\BME\bsp_bme280.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -801,6 +811,11 @@
               <FileName>LightTask.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\TASK\src\LightTask.c</FilePath>
+            </File>
+            <File>
+              <FileName>PmsTask.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\TASK\src\PmsTask.c</FilePath>
             </File>
           </Files>
         </Group>
