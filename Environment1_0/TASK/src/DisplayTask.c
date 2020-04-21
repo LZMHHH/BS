@@ -16,7 +16,7 @@
   */
 #include "DisplayTask.h"
 
-static ui_mode Show_ui = MAIN_ui;
+ui_mode Show_ui = MAIN_ui;
 
 
 void vTaskDisplay( void * pvParameters )
@@ -30,6 +30,7 @@ void vTaskDisplay( void * pvParameters )
 		switch(Show_ui)
 		{
 			case MAIN_ui:
+						Main_uictrl();
 						Main_ZUI();
 						break;
 			default:break;
@@ -55,6 +56,7 @@ void DisplayInit(void)
 {
 	Main_uiconfigParamInit();
 }
+
 //参数显示控制
 void Show_Para_Con(CLASS_UIconfigParam *ui_configparam)
 {

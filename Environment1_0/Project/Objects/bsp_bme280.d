@@ -73,3 +73,4 @@
 .\objects\bsp_bme280.o: ..\TASK\inc\ClockTask.h
 .\objects\bsp_bme280.o: ..\TASK\inc\LightTask.h
 .\objects\bsp_bme280.o: ..\TASK\inc\PmsTask.h
+.\objects\bsp_bme280.o: ..\TASK\inc\BmeTask.h

@@ -73,3 +73,4 @@
 .\objects\delay.o: ..\TASK\inc\ClockTask.h
 .\objects\delay.o: ..\TASK\inc\LightTask.h
 .\objects\delay.o: ..\TASK\inc\PmsTask.h
+.\objects\delay.o: ..\TASK\inc\BmeTask.h

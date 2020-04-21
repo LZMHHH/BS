@@ -73,3 +73,4 @@
 .\objects\checktask.o: ..\TASK\inc\ClockTask.h
 .\objects\checktask.o: ..\TASK\inc\LightTask.h
 .\objects\checktask.o: ..\TASK\inc\PmsTask.h
+.\objects\checktask.o: ..\TASK\inc\BmeTask.h

@@ -1,10 +1,10 @@
 /**
   ******************************************************************************
-  * @file    main_ui.c
+  * @file    BmeTask.c
   * @author  lss
   * @version V1.0
   * @date    2020-xx-xx
-  * @brief   .
+  * @brief   普通环境数据采集
   ******************************************************************************
   * @attention
   *
@@ -14,19 +14,33 @@
   *
   ******************************************************************************
   */
-#ifndef __MAIN_UI_H
-#define __MAIN_UI_H
-#include "includes.h" 
+#include "BmeTask.h"
+
+CLASS_Bme       Bme;
+
+static void Para_Init(void);
+
+void vTaskBme( void * pvParameters )
+{
+	/* 初始化参数 */
+	Para_Init();
+	
+	
+	while(1)
+	{
+		
+		
+		BME280_Getdata(&Bme);
+		
+		vTaskDelay( 200 );
+	}
+	
+}
 
 
-/* 广播 */
-extern struct  class_uiconfigParam Main_uiconfigParam;
+static void Para_Init(void)
+{
+	
+}
 
 
-
-void Main_ZUI(void);
-void Main_uiconfigParamInit(void);
-void Main_uictrl(void);
-
-
-#endif

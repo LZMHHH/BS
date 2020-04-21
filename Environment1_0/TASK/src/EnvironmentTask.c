@@ -17,9 +17,8 @@
 #include "EnvironmentTask.h"
 
 CLASS_Huimiture Huimiture;
-CLASS_Bme       Bme;
 
-void Para_Init(void);
+static void Para_Init(void);
 
 void vTaskEnvironment( void * pvParameters )
 {
@@ -32,15 +31,13 @@ void vTaskEnvironment( void * pvParameters )
 		
 		SHT3x_Getdata(0x44,&Huimiture);
 		
-		BME280_Getdata(&Bme);
-		
-		vTaskDelay( 200 );
+		vTaskDelay( 20 );
 	}
 	
 }
 
 
-void Para_Init(void)
+static void Para_Init(void)
 {
 	
 }

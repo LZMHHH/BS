@@ -73,3 +73,4 @@
 .\objects\clocktask.o: ..\TASK\inc\ClockTask.h
 .\objects\clocktask.o: ..\TASK\inc\LightTask.h
 .\objects\clocktask.o: ..\TASK\inc\PmsTask.h
+.\objects\clocktask.o: ..\TASK\inc\BmeTask.h

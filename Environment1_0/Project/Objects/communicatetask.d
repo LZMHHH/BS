@@ -73,3 +73,4 @@
 .\objects\communicatetask.o: ..\TASK\inc\ClockTask.h
 .\objects\communicatetask.o: ..\TASK\inc\LightTask.h
 .\objects\communicatetask.o: ..\TASK\inc\PmsTask.h
+.\objects\communicatetask.o: ..\TASK\inc\BmeTask.h

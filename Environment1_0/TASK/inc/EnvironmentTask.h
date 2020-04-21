@@ -21,12 +21,10 @@
 
 //∑¿÷π±®¥Ì
 typedef struct class_huimiture CLASS_Huimiture;
-typedef struct class_bmp       CLASS_Bmp;
 
 
 /* π„≤• */
 extern CLASS_Huimiture Huimiture;
-extern struct class_bme       Bme;
 
 
 void vTaskEnvironment( void * pvParameters );

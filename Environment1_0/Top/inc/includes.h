@@ -139,6 +139,7 @@
 #include "ClockTask.h"
 #include "LightTask.h"
 #include "PmsTask.h"
+#include "BmeTask.h"
 #if IFPRINTTASK
 #include "CpuTask.h"
 #endif

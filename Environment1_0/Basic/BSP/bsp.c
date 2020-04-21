@@ -50,24 +50,30 @@ void bsp_Init(void)
 	//私人bsp驱动
 	bsp_DWT_init(MY_MCU_SYSCLK);    //dwt时钟初始化
 	
+	/* 显示屏初始化 */
 	bsp_OLED_Init();
 	
-//	bsp_SHT3x_Init();
-	
+	/* 时钟初始化 */
 	bsp_DS3231_Init();
 	
 //	USART1_Config(5);
 
+	/* 指示灯初始化 */
 	bsp_LED_Init();
 	
-//	bsp_KEY_Init();
+	/* 按键初始化 */
+	bsp_KEY_Init();
 
+	/* 温湿度传感器初始化 */
 	bsp_SHT3x_Init();
 	
+	/* 亮度传感器初始化 */
 	bsp_BH1750_Init();
 	
+	/* PMs传感器初始化 */
 	bsp_PMS_Init();
 	
+	/* 大气压传感器初始化 */
 	BME280_Init();
 	
 #if IFFILESYSTEM

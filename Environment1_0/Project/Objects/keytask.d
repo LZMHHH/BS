@@ -73,3 +73,4 @@
 .\objects\keytask.o: ..\TASK\inc\ClockTask.h
 .\objects\keytask.o: ..\TASK\inc\LightTask.h
 .\objects\keytask.o: ..\TASK\inc\PmsTask.h
+.\objects\keytask.o: ..\TASK\inc\BmeTask.h

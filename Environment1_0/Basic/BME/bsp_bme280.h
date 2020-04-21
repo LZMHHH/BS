@@ -162,12 +162,12 @@ typedef struct
     s16 dig_P7;                                                                /* calibration P7 data */
     s16 dig_P8;                                                                /* calibration P8 data */
     s16 dig_P9;                                                                /* calibration P9 data */
-	u8  dig_H1;                                                                /* calibration H1 data */
-	s16 dig_H2;                                                                /* calibration H2 data */
-	u8  dig_H3;                                  							   /* calibration H3 data */
-	s16 dig_H4;                                                                /* calibration H4 data */
-	s16 dig_H5;                                                                /* calibration H5 data */
-	u8  dig_H6;                                                                /* calibration H6 data */
+		u8  dig_H1;                                                                /* calibration H1 data */
+		s16 dig_H2;                                                                /* calibration H2 data */
+		u8  dig_H3;                                  							   /* calibration H3 data */
+		s16 dig_H4;                                                                /* calibration H4 data */
+		s16 dig_H5;                                                                /* calibration H5 data */
+		u8  dig_H6;                                                                /* calibration H6 data */
     s32 t_fine;                                                                /* calibration t_fine data */
 } bme280Calib;
 

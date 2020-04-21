@@ -73,3 +73,4 @@
 .\objects\main_ui.o: ..\TASK\inc\ClockTask.h
 .\objects\main_ui.o: ..\TASK\inc\LightTask.h
 .\objects\main_ui.o: ..\TASK\inc\PmsTask.h
+.\objects\main_ui.o: ..\TASK\inc\BmeTask.h

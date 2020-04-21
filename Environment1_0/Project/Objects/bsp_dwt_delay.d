@@ -73,3 +73,4 @@
 .\objects\bsp_dwt_delay.o: ..\TASK\inc\ClockTask.h
 .\objects\bsp_dwt_delay.o: ..\TASK\inc\LightTask.h
 .\objects\bsp_dwt_delay.o: ..\TASK\inc\PmsTask.h
+.\objects\bsp_dwt_delay.o: ..\TASK\inc\BmeTask.h

@@ -36,11 +36,13 @@ Section Cross References
     main.o(.text) refers to gather.o(.text) for ParametersInit
     main.o(.text) refers to main.o(.data) for xQueue_uart1Rx
     main.o(.text) refers to ledtask.o(.text) for vTaskLed
+    main.o(.text) refers to keytask.o(.text) for vTaskKey
     main.o(.text) refers to displaytask.o(.text) for vTaskDisplay
     main.o(.text) refers to environmenttask.o(.text) for vTaskEnvironment
     main.o(.text) refers to clocktask.o(.text) for vTaskClock
     main.o(.text) refers to lighttask.o(.text) for vTaskLight
     main.o(.text) refers to pmstask.o(.text) for vTaskPms
+    main.o(.text) refers to bmetask.o(.text) for vTaskBme
     sysinfotest.o(.text) refers to bsp_tim_pwm.o(.text) for bsp_SetTIMforInt
     sysinfotest.o(.text) refers to stm32f10x_tim.o(.text) for TIM_GetITStatus
     sysinfotest.o(.text) refers to sysinfotest.o(.data) for ulHighFrequencyTimerTicks
@@ -52,6 +54,7 @@ Section Cross References
     bsp.o(.text) refers to bsp_oled.o(.text) for bsp_OLED_Init
     bsp.o(.text) refers to bsp_ds3231.o(.text) for bsp_DS3231_Init
     bsp.o(.text) refers to bsp_led.o(.text) for bsp_LED_Init
+    bsp.o(.text) refers to bsp_key.o(.text) for bsp_KEY_Init
     bsp.o(.text) refers to bsp_sht3x.o(.text) for bsp_SHT3x_Init
     bsp.o(.text) refers to bsp_gy30.o(.text) for bsp_BH1750_Init
     bsp.o(.text) refers to bsp_usart2.o(.text) for bsp_PMS_Init
@@ -207,15 +210,13 @@ Section Cross References
     communicatetask.o(.text) refers to queue.o(.text) for xQueueGenericReceive
     communicatetask.o(.text) refers to bsp_usart1.o(.text) for Uart1_DMA_SendString
     communicatetask.o(.text) refers to main.o(.data) for xQueue_uart1Rx
-    displaytask.o(.text) refers to main_ui.o(.text) for Main_ZUI
+    displaytask.o(.text) refers to main_ui.o(.text) for Main_uictrl
     displaytask.o(.text) refers to bsp_oled.o(.text) for OLED_Refresh_Gram
     displaytask.o(.text) refers to tasks.o(.text) for vTaskDelay
     displaytask.o(.text) refers to displaytask.o(.data) for Show_ui
     environmenttask.o(.text) refers to bsp_sht3x.o(.text) for SHT3x_Getdata
-    environmenttask.o(.text) refers to bsp_bme280.o(.text) for BME280_Getdata
     environmenttask.o(.text) refers to tasks.o(.text) for vTaskDelay
     environmenttask.o(.text) refers to environmenttask.o(.data) for Huimiture
-    environmenttask.o(.text) refers to environmenttask.o(.bss) for Bme
     clocktask.o(.text) refers to bsp_ds3231.o(.text) for DS3231_Readtime
     clocktask.o(.text) refers to tasks.o(.text) for vTaskDelay
     clocktask.o(.text) refers to clocktask.o(.bss) for ClockA
@@ -225,6 +226,9 @@ Section Cross References
     pmstask.o(.text) refers to queue.o(.text) for xQueueGenericReceive
     pmstask.o(.text) refers to main.o(.data) for xQueue_uart2Rx
     pmstask.o(.text) refers to pmstask.o(.data) for Pms
+    bmetask.o(.text) refers to bsp_bme280.o(.text) for BME280_Getdata
+    bmetask.o(.text) refers to tasks.o(.text) for vTaskDelay
+    bmetask.o(.text) refers to bmetask.o(.bss) for Bme
     main_ui.o(.text) refers to displaytask.o(.text) for Show_Para_Con
     main_ui.o(.text) refers to bsp_oled.o(.text) for OLED_ShowChar
     main_ui.o(.text) refers to ffltui.o(.text) for __aeabi_ui2f
@@ -235,7 +239,7 @@ Section Cross References
     main_ui.o(.text) refers to environmenttask.o(.data) for Huimiture
     main_ui.o(.text) refers to lighttask.o(.data) for Light
     main_ui.o(.text) refers to pmstask.o(.data) for Pms
-    main_ui.o(.text) refers to environmenttask.o(.bss) for Bme
+    main_ui.o(.text) refers to bmetask.o(.bss) for Bme
     main_ui.o(.text) refers to bsp_key.o(.data) for Key_PM
     pow.o(i.__softfp_pow) refers (Special) to iusefp.o(.text) for __I$use$fp
     pow.o(i.__softfp_pow) refers to pow.o(i.pow) for pow
@@ -618,15 +622,13 @@ Removing Unused input sections from the image.
     Removing control.o(.text), (122 bytes).
     Removing sys.o(.emb_text), (12 bytes).
     Removing sys.o(.text), (700 bytes).
-    Removing bsp_key.o(.text), (284 bytes).
     Removing delay.o(.text), (176 bytes).
     Removing delay.o(.data), (4 bytes).
     Removing event_groups.o(.text), (864 bytes).
-    Removing keytask.o(.text), (40 bytes).
     Removing communicatetask.o(.text), (76 bytes).
     Removing dfixul.o(.text), (48 bytes).
 
-28 unused section(s) (total 13400 bytes) removed from the image.
+26 unused section(s) (total 13076 bytes) removed from the image.
 
 ==============================================================================
 
@@ -637,41 +639,41 @@ Image Symbol Table
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
     ../clib/../cmprslib/zerorunl2.c          0x00000000   Number         0  __dczerorl2.o ABSOLUTE
-    ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
-    ../clib/microlib/division.c              0x00000000   Number         0  ldiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  ldiv.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
     ../clib/microlib/errno.c                 0x00000000   Number         0  errno.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
     ../clib/microlib/printf/stubs.s          0x00000000   Number         0  stubs.o ABSOLUTE
     ../clib/microlib/stdio/streams.c         0x00000000   Number         0  stdout.o ABSOLUTE
-    ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpyb.o ABSOLUTE
     ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpya.o ABSOLUTE
+    ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpyb.o ABSOLUTE
     ../clib/microlib/string/memset.c         0x00000000   Number         0  memseta.o ABSOLUTE
     ../clib/microlib/string/strcpy.c         0x00000000   Number         0  strcpy.o ABSOLUTE
     ../clib/microlib/string/strlen.c         0x00000000   Number         0  strlen.o ABSOLUTE
@@ -682,16 +684,16 @@ Image Symbol Table
     ../fplib/microlib/fpadd.c                0x00000000   Number         0  fadd.o ABSOLUTE
     ../fplib/microlib/fpdiv.c                0x00000000   Number         0  ddiv.o ABSOLUTE
     ../fplib/microlib/fpdiv.c                0x00000000   Number         0  fdiv.o ABSOLUTE
-    ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  fepilogue.o ABSOLUTE
     ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  depilogue.o ABSOLUTE
+    ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  fepilogue.o ABSOLUTE
     ../fplib/microlib/fpfix.c                0x00000000   Number         0  ffixi.o ABSOLUTE
     ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixul.o ABSOLUTE
     ../fplib/microlib/fpflt.c                0x00000000   Number         0  dfltui.o ABSOLUTE
     ../fplib/microlib/fpflt.c                0x00000000   Number         0  dflti.o ABSOLUTE
     ../fplib/microlib/fpflt.c                0x00000000   Number         0  ffltui.o ABSOLUTE
     ../fplib/microlib/fpflt.c                0x00000000   Number         0  fflti.o ABSOLUTE
-    ../fplib/microlib/fpmul.c                0x00000000   Number         0  dmul.o ABSOLUTE
     ../fplib/microlib/fpmul.c                0x00000000   Number         0  fmul.o ABSOLUTE
+    ../fplib/microlib/fpmul.c                0x00000000   Number         0  dmul.o ABSOLUTE
     ../fplib/microlib/fpscalb.c              0x00000000   Number         0  dscalb.o ABSOLUTE
     ../fplib/microlib/fpsqrt.c               0x00000000   Number         0  dsqrt.o ABSOLUTE
     ../mathlib/dunder.c                      0x00000000   Number         0  dunder.o ABSOLUTE
@@ -753,6 +755,7 @@ Image Symbol Table
     ..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_tim.c 0x00000000   Number         0  stm32f10x_tim.o ABSOLUTE
     ..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c 0x00000000   Number         0  stm32f10x_usart.o ABSOLUTE
     ..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_wwdg.c 0x00000000   Number         0  stm32f10x_wwdg.o ABSOLUTE
+    ..\TASK\src\BmeTask.c                    0x00000000   Number         0  bmetask.o ABSOLUTE
     ..\TASK\src\CheckTask.c                  0x00000000   Number         0  checktask.o ABSOLUTE
     ..\TASK\src\ClockTask.c                  0x00000000   Number         0  clocktask.o ABSOLUTE
     ..\TASK\src\CommunicateTask.c            0x00000000   Number         0  communicatetask.o ABSOLUTE
@@ -813,214 +816,219 @@ Image Symbol Table
     .text                                    0x08002214   Section        0  stm32f10x_it.o(.text)
     .text                                    0x08002228   Section        0  main.o(.text)
     AppObjCreate                             0x08002229   Thumb Code    68  main.o(.text)
-    AppTaskCreate                            0x0800226d   Thumb Code   164  main.o(.text)
-    .text                                    0x080023d4   Section        0  sysinfotest.o(.text)
-    .text                                    0x08002410   Section        0  gather.o(.text)
-    .text                                    0x08002418   Section        0  bsp_dwt_delay.o(.text)
-    .text                                    0x08002494   Section        0  bsp.o(.text)
-    .text                                    0x080024c8   Section        0  bsp_tim_pwm.o(.text)
-    .text                                    0x08002bf0   Section        0  bsp_led.o(.text)
-    led_init                                 0x08002bf1   Thumb Code    50  bsp_led.o(.text)
-    .text                                    0x08002c8c   Section        0  bsp_sdio_sdcard.o(.text)
-    CmdResp1Error                            0x08002cd7   Thumb Code   298  bsp_sdio_sdcard.o(.text)
-    FindSCR                                  0x08002e01   Thumb Code   384  bsp_sdio_sdcard.o(.text)
-    SDEnWideBus                              0x08002f81   Thumb Code   274  bsp_sdio_sdcard.o(.text)
-    CmdResp2Error                            0x0800345b   Thumb Code    70  bsp_sdio_sdcard.o(.text)
-    CmdResp6Error                            0x080034a1   Thumb Code   182  bsp_sdio_sdcard.o(.text)
-    CmdResp3Error                            0x0800367d   Thumb Code    52  bsp_sdio_sdcard.o(.text)
-    CmdResp7Error                            0x080036b1   Thumb Code    72  bsp_sdio_sdcard.o(.text)
-    CmdError                                 0x080036f9   Thumb Code    44  bsp_sdio_sdcard.o(.text)
-    SDIO_Interrupts_Config                   0x0800391b   Thumb Code    64  bsp_sdio_sdcard.o(.text)
-    IsCardProgramming                        0x08004269   Thumb Code   396  bsp_sdio_sdcard.o(.text)
-    .text                                    0x08004650   Section        0  bsp_usart1.o(.text)
-    NVIC_Configuration                       0x08004651   Thumb Code    64  bsp_usart1.o(.text)
-    .text                                    0x080049f0   Section        0  bsp_oled.o(.text)
-    .text                                    0x08005654   Section        0  bsp_sht3x.o(.text)
-    .text                                    0x08005ac8   Section        0  bsp_ds3231.o(.text)
-    .text                                    0x08006074   Section        0  bsp_gy30.o(.text)
-    .text                                    0x08006484   Section        0  bsp_usart2.o(.text)
-    NVIC_Configuration                       0x08006485   Thumb Code    64  bsp_usart2.o(.text)
-    .text                                    0x08006770   Section        0  bsp_bme280.o(.text)
-    bme280GetPressure                        0x08006c87   Thumb Code    84  bsp_bme280.o(.text)
-    bme280CompensateT                        0x08006cdb   Thumb Code    66  bsp_bme280.o(.text)
-    bme280CompensateP                        0x08006d1d   Thumb Code   428  bsp_bme280.o(.text)
-    bme280CompensateH                        0x08006ec9   Thumb Code   136  bsp_bme280.o(.text)
-    presssureFilter                          0x08006f51   Thumb Code   270  bsp_bme280.o(.text)
-    bme280PressureToAltitude                 0x0800705f   Thumb Code    98  bsp_bme280.o(.text)
-    .text                                    0x0800719c   Section        0  heap_4.o(.text)
-    prvInsertBlockIntoFreeList               0x0800719d   Thumb Code    96  heap_4.o(.text)
-    prvHeapInit                              0x080071fd   Thumb Code    98  heap_4.o(.text)
-    .text                                    0x080073f4   Section        0  port.o(.text)
-    prvTaskExitError                         0x080073f5   Thumb Code    32  port.o(.text)
-    .text                                    0x080075e8   Section        0  croutine.o(.text)
-    prvInitialiseCoRoutineLists              0x080075e9   Thumb Code    58  croutine.o(.text)
-    prvCheckPendingReadyList                 0x080076f3   Thumb Code    88  croutine.o(.text)
-    prvCheckDelayedList                      0x0800774b   Thumb Code   184  croutine.o(.text)
-    .text                                    0x080078d8   Section        0  list.o(.text)
-    .text                                    0x0800796c   Section        0  queue.o(.text)
-    prvUnlockQueue                           0x08007a4f   Thumb Code   126  queue.o(.text)
-    prvIsQueueFull                           0x08007acd   Thumb Code    30  queue.o(.text)
-    prvCopyDataToQueue                       0x08007aeb   Thumb Code   110  queue.o(.text)
-    prvIsQueueEmpty                          0x08007dc1   Thumb Code    26  queue.o(.text)
-    prvCopyDataFromQueue                     0x08007ddb   Thumb Code    42  queue.o(.text)
-    .text                                    0x08008288   Section        0  tasks.o(.text)
-    prvInitialiseTaskLists                   0x08008289   Thumb Code    70  tasks.o(.text)
-    prvInitialiseTCBVariables                0x080082cf   Thumb Code    94  tasks.o(.text)
-    prvAllocateTCBAndStack                   0x0800832d   Thumb Code    66  tasks.o(.text)
-    prvResetNextTaskUnblockTime              0x0800848f   Thumb Code    42  tasks.o(.text)
-    prvAddCurrentTaskToDelayedList           0x08008783   Thumb Code    62  tasks.o(.text)
-    prvTaskIsTaskSuspended                   0x08008b89   Thumb Code    68  tasks.o(.text)
-    prvDeleteTCB                             0x08008cb3   Thumb Code    18  tasks.o(.text)
-    prvCheckTasksWaitingTermination          0x08008cc5   Thumb Code    86  tasks.o(.text)
-    prvIdleTask                              0x08008d1b   Thumb Code    20  tasks.o(.text)
-    prvTaskCheckFreeStackSpace               0x08008da7   Thumb Code    22  tasks.o(.text)
-    prvListTaskWithinSingleList              0x08008dbd   Thumb Code   176  tasks.o(.text)
-    prvWriteNameToBuffer                     0x080091b5   Thumb Code    42  tasks.o(.text)
-    .text                                    0x080097a8   Section        0  ledtask.o(.text)
-    .text                                    0x080097cc   Section        0  displaytask.o(.text)
-    .text                                    0x0800984c   Section        0  environmenttask.o(.text)
-    .text                                    0x08009874   Section        0  clocktask.o(.text)
-    .text                                    0x08009888   Section        0  lighttask.o(.text)
-    .text                                    0x080098a4   Section        0  pmstask.o(.text)
-    .text                                    0x080098ec   Section        0  main_ui.o(.text)
-    Para_Prepare                             0x08009ddd   Thumb Code    36  main_ui.o(.text)
-    .text                                    0x0800a008   Section        0  uldiv.o(.text)
-    .text                                    0x0800a06a   Section        0  ldiv.o(.text)
-    .text                                    0x0800a0cc   Section        0  memcpya.o(.text)
-    .text                                    0x0800a0f0   Section        0  memseta.o(.text)
-    .text                                    0x0800a114   Section        0  strlen.o(.text)
-    .text                                    0x0800a122   Section        0  strcpy.o(.text)
-    .text                                    0x0800a134   Section        0  fadd.o(.text)
-    .text                                    0x0800a1e4   Section        0  fmul.o(.text)
-    .text                                    0x0800a248   Section        0  fdiv.o(.text)
-    .text                                    0x0800a2c4   Section        0  dadd.o(.text)
-    .text                                    0x0800a412   Section        0  dmul.o(.text)
-    .text                                    0x0800a4f6   Section        0  ddiv.o(.text)
-    .text                                    0x0800a5d4   Section        0  fflti.o(.text)
-    .text                                    0x0800a5e6   Section        0  ffltui.o(.text)
-    .text                                    0x0800a5f0   Section        0  dflti.o(.text)
-    .text                                    0x0800a612   Section        0  dfltui.o(.text)
-    .text                                    0x0800a62c   Section        0  ffixi.o(.text)
-    .text                                    0x0800a65e   Section        0  f2d.o(.text)
-    .text                                    0x0800a684   Section       48  cdcmple.o(.text)
-    .text                                    0x0800a6b4   Section        0  d2f.o(.text)
-    .text                                    0x0800a6ec   Section       20  cfcmple.o(.text)
-    .text                                    0x0800a700   Section       20  cfrcmple.o(.text)
-    .text                                    0x0800a714   Section        0  uidiv.o(.text)
-    .text                                    0x0800a740   Section        0  llshl.o(.text)
-    .text                                    0x0800a75e   Section        0  llushr.o(.text)
-    .text                                    0x0800a77e   Section        0  llsshr.o(.text)
-    .text                                    0x0800a7a2   Section        0  fepilogue.o(.text)
-    .text                                    0x0800a7a2   Section        0  iusefp.o(.text)
-    .text                                    0x0800a810   Section        0  depilogue.o(.text)
-    .text                                    0x0800a8ca   Section        0  dscalb.o(.text)
-    .text                                    0x0800a8f8   Section       48  cdrcmple.o(.text)
-    .text                                    0x0800a928   Section       36  init.o(.text)
-    .text                                    0x0800a94c   Section        0  dsqrt.o(.text)
-    .text                                    0x0800a9ee   Section        0  __dczerorl2.o(.text)
-    i.__0sprintf$3                           0x0800aa44   Section        0  printf3.o(i.__0sprintf$3)
-    i.__ARM_fpclassify                       0x0800aa6c   Section        0  fpclassify.o(i.__ARM_fpclassify)
-    i.__kernel_poly                          0x0800aa94   Section        0  poly.o(i.__kernel_poly)
-    i.__mathlib_dbl_divzero                  0x0800ab40   Section        0  dunder.o(i.__mathlib_dbl_divzero)
-    i.__mathlib_dbl_infnan2                  0x0800ab50   Section        0  dunder.o(i.__mathlib_dbl_infnan2)
-    i.__mathlib_dbl_invalid                  0x0800ab54   Section        0  dunder.o(i.__mathlib_dbl_invalid)
-    i.__mathlib_dbl_overflow                 0x0800ab60   Section        0  dunder.o(i.__mathlib_dbl_overflow)
-    i.__mathlib_dbl_underflow                0x0800ab70   Section        0  dunder.o(i.__mathlib_dbl_underflow)
-    i.__scatterload_copy                     0x0800ab80   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x0800ab8e   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x0800ab90   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i.__set_errno                            0x0800aba0   Section        0  errno.o(i.__set_errno)
-    i._printf_core                           0x0800abac   Section        0  printf3.o(i._printf_core)
-    _printf_core                             0x0800abad   Thumb Code   436  printf3.o(i._printf_core)
-    i._sputc                                 0x0800ad64   Section        0  printf3.o(i._sputc)
-    _sputc                                   0x0800ad65   Thumb Code    10  printf3.o(i._sputc)
-    i.pow                                    0x0800ad70   Section        0  pow.o(i.pow)
-    i.sqrt                                   0x0800b728   Section        0  sqrt.o(i.sqrt)
-    .constdata                               0x0800b774   Section     3992  bsp_oled.o(.constdata)
-    .constdata                               0x0800c70c   Section       16  bmp.o(.constdata)
-    .constdata                               0x0800c720   Section      136  pow.o(.constdata)
-    bp                                       0x0800c720   Data          16  pow.o(.constdata)
-    dp_h                                     0x0800c730   Data          16  pow.o(.constdata)
-    dp_l                                     0x0800c740   Data          16  pow.o(.constdata)
-    L                                        0x0800c750   Data          48  pow.o(.constdata)
-    P                                        0x0800c780   Data          40  pow.o(.constdata)
-    .constdata                               0x0800c7a8   Section        8  qnan.o(.constdata)
+    AppTaskCreate                            0x0800226d   Thumb Code   220  main.o(.text)
+    .text                                    0x08002434   Section        0  sysinfotest.o(.text)
+    .text                                    0x08002470   Section        0  gather.o(.text)
+    .text                                    0x08002478   Section        0  bsp_dwt_delay.o(.text)
+    .text                                    0x080024f4   Section        0  bsp.o(.text)
+    .text                                    0x0800252c   Section        0  bsp_key.o(.text)
+    key_config                               0x0800252d   Thumb Code    36  bsp_key.o(.text)
+    .text                                    0x08002648   Section        0  bsp_tim_pwm.o(.text)
+    .text                                    0x08002d70   Section        0  bsp_led.o(.text)
+    led_init                                 0x08002d71   Thumb Code    50  bsp_led.o(.text)
+    .text                                    0x08002e0c   Section        0  bsp_sdio_sdcard.o(.text)
+    CmdResp1Error                            0x08002e57   Thumb Code   298  bsp_sdio_sdcard.o(.text)
+    FindSCR                                  0x08002f81   Thumb Code   384  bsp_sdio_sdcard.o(.text)
+    SDEnWideBus                              0x08003101   Thumb Code   274  bsp_sdio_sdcard.o(.text)
+    CmdResp2Error                            0x080035db   Thumb Code    70  bsp_sdio_sdcard.o(.text)
+    CmdResp6Error                            0x08003621   Thumb Code   182  bsp_sdio_sdcard.o(.text)
+    CmdResp3Error                            0x080037fd   Thumb Code    52  bsp_sdio_sdcard.o(.text)
+    CmdResp7Error                            0x08003831   Thumb Code    72  bsp_sdio_sdcard.o(.text)
+    CmdError                                 0x08003879   Thumb Code    44  bsp_sdio_sdcard.o(.text)
+    SDIO_Interrupts_Config                   0x08003a9b   Thumb Code    64  bsp_sdio_sdcard.o(.text)
+    IsCardProgramming                        0x080043e9   Thumb Code   396  bsp_sdio_sdcard.o(.text)
+    .text                                    0x080047d0   Section        0  bsp_usart1.o(.text)
+    NVIC_Configuration                       0x080047d1   Thumb Code    64  bsp_usart1.o(.text)
+    .text                                    0x08004b70   Section        0  bsp_oled.o(.text)
+    .text                                    0x080057d4   Section        0  bsp_sht3x.o(.text)
+    .text                                    0x08005c48   Section        0  bsp_ds3231.o(.text)
+    .text                                    0x080061f4   Section        0  bsp_gy30.o(.text)
+    .text                                    0x08006604   Section        0  bsp_usart2.o(.text)
+    NVIC_Configuration                       0x08006605   Thumb Code    64  bsp_usart2.o(.text)
+    .text                                    0x080068f0   Section        0  bsp_bme280.o(.text)
+    bme280GetPressure                        0x08006e07   Thumb Code    84  bsp_bme280.o(.text)
+    bme280CompensateT                        0x08006e5b   Thumb Code    66  bsp_bme280.o(.text)
+    bme280CompensateP                        0x08006e9d   Thumb Code   428  bsp_bme280.o(.text)
+    bme280CompensateH                        0x08007049   Thumb Code   136  bsp_bme280.o(.text)
+    presssureFilter                          0x080070d1   Thumb Code   270  bsp_bme280.o(.text)
+    bme280PressureToAltitude                 0x080071df   Thumb Code    98  bsp_bme280.o(.text)
+    .text                                    0x0800731c   Section        0  heap_4.o(.text)
+    prvInsertBlockIntoFreeList               0x0800731d   Thumb Code    96  heap_4.o(.text)
+    prvHeapInit                              0x0800737d   Thumb Code    98  heap_4.o(.text)
+    .text                                    0x08007574   Section        0  port.o(.text)
+    prvTaskExitError                         0x08007575   Thumb Code    32  port.o(.text)
+    .text                                    0x08007768   Section        0  croutine.o(.text)
+    prvInitialiseCoRoutineLists              0x08007769   Thumb Code    58  croutine.o(.text)
+    prvCheckPendingReadyList                 0x08007873   Thumb Code    88  croutine.o(.text)
+    prvCheckDelayedList                      0x080078cb   Thumb Code   184  croutine.o(.text)
+    .text                                    0x08007a58   Section        0  list.o(.text)
+    .text                                    0x08007aec   Section        0  queue.o(.text)
+    prvUnlockQueue                           0x08007bcf   Thumb Code   126  queue.o(.text)
+    prvIsQueueFull                           0x08007c4d   Thumb Code    30  queue.o(.text)
+    prvCopyDataToQueue                       0x08007c6b   Thumb Code   110  queue.o(.text)
+    prvIsQueueEmpty                          0x08007f41   Thumb Code    26  queue.o(.text)
+    prvCopyDataFromQueue                     0x08007f5b   Thumb Code    42  queue.o(.text)
+    .text                                    0x08008408   Section        0  tasks.o(.text)
+    prvInitialiseTaskLists                   0x08008409   Thumb Code    70  tasks.o(.text)
+    prvInitialiseTCBVariables                0x0800844f   Thumb Code    94  tasks.o(.text)
+    prvAllocateTCBAndStack                   0x080084ad   Thumb Code    66  tasks.o(.text)
+    prvResetNextTaskUnblockTime              0x0800860f   Thumb Code    42  tasks.o(.text)
+    prvAddCurrentTaskToDelayedList           0x08008903   Thumb Code    62  tasks.o(.text)
+    prvTaskIsTaskSuspended                   0x08008d09   Thumb Code    68  tasks.o(.text)
+    prvDeleteTCB                             0x08008e33   Thumb Code    18  tasks.o(.text)
+    prvCheckTasksWaitingTermination          0x08008e45   Thumb Code    86  tasks.o(.text)
+    prvIdleTask                              0x08008e9b   Thumb Code    20  tasks.o(.text)
+    prvTaskCheckFreeStackSpace               0x08008f27   Thumb Code    22  tasks.o(.text)
+    prvListTaskWithinSingleList              0x08008f3d   Thumb Code   176  tasks.o(.text)
+    prvWriteNameToBuffer                     0x08009335   Thumb Code    42  tasks.o(.text)
+    .text                                    0x08009928   Section        0  keytask.o(.text)
+    .text                                    0x08009964   Section        0  ledtask.o(.text)
+    .text                                    0x08009988   Section        0  displaytask.o(.text)
+    .text                                    0x08009a0c   Section        0  environmenttask.o(.text)
+    Para_Init                                0x08009a0d   Thumb Code     2  environmenttask.o(.text)
+    .text                                    0x08009a28   Section        0  clocktask.o(.text)
+    .text                                    0x08009a3c   Section        0  lighttask.o(.text)
+    .text                                    0x08009a58   Section        0  pmstask.o(.text)
+    .text                                    0x08009aa0   Section        0  bmetask.o(.text)
+    Para_Init                                0x08009aa1   Thumb Code     2  bmetask.o(.text)
+    .text                                    0x08009abc   Section        0  main_ui.o(.text)
+    Para_Prepare                             0x0800a181   Thumb Code    44  main_ui.o(.text)
+    .text                                    0x0800a420   Section        0  uldiv.o(.text)
+    .text                                    0x0800a482   Section        0  ldiv.o(.text)
+    .text                                    0x0800a4e4   Section        0  memcpya.o(.text)
+    .text                                    0x0800a508   Section        0  memseta.o(.text)
+    .text                                    0x0800a52c   Section        0  strlen.o(.text)
+    .text                                    0x0800a53a   Section        0  strcpy.o(.text)
+    .text                                    0x0800a54c   Section        0  fadd.o(.text)
+    .text                                    0x0800a5fc   Section        0  fmul.o(.text)
+    .text                                    0x0800a660   Section        0  fdiv.o(.text)
+    .text                                    0x0800a6dc   Section        0  dadd.o(.text)
+    .text                                    0x0800a82a   Section        0  dmul.o(.text)
+    .text                                    0x0800a90e   Section        0  ddiv.o(.text)
+    .text                                    0x0800a9ec   Section        0  fflti.o(.text)
+    .text                                    0x0800a9fe   Section        0  ffltui.o(.text)
+    .text                                    0x0800aa08   Section        0  dflti.o(.text)
+    .text                                    0x0800aa2a   Section        0  dfltui.o(.text)
+    .text                                    0x0800aa44   Section        0  ffixi.o(.text)
+    .text                                    0x0800aa76   Section        0  f2d.o(.text)
+    .text                                    0x0800aa9c   Section       48  cdcmple.o(.text)
+    .text                                    0x0800aacc   Section        0  d2f.o(.text)
+    .text                                    0x0800ab04   Section       20  cfcmple.o(.text)
+    .text                                    0x0800ab18   Section       20  cfrcmple.o(.text)
+    .text                                    0x0800ab2c   Section        0  uidiv.o(.text)
+    .text                                    0x0800ab58   Section        0  llshl.o(.text)
+    .text                                    0x0800ab76   Section        0  llushr.o(.text)
+    .text                                    0x0800ab96   Section        0  llsshr.o(.text)
+    .text                                    0x0800abba   Section        0  fepilogue.o(.text)
+    .text                                    0x0800abba   Section        0  iusefp.o(.text)
+    .text                                    0x0800ac28   Section        0  depilogue.o(.text)
+    .text                                    0x0800ace2   Section        0  dscalb.o(.text)
+    .text                                    0x0800ad10   Section       48  cdrcmple.o(.text)
+    .text                                    0x0800ad40   Section       36  init.o(.text)
+    .text                                    0x0800ad64   Section        0  dsqrt.o(.text)
+    .text                                    0x0800ae06   Section        0  __dczerorl2.o(.text)
+    i.__0sprintf$3                           0x0800ae5c   Section        0  printf3.o(i.__0sprintf$3)
+    i.__ARM_fpclassify                       0x0800ae84   Section        0  fpclassify.o(i.__ARM_fpclassify)
+    i.__kernel_poly                          0x0800aeac   Section        0  poly.o(i.__kernel_poly)
+    i.__mathlib_dbl_divzero                  0x0800af58   Section        0  dunder.o(i.__mathlib_dbl_divzero)
+    i.__mathlib_dbl_infnan2                  0x0800af68   Section        0  dunder.o(i.__mathlib_dbl_infnan2)
+    i.__mathlib_dbl_invalid                  0x0800af6c   Section        0  dunder.o(i.__mathlib_dbl_invalid)
+    i.__mathlib_dbl_overflow                 0x0800af78   Section        0  dunder.o(i.__mathlib_dbl_overflow)
+    i.__mathlib_dbl_underflow                0x0800af88   Section        0  dunder.o(i.__mathlib_dbl_underflow)
+    i.__scatterload_copy                     0x0800af98   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x0800afa6   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x0800afa8   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i.__set_errno                            0x0800afb8   Section        0  errno.o(i.__set_errno)
+    i._printf_core                           0x0800afc4   Section        0  printf3.o(i._printf_core)
+    _printf_core                             0x0800afc5   Thumb Code   436  printf3.o(i._printf_core)
+    i._sputc                                 0x0800b17c   Section        0  printf3.o(i._sputc)
+    _sputc                                   0x0800b17d   Thumb Code    10  printf3.o(i._sputc)
+    i.pow                                    0x0800b188   Section        0  pow.o(i.pow)
+    i.sqrt                                   0x0800bb40   Section        0  sqrt.o(i.sqrt)
+    .constdata                               0x0800bb8c   Section     3992  bsp_oled.o(.constdata)
+    .constdata                               0x0800cb24   Section       16  bmp.o(.constdata)
+    .constdata                               0x0800cb38   Section      136  pow.o(.constdata)
+    bp                                       0x0800cb38   Data          16  pow.o(.constdata)
+    dp_h                                     0x0800cb48   Data          16  pow.o(.constdata)
+    dp_l                                     0x0800cb58   Data          16  pow.o(.constdata)
+    L                                        0x0800cb68   Data          48  pow.o(.constdata)
+    P                                        0x0800cb98   Data          40  pow.o(.constdata)
+    .constdata                               0x0800cbc0   Section        8  qnan.o(.constdata)
     .data                                    0x20000000   Section       20  system_stm32f10x.o(.data)
     .data                                    0x20000014   Section       20  stm32f10x_rcc.o(.data)
     APBAHBPrescTable                         0x20000014   Data          16  stm32f10x_rcc.o(.data)
     ADCPrescTable                            0x20000024   Data           4  stm32f10x_rcc.o(.data)
-    .data                                    0x20000028   Section       48  main.o(.data)
+    .data                                    0x20000028   Section       52  main.o(.data)
     xHandleTaskLed                           0x20000028   Data           4  main.o(.data)
     xHandleTaskKey                           0x2000002c   Data           4  main.o(.data)
     xHandleTaskUart1Rx                       0x20000030   Data           4  main.o(.data)
     xHandleTaskUart1Tx                       0x20000034   Data           4  main.o(.data)
-    .data                                    0x20000058   Section        4  sysinfotest.o(.data)
-    .data                                    0x2000005c   Section        4  bsp_dwt_delay.o(.data)
-    SYSCLK                                   0x2000005c   Data           4  bsp_dwt_delay.o(.data)
-    .data                                    0x20000060   Section      104  bsp_key.o(.data)
-    .data                                    0x200000c8   Section       72  bsp_led.o(.data)
-    .data                                    0x20000110   Section       24  bsp_sdio_sdcard.o(.data)
-    CardType                                 0x20000110   Data           4  bsp_sdio_sdcard.o(.data)
-    RCA                                      0x20000114   Data           4  bsp_sdio_sdcard.o(.data)
-    .data                                    0x20000128   Section        3  bsp_usart1.o(.data)
-    uart1_sending                            0x20000128   Data           1  bsp_usart1.o(.data)
-    num                                      0x20000129   Data           1  bsp_usart1.o(.data)
-    index                                    0x2000012a   Data           1  bsp_usart1.o(.data)
-    .data                                    0x2000012b   Section        1  bsp_oled.o(.data)
-    .data                                    0x2000012c   Section        8  bsp_gy30.o(.data)
-    .data                                    0x20000134   Section        3  bsp_usart2.o(.data)
-    uart2_sending                            0x20000134   Data           1  bsp_usart2.o(.data)
-    num                                      0x20000135   Data           1  bsp_usart2.o(.data)
-    index                                    0x20000136   Data           1  bsp_usart2.o(.data)
-    .data                                    0x20000138   Section       32  bsp_bme280.o(.data)
-    bme280ID                                 0x20000138   Data           1  bsp_bme280.o(.data)
-    bme280RawPressure                        0x2000013c   Data           4  bsp_bme280.o(.data)
-    bme280RawTemperature                     0x20000140   Data           4  bsp_bme280.o(.data)
-    bme280RawHumidity                        0x20000144   Data           4  bsp_bme280.o(.data)
-    i                                        0x20000148   Data           1  bsp_bme280.o(.data)
-    t                                        0x2000014c   Data           4  bsp_bme280.o(.data)
-    p                                        0x20000150   Data           4  bsp_bme280.o(.data)
-    h                                        0x20000154   Data           4  bsp_bme280.o(.data)
-    .data                                    0x20000158   Section       24  heap_4.o(.data)
-    xStart                                   0x20000158   Data           8  heap_4.o(.data)
-    pxEnd                                    0x20000160   Data           4  heap_4.o(.data)
-    xFreeBytesRemaining                      0x20000164   Data           4  heap_4.o(.data)
-    xMinimumEverFreeBytesRemaining           0x20000168   Data           4  heap_4.o(.data)
-    xBlockAllocatedBit                       0x2000016c   Data           4  heap_4.o(.data)
-    .data                                    0x20000170   Section       12  port.o(.data)
-    uxCriticalNesting                        0x20000170   Data           4  port.o(.data)
-    ucMaxSysCallPriority                     0x20000174   Data           1  port.o(.data)
-    ulMaxPRIGROUPValue                       0x20000178   Data           4  port.o(.data)
-    .data                                    0x2000017c   Section       28  croutine.o(.data)
-    pxDelayedCoRoutineList                   0x2000017c   Data           4  croutine.o(.data)
-    pxOverflowDelayedCoRoutineList           0x20000180   Data           4  croutine.o(.data)
-    uxTopCoRoutineReadyPriority              0x20000188   Data           4  croutine.o(.data)
-    xCoRoutineTickCount                      0x2000018c   Data           4  croutine.o(.data)
-    xLastTickCount                           0x20000190   Data           4  croutine.o(.data)
-    xPassedTicks                             0x20000194   Data           4  croutine.o(.data)
-    .data                                    0x20000198   Section       64  tasks.o(.data)
-    pxDelayedTaskList                        0x2000019c   Data           4  tasks.o(.data)
-    pxOverflowDelayedTaskList                0x200001a0   Data           4  tasks.o(.data)
-    uxTasksDeleted                           0x200001a4   Data           4  tasks.o(.data)
-    uxCurrentNumberOfTasks                   0x200001a8   Data           4  tasks.o(.data)
-    xTickCount                               0x200001ac   Data           4  tasks.o(.data)
-    uxTopReadyPriority                       0x200001b0   Data           4  tasks.o(.data)
-    xSchedulerRunning                        0x200001b4   Data           4  tasks.o(.data)
-    uxPendedTicks                            0x200001b8   Data           4  tasks.o(.data)
-    xYieldPending                            0x200001bc   Data           4  tasks.o(.data)
-    xNumOfOverflows                          0x200001c0   Data           4  tasks.o(.data)
-    uxTaskNumber                             0x200001c4   Data           4  tasks.o(.data)
-    xNextTaskUnblockTime                     0x200001c8   Data           4  tasks.o(.data)
-    uxSchedulerSuspended                     0x200001cc   Data           4  tasks.o(.data)
-    ulTaskSwitchedInTime                     0x200001d0   Data           4  tasks.o(.data)
-    ulTotalRunTime                           0x200001d4   Data           4  tasks.o(.data)
-    .data                                    0x200001d8   Section        1  displaytask.o(.data)
-    Show_ui                                  0x200001d8   Data           1  displaytask.o(.data)
-    .data                                    0x200001dc   Section        8  environmenttask.o(.data)
-    .data                                    0x200001e4   Section        8  lighttask.o(.data)
-    .data                                    0x200001ec   Section        4  pmstask.o(.data)
-    .data                                    0x200001f0   Section        4  errno.o(.data)
-    _errno                                   0x200001f0   Data           4  errno.o(.data)
+    .data                                    0x2000005c   Section        4  sysinfotest.o(.data)
+    .data                                    0x20000060   Section        4  bsp_dwt_delay.o(.data)
+    SYSCLK                                   0x20000060   Data           4  bsp_dwt_delay.o(.data)
+    .data                                    0x20000064   Section      104  bsp_key.o(.data)
+    .data                                    0x200000cc   Section       72  bsp_led.o(.data)
+    .data                                    0x20000114   Section       24  bsp_sdio_sdcard.o(.data)
+    CardType                                 0x20000114   Data           4  bsp_sdio_sdcard.o(.data)
+    RCA                                      0x20000118   Data           4  bsp_sdio_sdcard.o(.data)
+    .data                                    0x2000012c   Section        3  bsp_usart1.o(.data)
+    uart1_sending                            0x2000012c   Data           1  bsp_usart1.o(.data)
+    num                                      0x2000012d   Data           1  bsp_usart1.o(.data)
+    index                                    0x2000012e   Data           1  bsp_usart1.o(.data)
+    .data                                    0x2000012f   Section        1  bsp_oled.o(.data)
+    .data                                    0x20000130   Section        8  bsp_gy30.o(.data)
+    .data                                    0x20000138   Section        3  bsp_usart2.o(.data)
+    uart2_sending                            0x20000138   Data           1  bsp_usart2.o(.data)
+    num                                      0x20000139   Data           1  bsp_usart2.o(.data)
+    index                                    0x2000013a   Data           1  bsp_usart2.o(.data)
+    .data                                    0x2000013c   Section       32  bsp_bme280.o(.data)
+    bme280ID                                 0x2000013c   Data           1  bsp_bme280.o(.data)
+    bme280RawPressure                        0x20000140   Data           4  bsp_bme280.o(.data)
+    bme280RawTemperature                     0x20000144   Data           4  bsp_bme280.o(.data)
+    bme280RawHumidity                        0x20000148   Data           4  bsp_bme280.o(.data)
+    i                                        0x2000014c   Data           1  bsp_bme280.o(.data)
+    t                                        0x20000150   Data           4  bsp_bme280.o(.data)
+    p                                        0x20000154   Data           4  bsp_bme280.o(.data)
+    h                                        0x20000158   Data           4  bsp_bme280.o(.data)
+    .data                                    0x2000015c   Section       24  heap_4.o(.data)
+    xStart                                   0x2000015c   Data           8  heap_4.o(.data)
+    pxEnd                                    0x20000164   Data           4  heap_4.o(.data)
+    xFreeBytesRemaining                      0x20000168   Data           4  heap_4.o(.data)
+    xMinimumEverFreeBytesRemaining           0x2000016c   Data           4  heap_4.o(.data)
+    xBlockAllocatedBit                       0x20000170   Data           4  heap_4.o(.data)
+    .data                                    0x20000174   Section       12  port.o(.data)
+    uxCriticalNesting                        0x20000174   Data           4  port.o(.data)
+    ucMaxSysCallPriority                     0x20000178   Data           1  port.o(.data)
+    ulMaxPRIGROUPValue                       0x2000017c   Data           4  port.o(.data)
+    .data                                    0x20000180   Section       28  croutine.o(.data)
+    pxDelayedCoRoutineList                   0x20000180   Data           4  croutine.o(.data)
+    pxOverflowDelayedCoRoutineList           0x20000184   Data           4  croutine.o(.data)
+    uxTopCoRoutineReadyPriority              0x2000018c   Data           4  croutine.o(.data)
+    xCoRoutineTickCount                      0x20000190   Data           4  croutine.o(.data)
+    xLastTickCount                           0x20000194   Data           4  croutine.o(.data)
+    xPassedTicks                             0x20000198   Data           4  croutine.o(.data)
+    .data                                    0x2000019c   Section       64  tasks.o(.data)
+    pxDelayedTaskList                        0x200001a0   Data           4  tasks.o(.data)
+    pxOverflowDelayedTaskList                0x200001a4   Data           4  tasks.o(.data)
+    uxTasksDeleted                           0x200001a8   Data           4  tasks.o(.data)
+    uxCurrentNumberOfTasks                   0x200001ac   Data           4  tasks.o(.data)
+    xTickCount                               0x200001b0   Data           4  tasks.o(.data)
+    uxTopReadyPriority                       0x200001b4   Data           4  tasks.o(.data)
+    xSchedulerRunning                        0x200001b8   Data           4  tasks.o(.data)
+    uxPendedTicks                            0x200001bc   Data           4  tasks.o(.data)
+    xYieldPending                            0x200001c0   Data           4  tasks.o(.data)
+    xNumOfOverflows                          0x200001c4   Data           4  tasks.o(.data)
+    uxTaskNumber                             0x200001c8   Data           4  tasks.o(.data)
+    xNextTaskUnblockTime                     0x200001cc   Data           4  tasks.o(.data)
+    uxSchedulerSuspended                     0x200001d0   Data           4  tasks.o(.data)
+    ulTaskSwitchedInTime                     0x200001d4   Data           4  tasks.o(.data)
+    ulTotalRunTime                           0x200001d8   Data           4  tasks.o(.data)
+    .data                                    0x200001dc   Section        1  displaytask.o(.data)
+    .data                                    0x200001e0   Section        8  environmenttask.o(.data)
+    .data                                    0x200001e8   Section        8  lighttask.o(.data)
+    .data                                    0x200001f0   Section        4  pmstask.o(.data)
+    .data                                    0x200001f4   Section        4  errno.o(.data)
+    _errno                                   0x200001f4   Data           4  errno.o(.data)
     .bss                                     0x200001f8   Section      204  bsp_sdio_sdcard.o(.bss)
     CSD_Tab                                  0x200001f8   Data          16  bsp_sdio_sdcard.o(.bss)
     CID_Tab                                  0x20000208   Data          16  bsp_sdio_sdcard.o(.bss)
@@ -1049,8 +1057,8 @@ Image Symbol Table
     xPendingReadyList                        0x20006eac   Data          20  tasks.o(.bss)
     xTasksWaitingTermination                 0x20006ec0   Data          20  tasks.o(.bss)
     xSuspendedTaskList                       0x20006ed4   Data          20  tasks.o(.bss)
-    .bss                                     0x20006ee8   Section       16  environmenttask.o(.bss)
-    .bss                                     0x20006ef8   Section       36  clocktask.o(.bss)
+    .bss                                     0x20006ee8   Section       36  clocktask.o(.bss)
+    .bss                                     0x20006f0c   Section       16  bmetask.o(.bss)
     .bss                                     0x20006f1c   Section       80  main_ui.o(.bss)
     STACK                                    0x20006f70   Section     1024  startup_stm32f10x_hd.o(STACK)
 
@@ -1397,321 +1405,324 @@ Image Symbol Table
     BusFault_Handler                         0x0800221f   Thumb Code     4  stm32f10x_it.o(.text)
     UsageFault_Handler                       0x08002223   Thumb Code     4  stm32f10x_it.o(.text)
     DebugMon_Handler                         0x08002227   Thumb Code     2  stm32f10x_it.o(.text)
-    main                                     0x08002311   Thumb Code    32  main.o(.text)
-    vSetupSysInfoTest                        0x080023d5   Thumb Code    18  sysinfotest.o(.text)
-    TIM6_IRQHandler                          0x080023e7   Thumb Code    32  sysinfotest.o(.text)
-    ParametersInit                           0x08002411   Thumb Code     8  gather.o(.text)
-    bsp_DWT_init                             0x08002419   Thumb Code    30  bsp_dwt_delay.o(.text)
-    DwtDelay_uS                              0x08002437   Thumb Code    74  bsp_dwt_delay.o(.text)
-    bsp_Init                                 0x08002495   Thumb Code    46  bsp.o(.text)
-    bsp_GetRCCofGPIO                         0x080024c9   Thumb Code    74  bsp_tim_pwm.o(.text)
-    bsp_GetRCCofTIM                          0x08002513   Thumb Code   150  bsp_tim_pwm.o(.text)
-    bsp_ConfigTimGpio                        0x080025a9   Thumb Code    96  bsp_tim_pwm.o(.text)
-    bsp_ConfigGpioOut                        0x08002609   Thumb Code    46  bsp_tim_pwm.o(.text)
-    bsp_SetTIMOutPWM                         0x08002637   Thumb Code   426  bsp_tim_pwm.o(.text)
-    bsp_SetTIMOutPWM_N                       0x080027e1   Thumb Code   516  bsp_tim_pwm.o(.text)
-    bsp_SetTIMforInt                         0x080029e5   Thumb Code   478  bsp_tim_pwm.o(.text)
-    bsp_LED_Init                             0x08002c23   Thumb Code    44  bsp_led.o(.text)
-    bsp_Led_Flash                            0x08002c4f   Thumb Code    50  bsp_led.o(.text)
-    SD_LowLevel_DeInit                       0x08002c8d   Thumb Code    66  bsp_sdio_sdcard.o(.text)
-    SD_DeInit                                0x08002ccf   Thumb Code     8  bsp_sdio_sdcard.o(.text)
-    SD_EnableWideBusOperation                0x08003093   Thumb Code   178  bsp_sdio_sdcard.o(.text)
-    SD_SelectDeselect                        0x08003145   Thumb Code    48  bsp_sdio_sdcard.o(.text)
-    SD_GetCardInfo                           0x08003175   Thumb Code   742  bsp_sdio_sdcard.o(.text)
-    SD_InitializeCards                       0x08003557   Thumb Code   294  bsp_sdio_sdcard.o(.text)
-    SD_PowerON                               0x08003725   Thumb Code   432  bsp_sdio_sdcard.o(.text)
-    SD_LowLevel_Init                         0x080038d5   Thumb Code    70  bsp_sdio_sdcard.o(.text)
-    SD_Init                                  0x0800395b   Thumb Code   128  bsp_sdio_sdcard.o(.text)
-    SD_SendStatus                            0x080039db   Thumb Code    74  bsp_sdio_sdcard.o(.text)
-    SD_Detect                                0x08003a25   Thumb Code    12  bsp_sdio_sdcard.o(.text)
-    SD_GetState                              0x08003a31   Thumb Code    38  bsp_sdio_sdcard.o(.text)
-    SD_GetStatus                             0x08003a57   Thumb Code    30  bsp_sdio_sdcard.o(.text)
-    SD_PowerOFF                              0x08003a75   Thumb Code    14  bsp_sdio_sdcard.o(.text)
-    SD_SendSDStatus                          0x08003a83   Thumb Code   364  bsp_sdio_sdcard.o(.text)
-    SD_GetCardStatus                         0x08003bef   Thumb Code   156  bsp_sdio_sdcard.o(.text)
-    SD_LowLevel_DMA_RxConfig                 0x08003c8b   Thumb Code   146  bsp_sdio_sdcard.o(.text)
-    SD_ReadBlock                             0x08003d1d   Thumb Code   208  bsp_sdio_sdcard.o(.text)
-    SD_ReadMultiBlocks                       0x08003ded   Thumb Code   218  bsp_sdio_sdcard.o(.text)
-    SD_StopTransfer                          0x08003ec7   Thumb Code    46  bsp_sdio_sdcard.o(.text)
-    SD_WaitReadOperation                     0x08003ef5   Thumb Code   102  bsp_sdio_sdcard.o(.text)
-    SD_LowLevel_DMA_TxConfig                 0x08003f5b   Thumb Code    98  bsp_sdio_sdcard.o(.text)
-    SD_WriteBlock                            0x08003fbd   Thumb Code   206  bsp_sdio_sdcard.o(.text)
-    SD_WriteMultiBlocks                      0x0800408b   Thumb Code   358  bsp_sdio_sdcard.o(.text)
-    SD_WaitWriteOperation                    0x080041f1   Thumb Code   102  bsp_sdio_sdcard.o(.text)
-    SD_GetTransferState                      0x08004257   Thumb Code    18  bsp_sdio_sdcard.o(.text)
-    SD_Erase                                 0x080043f5   Thumb Code   296  bsp_sdio_sdcard.o(.text)
-    SD_ProcessIRQSrc                         0x0800451d   Thumb Code   216  bsp_sdio_sdcard.o(.text)
-    SD_ProcessDMAIRQ                         0x080045f5   Thumb Code    26  bsp_sdio_sdcard.o(.text)
-    convert_from_bytes_to_power_of_two       0x0800460f   Thumb Code    18  bsp_sdio_sdcard.o(.text)
-    SD_DMAEndOfTransferStatus                0x08004621   Thumb Code    10  bsp_sdio_sdcard.o(.text)
-    SDIO_IRQHandler                          0x0800462b   Thumb Code     8  bsp_sdio_sdcard.o(.text)
-    DMA2_Channel4_5_IRQHandler               0x08004633   Thumb Code     8  bsp_sdio_sdcard.o(.text)
-    USART1_DMA_Config                        0x08004691   Thumb Code   194  bsp_usart1.o(.text)
-    USART1_Config                            0x08004753   Thumb Code   174  bsp_usart1.o(.text)
-    Uart1_Start_DMA_Tx                       0x08004801   Thumb Code    26  bsp_usart1.o(.text)
-    DMA1_Channel4_IRQHandler                 0x0800481b   Thumb Code    36  bsp_usart1.o(.text)
-    USART1_IRQHandler                        0x0800483f   Thumb Code   146  bsp_usart1.o(.text)
-    Uart1_DMA_SendString                     0x080048d1   Thumb Code    52  bsp_usart1.o(.text)
-    Usart1_SendByte                          0x08004905   Thumb Code    30  bsp_usart1.o(.text)
-    Usar1_SendString                         0x08004923   Thumb Code    42  bsp_usart1.o(.text)
-    Usart1_SendHalfWord                      0x0800494d   Thumb Code    60  bsp_usart1.o(.text)
-    fputc                                    0x08004989   Thumb Code    36  bsp_usart1.o(.text)
-    fgetc                                    0x080049ad   Thumb Code    30  bsp_usart1.o(.text)
-    OLED_WR_Byte                             0x080049f1   Thumb Code   102  bsp_oled.o(.text)
-    OLED_Set_Pos                             0x08004a57   Thumb Code    48  bsp_oled.o(.text)
-    oled_drawPoint                           0x08004a87   Thumb Code   100  bsp_oled.o(.text)
-    oled_readPoint                           0x08004aeb   Thumb Code    62  bsp_oled.o(.text)
-    OLED_Display_On                          0x08004b29   Thumb Code    28  bsp_oled.o(.text)
-    OLED_Display_Off                         0x08004b45   Thumb Code    28  bsp_oled.o(.text)
-    OLED_Refresh_Gram                        0x08004b61   Thumb Code    70  bsp_oled.o(.text)
-    OLED_Clear                               0x08004ba7   Thumb Code    42  bsp_oled.o(.text)
-    OLED_FillAll                             0x08004bd1   Thumb Code    42  bsp_oled.o(.text)
-    OLED_Fill                                0x08004bfb   Thumb Code    54  bsp_oled.o(.text)
-    OLED_ShowChar                            0x08004c31   Thumb Code   464  bsp_oled.o(.text)
-    OLED_ShowChar32                          0x08004e01   Thumb Code   368  bsp_oled.o(.text)
-    mypow                                    0x08004f71   Thumb Code    22  bsp_oled.o(.text)
-    OLED_ShowNum                             0x08004f87   Thumb Code   554  bsp_oled.o(.text)
-    OLED_ShowNum32                           0x080051b1   Thumb Code   162  bsp_oled.o(.text)
-    OLED_ShowString                          0x08005253   Thumb Code    70  bsp_oled.o(.text)
-    OLED_ShowCHinese                         0x08005299   Thumb Code   204  bsp_oled.o(.text)
-    OLED_DrawBMP                             0x08005365   Thumb Code   278  bsp_oled.o(.text)
-    bsp_OLED_Init                            0x0800547b   Thumb Code   454  bsp_oled.o(.text)
-    SHT3X_IIC_ACK                            0x08005655   Thumb Code    78  bsp_sht3x.o(.text)
-    SHT3X_IIC_NACK                           0x080056a3   Thumb Code    78  bsp_sht3x.o(.text)
-    SHT3X_IIC_wait_ACK                       0x080056f1   Thumb Code   154  bsp_sht3x.o(.text)
-    SHT3X_IIC_Start                          0x0800578b   Thumb Code    68  bsp_sht3x.o(.text)
-    SHT3X_IIC_Stop                           0x080057cf   Thumb Code    70  bsp_sht3x.o(.text)
-    SHT3X_IIC_SendByte                       0x08005815   Thumb Code   106  bsp_sht3x.o(.text)
-    SHT3X_IIC_RcvByte                        0x0800587f   Thumb Code    96  bsp_sht3x.o(.text)
-    SHT3x_Getdata                            0x080058df   Thumb Code   390  bsp_sht3x.o(.text)
-    bsp_SHT3x_Init                           0x08005a65   Thumb Code    88  bsp_sht3x.o(.text)
-    DS3231_IIC_ACK                           0x08005ac9   Thumb Code    78  bsp_ds3231.o(.text)
-    DS3231_IIC_NACK                          0x08005b17   Thumb Code    78  bsp_ds3231.o(.text)
-    DS3231_IIC_wait_ACK                      0x08005b65   Thumb Code   154  bsp_ds3231.o(.text)
-    DS3231_IIC_Start                         0x08005bff   Thumb Code    68  bsp_ds3231.o(.text)
-    DS3231_IIC_Stop                          0x08005c43   Thumb Code    70  bsp_ds3231.o(.text)
-    DS3231_IIC_SendByte                      0x08005c89   Thumb Code   106  bsp_ds3231.o(.text)
-    DS3231_IIC_RcvByte                       0x08005cf3   Thumb Code    96  bsp_ds3231.o(.text)
-    BCDtoHEX                                 0x08005d53   Thumb Code    24  bsp_ds3231.o(.text)
-    B_BCD                                    0x08005d6b   Thumb Code    32  bsp_ds3231.o(.text)
-    DS3231_IIC_Write                         0x08005d8b   Thumb Code    48  bsp_ds3231.o(.text)
-    DS3231_IIC_Read                          0x08005dbb   Thumb Code    30  bsp_ds3231.o(.text)
-    DS3231_I2C_Read_Add                      0x08005dd9   Thumb Code    34  bsp_ds3231.o(.text)
-    DS3231_Readtime                          0x08005dfb   Thumb Code   278  bsp_ds3231.o(.text)
-    autoweek                                 0x08005f11   Thumb Code   116  bsp_ds3231.o(.text)
-    DS3231_SetTime                           0x08005f85   Thumb Code   128  bsp_ds3231.o(.text)
-    bsp_DS3231_Init                          0x08006005   Thumb Code    96  bsp_ds3231.o(.text)
-    GY30_IIC_ACK                             0x08006075   Thumb Code    76  bsp_gy30.o(.text)
-    GY30_IIC_NACK                            0x080060c1   Thumb Code    74  bsp_gy30.o(.text)
-    GY30_IIC_wait_ACK                        0x0800610b   Thumb Code   154  bsp_gy30.o(.text)
-    GY30_IIC_Start                           0x080061a5   Thumb Code    90  bsp_gy30.o(.text)
-    GY30_IIC_Stop                            0x080061ff   Thumb Code    66  bsp_gy30.o(.text)
-    GY30_IIC_SendByte                        0x08006241   Thumb Code   164  bsp_gy30.o(.text)
-    GY30_IIC_RcvByte                         0x080062e5   Thumb Code    96  bsp_gy30.o(.text)
-    Single_Write_BH1750                      0x08006345   Thumb Code    26  bsp_gy30.o(.text)
-    Single_Read_BH1750                       0x0800635f   Thumb Code    48  bsp_gy30.o(.text)
-    Multiple_Read_BH1750                     0x0800638f   Thumb Code    52  bsp_gy30.o(.text)
-    bsp_BH1750_Init                          0x080063c3   Thumb Code    98  bsp_gy30.o(.text)
-    Updata_BH1750                            0x08006425   Thumb Code    96  bsp_gy30.o(.text)
-    UART2_DMA_Config                         0x080064c5   Thumb Code   194  bsp_usart2.o(.text)
-    UART2_Config                             0x08006587   Thumb Code   170  bsp_usart2.o(.text)
-    Uart2_Start_DMA_Tx                       0x08006631   Thumb Code    26  bsp_usart2.o(.text)
-    DMA1_Channel7_IRQHandler                 0x0800664b   Thumb Code    36  bsp_usart2.o(.text)
-    USART2_IRQHandler                        0x0800666f   Thumb Code   158  bsp_usart2.o(.text)
-    Uart2_DMA_SendString                     0x0800670d   Thumb Code    52  bsp_usart2.o(.text)
-    bsp_PMS_Init                             0x08006741   Thumb Code    10  bsp_usart2.o(.text)
-    bsp_BME280_Init                          0x08006771   Thumb Code    90  bsp_bme280.o(.text)
-    BME280_IIC_Start                         0x080067cb   Thumb Code    68  bsp_bme280.o(.text)
-    BME280_IIC_Stop                          0x0800680f   Thumb Code    62  bsp_bme280.o(.text)
-    BME280_IIC_Wait_Ack                      0x0800684d   Thumb Code    86  bsp_bme280.o(.text)
-    BME280_IIC_Ack                           0x080068a3   Thumb Code    66  bsp_bme280.o(.text)
-    BME280_IIC_NAck                          0x080068e5   Thumb Code    66  bsp_bme280.o(.text)
-    BME280_IIC_Send_Byte                     0x08006927   Thumb Code    90  bsp_bme280.o(.text)
-    BME280_IIC_Read_Byte                     0x08006981   Thumb Code    98  bsp_bme280.o(.text)
-    BME280_Write_Byte                        0x080069e3   Thumb Code    76  bsp_bme280.o(.text)
-    BME280_Read_Byte                         0x08006a2f   Thumb Code    72  bsp_bme280.o(.text)
-    BME280_Read_Len                          0x08006a77   Thumb Code   116  bsp_bme280.o(.text)
-    readTrim                                 0x08006aeb   Thumb Code   358  bsp_bme280.o(.text)
-    BME280_Init                              0x08006c51   Thumb Code    54  bsp_bme280.o(.text)
-    BME280_Getdata                           0x080070c1   Thumb Code   144  bsp_bme280.o(.text)
-    pvPortMalloc                             0x0800725f   Thumb Code   254  heap_4.o(.text)
-    vPortFree                                0x0800735d   Thumb Code   112  heap_4.o(.text)
-    xPortGetFreeHeapSize                     0x080073cd   Thumb Code     6  heap_4.o(.text)
-    xPortGetMinimumEverFreeHeapSize          0x080073d3   Thumb Code     6  heap_4.o(.text)
-    vPortInitialiseBlocks                    0x080073d9   Thumb Code     2  heap_4.o(.text)
-    pxPortInitialiseStack                    0x08007415   Thumb Code    26  port.o(.text)
-    vPortSetupTimerInterrupt                 0x0800742f   Thumb Code    14  port.o(.text)
-    xPortStartScheduler                      0x0800743d   Thumb Code   140  port.o(.text)
-    vPortEndScheduler                        0x080074c9   Thumb Code    30  port.o(.text)
-    vPortYield                               0x080074e7   Thumb Code    20  port.o(.text)
-    vPortEnterCritical                       0x080074fb   Thumb Code    60  port.o(.text)
-    vPortExitCritical                        0x08007537   Thumb Code    40  port.o(.text)
-    SysTick_Handler                          0x0800755f   Thumb Code    30  port.o(.text)
-    vPortValidateInterruptPriority           0x0800757d   Thumb Code    80  port.o(.text)
-    xCoRoutineCreate                         0x08007623   Thumb Code   126  croutine.o(.text)
-    vCoRoutineAddToDelayedList               0x080076a1   Thumb Code    82  croutine.o(.text)
-    vCoRoutineSchedule                       0x08007803   Thumb Code   122  croutine.o(.text)
-    xCoRoutineRemoveFromEventList            0x0800787d   Thumb Code    48  croutine.o(.text)
-    vListInitialise                          0x080078d9   Thumb Code    26  list.o(.text)
-    vListInitialiseItem                      0x080078f3   Thumb Code     6  list.o(.text)
-    vListInsertEnd                           0x080078f9   Thumb Code    24  list.o(.text)
-    vListInsert                              0x08007911   Thumb Code    52  list.o(.text)
-    uxListRemove                             0x08007945   Thumb Code    40  list.o(.text)
-    xQueueGenericReset                       0x0800796d   Thumb Code   120  queue.o(.text)
-    xQueueGenericCreate                      0x080079e5   Thumb Code   106  queue.o(.text)
-    xQueueGenericSend                        0x08007b59   Thumb Code   296  queue.o(.text)
-    xQueueGenericSendFromISR                 0x08007c81   Thumb Code   172  queue.o(.text)
-    xQueueGiveFromISR                        0x08007d2d   Thumb Code   148  queue.o(.text)
-    xQueueGenericReceive                     0x08007e05   Thumb Code   290  queue.o(.text)
-    xQueueReceiveFromISR                     0x08007f27   Thumb Code   136  queue.o(.text)
-    xQueuePeekFromISR                        0x08007faf   Thumb Code   110  queue.o(.text)
-    uxQueueMessagesWaiting                   0x0800801d   Thumb Code    28  queue.o(.text)
-    uxQueueSpacesAvailable                   0x08008039   Thumb Code    34  queue.o(.text)
-    uxQueueMessagesWaitingFromISR            0x0800805b   Thumb Code    20  queue.o(.text)
-    vQueueDelete                             0x0800806f   Thumb Code    24  queue.o(.text)
-    uxQueueGetQueueNumber                    0x08008087   Thumb Code     6  queue.o(.text)
-    vQueueSetQueueNumber                     0x0800808d   Thumb Code     4  queue.o(.text)
-    ucQueueGetQueueType                      0x08008091   Thumb Code     8  queue.o(.text)
-    xQueueIsQueueEmptyFromISR                0x08008099   Thumb Code    28  queue.o(.text)
-    xQueueIsQueueFullFromISR                 0x080080b5   Thumb Code    32  queue.o(.text)
-    xQueueCRSend                             0x080080d5   Thumb Code   130  queue.o(.text)
-    xQueueCRReceive                          0x08008157   Thumb Code   148  queue.o(.text)
-    xQueueCRSendFromISR                      0x080081eb   Thumb Code    64  queue.o(.text)
-    xQueueCRReceiveFromISR                   0x0800822b   Thumb Code    94  queue.o(.text)
-    xTaskGenericCreate                       0x0800836f   Thumb Code   288  tasks.o(.text)
-    vTaskDelete                              0x080084b9   Thumb Code   160  tasks.o(.text)
-    xTaskIncrementTick                       0x08008559   Thumb Code   272  tasks.o(.text)
-    xTaskResumeAll                           0x08008669   Thumb Code   282  tasks.o(.text)
-    vTaskSuspendAll                          0x080087c1   Thumb Code    12  tasks.o(.text)
-    vTaskDelayUntil                          0x080087cd   Thumb Code   176  tasks.o(.text)
-    vTaskDelay                               0x0800887d   Thumb Code    94  tasks.o(.text)
-    uxTaskPriorityGet                        0x080088db   Thumb Code    30  tasks.o(.text)
-    uxTaskPriorityGetFromISR                 0x080088f9   Thumb Code    42  tasks.o(.text)
-    vTaskPrioritySet                         0x08008923   Thumb Code   224  tasks.o(.text)
-    vTaskSwitchContext                       0x08008a03   Thumb Code   158  tasks.o(.text)
-    vTaskSuspend                             0x08008aa1   Thumb Code   232  tasks.o(.text)
-    vTaskResume                              0x08008bcd   Thumb Code   104  tasks.o(.text)
-    xTaskResumeFromISR                       0x08008c35   Thumb Code   126  tasks.o(.text)
-    vTaskStartScheduler                      0x08008d2f   Thumb Code    74  tasks.o(.text)
-    vTaskEndScheduler                        0x08008d79   Thumb Code    18  tasks.o(.text)
-    xTaskGetTickCount                        0x08008d8b   Thumb Code     6  tasks.o(.text)
-    xTaskGetTickCountFromISR                 0x08008d91   Thumb Code    16  tasks.o(.text)
-    uxTaskGetNumberOfTasks                   0x08008da1   Thumb Code     6  tasks.o(.text)
-    uxTaskGetSystemState                     0x08008e6d   Thumb Code   208  tasks.o(.text)
-    vTaskPlaceOnEventList                    0x08008f3d   Thumb Code    94  tasks.o(.text)
-    vTaskPlaceOnUnorderedEventList           0x08008f9b   Thumb Code   132  tasks.o(.text)
-    xTaskRemoveFromEventList                 0x0800901f   Thumb Code   114  tasks.o(.text)
-    xTaskRemoveFromUnorderedEventList        0x08009091   Thumb Code   126  tasks.o(.text)
-    vTaskSetTimeOutState                     0x0800910f   Thumb Code    28  tasks.o(.text)
-    xTaskCheckForTimeOut                     0x0800912b   Thumb Code   108  tasks.o(.text)
-    vTaskMissedYield                         0x08009197   Thumb Code     8  tasks.o(.text)
-    uxTaskGetTaskNumber                      0x0800919f   Thumb Code    14  tasks.o(.text)
-    vTaskSetTaskNumber                       0x080091ad   Thumb Code     8  tasks.o(.text)
-    vTaskList                                0x080091df   Thumb Code   180  tasks.o(.text)
-    vTaskGetRunTimeStats                     0x08009293   Thumb Code   242  tasks.o(.text)
-    uxTaskResetEventItemValue                0x08009385   Thumb Code    24  tasks.o(.text)
-    ulTaskNotifyTake                         0x0800939d   Thumb Code   162  tasks.o(.text)
-    xTaskNotifyWait                          0x0800943f   Thumb Code   196  tasks.o(.text)
-    xTaskGenericNotify                       0x08009503   Thumb Code   202  tasks.o(.text)
-    xTaskGenericNotifyFromISR                0x080095cd   Thumb Code   240  tasks.o(.text)
-    vTaskNotifyGiveFromISR                   0x080096bd   Thumb Code   158  tasks.o(.text)
-    xTaskNotifyStateClear                    0x0800975b   Thumb Code    78  tasks.o(.text)
-    vTaskLed                                 0x080097a9   Thumb Code    26  ledtask.o(.text)
-    vTaskDisplay                             0x080097cd   Thumb Code    30  displaytask.o(.text)
-    setShow_ui                               0x080097eb   Thumb Code    14  displaytask.o(.text)
-    DisplayInit                              0x080097f9   Thumb Code     8  displaytask.o(.text)
-    Show_Para_Con                            0x08009801   Thumb Code    72  displaytask.o(.text)
-    Para_Init                                0x0800984d   Thumb Code     2  environmenttask.o(.text)
-    vTaskEnvironment                         0x0800984f   Thumb Code    28  environmenttask.o(.text)
-    vTaskClock                               0x08009875   Thumb Code    16  clocktask.o(.text)
-    vTaskLight                               0x08009889   Thumb Code    22  lighttask.o(.text)
-    UpdataPms                                0x080098a5   Thumb Code    34  pmstask.o(.text)
-    vTaskPms                                 0x080098c7   Thumb Code    30  pmstask.o(.text)
-    Main_uiconfigParamInit                   0x080098ed   Thumb Code    88  main_ui.o(.text)
-    Main_ZUI                                 0x08009945   Thumb Code  1176  main_ui.o(.text)
-    Main_uictrl                              0x08009e01   Thumb Code   490  main_ui.o(.text)
-    __aeabi_uldivmod                         0x0800a009   Thumb Code    98  uldiv.o(.text)
-    __aeabi_ldivmod                          0x0800a06b   Thumb Code    98  ldiv.o(.text)
-    __aeabi_memcpy                           0x0800a0cd   Thumb Code    36  memcpya.o(.text)
-    __aeabi_memcpy4                          0x0800a0cd   Thumb Code     0  memcpya.o(.text)
-    __aeabi_memcpy8                          0x0800a0cd   Thumb Code     0  memcpya.o(.text)
-    __aeabi_memset                           0x0800a0f1   Thumb Code    14  memseta.o(.text)
-    __aeabi_memset4                          0x0800a0f1   Thumb Code     0  memseta.o(.text)
-    __aeabi_memset8                          0x0800a0f1   Thumb Code     0  memseta.o(.text)
-    __aeabi_memclr                           0x0800a0ff   Thumb Code     4  memseta.o(.text)
-    __aeabi_memclr4                          0x0800a0ff   Thumb Code     0  memseta.o(.text)
-    __aeabi_memclr8                          0x0800a0ff   Thumb Code     0  memseta.o(.text)
-    _memset$wrapper                          0x0800a103   Thumb Code    18  memseta.o(.text)
-    strlen                                   0x0800a115   Thumb Code    14  strlen.o(.text)
-    strcpy                                   0x0800a123   Thumb Code    18  strcpy.o(.text)
-    __aeabi_fadd                             0x0800a135   Thumb Code   164  fadd.o(.text)
-    __aeabi_fsub                             0x0800a1d9   Thumb Code     6  fadd.o(.text)
-    __aeabi_frsub                            0x0800a1df   Thumb Code     6  fadd.o(.text)
-    __aeabi_fmul                             0x0800a1e5   Thumb Code   100  fmul.o(.text)
-    __aeabi_fdiv                             0x0800a249   Thumb Code   124  fdiv.o(.text)
-    __aeabi_dadd                             0x0800a2c5   Thumb Code   322  dadd.o(.text)
-    __aeabi_dsub                             0x0800a407   Thumb Code     6  dadd.o(.text)
-    __aeabi_drsub                            0x0800a40d   Thumb Code     6  dadd.o(.text)
-    __aeabi_dmul                             0x0800a413   Thumb Code   228  dmul.o(.text)
-    __aeabi_ddiv                             0x0800a4f7   Thumb Code   222  ddiv.o(.text)
-    __aeabi_i2f                              0x0800a5d5   Thumb Code    18  fflti.o(.text)
-    __aeabi_ui2f                             0x0800a5e7   Thumb Code    10  ffltui.o(.text)
-    __aeabi_i2d                              0x0800a5f1   Thumb Code    34  dflti.o(.text)
-    __aeabi_ui2d                             0x0800a613   Thumb Code    26  dfltui.o(.text)
-    __aeabi_f2iz                             0x0800a62d   Thumb Code    50  ffixi.o(.text)
-    __aeabi_f2d                              0x0800a65f   Thumb Code    38  f2d.o(.text)
-    __aeabi_cdcmpeq                          0x0800a685   Thumb Code     0  cdcmple.o(.text)
-    __aeabi_cdcmple                          0x0800a685   Thumb Code    48  cdcmple.o(.text)
-    __aeabi_d2f                              0x0800a6b5   Thumb Code    56  d2f.o(.text)
-    __aeabi_cfcmpeq                          0x0800a6ed   Thumb Code     0  cfcmple.o(.text)
-    __aeabi_cfcmple                          0x0800a6ed   Thumb Code    20  cfcmple.o(.text)
-    __aeabi_cfrcmple                         0x0800a701   Thumb Code    20  cfrcmple.o(.text)
-    __aeabi_uidiv                            0x0800a715   Thumb Code     0  uidiv.o(.text)
-    __aeabi_uidivmod                         0x0800a715   Thumb Code    44  uidiv.o(.text)
-    __aeabi_llsl                             0x0800a741   Thumb Code    30  llshl.o(.text)
-    _ll_shift_l                              0x0800a741   Thumb Code     0  llshl.o(.text)
-    __aeabi_llsr                             0x0800a75f   Thumb Code    32  llushr.o(.text)
-    _ll_ushift_r                             0x0800a75f   Thumb Code     0  llushr.o(.text)
-    __aeabi_lasr                             0x0800a77f   Thumb Code    36  llsshr.o(.text)
-    _ll_sshift_r                             0x0800a77f   Thumb Code     0  llsshr.o(.text)
-    __I$use$fp                               0x0800a7a3   Thumb Code     0  iusefp.o(.text)
-    _float_round                             0x0800a7a3   Thumb Code    18  fepilogue.o(.text)
-    _float_epilogue                          0x0800a7b5   Thumb Code    92  fepilogue.o(.text)
-    _double_round                            0x0800a811   Thumb Code    30  depilogue.o(.text)
-    _double_epilogue                         0x0800a82f   Thumb Code   156  depilogue.o(.text)
-    __ARM_scalbn                             0x0800a8cb   Thumb Code    46  dscalb.o(.text)
-    scalbn                                   0x0800a8cb   Thumb Code     0  dscalb.o(.text)
-    __aeabi_cdrcmple                         0x0800a8f9   Thumb Code    48  cdrcmple.o(.text)
-    __scatterload                            0x0800a929   Thumb Code    28  init.o(.text)
-    __scatterload_rt2                        0x0800a929   Thumb Code     0  init.o(.text)
-    _dsqrt                                   0x0800a94d   Thumb Code   162  dsqrt.o(.text)
-    __decompress                             0x0800a9ef   Thumb Code     0  __dczerorl2.o(.text)
-    __decompress1                            0x0800a9ef   Thumb Code    86  __dczerorl2.o(.text)
-    __0sprintf$3                             0x0800aa45   Thumb Code    34  printf3.o(i.__0sprintf$3)
-    __1sprintf$3                             0x0800aa45   Thumb Code     0  printf3.o(i.__0sprintf$3)
-    __2sprintf                               0x0800aa45   Thumb Code     0  printf3.o(i.__0sprintf$3)
-    __ARM_fpclassify                         0x0800aa6d   Thumb Code    40  fpclassify.o(i.__ARM_fpclassify)
-    __kernel_poly                            0x0800aa95   Thumb Code   170  poly.o(i.__kernel_poly)
-    __mathlib_dbl_divzero                    0x0800ab41   Thumb Code    12  dunder.o(i.__mathlib_dbl_divzero)
-    __mathlib_dbl_infnan2                    0x0800ab51   Thumb Code     4  dunder.o(i.__mathlib_dbl_infnan2)
-    __mathlib_dbl_invalid                    0x0800ab55   Thumb Code    12  dunder.o(i.__mathlib_dbl_invalid)
-    __mathlib_dbl_overflow                   0x0800ab61   Thumb Code    14  dunder.o(i.__mathlib_dbl_overflow)
-    __mathlib_dbl_underflow                  0x0800ab71   Thumb Code    10  dunder.o(i.__mathlib_dbl_underflow)
-    __scatterload_copy                       0x0800ab81   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x0800ab8f   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x0800ab91   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    __set_errno                              0x0800aba1   Thumb Code     6  errno.o(i.__set_errno)
-    pow                                      0x0800ad71   Thumb Code  2478  pow.o(i.pow)
-    sqrt                                     0x0800b729   Thumb Code    76  sqrt.o(i.sqrt)
-    F6x8                                     0x0800b774   Data         552  bsp_oled.o(.constdata)
-    F8X16                                    0x0800b99c   Data        1520  bsp_oled.o(.constdata)
-    F16X32                                   0x0800bf8c   Data         896  bsp_oled.o(.constdata)
-    Hzk                                      0x0800c30c   Data        1024  bsp_oled.o(.constdata)
-    UI_NOSIGNAL8X8                           0x0800c70c   Data           8  bmp.o(.constdata)
-    UI_ASIGNAL8X8                            0x0800c714   Data           8  bmp.o(.constdata)
-    __mathlib_zero                           0x0800c7a8   Data           8  qnan.o(.constdata)
-    Region$$Table$$Base                      0x0800c7b0   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x0800c7d0   Number         0  anon$$obj.o(Region$$Table)
+    main                                     0x08002349   Thumb Code    32  main.o(.text)
+    vSetupSysInfoTest                        0x08002435   Thumb Code    18  sysinfotest.o(.text)
+    TIM6_IRQHandler                          0x08002447   Thumb Code    32  sysinfotest.o(.text)
+    ParametersInit                           0x08002471   Thumb Code     8  gather.o(.text)
+    bsp_DWT_init                             0x08002479   Thumb Code    30  bsp_dwt_delay.o(.text)
+    DwtDelay_uS                              0x08002497   Thumb Code    74  bsp_dwt_delay.o(.text)
+    bsp_Init                                 0x080024f5   Thumb Code    50  bsp.o(.text)
+    bsp_KEY_Init                             0x08002551   Thumb Code    34  bsp_key.o(.text)
+    Key_Scan                                 0x08002573   Thumb Code   188  bsp_key.o(.text)
+    bsp_GetRCCofGPIO                         0x08002649   Thumb Code    74  bsp_tim_pwm.o(.text)
+    bsp_GetRCCofTIM                          0x08002693   Thumb Code   150  bsp_tim_pwm.o(.text)
+    bsp_ConfigTimGpio                        0x08002729   Thumb Code    96  bsp_tim_pwm.o(.text)
+    bsp_ConfigGpioOut                        0x08002789   Thumb Code    46  bsp_tim_pwm.o(.text)
+    bsp_SetTIMOutPWM                         0x080027b7   Thumb Code   426  bsp_tim_pwm.o(.text)
+    bsp_SetTIMOutPWM_N                       0x08002961   Thumb Code   516  bsp_tim_pwm.o(.text)
+    bsp_SetTIMforInt                         0x08002b65   Thumb Code   478  bsp_tim_pwm.o(.text)
+    bsp_LED_Init                             0x08002da3   Thumb Code    44  bsp_led.o(.text)
+    bsp_Led_Flash                            0x08002dcf   Thumb Code    50  bsp_led.o(.text)
+    SD_LowLevel_DeInit                       0x08002e0d   Thumb Code    66  bsp_sdio_sdcard.o(.text)
+    SD_DeInit                                0x08002e4f   Thumb Code     8  bsp_sdio_sdcard.o(.text)
+    SD_EnableWideBusOperation                0x08003213   Thumb Code   178  bsp_sdio_sdcard.o(.text)
+    SD_SelectDeselect                        0x080032c5   Thumb Code    48  bsp_sdio_sdcard.o(.text)
+    SD_GetCardInfo                           0x080032f5   Thumb Code   742  bsp_sdio_sdcard.o(.text)
+    SD_InitializeCards                       0x080036d7   Thumb Code   294  bsp_sdio_sdcard.o(.text)
+    SD_PowerON                               0x080038a5   Thumb Code   432  bsp_sdio_sdcard.o(.text)
+    SD_LowLevel_Init                         0x08003a55   Thumb Code    70  bsp_sdio_sdcard.o(.text)
+    SD_Init                                  0x08003adb   Thumb Code   128  bsp_sdio_sdcard.o(.text)
+    SD_SendStatus                            0x08003b5b   Thumb Code    74  bsp_sdio_sdcard.o(.text)
+    SD_Detect                                0x08003ba5   Thumb Code    12  bsp_sdio_sdcard.o(.text)
+    SD_GetState                              0x08003bb1   Thumb Code    38  bsp_sdio_sdcard.o(.text)
+    SD_GetStatus                             0x08003bd7   Thumb Code    30  bsp_sdio_sdcard.o(.text)
+    SD_PowerOFF                              0x08003bf5   Thumb Code    14  bsp_sdio_sdcard.o(.text)
+    SD_SendSDStatus                          0x08003c03   Thumb Code   364  bsp_sdio_sdcard.o(.text)
+    SD_GetCardStatus                         0x08003d6f   Thumb Code   156  bsp_sdio_sdcard.o(.text)
+    SD_LowLevel_DMA_RxConfig                 0x08003e0b   Thumb Code   146  bsp_sdio_sdcard.o(.text)
+    SD_ReadBlock                             0x08003e9d   Thumb Code   208  bsp_sdio_sdcard.o(.text)
+    SD_ReadMultiBlocks                       0x08003f6d   Thumb Code   218  bsp_sdio_sdcard.o(.text)
+    SD_StopTransfer                          0x08004047   Thumb Code    46  bsp_sdio_sdcard.o(.text)
+    SD_WaitReadOperation                     0x08004075   Thumb Code   102  bsp_sdio_sdcard.o(.text)
+    SD_LowLevel_DMA_TxConfig                 0x080040db   Thumb Code    98  bsp_sdio_sdcard.o(.text)
+    SD_WriteBlock                            0x0800413d   Thumb Code   206  bsp_sdio_sdcard.o(.text)
+    SD_WriteMultiBlocks                      0x0800420b   Thumb Code   358  bsp_sdio_sdcard.o(.text)
+    SD_WaitWriteOperation                    0x08004371   Thumb Code   102  bsp_sdio_sdcard.o(.text)
+    SD_GetTransferState                      0x080043d7   Thumb Code    18  bsp_sdio_sdcard.o(.text)
+    SD_Erase                                 0x08004575   Thumb Code   296  bsp_sdio_sdcard.o(.text)
+    SD_ProcessIRQSrc                         0x0800469d   Thumb Code   216  bsp_sdio_sdcard.o(.text)
+    SD_ProcessDMAIRQ                         0x08004775   Thumb Code    26  bsp_sdio_sdcard.o(.text)
+    convert_from_bytes_to_power_of_two       0x0800478f   Thumb Code    18  bsp_sdio_sdcard.o(.text)
+    SD_DMAEndOfTransferStatus                0x080047a1   Thumb Code    10  bsp_sdio_sdcard.o(.text)
+    SDIO_IRQHandler                          0x080047ab   Thumb Code     8  bsp_sdio_sdcard.o(.text)
+    DMA2_Channel4_5_IRQHandler               0x080047b3   Thumb Code     8  bsp_sdio_sdcard.o(.text)
+    USART1_DMA_Config                        0x08004811   Thumb Code   194  bsp_usart1.o(.text)
+    USART1_Config                            0x080048d3   Thumb Code   174  bsp_usart1.o(.text)
+    Uart1_Start_DMA_Tx                       0x08004981   Thumb Code    26  bsp_usart1.o(.text)
+    DMA1_Channel4_IRQHandler                 0x0800499b   Thumb Code    36  bsp_usart1.o(.text)
+    USART1_IRQHandler                        0x080049bf   Thumb Code   146  bsp_usart1.o(.text)
+    Uart1_DMA_SendString                     0x08004a51   Thumb Code    52  bsp_usart1.o(.text)
+    Usart1_SendByte                          0x08004a85   Thumb Code    30  bsp_usart1.o(.text)
+    Usar1_SendString                         0x08004aa3   Thumb Code    42  bsp_usart1.o(.text)
+    Usart1_SendHalfWord                      0x08004acd   Thumb Code    60  bsp_usart1.o(.text)
+    fputc                                    0x08004b09   Thumb Code    36  bsp_usart1.o(.text)
+    fgetc                                    0x08004b2d   Thumb Code    30  bsp_usart1.o(.text)
+    OLED_WR_Byte                             0x08004b71   Thumb Code   102  bsp_oled.o(.text)
+    OLED_Set_Pos                             0x08004bd7   Thumb Code    48  bsp_oled.o(.text)
+    oled_drawPoint                           0x08004c07   Thumb Code   100  bsp_oled.o(.text)
+    oled_readPoint                           0x08004c6b   Thumb Code    62  bsp_oled.o(.text)
+    OLED_Display_On                          0x08004ca9   Thumb Code    28  bsp_oled.o(.text)
+    OLED_Display_Off                         0x08004cc5   Thumb Code    28  bsp_oled.o(.text)
+    OLED_Refresh_Gram                        0x08004ce1   Thumb Code    70  bsp_oled.o(.text)
+    OLED_Clear                               0x08004d27   Thumb Code    42  bsp_oled.o(.text)
+    OLED_FillAll                             0x08004d51   Thumb Code    42  bsp_oled.o(.text)
+    OLED_Fill                                0x08004d7b   Thumb Code    54  bsp_oled.o(.text)
+    OLED_ShowChar                            0x08004db1   Thumb Code   464  bsp_oled.o(.text)
+    OLED_ShowChar32                          0x08004f81   Thumb Code   368  bsp_oled.o(.text)
+    mypow                                    0x080050f1   Thumb Code    22  bsp_oled.o(.text)
+    OLED_ShowNum                             0x08005107   Thumb Code   554  bsp_oled.o(.text)
+    OLED_ShowNum32                           0x08005331   Thumb Code   162  bsp_oled.o(.text)
+    OLED_ShowString                          0x080053d3   Thumb Code    70  bsp_oled.o(.text)
+    OLED_ShowCHinese                         0x08005419   Thumb Code   204  bsp_oled.o(.text)
+    OLED_DrawBMP                             0x080054e5   Thumb Code   278  bsp_oled.o(.text)
+    bsp_OLED_Init                            0x080055fb   Thumb Code   454  bsp_oled.o(.text)
+    SHT3X_IIC_ACK                            0x080057d5   Thumb Code    78  bsp_sht3x.o(.text)
+    SHT3X_IIC_NACK                           0x08005823   Thumb Code    78  bsp_sht3x.o(.text)
+    SHT3X_IIC_wait_ACK                       0x08005871   Thumb Code   154  bsp_sht3x.o(.text)
+    SHT3X_IIC_Start                          0x0800590b   Thumb Code    68  bsp_sht3x.o(.text)
+    SHT3X_IIC_Stop                           0x0800594f   Thumb Code    70  bsp_sht3x.o(.text)
+    SHT3X_IIC_SendByte                       0x08005995   Thumb Code   106  bsp_sht3x.o(.text)
+    SHT3X_IIC_RcvByte                        0x080059ff   Thumb Code    96  bsp_sht3x.o(.text)
+    SHT3x_Getdata                            0x08005a5f   Thumb Code   390  bsp_sht3x.o(.text)
+    bsp_SHT3x_Init                           0x08005be5   Thumb Code    88  bsp_sht3x.o(.text)
+    DS3231_IIC_ACK                           0x08005c49   Thumb Code    78  bsp_ds3231.o(.text)
+    DS3231_IIC_NACK                          0x08005c97   Thumb Code    78  bsp_ds3231.o(.text)
+    DS3231_IIC_wait_ACK                      0x08005ce5   Thumb Code   154  bsp_ds3231.o(.text)
+    DS3231_IIC_Start                         0x08005d7f   Thumb Code    68  bsp_ds3231.o(.text)
+    DS3231_IIC_Stop                          0x08005dc3   Thumb Code    70  bsp_ds3231.o(.text)
+    DS3231_IIC_SendByte                      0x08005e09   Thumb Code   106  bsp_ds3231.o(.text)
+    DS3231_IIC_RcvByte                       0x08005e73   Thumb Code    96  bsp_ds3231.o(.text)
+    BCDtoHEX                                 0x08005ed3   Thumb Code    24  bsp_ds3231.o(.text)
+    B_BCD                                    0x08005eeb   Thumb Code    32  bsp_ds3231.o(.text)
+    DS3231_IIC_Write                         0x08005f0b   Thumb Code    48  bsp_ds3231.o(.text)
+    DS3231_IIC_Read                          0x08005f3b   Thumb Code    30  bsp_ds3231.o(.text)
+    DS3231_I2C_Read_Add                      0x08005f59   Thumb Code    34  bsp_ds3231.o(.text)
+    DS3231_Readtime                          0x08005f7b   Thumb Code   278  bsp_ds3231.o(.text)
+    autoweek                                 0x08006091   Thumb Code   116  bsp_ds3231.o(.text)
+    DS3231_SetTime                           0x08006105   Thumb Code   128  bsp_ds3231.o(.text)
+    bsp_DS3231_Init                          0x08006185   Thumb Code    96  bsp_ds3231.o(.text)
+    GY30_IIC_ACK                             0x080061f5   Thumb Code    76  bsp_gy30.o(.text)
+    GY30_IIC_NACK                            0x08006241   Thumb Code    74  bsp_gy30.o(.text)
+    GY30_IIC_wait_ACK                        0x0800628b   Thumb Code   154  bsp_gy30.o(.text)
+    GY30_IIC_Start                           0x08006325   Thumb Code    90  bsp_gy30.o(.text)
+    GY30_IIC_Stop                            0x0800637f   Thumb Code    66  bsp_gy30.o(.text)
+    GY30_IIC_SendByte                        0x080063c1   Thumb Code   164  bsp_gy30.o(.text)
+    GY30_IIC_RcvByte                         0x08006465   Thumb Code    96  bsp_gy30.o(.text)
+    Single_Write_BH1750                      0x080064c5   Thumb Code    26  bsp_gy30.o(.text)
+    Single_Read_BH1750                       0x080064df   Thumb Code    48  bsp_gy30.o(.text)
+    Multiple_Read_BH1750                     0x0800650f   Thumb Code    52  bsp_gy30.o(.text)
+    bsp_BH1750_Init                          0x08006543   Thumb Code    98  bsp_gy30.o(.text)
+    Updata_BH1750                            0x080065a5   Thumb Code    96  bsp_gy30.o(.text)
+    UART2_DMA_Config                         0x08006645   Thumb Code   194  bsp_usart2.o(.text)
+    UART2_Config                             0x08006707   Thumb Code   170  bsp_usart2.o(.text)
+    Uart2_Start_DMA_Tx                       0x080067b1   Thumb Code    26  bsp_usart2.o(.text)
+    DMA1_Channel7_IRQHandler                 0x080067cb   Thumb Code    36  bsp_usart2.o(.text)
+    USART2_IRQHandler                        0x080067ef   Thumb Code   158  bsp_usart2.o(.text)
+    Uart2_DMA_SendString                     0x0800688d   Thumb Code    52  bsp_usart2.o(.text)
+    bsp_PMS_Init                             0x080068c1   Thumb Code    10  bsp_usart2.o(.text)
+    bsp_BME280_Init                          0x080068f1   Thumb Code    90  bsp_bme280.o(.text)
+    BME280_IIC_Start                         0x0800694b   Thumb Code    68  bsp_bme280.o(.text)
+    BME280_IIC_Stop                          0x0800698f   Thumb Code    62  bsp_bme280.o(.text)
+    BME280_IIC_Wait_Ack                      0x080069cd   Thumb Code    86  bsp_bme280.o(.text)
+    BME280_IIC_Ack                           0x08006a23   Thumb Code    66  bsp_bme280.o(.text)
+    BME280_IIC_NAck                          0x08006a65   Thumb Code    66  bsp_bme280.o(.text)
+    BME280_IIC_Send_Byte                     0x08006aa7   Thumb Code    90  bsp_bme280.o(.text)
+    BME280_IIC_Read_Byte                     0x08006b01   Thumb Code    98  bsp_bme280.o(.text)
+    BME280_Write_Byte                        0x08006b63   Thumb Code    76  bsp_bme280.o(.text)
+    BME280_Read_Byte                         0x08006baf   Thumb Code    72  bsp_bme280.o(.text)
+    BME280_Read_Len                          0x08006bf7   Thumb Code   116  bsp_bme280.o(.text)
+    readTrim                                 0x08006c6b   Thumb Code   358  bsp_bme280.o(.text)
+    BME280_Init                              0x08006dd1   Thumb Code    54  bsp_bme280.o(.text)
+    BME280_Getdata                           0x08007241   Thumb Code   144  bsp_bme280.o(.text)
+    pvPortMalloc                             0x080073df   Thumb Code   254  heap_4.o(.text)
+    vPortFree                                0x080074dd   Thumb Code   112  heap_4.o(.text)
+    xPortGetFreeHeapSize                     0x0800754d   Thumb Code     6  heap_4.o(.text)
+    xPortGetMinimumEverFreeHeapSize          0x08007553   Thumb Code     6  heap_4.o(.text)
+    vPortInitialiseBlocks                    0x08007559   Thumb Code     2  heap_4.o(.text)
+    pxPortInitialiseStack                    0x08007595   Thumb Code    26  port.o(.text)
+    vPortSetupTimerInterrupt                 0x080075af   Thumb Code    14  port.o(.text)
+    xPortStartScheduler                      0x080075bd   Thumb Code   140  port.o(.text)
+    vPortEndScheduler                        0x08007649   Thumb Code    30  port.o(.text)
+    vPortYield                               0x08007667   Thumb Code    20  port.o(.text)
+    vPortEnterCritical                       0x0800767b   Thumb Code    60  port.o(.text)
+    vPortExitCritical                        0x080076b7   Thumb Code    40  port.o(.text)
+    SysTick_Handler                          0x080076df   Thumb Code    30  port.o(.text)
+    vPortValidateInterruptPriority           0x080076fd   Thumb Code    80  port.o(.text)
+    xCoRoutineCreate                         0x080077a3   Thumb Code   126  croutine.o(.text)
+    vCoRoutineAddToDelayedList               0x08007821   Thumb Code    82  croutine.o(.text)
+    vCoRoutineSchedule                       0x08007983   Thumb Code   122  croutine.o(.text)
+    xCoRoutineRemoveFromEventList            0x080079fd   Thumb Code    48  croutine.o(.text)
+    vListInitialise                          0x08007a59   Thumb Code    26  list.o(.text)
+    vListInitialiseItem                      0x08007a73   Thumb Code     6  list.o(.text)
+    vListInsertEnd                           0x08007a79   Thumb Code    24  list.o(.text)
+    vListInsert                              0x08007a91   Thumb Code    52  list.o(.text)
+    uxListRemove                             0x08007ac5   Thumb Code    40  list.o(.text)
+    xQueueGenericReset                       0x08007aed   Thumb Code   120  queue.o(.text)
+    xQueueGenericCreate                      0x08007b65   Thumb Code   106  queue.o(.text)
+    xQueueGenericSend                        0x08007cd9   Thumb Code   296  queue.o(.text)
+    xQueueGenericSendFromISR                 0x08007e01   Thumb Code   172  queue.o(.text)
+    xQueueGiveFromISR                        0x08007ead   Thumb Code   148  queue.o(.text)
+    xQueueGenericReceive                     0x08007f85   Thumb Code   290  queue.o(.text)
+    xQueueReceiveFromISR                     0x080080a7   Thumb Code   136  queue.o(.text)
+    xQueuePeekFromISR                        0x0800812f   Thumb Code   110  queue.o(.text)
+    uxQueueMessagesWaiting                   0x0800819d   Thumb Code    28  queue.o(.text)
+    uxQueueSpacesAvailable                   0x080081b9   Thumb Code    34  queue.o(.text)
+    uxQueueMessagesWaitingFromISR            0x080081db   Thumb Code    20  queue.o(.text)
+    vQueueDelete                             0x080081ef   Thumb Code    24  queue.o(.text)
+    uxQueueGetQueueNumber                    0x08008207   Thumb Code     6  queue.o(.text)
+    vQueueSetQueueNumber                     0x0800820d   Thumb Code     4  queue.o(.text)
+    ucQueueGetQueueType                      0x08008211   Thumb Code     8  queue.o(.text)
+    xQueueIsQueueEmptyFromISR                0x08008219   Thumb Code    28  queue.o(.text)
+    xQueueIsQueueFullFromISR                 0x08008235   Thumb Code    32  queue.o(.text)
+    xQueueCRSend                             0x08008255   Thumb Code   130  queue.o(.text)
+    xQueueCRReceive                          0x080082d7   Thumb Code   148  queue.o(.text)
+    xQueueCRSendFromISR                      0x0800836b   Thumb Code    64  queue.o(.text)
+    xQueueCRReceiveFromISR                   0x080083ab   Thumb Code    94  queue.o(.text)
+    xTaskGenericCreate                       0x080084ef   Thumb Code   288  tasks.o(.text)
+    vTaskDelete                              0x08008639   Thumb Code   160  tasks.o(.text)
+    xTaskIncrementTick                       0x080086d9   Thumb Code   272  tasks.o(.text)
+    xTaskResumeAll                           0x080087e9   Thumb Code   282  tasks.o(.text)
+    vTaskSuspendAll                          0x08008941   Thumb Code    12  tasks.o(.text)
+    vTaskDelayUntil                          0x0800894d   Thumb Code   176  tasks.o(.text)
+    vTaskDelay                               0x080089fd   Thumb Code    94  tasks.o(.text)
+    uxTaskPriorityGet                        0x08008a5b   Thumb Code    30  tasks.o(.text)
+    uxTaskPriorityGetFromISR                 0x08008a79   Thumb Code    42  tasks.o(.text)
+    vTaskPrioritySet                         0x08008aa3   Thumb Code   224  tasks.o(.text)
+    vTaskSwitchContext                       0x08008b83   Thumb Code   158  tasks.o(.text)
+    vTaskSuspend                             0x08008c21   Thumb Code   232  tasks.o(.text)
+    vTaskResume                              0x08008d4d   Thumb Code   104  tasks.o(.text)
+    xTaskResumeFromISR                       0x08008db5   Thumb Code   126  tasks.o(.text)
+    vTaskStartScheduler                      0x08008eaf   Thumb Code    74  tasks.o(.text)
+    vTaskEndScheduler                        0x08008ef9   Thumb Code    18  tasks.o(.text)
+    xTaskGetTickCount                        0x08008f0b   Thumb Code     6  tasks.o(.text)
+    xTaskGetTickCountFromISR                 0x08008f11   Thumb Code    16  tasks.o(.text)
+    uxTaskGetNumberOfTasks                   0x08008f21   Thumb Code     6  tasks.o(.text)
+    uxTaskGetSystemState                     0x08008fed   Thumb Code   208  tasks.o(.text)
+    vTaskPlaceOnEventList                    0x080090bd   Thumb Code    94  tasks.o(.text)
+    vTaskPlaceOnUnorderedEventList           0x0800911b   Thumb Code   132  tasks.o(.text)
+    xTaskRemoveFromEventList                 0x0800919f   Thumb Code   114  tasks.o(.text)
+    xTaskRemoveFromUnorderedEventList        0x08009211   Thumb Code   126  tasks.o(.text)
+    vTaskSetTimeOutState                     0x0800928f   Thumb Code    28  tasks.o(.text)
+    xTaskCheckForTimeOut                     0x080092ab   Thumb Code   108  tasks.o(.text)
+    vTaskMissedYield                         0x08009317   Thumb Code     8  tasks.o(.text)
+    uxTaskGetTaskNumber                      0x0800931f   Thumb Code    14  tasks.o(.text)
+    vTaskSetTaskNumber                       0x0800932d   Thumb Code     8  tasks.o(.text)
+    vTaskList                                0x0800935f   Thumb Code   180  tasks.o(.text)
+    vTaskGetRunTimeStats                     0x08009413   Thumb Code   242  tasks.o(.text)
+    uxTaskResetEventItemValue                0x08009505   Thumb Code    24  tasks.o(.text)
+    ulTaskNotifyTake                         0x0800951d   Thumb Code   162  tasks.o(.text)
+    xTaskNotifyWait                          0x080095bf   Thumb Code   196  tasks.o(.text)
+    xTaskGenericNotify                       0x08009683   Thumb Code   202  tasks.o(.text)
+    xTaskGenericNotifyFromISR                0x0800974d   Thumb Code   240  tasks.o(.text)
+    vTaskNotifyGiveFromISR                   0x0800983d   Thumb Code   158  tasks.o(.text)
+    xTaskNotifyStateClear                    0x080098db   Thumb Code    78  tasks.o(.text)
+    vTaskKey                                 0x08009929   Thumb Code    40  keytask.o(.text)
+    vTaskLed                                 0x08009965   Thumb Code    26  ledtask.o(.text)
+    vTaskDisplay                             0x08009989   Thumb Code    34  displaytask.o(.text)
+    setShow_ui                               0x080099ab   Thumb Code    14  displaytask.o(.text)
+    DisplayInit                              0x080099b9   Thumb Code     8  displaytask.o(.text)
+    Show_Para_Con                            0x080099c1   Thumb Code    72  displaytask.o(.text)
+    vTaskEnvironment                         0x08009a0f   Thumb Code    22  environmenttask.o(.text)
+    vTaskClock                               0x08009a29   Thumb Code    16  clocktask.o(.text)
+    vTaskLight                               0x08009a3d   Thumb Code    22  lighttask.o(.text)
+    UpdataPms                                0x08009a59   Thumb Code    34  pmstask.o(.text)
+    vTaskPms                                 0x08009a7b   Thumb Code    30  pmstask.o(.text)
+    vTaskBme                                 0x08009aa3   Thumb Code    20  bmetask.o(.text)
+    Main_uiconfigParamInit                   0x08009abd   Thumb Code    88  main_ui.o(.text)
+    Main_ZUI                                 0x08009b15   Thumb Code  1644  main_ui.o(.text)
+    Main_uictrl                              0x0800a1ad   Thumb Code   616  main_ui.o(.text)
+    __aeabi_uldivmod                         0x0800a421   Thumb Code    98  uldiv.o(.text)
+    __aeabi_ldivmod                          0x0800a483   Thumb Code    98  ldiv.o(.text)
+    __aeabi_memcpy                           0x0800a4e5   Thumb Code    36  memcpya.o(.text)
+    __aeabi_memcpy4                          0x0800a4e5   Thumb Code     0  memcpya.o(.text)
+    __aeabi_memcpy8                          0x0800a4e5   Thumb Code     0  memcpya.o(.text)
+    __aeabi_memset                           0x0800a509   Thumb Code    14  memseta.o(.text)
+    __aeabi_memset4                          0x0800a509   Thumb Code     0  memseta.o(.text)
+    __aeabi_memset8                          0x0800a509   Thumb Code     0  memseta.o(.text)
+    __aeabi_memclr                           0x0800a517   Thumb Code     4  memseta.o(.text)
+    __aeabi_memclr4                          0x0800a517   Thumb Code     0  memseta.o(.text)
+    __aeabi_memclr8                          0x0800a517   Thumb Code     0  memseta.o(.text)
+    _memset$wrapper                          0x0800a51b   Thumb Code    18  memseta.o(.text)
+    strlen                                   0x0800a52d   Thumb Code    14  strlen.o(.text)
+    strcpy                                   0x0800a53b   Thumb Code    18  strcpy.o(.text)
+    __aeabi_fadd                             0x0800a54d   Thumb Code   164  fadd.o(.text)
+    __aeabi_fsub                             0x0800a5f1   Thumb Code     6  fadd.o(.text)
+    __aeabi_frsub                            0x0800a5f7   Thumb Code     6  fadd.o(.text)
+    __aeabi_fmul                             0x0800a5fd   Thumb Code   100  fmul.o(.text)
+    __aeabi_fdiv                             0x0800a661   Thumb Code   124  fdiv.o(.text)
+    __aeabi_dadd                             0x0800a6dd   Thumb Code   322  dadd.o(.text)
+    __aeabi_dsub                             0x0800a81f   Thumb Code     6  dadd.o(.text)
+    __aeabi_drsub                            0x0800a825   Thumb Code     6  dadd.o(.text)
+    __aeabi_dmul                             0x0800a82b   Thumb Code   228  dmul.o(.text)
+    __aeabi_ddiv                             0x0800a90f   Thumb Code   222  ddiv.o(.text)
+    __aeabi_i2f                              0x0800a9ed   Thumb Code    18  fflti.o(.text)
+    __aeabi_ui2f                             0x0800a9ff   Thumb Code    10  ffltui.o(.text)
+    __aeabi_i2d                              0x0800aa09   Thumb Code    34  dflti.o(.text)
+    __aeabi_ui2d                             0x0800aa2b   Thumb Code    26  dfltui.o(.text)
+    __aeabi_f2iz                             0x0800aa45   Thumb Code    50  ffixi.o(.text)
+    __aeabi_f2d                              0x0800aa77   Thumb Code    38  f2d.o(.text)
+    __aeabi_cdcmpeq                          0x0800aa9d   Thumb Code     0  cdcmple.o(.text)
+    __aeabi_cdcmple                          0x0800aa9d   Thumb Code    48  cdcmple.o(.text)
+    __aeabi_d2f                              0x0800aacd   Thumb Code    56  d2f.o(.text)
+    __aeabi_cfcmpeq                          0x0800ab05   Thumb Code     0  cfcmple.o(.text)
+    __aeabi_cfcmple                          0x0800ab05   Thumb Code    20  cfcmple.o(.text)
+    __aeabi_cfrcmple                         0x0800ab19   Thumb Code    20  cfrcmple.o(.text)
+    __aeabi_uidiv                            0x0800ab2d   Thumb Code     0  uidiv.o(.text)
+    __aeabi_uidivmod                         0x0800ab2d   Thumb Code    44  uidiv.o(.text)
+    __aeabi_llsl                             0x0800ab59   Thumb Code    30  llshl.o(.text)
+    _ll_shift_l                              0x0800ab59   Thumb Code     0  llshl.o(.text)
+    __aeabi_llsr                             0x0800ab77   Thumb Code    32  llushr.o(.text)
+    _ll_ushift_r                             0x0800ab77   Thumb Code     0  llushr.o(.text)
+    __aeabi_lasr                             0x0800ab97   Thumb Code    36  llsshr.o(.text)
+    _ll_sshift_r                             0x0800ab97   Thumb Code     0  llsshr.o(.text)
+    __I$use$fp                               0x0800abbb   Thumb Code     0  iusefp.o(.text)
+    _float_round                             0x0800abbb   Thumb Code    18  fepilogue.o(.text)
+    _float_epilogue                          0x0800abcd   Thumb Code    92  fepilogue.o(.text)
+    _double_round                            0x0800ac29   Thumb Code    30  depilogue.o(.text)
+    _double_epilogue                         0x0800ac47   Thumb Code   156  depilogue.o(.text)
+    __ARM_scalbn                             0x0800ace3   Thumb Code    46  dscalb.o(.text)
+    scalbn                                   0x0800ace3   Thumb Code     0  dscalb.o(.text)
+    __aeabi_cdrcmple                         0x0800ad11   Thumb Code    48  cdrcmple.o(.text)
+    __scatterload                            0x0800ad41   Thumb Code    28  init.o(.text)
+    __scatterload_rt2                        0x0800ad41   Thumb Code     0  init.o(.text)
+    _dsqrt                                   0x0800ad65   Thumb Code   162  dsqrt.o(.text)
+    __decompress                             0x0800ae07   Thumb Code     0  __dczerorl2.o(.text)
+    __decompress1                            0x0800ae07   Thumb Code    86  __dczerorl2.o(.text)
+    __0sprintf$3                             0x0800ae5d   Thumb Code    34  printf3.o(i.__0sprintf$3)
+    __1sprintf$3                             0x0800ae5d   Thumb Code     0  printf3.o(i.__0sprintf$3)
+    __2sprintf                               0x0800ae5d   Thumb Code     0  printf3.o(i.__0sprintf$3)
+    __ARM_fpclassify                         0x0800ae85   Thumb Code    40  fpclassify.o(i.__ARM_fpclassify)
+    __kernel_poly                            0x0800aead   Thumb Code   170  poly.o(i.__kernel_poly)
+    __mathlib_dbl_divzero                    0x0800af59   Thumb Code    12  dunder.o(i.__mathlib_dbl_divzero)
+    __mathlib_dbl_infnan2                    0x0800af69   Thumb Code     4  dunder.o(i.__mathlib_dbl_infnan2)
+    __mathlib_dbl_invalid                    0x0800af6d   Thumb Code    12  dunder.o(i.__mathlib_dbl_invalid)
+    __mathlib_dbl_overflow                   0x0800af79   Thumb Code    14  dunder.o(i.__mathlib_dbl_overflow)
+    __mathlib_dbl_underflow                  0x0800af89   Thumb Code    10  dunder.o(i.__mathlib_dbl_underflow)
+    __scatterload_copy                       0x0800af99   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x0800afa7   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x0800afa9   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    __set_errno                              0x0800afb9   Thumb Code     6  errno.o(i.__set_errno)
+    pow                                      0x0800b189   Thumb Code  2478  pow.o(i.pow)
+    sqrt                                     0x0800bb41   Thumb Code    76  sqrt.o(i.sqrt)
+    F6x8                                     0x0800bb8c   Data         552  bsp_oled.o(.constdata)
+    F8X16                                    0x0800bdb4   Data        1520  bsp_oled.o(.constdata)
+    F16X32                                   0x0800c3a4   Data         896  bsp_oled.o(.constdata)
+    Hzk                                      0x0800c724   Data        1024  bsp_oled.o(.constdata)
+    UI_NOSIGNAL8X8                           0x0800cb24   Data           8  bmp.o(.constdata)
+    UI_ASIGNAL8X8                            0x0800cb2c   Data           8  bmp.o(.constdata)
+    __mathlib_zero                           0x0800cbc0   Data           8  qnan.o(.constdata)
+    Region$$Table$$Base                      0x0800cbc8   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x0800cbe8   Number         0  anon$$obj.o(Region$$Table)
     SystemCoreClock                          0x20000000   Data           4  system_stm32f10x.o(.data)
     AHBPrescTable                            0x20000004   Data          16  system_stm32f10x.o(.data)
     xHandleTaskDisplay                       0x20000038   Data           4  main.o(.data)
@@ -1719,37 +1730,39 @@ Image Symbol Table
     xHandleTaskClock                         0x20000040   Data           4  main.o(.data)
     xHandleTaskLight                         0x20000044   Data           4  main.o(.data)
     xHandleTaskPms                           0x20000048   Data           4  main.o(.data)
-    xQueue_uart1Rx                           0x2000004c   Data           4  main.o(.data)
-    xQueue_uart1Tx                           0x20000050   Data           4  main.o(.data)
-    xQueue_uart2Rx                           0x20000054   Data           4  main.o(.data)
-    ulHighFrequencyTimerTicks                0x20000058   Data           4  sysinfotest.o(.data)
-    KEY_RetValue                             0x20000060   Data           1  bsp_key.o(.data)
-    Key_PU                                   0x20000064   Data          20  bsp_key.o(.data)
-    Key_PD                                   0x20000078   Data          20  bsp_key.o(.data)
-    Key_PL                                   0x2000008c   Data          20  bsp_key.o(.data)
-    Key_PR                                   0x200000a0   Data          20  bsp_key.o(.data)
-    Key_PM                                   0x200000b4   Data          20  bsp_key.o(.data)
-    LedA                                     0x200000c8   Data          24  bsp_led.o(.data)
-    LedB                                     0x200000e0   Data          24  bsp_led.o(.data)
-    Fmq                                      0x200000f8   Data          24  bsp_led.o(.data)
-    StopCondition                            0x20000118   Data           4  bsp_sdio_sdcard.o(.data)
-    TransferError                            0x2000011c   Data           1  bsp_sdio_sdcard.o(.data)
-    TransferEnd                              0x20000120   Data           4  bsp_sdio_sdcard.o(.data)
-    DMAEndOfTransfer                         0x20000124   Data           4  bsp_sdio_sdcard.o(.data)
-    Oled_Colour                              0x2000012b   Data           1  bsp_oled.o(.data)
-    BH_Buf                                   0x2000012c   Data           8  bsp_gy30.o(.data)
-    pxCurrentCoRoutine                       0x20000184   Data           4  croutine.o(.data)
-    pxCurrentTCB                             0x20000198   Data           4  tasks.o(.data)
-    Huimiture                                0x200001dc   Data           8  environmenttask.o(.data)
-    Light                                    0x200001e4   Data           8  lighttask.o(.data)
-    Pms                                      0x200001ec   Data           4  pmstask.o(.data)
+    xHandleTaskBme                           0x2000004c   Data           4  main.o(.data)
+    xQueue_uart1Rx                           0x20000050   Data           4  main.o(.data)
+    xQueue_uart1Tx                           0x20000054   Data           4  main.o(.data)
+    xQueue_uart2Rx                           0x20000058   Data           4  main.o(.data)
+    ulHighFrequencyTimerTicks                0x2000005c   Data           4  sysinfotest.o(.data)
+    KEY_RetValue                             0x20000064   Data           1  bsp_key.o(.data)
+    Key_PU                                   0x20000068   Data          20  bsp_key.o(.data)
+    Key_PD                                   0x2000007c   Data          20  bsp_key.o(.data)
+    Key_PL                                   0x20000090   Data          20  bsp_key.o(.data)
+    Key_PR                                   0x200000a4   Data          20  bsp_key.o(.data)
+    Key_PM                                   0x200000b8   Data          20  bsp_key.o(.data)
+    LedA                                     0x200000cc   Data          24  bsp_led.o(.data)
+    LedB                                     0x200000e4   Data          24  bsp_led.o(.data)
+    Fmq                                      0x200000fc   Data          24  bsp_led.o(.data)
+    StopCondition                            0x2000011c   Data           4  bsp_sdio_sdcard.o(.data)
+    TransferError                            0x20000120   Data           1  bsp_sdio_sdcard.o(.data)
+    TransferEnd                              0x20000124   Data           4  bsp_sdio_sdcard.o(.data)
+    DMAEndOfTransfer                         0x20000128   Data           4  bsp_sdio_sdcard.o(.data)
+    Oled_Colour                              0x2000012f   Data           1  bsp_oled.o(.data)
+    BH_Buf                                   0x20000130   Data           8  bsp_gy30.o(.data)
+    pxCurrentCoRoutine                       0x20000188   Data           4  croutine.o(.data)
+    pxCurrentTCB                             0x2000019c   Data           4  tasks.o(.data)
+    Show_ui                                  0x200001dc   Data           1  displaytask.o(.data)
+    Huimiture                                0x200001e0   Data           8  environmenttask.o(.data)
+    Light                                    0x200001e8   Data           8  lighttask.o(.data)
+    Pms                                      0x200001f0   Data           4  pmstask.o(.data)
     SDCardInfo                               0x20000228   Data          88  bsp_sdio_sdcard.o(.bss)
     SDIO_InitStructure                       0x20000280   Data          24  bsp_sdio_sdcard.o(.bss)
     SDIO_CmdInitStructure                    0x20000298   Data          20  bsp_sdio_sdcard.o(.bss)
     SDIO_DataInitStructure                   0x200002ac   Data          24  bsp_sdio_sdcard.o(.bss)
     bme280Cal                                0x2000078c   Data          40  bsp_bme280.o(.bss)
-    Bme                                      0x20006ee8   Data          16  environmenttask.o(.bss)
-    ClockA                                   0x20006ef8   Data          36  clocktask.o(.bss)
+    ClockA                                   0x20006ee8   Data          36  clocktask.o(.bss)
+    Bme                                      0x20006f0c   Data          16  bmetask.o(.bss)
     Main_uiconfigParam                       0x20006f1c   Data          80  main_ui.o(.bss)
     __initial_sp                             0x20007370   Data           0  startup_stm32f10x_hd.o(STACK)
 
@@ -1761,23 +1774,23 @@ Memory Map of the image
 
   Image Entry point : 0x08000131
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x0000c9c4, Max: 0x00040000, ABSOLUTE, COMPRESSED[0x0000c82c])
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x0000cde0, Max: 0x00040000, ABSOLUTE, COMPRESSED[0x0000cc40])
 
-    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x0000c7d0, Max: 0x00040000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x0000cbe8, Max: 0x00040000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x08000000   0x00000130   Data   RO          398    RESET               startup_stm32f10x_hd.o
-    0x08000130   0x00000000   Code   RO         1261  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x08000130   0x00000004   Code   RO         1598    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x08000134   0x00000004   Code   RO         1601    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x08000138   0x00000000   Code   RO         1603    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x08000138   0x00000000   Code   RO         1605    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x08000138   0x00000008   Code   RO         1606    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x08000140   0x00000000   Code   RO         1608    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x08000140   0x00000000   Code   RO         1610    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x08000140   0x00000004   Code   RO         1599    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
-    0x08000144   0x000000a2   Code   RO          921    .emb_text           port.o
+    0x08000130   0x00000000   Code   RO         1291  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x08000130   0x00000004   Code   RO         1628    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x08000134   0x00000004   Code   RO         1631    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x08000138   0x00000000   Code   RO         1633    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x08000138   0x00000000   Code   RO         1635    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x08000138   0x00000008   Code   RO         1636    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x08000140   0x00000000   Code   RO         1638    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x08000140   0x00000000   Code   RO         1640    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x08000140   0x00000004   Code   RO         1629    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x08000144   0x000000a2   Code   RO          926    .emb_text           port.o
     0x080001e6   0x00000002   PAD
     0x080001e8   0x000001e0   Code   RO           17    .text               system_stm32f10x.o
     0x080003c8   0x000000dc   Code   RO          114    .text               misc.o
@@ -1790,136 +1803,138 @@ Memory Map of the image
     0x08001de8   0x00000408   Code   RO          372    .text               stm32f10x_usart.o
     0x080021f0   0x00000024   Code   RO          399    .text               startup_stm32f10x_hd.o
     0x08002214   0x00000014   Code   RO          403    .text               stm32f10x_it.o
-    0x08002228   0x000001ac   Code   RO          418    .text               main.o
-    0x080023d4   0x0000003c   Code   RO          579    .text               sysinfotest.o
-    0x08002410   0x00000008   Code   RO          613    .text               gather.o
-    0x08002418   0x0000007c   Code   RO          650    .text               bsp_dwt_delay.o
-    0x08002494   0x00000034   Code   RO          664    .text               bsp.o
-    0x080024c8   0x00000728   Code   RO          694    .text               bsp_tim_pwm.o
-    0x08002bf0   0x0000009c   Code   RO          709    .text               bsp_led.o
-    0x08002c8c   0x000019c4   Code   RO          728    .text               bsp_sdio_sdcard.o
-    0x08004650   0x000003a0   Code   RO          761    .text               bsp_usart1.o
-    0x080049f0   0x00000c64   Code   RO          776    .text               bsp_oled.o
-    0x08005654   0x00000474   Code   RO          799    .text               bsp_sht3x.o
-    0x08005ac8   0x000005ac   Code   RO          818    .text               bsp_ds3231.o
-    0x08006074   0x00000410   Code   RO          837    .text               bsp_gy30.o
-    0x08006484   0x000002ec   Code   RO          859    .text               bsp_usart2.o
-    0x08006770   0x00000a2c   Code   RO          881    .text               bsp_bme280.o
-    0x0800719c   0x00000258   Code   RO          897    .text               heap_4.o
-    0x080073f4   0x000001f4   Code   RO          922    .text               port.o
-    0x080075e8   0x000002f0   Code   RO          945    .text               croutine.o
-    0x080078d8   0x00000094   Code   RO          982    .text               list.o
-    0x0800796c   0x0000091c   Code   RO          994    .text               queue.o
-    0x08008288   0x00001520   Code   RO         1009    .text               tasks.o
-    0x080097a8   0x00000024   Code   RO         1050    .text               ledtask.o
-    0x080097cc   0x00000080   Code   RO         1110    .text               displaytask.o
-    0x0800984c   0x00000028   Code   RO         1124    .text               environmenttask.o
-    0x08009874   0x00000014   Code   RO         1143    .text               clocktask.o
-    0x08009888   0x0000001c   Code   RO         1161    .text               lighttask.o
-    0x080098a4   0x00000048   Code   RO         1179    .text               pmstask.o
-    0x080098ec   0x0000071c   Code   RO         1221    .text               main_ui.o
-    0x0800a008   0x00000062   Code   RO         1264    .text               mc_w.l(uldiv.o)
-    0x0800a06a   0x00000062   Code   RO         1266    .text               mc_w.l(ldiv.o)
-    0x0800a0cc   0x00000024   Code   RO         1268    .text               mc_w.l(memcpya.o)
-    0x0800a0f0   0x00000024   Code   RO         1270    .text               mc_w.l(memseta.o)
-    0x0800a114   0x0000000e   Code   RO         1272    .text               mc_w.l(strlen.o)
-    0x0800a122   0x00000012   Code   RO         1274    .text               mc_w.l(strcpy.o)
-    0x0800a134   0x000000b0   Code   RO         1539    .text               mf_w.l(fadd.o)
-    0x0800a1e4   0x00000064   Code   RO         1541    .text               mf_w.l(fmul.o)
-    0x0800a248   0x0000007c   Code   RO         1543    .text               mf_w.l(fdiv.o)
-    0x0800a2c4   0x0000014e   Code   RO         1545    .text               mf_w.l(dadd.o)
-    0x0800a412   0x000000e4   Code   RO         1547    .text               mf_w.l(dmul.o)
-    0x0800a4f6   0x000000de   Code   RO         1549    .text               mf_w.l(ddiv.o)
-    0x0800a5d4   0x00000012   Code   RO         1551    .text               mf_w.l(fflti.o)
-    0x0800a5e6   0x0000000a   Code   RO         1553    .text               mf_w.l(ffltui.o)
-    0x0800a5f0   0x00000022   Code   RO         1555    .text               mf_w.l(dflti.o)
-    0x0800a612   0x0000001a   Code   RO         1557    .text               mf_w.l(dfltui.o)
-    0x0800a62c   0x00000032   Code   RO         1559    .text               mf_w.l(ffixi.o)
-    0x0800a65e   0x00000026   Code   RO         1561    .text               mf_w.l(f2d.o)
-    0x0800a684   0x00000030   Code   RO         1563    .text               mf_w.l(cdcmple.o)
-    0x0800a6b4   0x00000038   Code   RO         1565    .text               mf_w.l(d2f.o)
-    0x0800a6ec   0x00000014   Code   RO         1567    .text               mf_w.l(cfcmple.o)
-    0x0800a700   0x00000014   Code   RO         1569    .text               mf_w.l(cfrcmple.o)
-    0x0800a714   0x0000002c   Code   RO         1613    .text               mc_w.l(uidiv.o)
-    0x0800a740   0x0000001e   Code   RO         1615    .text               mc_w.l(llshl.o)
-    0x0800a75e   0x00000020   Code   RO         1617    .text               mc_w.l(llushr.o)
-    0x0800a77e   0x00000024   Code   RO         1619    .text               mc_w.l(llsshr.o)
-    0x0800a7a2   0x00000000   Code   RO         1628    .text               mc_w.l(iusefp.o)
-    0x0800a7a2   0x0000006e   Code   RO         1629    .text               mf_w.l(fepilogue.o)
-    0x0800a810   0x000000ba   Code   RO         1631    .text               mf_w.l(depilogue.o)
-    0x0800a8ca   0x0000002e   Code   RO         1633    .text               mf_w.l(dscalb.o)
-    0x0800a8f8   0x00000030   Code   RO         1637    .text               mf_w.l(cdrcmple.o)
-    0x0800a928   0x00000024   Code   RO         1639    .text               mc_w.l(init.o)
-    0x0800a94c   0x000000a2   Code   RO         1641    .text               mf_w.l(dsqrt.o)
-    0x0800a9ee   0x00000056   Code   RO         1651    .text               mc_w.l(__dczerorl2.o)
-    0x0800aa44   0x00000028   Code   RO         1369    i.__0sprintf$3      mc_w.l(printf3.o)
-    0x0800aa6c   0x00000028   Code   RO         1585    i.__ARM_fpclassify  m_ws.l(fpclassify.o)
-    0x0800aa94   0x000000aa   Code   RO         1587    i.__kernel_poly     m_ws.l(poly.o)
-    0x0800ab3e   0x00000002   PAD
-    0x0800ab40   0x00000010   Code   RO         1571    i.__mathlib_dbl_divzero  m_ws.l(dunder.o)
-    0x0800ab50   0x00000004   Code   RO         1573    i.__mathlib_dbl_infnan2  m_ws.l(dunder.o)
-    0x0800ab54   0x0000000c   Code   RO         1574    i.__mathlib_dbl_invalid  m_ws.l(dunder.o)
-    0x0800ab60   0x0000000e   Code   RO         1575    i.__mathlib_dbl_overflow  m_ws.l(dunder.o)
-    0x0800ab6e   0x00000002   PAD
-    0x0800ab70   0x00000010   Code   RO         1577    i.__mathlib_dbl_underflow  m_ws.l(dunder.o)
-    0x0800ab80   0x0000000e   Code   RO         1645    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x0800ab8e   0x00000002   Code   RO         1646    i.__scatterload_null  mc_w.l(handlers.o)
-    0x0800ab90   0x0000000e   Code   RO         1647    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x0800ab9e   0x00000002   PAD
-    0x0800aba0   0x0000000c   Code   RO         1623    i.__set_errno       mc_w.l(errno.o)
-    0x0800abac   0x000001b8   Code   RO         1374    i._printf_core      mc_w.l(printf3.o)
-    0x0800ad64   0x0000000a   Code   RO         1376    i._sputc            mc_w.l(printf3.o)
-    0x0800ad6e   0x00000002   PAD
-    0x0800ad70   0x000009b8   Code   RO         1252    i.pow               m_ws.l(pow.o)
-    0x0800b728   0x0000004c   Code   RO         1591    i.sqrt              m_ws.l(sqrt.o)
-    0x0800b774   0x00000f98   Data   RO          778    .constdata          bsp_oled.o
-    0x0800c70c   0x00000010   Data   RO         1239    .constdata          bmp.o
-    0x0800c71c   0x00000004   PAD
-    0x0800c720   0x00000088   Data   RO         1253    .constdata          m_ws.l(pow.o)
-    0x0800c7a8   0x00000008   Data   RO         1589    .constdata          m_ws.l(qnan.o)
-    0x0800c7b0   0x00000020   Data   RO         1643    Region$$Table       anon$$obj.o
+    0x08002228   0x0000020c   Code   RO          418    .text               main.o
+    0x08002434   0x0000003c   Code   RO          584    .text               sysinfotest.o
+    0x08002470   0x00000008   Code   RO          618    .text               gather.o
+    0x08002478   0x0000007c   Code   RO          655    .text               bsp_dwt_delay.o
+    0x080024f4   0x00000038   Code   RO          669    .text               bsp.o
+    0x0800252c   0x0000011c   Code   RO          681    .text               bsp_key.o
+    0x08002648   0x00000728   Code   RO          699    .text               bsp_tim_pwm.o
+    0x08002d70   0x0000009c   Code   RO          714    .text               bsp_led.o
+    0x08002e0c   0x000019c4   Code   RO          733    .text               bsp_sdio_sdcard.o
+    0x080047d0   0x000003a0   Code   RO          766    .text               bsp_usart1.o
+    0x08004b70   0x00000c64   Code   RO          781    .text               bsp_oled.o
+    0x080057d4   0x00000474   Code   RO          804    .text               bsp_sht3x.o
+    0x08005c48   0x000005ac   Code   RO          823    .text               bsp_ds3231.o
+    0x080061f4   0x00000410   Code   RO          842    .text               bsp_gy30.o
+    0x08006604   0x000002ec   Code   RO          864    .text               bsp_usart2.o
+    0x080068f0   0x00000a2c   Code   RO          886    .text               bsp_bme280.o
+    0x0800731c   0x00000258   Code   RO          902    .text               heap_4.o
+    0x08007574   0x000001f4   Code   RO          927    .text               port.o
+    0x08007768   0x000002f0   Code   RO          950    .text               croutine.o
+    0x08007a58   0x00000094   Code   RO          987    .text               list.o
+    0x08007aec   0x0000091c   Code   RO          999    .text               queue.o
+    0x08008408   0x00001520   Code   RO         1014    .text               tasks.o
+    0x08009928   0x0000003c   Code   RO         1043    .text               keytask.o
+    0x08009964   0x00000024   Code   RO         1055    .text               ledtask.o
+    0x08009988   0x00000084   Code   RO         1115    .text               displaytask.o
+    0x08009a0c   0x0000001c   Code   RO         1137    .text               environmenttask.o
+    0x08009a28   0x00000014   Code   RO         1155    .text               clocktask.o
+    0x08009a3c   0x0000001c   Code   RO         1173    .text               lighttask.o
+    0x08009a58   0x00000048   Code   RO         1191    .text               pmstask.o
+    0x08009aa0   0x0000001c   Code   RO         1209    .text               bmetask.o
+    0x08009abc   0x00000964   Code   RO         1251    .text               main_ui.o
+    0x0800a420   0x00000062   Code   RO         1294    .text               mc_w.l(uldiv.o)
+    0x0800a482   0x00000062   Code   RO         1296    .text               mc_w.l(ldiv.o)
+    0x0800a4e4   0x00000024   Code   RO         1298    .text               mc_w.l(memcpya.o)
+    0x0800a508   0x00000024   Code   RO         1300    .text               mc_w.l(memseta.o)
+    0x0800a52c   0x0000000e   Code   RO         1302    .text               mc_w.l(strlen.o)
+    0x0800a53a   0x00000012   Code   RO         1304    .text               mc_w.l(strcpy.o)
+    0x0800a54c   0x000000b0   Code   RO         1569    .text               mf_w.l(fadd.o)
+    0x0800a5fc   0x00000064   Code   RO         1571    .text               mf_w.l(fmul.o)
+    0x0800a660   0x0000007c   Code   RO         1573    .text               mf_w.l(fdiv.o)
+    0x0800a6dc   0x0000014e   Code   RO         1575    .text               mf_w.l(dadd.o)
+    0x0800a82a   0x000000e4   Code   RO         1577    .text               mf_w.l(dmul.o)
+    0x0800a90e   0x000000de   Code   RO         1579    .text               mf_w.l(ddiv.o)
+    0x0800a9ec   0x00000012   Code   RO         1581    .text               mf_w.l(fflti.o)
+    0x0800a9fe   0x0000000a   Code   RO         1583    .text               mf_w.l(ffltui.o)
+    0x0800aa08   0x00000022   Code   RO         1585    .text               mf_w.l(dflti.o)
+    0x0800aa2a   0x0000001a   Code   RO         1587    .text               mf_w.l(dfltui.o)
+    0x0800aa44   0x00000032   Code   RO         1589    .text               mf_w.l(ffixi.o)
+    0x0800aa76   0x00000026   Code   RO         1591    .text               mf_w.l(f2d.o)
+    0x0800aa9c   0x00000030   Code   RO         1593    .text               mf_w.l(cdcmple.o)
+    0x0800aacc   0x00000038   Code   RO         1595    .text               mf_w.l(d2f.o)
+    0x0800ab04   0x00000014   Code   RO         1597    .text               mf_w.l(cfcmple.o)
+    0x0800ab18   0x00000014   Code   RO         1599    .text               mf_w.l(cfrcmple.o)
+    0x0800ab2c   0x0000002c   Code   RO         1643    .text               mc_w.l(uidiv.o)
+    0x0800ab58   0x0000001e   Code   RO         1645    .text               mc_w.l(llshl.o)
+    0x0800ab76   0x00000020   Code   RO         1647    .text               mc_w.l(llushr.o)
+    0x0800ab96   0x00000024   Code   RO         1649    .text               mc_w.l(llsshr.o)
+    0x0800abba   0x00000000   Code   RO         1658    .text               mc_w.l(iusefp.o)
+    0x0800abba   0x0000006e   Code   RO         1659    .text               mf_w.l(fepilogue.o)
+    0x0800ac28   0x000000ba   Code   RO         1661    .text               mf_w.l(depilogue.o)
+    0x0800ace2   0x0000002e   Code   RO         1663    .text               mf_w.l(dscalb.o)
+    0x0800ad10   0x00000030   Code   RO         1667    .text               mf_w.l(cdrcmple.o)
+    0x0800ad40   0x00000024   Code   RO         1669    .text               mc_w.l(init.o)
+    0x0800ad64   0x000000a2   Code   RO         1671    .text               mf_w.l(dsqrt.o)
+    0x0800ae06   0x00000056   Code   RO         1681    .text               mc_w.l(__dczerorl2.o)
+    0x0800ae5c   0x00000028   Code   RO         1399    i.__0sprintf$3      mc_w.l(printf3.o)
+    0x0800ae84   0x00000028   Code   RO         1615    i.__ARM_fpclassify  m_ws.l(fpclassify.o)
+    0x0800aeac   0x000000aa   Code   RO         1617    i.__kernel_poly     m_ws.l(poly.o)
+    0x0800af56   0x00000002   PAD
+    0x0800af58   0x00000010   Code   RO         1601    i.__mathlib_dbl_divzero  m_ws.l(dunder.o)
+    0x0800af68   0x00000004   Code   RO         1603    i.__mathlib_dbl_infnan2  m_ws.l(dunder.o)
+    0x0800af6c   0x0000000c   Code   RO         1604    i.__mathlib_dbl_invalid  m_ws.l(dunder.o)
+    0x0800af78   0x0000000e   Code   RO         1605    i.__mathlib_dbl_overflow  m_ws.l(dunder.o)
+    0x0800af86   0x00000002   PAD
+    0x0800af88   0x00000010   Code   RO         1607    i.__mathlib_dbl_underflow  m_ws.l(dunder.o)
+    0x0800af98   0x0000000e   Code   RO         1675    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x0800afa6   0x00000002   Code   RO         1676    i.__scatterload_null  mc_w.l(handlers.o)
+    0x0800afa8   0x0000000e   Code   RO         1677    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x0800afb6   0x00000002   PAD
+    0x0800afb8   0x0000000c   Code   RO         1653    i.__set_errno       mc_w.l(errno.o)
+    0x0800afc4   0x000001b8   Code   RO         1404    i._printf_core      mc_w.l(printf3.o)
+    0x0800b17c   0x0000000a   Code   RO         1406    i._sputc            mc_w.l(printf3.o)
+    0x0800b186   0x00000002   PAD
+    0x0800b188   0x000009b8   Code   RO         1282    i.pow               m_ws.l(pow.o)
+    0x0800bb40   0x0000004c   Code   RO         1621    i.sqrt              m_ws.l(sqrt.o)
+    0x0800bb8c   0x00000f98   Data   RO          783    .constdata          bsp_oled.o
+    0x0800cb24   0x00000010   Data   RO         1269    .constdata          bmp.o
+    0x0800cb34   0x00000004   PAD
+    0x0800cb38   0x00000088   Data   RO         1283    .constdata          m_ws.l(pow.o)
+    0x0800cbc0   0x00000008   Data   RO         1619    .constdata          m_ws.l(qnan.o)
+    0x0800cbc8   0x00000020   Data   RO         1673    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x00007370, Max: 0x0000c000, ABSOLUTE, COMPRESSED[0x0000005c])
+    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x00007370, Max: 0x0000c000, ABSOLUTE, COMPRESSED[0x00000058])
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x20000000   0x00000014   Data   RW           18    .data               system_stm32f10x.o
     0x20000014   0x00000014   Data   RW          311    .data               stm32f10x_rcc.o
-    0x20000028   0x00000030   Data   RW          419    .data               main.o
-    0x20000058   0x00000004   Data   RW          580    .data               sysinfotest.o
-    0x2000005c   0x00000004   Data   RW          651    .data               bsp_dwt_delay.o
-    0x20000060   0x00000068   Data   RW          677    .data               bsp_key.o
-    0x200000c8   0x00000048   Data   RW          710    .data               bsp_led.o
-    0x20000110   0x00000018   Data   RW          730    .data               bsp_sdio_sdcard.o
-    0x20000128   0x00000003   Data   RW          763    .data               bsp_usart1.o
-    0x2000012b   0x00000001   Data   RW          779    .data               bsp_oled.o
-    0x2000012c   0x00000008   Data   RW          838    .data               bsp_gy30.o
-    0x20000134   0x00000003   Data   RW          861    .data               bsp_usart2.o
-    0x20000137   0x00000001   PAD
-    0x20000138   0x00000020   Data   RW          883    .data               bsp_bme280.o
-    0x20000158   0x00000018   Data   RW          899    .data               heap_4.o
-    0x20000170   0x0000000c   Data   RW          923    .data               port.o
-    0x2000017c   0x0000001c   Data   RW          947    .data               croutine.o
-    0x20000198   0x00000040   Data   RW         1011    .data               tasks.o
-    0x200001d8   0x00000001   Data   RW         1111    .data               displaytask.o
-    0x200001d9   0x00000003   PAD
-    0x200001dc   0x00000008   Data   RW         1126    .data               environmenttask.o
-    0x200001e4   0x00000008   Data   RW         1162    .data               lighttask.o
-    0x200001ec   0x00000004   Data   RW         1180    .data               pmstask.o
-    0x200001f0   0x00000004   Data   RW         1624    .data               mc_w.l(errno.o)
-    0x200001f4   0x00000004   PAD
-    0x200001f8   0x000000cc   Zero   RW          729    .bss                bsp_sdio_sdcard.o
-    0x200002c4   0x00000064   Zero   RW          762    .bss                bsp_usart1.o
-    0x20000328   0x00000400   Zero   RW          777    .bss                bsp_oled.o
-    0x20000728   0x00000064   Zero   RW          860    .bss                bsp_usart2.o
-    0x2000078c   0x0000003c   Zero   RW          882    .bss                bsp_bme280.o
-    0x200007c8   0x00006400   Zero   RW          898    .bss                heap_4.o
-    0x20006bc8   0x00000064   Zero   RW          946    .bss                croutine.o
-    0x20006c2c   0x000002bc   Zero   RW         1010    .bss                tasks.o
-    0x20006ee8   0x00000010   Zero   RW         1125    .bss                environmenttask.o
-    0x20006ef8   0x00000024   Zero   RW         1144    .bss                clocktask.o
-    0x20006f1c   0x00000050   Zero   RW         1222    .bss                main_ui.o
+    0x20000028   0x00000034   Data   RW          419    .data               main.o
+    0x2000005c   0x00000004   Data   RW          585    .data               sysinfotest.o
+    0x20000060   0x00000004   Data   RW          656    .data               bsp_dwt_delay.o
+    0x20000064   0x00000068   Data   RW          682    .data               bsp_key.o
+    0x200000cc   0x00000048   Data   RW          715    .data               bsp_led.o
+    0x20000114   0x00000018   Data   RW          735    .data               bsp_sdio_sdcard.o
+    0x2000012c   0x00000003   Data   RW          768    .data               bsp_usart1.o
+    0x2000012f   0x00000001   Data   RW          784    .data               bsp_oled.o
+    0x20000130   0x00000008   Data   RW          843    .data               bsp_gy30.o
+    0x20000138   0x00000003   Data   RW          866    .data               bsp_usart2.o
+    0x2000013b   0x00000001   PAD
+    0x2000013c   0x00000020   Data   RW          888    .data               bsp_bme280.o
+    0x2000015c   0x00000018   Data   RW          904    .data               heap_4.o
+    0x20000174   0x0000000c   Data   RW          928    .data               port.o
+    0x20000180   0x0000001c   Data   RW          952    .data               croutine.o
+    0x2000019c   0x00000040   Data   RW         1016    .data               tasks.o
+    0x200001dc   0x00000001   Data   RW         1116    .data               displaytask.o
+    0x200001dd   0x00000003   PAD
+    0x200001e0   0x00000008   Data   RW         1138    .data               environmenttask.o
+    0x200001e8   0x00000008   Data   RW         1174    .data               lighttask.o
+    0x200001f0   0x00000004   Data   RW         1192    .data               pmstask.o
+    0x200001f4   0x00000004   Data   RW         1654    .data               mc_w.l(errno.o)
+    0x200001f8   0x000000cc   Zero   RW          734    .bss                bsp_sdio_sdcard.o
+    0x200002c4   0x00000064   Zero   RW          767    .bss                bsp_usart1.o
+    0x20000328   0x00000400   Zero   RW          782    .bss                bsp_oled.o
+    0x20000728   0x00000064   Zero   RW          865    .bss                bsp_usart2.o
+    0x2000078c   0x0000003c   Zero   RW          887    .bss                bsp_bme280.o
+    0x200007c8   0x00006400   Zero   RW          903    .bss                heap_4.o
+    0x20006bc8   0x00000064   Zero   RW          951    .bss                croutine.o
+    0x20006c2c   0x000002bc   Zero   RW         1015    .bss                tasks.o
+    0x20006ee8   0x00000024   Zero   RW         1156    .bss                clocktask.o
+    0x20006f0c   0x00000010   Zero   RW         1210    .bss                bmetask.o
+    0x20006f1c   0x00000050   Zero   RW         1252    .bss                main_ui.o
     0x20006f6c   0x00000004   PAD
     0x20006f70   0x00000400   Zero   RW          396    STACK               startup_stm32f10x_hd.o
 
@@ -1931,32 +1946,34 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
+        28          6          0          0         16        729   bmetask.o
          0          0         16          0          0        567   bmp.o
-        52          6          0          0          0        459   bsp.o
+        56          6          0          0          0        463   bsp.o
       2604        128          0         32         60       6439   bsp_bme280.o
       1452         36          0          0          0       6154   bsp_ds3231.o
        124         20          0          4          0       1051   bsp_dwt_delay.o
       1040         20          0          8          0       5022   bsp_gy30.o
-         0          0          0        104          0       1354   bsp_key.o
+       284         26          0        104          0       2574   bsp_key.o
        156         12          0         72          0       2096   bsp_led.o
       3172         60       3992          1       1024       8627   bsp_oled.o
       6596        270          0         24        204      25115   bsp_sdio_sdcard.o
-      1140         54          0          0          0       4395   bsp_sht3x.o
+      1140         54          0          0          0       4347   bsp_sht3x.o
       1832        130          0          0          0       4720   bsp_tim_pwm.o
        928         38          0          3        100       3790   bsp_usart1.o
        748         38          0          3        100       2784   bsp_usart2.o
         20          4          0          0         36        674   clocktask.o
          0          0          0          0          0       4536   core_cm3.o
        752         44          0         28        100       5540   croutine.o
-       128          4          0          1          0       1560   displaytask.o
-        40         10          0          8         16        877   environmenttask.o
+       132          4          0          1          0       2278   displaytask.o
+        28          4          0          8          0        779   environmenttask.o
          8          0          0          0          0        437   gather.o
        600         26          0         24      25600       4656   heap_4.o
+        60         20          0          0          0        467   keytask.o
         36         10          0          0          0        451   ledtask.o
         28          6          0          8          0        677   lighttask.o
        148          0          0          0          0       1814   list.o
-       428        164          0         48          0      41964   main.o
-      1820        166          0          0         80       1795   main_ui.o
+       524        204          0         52          0      42069   main.o
+      2404        198          0          0         80       1923   main_ui.o
        220         22          0          0          0       1893   misc.o
         72          8          0          4          0       1191   pmstask.o
        662         40          0         12          0       4886   port.o
@@ -1974,7 +1991,7 @@ Image component sizes
       5408        334          0         64        700      20239   tasks.o
 
     ----------------------------------------------------------------------
-     40644       1920       4348        496      29048     506181   Object Totals
+     41692       2038       4348        500      29048     509406   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          4          0          4          4          4          0   (incl. Padding)
 
@@ -2035,8 +2052,8 @@ Image component sizes
        100          0          0          0          0         76   fmul.o
 
     ----------------------------------------------------------------------
-      6016        232        144          4          4       4004   Library Totals
-         8          0          0          0          4          0   (incl. Padding)
+      6016        232        144          4          0       4004   Library Totals
+         8          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -2047,7 +2064,7 @@ Image component sizes
       2056          0          0          0          0       1956   mf_w.l
 
     ----------------------------------------------------------------------
-      6016        232        144          4          4       4004   Library Totals
+      6016        232        144          4          0       4004   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -2056,15 +2073,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     46660       2152       4492        500      29052     504905   Grand Totals
-     46660       2152       4492         92      29052     504905   ELF Image Totals (compressed)
-     46660       2152       4492         92          0          0   ROM Totals
+     47708       2270       4492        504      29048     508026   Grand Totals
+     47708       2270       4492         88      29048     508026   ELF Image Totals (compressed)
+     47708       2270       4492         88          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                51152 (  49.95kB)
+    Total RO  Size (Code + RO Data)                52200 (  50.98kB)
     Total RW  Size (RW Data + ZI Data)             29552 (  28.86kB)
-    Total ROM Size (Code + RO Data + RW Data)      51244 (  50.04kB)
+    Total ROM Size (Code + RO Data + RW Data)      52288 (  51.06kB)
 
 ==============================================================================
 

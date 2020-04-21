@@ -73,3 +73,4 @@
 .\objects\bsp_tim_pwm.o: ..\TASK\inc\ClockTask.h
 .\objects\bsp_tim_pwm.o: ..\TASK\inc\LightTask.h
 .\objects\bsp_tim_pwm.o: ..\TASK\inc\PmsTask.h
+.\objects\bsp_tim_pwm.o: ..\TASK\inc\BmeTask.h

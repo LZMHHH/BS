@@ -66,6 +66,7 @@
 ".\objects\clocktask.o"
 ".\objects\lighttask.o"
 ".\objects\pmstask.o"
+".\objects\bmetask.o"
 ".\objects\diskio.o"
 ".\objects\ff.o"
 ".\objects\main_ui.o"

@@ -73,4 +73,5 @@
 .\objects\bsp_oled.o: ..\TASK\inc\ClockTask.h
 .\objects\bsp_oled.o: ..\TASK\inc\LightTask.h
 .\objects\bsp_oled.o: ..\TASK\inc\PmsTask.h
+.\objects\bsp_oled.o: ..\TASK\inc\BmeTask.h
 .\objects\bsp_oled.o: ..\Basic\OLED\bsp_oledfont.h

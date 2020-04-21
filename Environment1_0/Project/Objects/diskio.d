@@ -73,3 +73,4 @@
 .\objects\diskio.o: ..\TASK\inc\ClockTask.h
 .\objects\diskio.o: ..\TASK\inc\LightTask.h
 .\objects\diskio.o: ..\TASK\inc\PmsTask.h
+.\objects\diskio.o: ..\TASK\inc\BmeTask.h

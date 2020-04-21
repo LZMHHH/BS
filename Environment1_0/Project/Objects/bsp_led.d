@@ -73,3 +73,4 @@
 .\objects\bsp_led.o: ..\TASK\inc\ClockTask.h
 .\objects\bsp_led.o: ..\TASK\inc\LightTask.h
 .\objects\bsp_led.o: ..\TASK\inc\PmsTask.h
+.\objects\bsp_led.o: ..\TASK\inc\BmeTask.h

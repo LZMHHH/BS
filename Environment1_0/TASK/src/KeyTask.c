@@ -26,27 +26,17 @@ void vTaskKey( void * pvParameters )
 	{
 		Key_Scan(&Key_PU);
 		Key_Scan(&Key_PD);
+		Key_Scan(&Key_PL);
+		Key_Scan(&Key_PR);
+		Key_Scan(&Key_PM);
 		
-		Key_Control();
+		/* 数据处理在其他任务，如UI */
 		
-		
-		vTaskDelay( 1000 );
+		vTaskDelay( 10 );
 	}
 	
 }
 
-
-//按键-处理-----------------------------------------------------------------------------
-void  Key_Control(void)
-{
-	//上键被单击
-	if(Key_PU.Key_RetVal == enKey_Click)
-	{
-		;
-	}
-
-	
-}
 
 
 

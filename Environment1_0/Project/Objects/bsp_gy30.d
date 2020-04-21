@@ -73,3 +73,4 @@
 .\objects\bsp_gy30.o: ..\TASK\inc\ClockTask.h
 .\objects\bsp_gy30.o: ..\TASK\inc\LightTask.h
 .\objects\bsp_gy30.o: ..\TASK\inc\PmsTask.h
+.\objects\bsp_gy30.o: ..\TASK\inc\BmeTask.h

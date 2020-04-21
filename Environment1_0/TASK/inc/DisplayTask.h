@@ -46,7 +46,8 @@ struct class_uiconfigParam
 	u8       Para_IfControl;        //参数是否可控
 };
 
-
+/* 广播 */
+extern ui_mode Show_ui;
 
 
 void setShow_ui(ui_mode ui);

@@ -73,3 +73,4 @@
 .\objects\inittask.o: ..\TASK\inc\ClockTask.h
 .\objects\inittask.o: ..\TASK\inc\LightTask.h
 .\objects\inittask.o: ..\TASK\inc\PmsTask.h
+.\objects\inittask.o: ..\TASK\inc\BmeTask.h

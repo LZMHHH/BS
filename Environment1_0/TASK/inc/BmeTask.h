@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * @file    main_ui.c
+  * @file    BmeTask.h
   * @author  lss
   * @version V1.0
   * @date    2020-xx-xx
@@ -14,19 +14,27 @@
   *
   ******************************************************************************
   */
-#ifndef __MAIN_UI_H
-#define __MAIN_UI_H
-#include "includes.h" 
+#ifndef _BMETASK_H
+#define _BMETASK_H	 
+#include "includes.h"
+
+
+//∑¿÷π±®¥Ì
+typedef struct class_bmp       CLASS_Bmp;
 
 
 /* π„≤• */
-extern struct  class_uiconfigParam Main_uiconfigParam;
+extern struct class_bme       Bme;
 
 
-
-void Main_ZUI(void);
-void Main_uiconfigParamInit(void);
-void Main_uictrl(void);
+void vTaskBme( void * pvParameters );
 
 
 #endif
+
+
+
+
+
+
+

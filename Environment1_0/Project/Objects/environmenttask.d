@@ -73,3 +73,4 @@
 .\objects\environmenttask.o: ..\TASK\inc\ClockTask.h
 .\objects\environmenttask.o: ..\TASK\inc\LightTask.h
 .\objects\environmenttask.o: ..\TASK\inc\PmsTask.h
+.\objects\environmenttask.o: ..\TASK\inc\BmeTask.h

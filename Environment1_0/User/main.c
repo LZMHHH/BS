@@ -49,6 +49,8 @@ void AppObjCreate  ( void );
 //void vTaskClock    ( void * pvParameters );
 //void vTaskLight    ( void * pvParameters );
 //void vTaskPms      ( void * pvParameters );
+//void vTaskBme      ( void * pvParameters );
+
 
 
 /*
@@ -68,7 +70,8 @@ static TaskHandle_t xHandleTaskUart1Tx   = NULL;  //KEY任务
 			 TaskHandle_t xHandleTaskEnvironment = NULL;  //环境数据采集任务
 			 TaskHandle_t xHandleTaskClock     = NULL;  //时钟任务
 			 TaskHandle_t xHandleTaskLight     = NULL;  //亮度任务
-			 TaskHandle_t xHandleTaskPms       = NULL;  //亮度任务
+			 TaskHandle_t xHandleTaskPms       = NULL;  //PMs任务
+			 TaskHandle_t xHandleTaskBme       = NULL;  //大气压任务
 			 
 			 
        TaskHandle_t xQueue_uart1Rx       = NULL;  //uart1的接收消息队列
@@ -157,18 +160,18 @@ static void AppTaskCreate (void)
                  3,                     	/* 任务优先级*/
                  &xHandleTaskCpu );       /* 任务句柄  */
 #endif	
-//	  xTaskCreate( vTaskKey,   	            /* 任务函数  */
-//                 "Task Key",     	        /* 任务名    */
-//                 256,                   	/* 任务栈大小，单位word，也就是4字节 */
-//                 NULL,                  	/* 任务参数  */
-//                 6,                     	/* 任务优先级*/
-//                 &xHandleTaskKey );       /* 任务句柄  */
+	  xTaskCreate( vTaskKey,   	            /* 任务函数  */
+                 "Task Key",     	        /* 任务名    */
+                 256,                   	/* 任务栈大小，单位word，也就是4字节 */
+                 NULL,                  	/* 任务参数  */
+                 7,                     	/* 任务优先级*/
+                 &xHandleTaskKey );       /* 任务句柄  */
 
 		xTaskCreate( vTaskDisplay,   	      /* 任务函数  */
 							   "Task Display",          /* 任务名    */
 							   256,                   	/* 任务栈大小，单位word，也就是4字节 */
 							   NULL,              	    /* 任务参数  */
-							   7,                     	/* 任务优先级*/
+							   6,                     	/* 任务优先级*/
 							   &xHandleTaskDisplay );   /* 任务句柄  */
 
 
@@ -214,6 +217,13 @@ static void AppTaskCreate (void)
 								 NULL,              	      /* 任务参数  */
 								 10,                 	      /* 任务优先级*/
 								 &xHandleTaskPms );         /* 任务句柄  */
+								 
+		xTaskCreate( vTaskBme,   	              /* 任务函数  */
+								 "Task Bme",                /* 任务名    */
+								 256,                   	  /* 任务栈大小，单位word，也就是4字节 */
+								 NULL,              	      /* 任务参数  */
+								 10,                 	      /* 任务优先级*/
+								 &xHandleTaskBme );         /* 任务句柄  */
 
 
 #if IFFILESYSTEM								 

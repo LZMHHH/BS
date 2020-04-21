@@ -73,3 +73,4 @@
 .\objects\bsp_sht3x.o: ..\TASK\inc\ClockTask.h
 .\objects\bsp_sht3x.o: ..\TASK\inc\LightTask.h
 .\objects\bsp_sht3x.o: ..\TASK\inc\PmsTask.h
+.\objects\bsp_sht3x.o: ..\TASK\inc\BmeTask.h

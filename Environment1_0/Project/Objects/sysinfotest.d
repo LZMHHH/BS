@@ -72,3 +72,4 @@
 .\objects\sysinfotest.o: ..\TASK\inc\ClockTask.h
 .\objects\sysinfotest.o: ..\TASK\inc\LightTask.h
 .\objects\sysinfotest.o: ..\TASK\inc\PmsTask.h
+.\objects\sysinfotest.o: ..\TASK\inc\BmeTask.h

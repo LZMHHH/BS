@@ -73,3 +73,4 @@
 .\objects\gather.o: ..\TASK\inc\ClockTask.h
 .\objects\gather.o: ..\TASK\inc\LightTask.h
 .\objects\gather.o: ..\TASK\inc\PmsTask.h
+.\objects\gather.o: ..\TASK\inc\BmeTask.h

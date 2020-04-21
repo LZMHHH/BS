@@ -149,9 +149,29 @@ void Main_ZUI(void)
 	  Ph = 7;
 	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
 	  {
+			OLED_ShowString(0,(7-h)*8,"BME_A:",1);
+			OLED_ShowString(54,(7-h)*8,"m",1);
+			OLED_ShowNum(86,(7-h)*8,Bme.asl,5,1,1);
+			h++;
+	  }
+		
+		//8行
+	  Ph = 8;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
 			OLED_ShowString(0,(7-h)*8,"BME_T:",1);
 			OLED_ShowString(54,(7-h)*8,"`C",1);
 			OLED_ShowNum(86,(7-h)*8,Bme.temperature,5,1,1);
+			h++;
+	  }
+		
+		//9行
+	  Ph = 9;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			OLED_ShowString(0,(7-h)*8,"BME_H:",1);
+			OLED_ShowString(54,(7-h)*8,"%RH",1);
+			OLED_ShowNum(86,(7-h)*8,Bme.humidity,5,1,1);
 			h++;
 	  }
 		
@@ -225,7 +245,7 @@ void Main_uictrl(void)
     }
     else
     {
-      Main_uiconfigParam.Para_Index=1;         //参数复位
+      Main_uiconfigParam.Para_Index=1;         //参数索引复位
 			Show_Para_Con(&Main_uiconfigParam);
 			Para_Prepare();
       if(Main_uiconfigParam.Page_Index<=0) 
