@@ -85,15 +85,15 @@ typedef struct class_clock CLASS_Clock;
 	
 struct class_clock
 {
-	int  Second;
-	int  Minute;
-	int  Hour;
-	int  Week;     
-	int  Day;      
-	int  Month;   
-	int  Year;    
+	int    Second;
+	int    Minute;
+	int    Hour;
+	int    Week;     
+	int    Day;      
+	int    Month;   
+	int    Year;    
 	float  Temp;
-	char Switch;  //闹钟开关
+	char   Switch;  //闹钟开关
 };
 	
 /* soft iic*/

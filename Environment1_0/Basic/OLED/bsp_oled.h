@@ -132,6 +132,10 @@ void OLED_ShowNum(uint8_t x,uint8_t y,float num,uint8_t len,uint8_t lenf,uint8_t
 void OLED_Refresh_Gram(void);
 void OLED_ShowChar32(u8 x,u8 y,u8 chr);
 void OLED_ShowNum32(uint8_t x,uint8_t y,int num,uint8_t len);
+
+void Oled_Show_NumCor(uint8_t x,uint8_t y,float num,uint8_t len,uint8_t lenf,uint8_t size,u8 color);
+void OLED_ShowStringCor(u8 x,u8 y,u8 *chr,u8 size,u8 color);
+
 #endif  
 
 

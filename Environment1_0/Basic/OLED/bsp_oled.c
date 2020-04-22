@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * @file    oled.c
+  * @file    bsp_oled.c
   * @author  fire
   * @version V1.1
   * @date    2020-xx-xx
@@ -710,10 +710,19 @@ void bsp_OLED_Init(void)
 
 
 
-
-
-
-
+/* 二次开发 */
+void Oled_Show_NumCor(uint8_t x,uint8_t y,float num,uint8_t len,uint8_t lenf,uint8_t size,u8 color)
+{
+	Oled_Colour = color;
+	OLED_ShowNum(x,y,num,len,lenf,size);
+	Oled_Colour = 0;
+}
+void OLED_ShowStringCor(u8 x,u8 y,u8 *chr,u8 size,u8 color)
+{
+	Oled_Colour = color;
+	OLED_ShowString(x,y,chr,size);
+	Oled_Colour = 0;
+}
 
 
 

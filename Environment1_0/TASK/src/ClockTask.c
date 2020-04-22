@@ -17,8 +17,10 @@
 #include "ClockTask.h"
 
 /* 创建一个时钟 */
-CLASS_Clock ClockA; 
+CLASS_Clock ClockA;    /* 用于显示当前时间 */
 
+
+CLASS_Clock SetClock;  /* 用于时钟时间 */
 
 void vTaskClock( void * pvParameters )
 {

@@ -23,7 +23,7 @@ typedef struct class_clock CLASS_Clock;
 
 /* ¹ã²¥ */
 extern CLASS_Clock ClockA; 
-
+extern CLASS_Clock SetClock;
 
 void vTaskClock( void * pvParameters );
 

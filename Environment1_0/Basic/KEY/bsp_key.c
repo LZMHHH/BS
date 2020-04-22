@@ -23,12 +23,12 @@ u8 KEY_RetValue;
 CLASS_Key   Key_PU={.key_name         = enKey_PU,
 										.config.gpio_clk  = RCC_APB2Periph_GPIOC,
 										.config.gpio_port = GPIOC,
-										.config.gpio_pin  = GPIO_Pin_0
+										.config.gpio_pin  = GPIO_Pin_14
 										};     //ÉÏ
 CLASS_Key   Key_PD={.key_name         = enKey_PD,
 										.config.gpio_clk  = RCC_APB2Periph_GPIOC,
 										.config.gpio_port = GPIOC,
-										.config.gpio_pin  = GPIO_Pin_1
+										.config.gpio_pin  = GPIO_Pin_0
 										};     //ÏÂ
 CLASS_Key   Key_PL={.key_name         = enKey_PL,
 										.config.gpio_clk  = RCC_APB2Periph_GPIOC,
@@ -43,7 +43,7 @@ CLASS_Key   Key_PR={.key_name         = enKey_PR,
 CLASS_Key   Key_PM={.key_name         = enKey_PM,
 										.config.gpio_clk  = RCC_APB2Periph_GPIOC,
 										.config.gpio_port = GPIOC,
-										.config.gpio_pin  = GPIO_Pin_14
+										.config.gpio_pin  = GPIO_Pin_1
 										};     //ÖÐ
 
 
