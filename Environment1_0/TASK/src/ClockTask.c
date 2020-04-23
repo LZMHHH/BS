@@ -22,8 +22,13 @@ CLASS_Clock ClockA;    /* 用于显示当前时间 */
 
 CLASS_Clock SetClock;  /* 用于时钟时间 */
 
+
+static void Para_Init(void);
+
 void vTaskClock( void * pvParameters )
 {
+	
+	Para_Init();
 	
 	while(1)
 	{
@@ -37,6 +42,11 @@ void vTaskClock( void * pvParameters )
 }
 
 
+static void Para_Init(void)
+{
+	SetClock.num_save = 0;
+	ClockA.num_save   = 0;
+}
 
 
 

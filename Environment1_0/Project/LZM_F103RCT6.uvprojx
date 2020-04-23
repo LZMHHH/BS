@@ -817,6 +817,11 @@
               <FileType>1</FileType>
               <FilePath>..\TASK\src\PmsTask.c</FilePath>
             </File>
+            <File>
+              <FileName>BmeTask.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\TASK\src\BmeTask.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

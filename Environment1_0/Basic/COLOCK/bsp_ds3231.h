@@ -94,6 +94,7 @@ struct class_clock
 	int    Year;    
 	float  Temp;
 	char   Switch;  //闹钟开关
+	u16    num_save;//本次开机保存的次数
 };
 	
 /* soft iic*/

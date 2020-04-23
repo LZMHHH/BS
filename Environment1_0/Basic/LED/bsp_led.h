@@ -41,6 +41,16 @@ typedef enum
 	FMQ,                //蜂鸣器
 }LEDN_Status;
 
+
+/* 设备机表 */
+typedef enum
+{
+	enON,               //开
+	enOFF,              //关
+	enFre,              //频率（周期）
+}DEV_Status;
+
+
 //LED配置参数
 typedef struct class_led_config
 {
@@ -53,9 +63,12 @@ typedef struct class_led_config
 struct class_led 
 {
 	u8         led_name;
-	u8         flag_kg;        //led开关
+	u8         flag_mode;        //led mode
 	int        cycle;          //led周期
 	int        temp;           //辅助频率计算
+	
+	/* 状态 */
+	u8         status;
 	
 	//dev配置
 	CLASS_led_config config;

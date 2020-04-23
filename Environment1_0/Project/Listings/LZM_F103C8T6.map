@@ -219,7 +219,7 @@ Section Cross References
     environmenttask.o(.text) refers to environmenttask.o(.data) for Huimiture
     clocktask.o(.text) refers to bsp_ds3231.o(.text) for DS3231_Readtime
     clocktask.o(.text) refers to tasks.o(.text) for vTaskDelay
-    clocktask.o(.text) refers to clocktask.o(.bss) for ClockA
+    clocktask.o(.text) refers to clocktask.o(.bss) for SetClock
     lighttask.o(.text) refers to tasks.o(.text) for vTaskDelay
     lighttask.o(.text) refers to bsp_gy30.o(.text) for Updata_BH1750
     lighttask.o(.text) refers to lighttask.o(.data) for Light
@@ -241,7 +241,10 @@ Section Cross References
     main_ui.o(.text) refers to lighttask.o(.data) for Light
     main_ui.o(.text) refers to pmstask.o(.data) for Pms
     main_ui.o(.text) refers to bmetask.o(.bss) for Bme
+    main_ui.o(.text) refers to bsp_led.o(.data) for LedA
     main_ui.o(.text) refers to bsp_key.o(.data) for Key_PM
+    main_ui.o(.text) refers to fadd.o(.text) for __aeabi_fadd
+    main_ui.o(.text) refers to ffixi.o(.text) for __aeabi_f2iz
     pow.o(i.__softfp_pow) refers (Special) to iusefp.o(.text) for __I$use$fp
     pow.o(i.__softfp_pow) refers to pow.o(i.pow) for pow
     pow.o(i.pow) refers (Special) to iusefp.o(.text) for __I$use$fp
@@ -644,33 +647,33 @@ Image Symbol Table
     ../clib/microlib/division.c              0x00000000   Number         0  ldiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
     ../clib/microlib/errno.c                 0x00000000   Number         0  errno.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
     ../clib/microlib/printf/stubs.s          0x00000000   Number         0  stubs.o ABSOLUTE
     ../clib/microlib/stdio/streams.c         0x00000000   Number         0  stdout.o ABSOLUTE
     ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpya.o ABSOLUTE
@@ -685,23 +688,23 @@ Image Symbol Table
     ../fplib/microlib/fpadd.c                0x00000000   Number         0  fadd.o ABSOLUTE
     ../fplib/microlib/fpdiv.c                0x00000000   Number         0  ddiv.o ABSOLUTE
     ../fplib/microlib/fpdiv.c                0x00000000   Number         0  fdiv.o ABSOLUTE
-    ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  depilogue.o ABSOLUTE
     ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  fepilogue.o ABSOLUTE
+    ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  depilogue.o ABSOLUTE
     ../fplib/microlib/fpfix.c                0x00000000   Number         0  ffixi.o ABSOLUTE
     ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixul.o ABSOLUTE
+    ../fplib/microlib/fpflt.c                0x00000000   Number         0  fflti.o ABSOLUTE
     ../fplib/microlib/fpflt.c                0x00000000   Number         0  dfltui.o ABSOLUTE
     ../fplib/microlib/fpflt.c                0x00000000   Number         0  dflti.o ABSOLUTE
     ../fplib/microlib/fpflt.c                0x00000000   Number         0  ffltui.o ABSOLUTE
-    ../fplib/microlib/fpflt.c                0x00000000   Number         0  fflti.o ABSOLUTE
-    ../fplib/microlib/fpmul.c                0x00000000   Number         0  fmul.o ABSOLUTE
     ../fplib/microlib/fpmul.c                0x00000000   Number         0  dmul.o ABSOLUTE
+    ../fplib/microlib/fpmul.c                0x00000000   Number         0  fmul.o ABSOLUTE
     ../fplib/microlib/fpscalb.c              0x00000000   Number         0  dscalb.o ABSOLUTE
     ../fplib/microlib/fpsqrt.c               0x00000000   Number         0  dsqrt.o ABSOLUTE
     ../mathlib/dunder.c                      0x00000000   Number         0  dunder.o ABSOLUTE
     ../mathlib/fpclassify.c                  0x00000000   Number         0  fpclassify.o ABSOLUTE
     ../mathlib/poly.c                        0x00000000   Number         0  poly.o ABSOLUTE
-    ../mathlib/pow.c                         0x00000000   Number         0  pow.o ABSOLUTE
     ../mathlib/pow.c                         0x00000000   Number         0  pow_x.o ABSOLUTE
+    ../mathlib/pow.c                         0x00000000   Number         0  pow.o ABSOLUTE
     ../mathlib/qnan.c                        0x00000000   Number         0  qnan.o ABSOLUTE
     ../mathlib/sqrt.c                        0x00000000   Number         0  sqrt.o ABSOLUTE
     ../mathlib/sqrt.c                        0x00000000   Number         0  sqrt_x.o ABSOLUTE
@@ -884,77 +887,81 @@ Image Symbol Table
     prvWriteNameToBuffer                     0x080093ad   Thumb Code    42  tasks.o(.text)
     .text                                    0x080099a0   Section        0  keytask.o(.text)
     .text                                    0x080099dc   Section        0  ledtask.o(.text)
-    .text                                    0x08009a00   Section        0  displaytask.o(.text)
-    .text                                    0x08009a84   Section        0  environmenttask.o(.text)
-    Para_Init                                0x08009a85   Thumb Code     2  environmenttask.o(.text)
-    .text                                    0x08009aa0   Section        0  clocktask.o(.text)
-    .text                                    0x08009ab4   Section        0  lighttask.o(.text)
-    .text                                    0x08009ad0   Section        0  pmstask.o(.text)
-    .text                                    0x08009b18   Section        0  bmetask.o(.text)
-    Para_Init                                0x08009b19   Thumb Code     2  bmetask.o(.text)
-    .text                                    0x08009b34   Section        0  main_ui.o(.text)
-    Para_Prepare                             0x0800a893   Thumb Code    90  main_ui.o(.text)
-    .text                                    0x0800aafc   Section        0  uldiv.o(.text)
-    .text                                    0x0800ab5e   Section        0  ldiv.o(.text)
-    .text                                    0x0800abc0   Section        0  memcpya.o(.text)
-    .text                                    0x0800abe4   Section        0  memseta.o(.text)
-    .text                                    0x0800ac08   Section        0  strlen.o(.text)
-    .text                                    0x0800ac16   Section        0  strcpy.o(.text)
-    .text                                    0x0800ac28   Section        0  fadd.o(.text)
-    .text                                    0x0800acd8   Section        0  fmul.o(.text)
-    .text                                    0x0800ad3c   Section        0  fdiv.o(.text)
-    .text                                    0x0800adb8   Section        0  dadd.o(.text)
-    .text                                    0x0800af06   Section        0  dmul.o(.text)
-    .text                                    0x0800afea   Section        0  ddiv.o(.text)
-    .text                                    0x0800b0c8   Section        0  fflti.o(.text)
-    .text                                    0x0800b0da   Section        0  ffltui.o(.text)
-    .text                                    0x0800b0e4   Section        0  dflti.o(.text)
-    .text                                    0x0800b106   Section        0  dfltui.o(.text)
-    .text                                    0x0800b120   Section        0  ffixi.o(.text)
-    .text                                    0x0800b152   Section        0  f2d.o(.text)
-    .text                                    0x0800b178   Section       48  cdcmple.o(.text)
-    .text                                    0x0800b1a8   Section        0  d2f.o(.text)
-    .text                                    0x0800b1e0   Section       20  cfcmple.o(.text)
-    .text                                    0x0800b1f4   Section       20  cfrcmple.o(.text)
-    .text                                    0x0800b208   Section        0  uidiv.o(.text)
-    .text                                    0x0800b234   Section        0  llshl.o(.text)
-    .text                                    0x0800b252   Section        0  llushr.o(.text)
-    .text                                    0x0800b272   Section        0  llsshr.o(.text)
-    .text                                    0x0800b296   Section        0  fepilogue.o(.text)
-    .text                                    0x0800b296   Section        0  iusefp.o(.text)
-    .text                                    0x0800b304   Section        0  depilogue.o(.text)
-    .text                                    0x0800b3be   Section        0  dscalb.o(.text)
-    .text                                    0x0800b3ec   Section       48  cdrcmple.o(.text)
-    .text                                    0x0800b41c   Section       36  init.o(.text)
-    .text                                    0x0800b440   Section        0  dsqrt.o(.text)
-    .text                                    0x0800b4e2   Section        0  __dczerorl2.o(.text)
-    i.__0sprintf$3                           0x0800b538   Section        0  printf3.o(i.__0sprintf$3)
-    i.__ARM_fpclassify                       0x0800b560   Section        0  fpclassify.o(i.__ARM_fpclassify)
-    i.__kernel_poly                          0x0800b588   Section        0  poly.o(i.__kernel_poly)
-    i.__mathlib_dbl_divzero                  0x0800b634   Section        0  dunder.o(i.__mathlib_dbl_divzero)
-    i.__mathlib_dbl_infnan2                  0x0800b644   Section        0  dunder.o(i.__mathlib_dbl_infnan2)
-    i.__mathlib_dbl_invalid                  0x0800b648   Section        0  dunder.o(i.__mathlib_dbl_invalid)
-    i.__mathlib_dbl_overflow                 0x0800b654   Section        0  dunder.o(i.__mathlib_dbl_overflow)
-    i.__mathlib_dbl_underflow                0x0800b664   Section        0  dunder.o(i.__mathlib_dbl_underflow)
-    i.__scatterload_copy                     0x0800b674   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x0800b682   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x0800b684   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i.__set_errno                            0x0800b694   Section        0  errno.o(i.__set_errno)
-    i._printf_core                           0x0800b6a0   Section        0  printf3.o(i._printf_core)
-    _printf_core                             0x0800b6a1   Thumb Code   436  printf3.o(i._printf_core)
-    i._sputc                                 0x0800b858   Section        0  printf3.o(i._sputc)
-    _sputc                                   0x0800b859   Thumb Code    10  printf3.o(i._sputc)
-    i.pow                                    0x0800b864   Section        0  pow.o(i.pow)
-    i.sqrt                                   0x0800c21c   Section        0  sqrt.o(i.sqrt)
-    .constdata                               0x0800c268   Section     3992  bsp_oled.o(.constdata)
-    .constdata                               0x0800d200   Section       16  bmp.o(.constdata)
-    .constdata                               0x0800d210   Section      136  pow.o(.constdata)
-    bp                                       0x0800d210   Data          16  pow.o(.constdata)
-    dp_h                                     0x0800d220   Data          16  pow.o(.constdata)
-    dp_l                                     0x0800d230   Data          16  pow.o(.constdata)
-    L                                        0x0800d240   Data          48  pow.o(.constdata)
-    P                                        0x0800d270   Data          40  pow.o(.constdata)
-    .constdata                               0x0800d298   Section        8  qnan.o(.constdata)
+    Led_Ctrl                                 0x080099dd   Thumb Code   108  ledtask.o(.text)
+    Para_Init                                0x08009a49   Thumb Code    32  ledtask.o(.text)
+    Fmq_Ctrl                                 0x08009a7b   Thumb Code     2  ledtask.o(.text)
+    .text                                    0x08009a88   Section        0  displaytask.o(.text)
+    .text                                    0x08009b0c   Section        0  environmenttask.o(.text)
+    Para_Init                                0x08009b0d   Thumb Code     2  environmenttask.o(.text)
+    .text                                    0x08009b28   Section        0  clocktask.o(.text)
+    Para_Init                                0x08009b29   Thumb Code    12  clocktask.o(.text)
+    .text                                    0x08009b50   Section        0  lighttask.o(.text)
+    .text                                    0x08009b6c   Section        0  pmstask.o(.text)
+    .text                                    0x08009bb4   Section        0  bmetask.o(.text)
+    Para_Init                                0x08009bb5   Thumb Code     2  bmetask.o(.text)
+    .text                                    0x08009bd0   Section        0  main_ui.o(.text)
+    Para_Prepare                             0x0800b78f   Thumb Code   100  main_ui.o(.text)
+    .text                                    0x0800bd40   Section        0  uldiv.o(.text)
+    .text                                    0x0800bda2   Section        0  ldiv.o(.text)
+    .text                                    0x0800be04   Section        0  memcpya.o(.text)
+    .text                                    0x0800be28   Section        0  memseta.o(.text)
+    .text                                    0x0800be4c   Section        0  strlen.o(.text)
+    .text                                    0x0800be5a   Section        0  strcpy.o(.text)
+    .text                                    0x0800be6c   Section        0  fadd.o(.text)
+    .text                                    0x0800bf1c   Section        0  fmul.o(.text)
+    .text                                    0x0800bf80   Section        0  fdiv.o(.text)
+    .text                                    0x0800bffc   Section        0  dadd.o(.text)
+    .text                                    0x0800c14a   Section        0  dmul.o(.text)
+    .text                                    0x0800c22e   Section        0  ddiv.o(.text)
+    .text                                    0x0800c30c   Section        0  fflti.o(.text)
+    .text                                    0x0800c31e   Section        0  ffltui.o(.text)
+    .text                                    0x0800c328   Section        0  dflti.o(.text)
+    .text                                    0x0800c34a   Section        0  dfltui.o(.text)
+    .text                                    0x0800c364   Section        0  ffixi.o(.text)
+    .text                                    0x0800c396   Section        0  f2d.o(.text)
+    .text                                    0x0800c3bc   Section       48  cdcmple.o(.text)
+    .text                                    0x0800c3ec   Section        0  d2f.o(.text)
+    .text                                    0x0800c424   Section       20  cfcmple.o(.text)
+    .text                                    0x0800c438   Section       20  cfrcmple.o(.text)
+    .text                                    0x0800c44c   Section        0  uidiv.o(.text)
+    .text                                    0x0800c478   Section        0  llshl.o(.text)
+    .text                                    0x0800c496   Section        0  llushr.o(.text)
+    .text                                    0x0800c4b6   Section        0  llsshr.o(.text)
+    .text                                    0x0800c4da   Section        0  fepilogue.o(.text)
+    .text                                    0x0800c4da   Section        0  iusefp.o(.text)
+    .text                                    0x0800c548   Section        0  depilogue.o(.text)
+    .text                                    0x0800c602   Section        0  dscalb.o(.text)
+    .text                                    0x0800c630   Section       48  cdrcmple.o(.text)
+    .text                                    0x0800c660   Section       36  init.o(.text)
+    .text                                    0x0800c684   Section        0  dsqrt.o(.text)
+    .text                                    0x0800c726   Section        0  __dczerorl2.o(.text)
+    i.__0sprintf$3                           0x0800c77c   Section        0  printf3.o(i.__0sprintf$3)
+    i.__ARM_fpclassify                       0x0800c7a4   Section        0  fpclassify.o(i.__ARM_fpclassify)
+    i.__kernel_poly                          0x0800c7cc   Section        0  poly.o(i.__kernel_poly)
+    i.__mathlib_dbl_divzero                  0x0800c878   Section        0  dunder.o(i.__mathlib_dbl_divzero)
+    i.__mathlib_dbl_infnan2                  0x0800c888   Section        0  dunder.o(i.__mathlib_dbl_infnan2)
+    i.__mathlib_dbl_invalid                  0x0800c88c   Section        0  dunder.o(i.__mathlib_dbl_invalid)
+    i.__mathlib_dbl_overflow                 0x0800c898   Section        0  dunder.o(i.__mathlib_dbl_overflow)
+    i.__mathlib_dbl_underflow                0x0800c8a8   Section        0  dunder.o(i.__mathlib_dbl_underflow)
+    i.__scatterload_copy                     0x0800c8b8   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x0800c8c6   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x0800c8c8   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i.__set_errno                            0x0800c8d8   Section        0  errno.o(i.__set_errno)
+    i._printf_core                           0x0800c8e4   Section        0  printf3.o(i._printf_core)
+    _printf_core                             0x0800c8e5   Thumb Code   436  printf3.o(i._printf_core)
+    i._sputc                                 0x0800ca9c   Section        0  printf3.o(i._sputc)
+    _sputc                                   0x0800ca9d   Thumb Code    10  printf3.o(i._sputc)
+    i.pow                                    0x0800caa8   Section        0  pow.o(i.pow)
+    i.sqrt                                   0x0800d460   Section        0  sqrt.o(i.sqrt)
+    .constdata                               0x0800d4ac   Section     3992  bsp_oled.o(.constdata)
+    .constdata                               0x0800e444   Section       16  bmp.o(.constdata)
+    .constdata                               0x0800e458   Section      136  pow.o(.constdata)
+    bp                                       0x0800e458   Data          16  pow.o(.constdata)
+    dp_h                                     0x0800e468   Data          16  pow.o(.constdata)
+    dp_l                                     0x0800e478   Data          16  pow.o(.constdata)
+    L                                        0x0800e488   Data          48  pow.o(.constdata)
+    P                                        0x0800e4b8   Data          40  pow.o(.constdata)
+    .constdata                               0x0800e4e0   Section        8  qnan.o(.constdata)
     .data                                    0x20000000   Section       20  system_stm32f10x.o(.data)
     .data                                    0x20000014   Section       20  stm32f10x_rcc.o(.data)
     APBAHBPrescTable                         0x20000014   Data          16  stm32f10x_rcc.o(.data)
@@ -968,100 +975,100 @@ Image Symbol Table
     .data                                    0x20000060   Section        4  bsp_dwt_delay.o(.data)
     SYSCLK                                   0x20000060   Data           4  bsp_dwt_delay.o(.data)
     .data                                    0x20000064   Section      104  bsp_key.o(.data)
-    .data                                    0x200000cc   Section       72  bsp_led.o(.data)
-    .data                                    0x20000114   Section       24  bsp_sdio_sdcard.o(.data)
-    CardType                                 0x20000114   Data           4  bsp_sdio_sdcard.o(.data)
-    RCA                                      0x20000118   Data           4  bsp_sdio_sdcard.o(.data)
-    .data                                    0x2000012c   Section        3  bsp_usart1.o(.data)
-    uart1_sending                            0x2000012c   Data           1  bsp_usart1.o(.data)
-    num                                      0x2000012d   Data           1  bsp_usart1.o(.data)
-    index                                    0x2000012e   Data           1  bsp_usart1.o(.data)
-    .data                                    0x2000012f   Section        1  bsp_oled.o(.data)
-    .data                                    0x20000130   Section        8  bsp_gy30.o(.data)
-    .data                                    0x20000138   Section        3  bsp_usart2.o(.data)
-    uart2_sending                            0x20000138   Data           1  bsp_usart2.o(.data)
-    num                                      0x20000139   Data           1  bsp_usart2.o(.data)
-    index                                    0x2000013a   Data           1  bsp_usart2.o(.data)
-    .data                                    0x2000013c   Section       32  bsp_bme280.o(.data)
-    bme280ID                                 0x2000013c   Data           1  bsp_bme280.o(.data)
-    bme280RawPressure                        0x20000140   Data           4  bsp_bme280.o(.data)
-    bme280RawTemperature                     0x20000144   Data           4  bsp_bme280.o(.data)
-    bme280RawHumidity                        0x20000148   Data           4  bsp_bme280.o(.data)
-    i                                        0x2000014c   Data           1  bsp_bme280.o(.data)
-    t                                        0x20000150   Data           4  bsp_bme280.o(.data)
-    p                                        0x20000154   Data           4  bsp_bme280.o(.data)
-    h                                        0x20000158   Data           4  bsp_bme280.o(.data)
-    .data                                    0x2000015c   Section       24  heap_4.o(.data)
-    xStart                                   0x2000015c   Data           8  heap_4.o(.data)
-    pxEnd                                    0x20000164   Data           4  heap_4.o(.data)
-    xFreeBytesRemaining                      0x20000168   Data           4  heap_4.o(.data)
-    xMinimumEverFreeBytesRemaining           0x2000016c   Data           4  heap_4.o(.data)
-    xBlockAllocatedBit                       0x20000170   Data           4  heap_4.o(.data)
-    .data                                    0x20000174   Section       12  port.o(.data)
-    uxCriticalNesting                        0x20000174   Data           4  port.o(.data)
-    ucMaxSysCallPriority                     0x20000178   Data           1  port.o(.data)
-    ulMaxPRIGROUPValue                       0x2000017c   Data           4  port.o(.data)
-    .data                                    0x20000180   Section       28  croutine.o(.data)
-    pxDelayedCoRoutineList                   0x20000180   Data           4  croutine.o(.data)
-    pxOverflowDelayedCoRoutineList           0x20000184   Data           4  croutine.o(.data)
-    uxTopCoRoutineReadyPriority              0x2000018c   Data           4  croutine.o(.data)
-    xCoRoutineTickCount                      0x20000190   Data           4  croutine.o(.data)
-    xLastTickCount                           0x20000194   Data           4  croutine.o(.data)
-    xPassedTicks                             0x20000198   Data           4  croutine.o(.data)
-    .data                                    0x2000019c   Section       64  tasks.o(.data)
-    pxDelayedTaskList                        0x200001a0   Data           4  tasks.o(.data)
-    pxOverflowDelayedTaskList                0x200001a4   Data           4  tasks.o(.data)
-    uxTasksDeleted                           0x200001a8   Data           4  tasks.o(.data)
-    uxCurrentNumberOfTasks                   0x200001ac   Data           4  tasks.o(.data)
-    xTickCount                               0x200001b0   Data           4  tasks.o(.data)
-    uxTopReadyPriority                       0x200001b4   Data           4  tasks.o(.data)
-    xSchedulerRunning                        0x200001b8   Data           4  tasks.o(.data)
-    uxPendedTicks                            0x200001bc   Data           4  tasks.o(.data)
-    xYieldPending                            0x200001c0   Data           4  tasks.o(.data)
-    xNumOfOverflows                          0x200001c4   Data           4  tasks.o(.data)
-    uxTaskNumber                             0x200001c8   Data           4  tasks.o(.data)
-    xNextTaskUnblockTime                     0x200001cc   Data           4  tasks.o(.data)
-    uxSchedulerSuspended                     0x200001d0   Data           4  tasks.o(.data)
-    ulTaskSwitchedInTime                     0x200001d4   Data           4  tasks.o(.data)
-    ulTotalRunTime                           0x200001d8   Data           4  tasks.o(.data)
-    .data                                    0x200001dc   Section        1  displaytask.o(.data)
-    .data                                    0x200001e0   Section        8  environmenttask.o(.data)
-    .data                                    0x200001e8   Section        8  lighttask.o(.data)
-    .data                                    0x200001f0   Section        4  pmstask.o(.data)
-    .data                                    0x200001f4   Section        4  errno.o(.data)
-    _errno                                   0x200001f4   Data           4  errno.o(.data)
-    .bss                                     0x200001f8   Section      204  bsp_sdio_sdcard.o(.bss)
-    CSD_Tab                                  0x200001f8   Data          16  bsp_sdio_sdcard.o(.bss)
-    CID_Tab                                  0x20000208   Data          16  bsp_sdio_sdcard.o(.bss)
-    SDSTATUS_Tab                             0x20000218   Data          16  bsp_sdio_sdcard.o(.bss)
-    .bss                                     0x200002c4   Section      100  bsp_usart1.o(.bss)
-    SendBuff                                 0x200002c4   Data          50  bsp_usart1.o(.bss)
-    ReadBuff                                 0x200002f6   Data          50  bsp_usart1.o(.bss)
-    .bss                                     0x20000328   Section     1024  bsp_oled.o(.bss)
-    oledGram                                 0x20000328   Data        1024  bsp_oled.o(.bss)
-    .bss                                     0x20000728   Section      100  bsp_usart2.o(.bss)
-    SendBuff                                 0x20000728   Data          50  bsp_usart2.o(.bss)
-    ReadBuff                                 0x2000075a   Data          50  bsp_usart2.o(.bss)
-    .bss                                     0x2000078c   Section       60  bsp_bme280.o(.bss)
-    filter_buf                               0x200007b4   Data          20  bsp_bme280.o(.bss)
-    .bss                                     0x200007c8   Section    25600  heap_4.o(.bss)
-    ucHeap                                   0x200007c8   Data       25600  heap_4.o(.bss)
-    .bss                                     0x20006bc8   Section      100  croutine.o(.bss)
-    pxReadyCoRoutineLists                    0x20006bc8   Data          40  croutine.o(.bss)
-    xDelayedCoRoutineList1                   0x20006bf0   Data          20  croutine.o(.bss)
-    xDelayedCoRoutineList2                   0x20006c04   Data          20  croutine.o(.bss)
-    xPendingReadyCoRoutineList               0x20006c18   Data          20  croutine.o(.bss)
-    .bss                                     0x20006c2c   Section      700  tasks.o(.bss)
-    pxReadyTasksLists                        0x20006c2c   Data         600  tasks.o(.bss)
-    xDelayedTaskList1                        0x20006e84   Data          20  tasks.o(.bss)
-    xDelayedTaskList2                        0x20006e98   Data          20  tasks.o(.bss)
-    xPendingReadyList                        0x20006eac   Data          20  tasks.o(.bss)
-    xTasksWaitingTermination                 0x20006ec0   Data          20  tasks.o(.bss)
-    xSuspendedTaskList                       0x20006ed4   Data          20  tasks.o(.bss)
-    .bss                                     0x20006ee8   Section       72  clocktask.o(.bss)
-    .bss                                     0x20006f30   Section       16  bmetask.o(.bss)
-    .bss                                     0x20006f40   Section       80  main_ui.o(.bss)
-    STACK                                    0x20006f90   Section     1024  startup_stm32f10x_hd.o(STACK)
+    .data                                    0x200000cc   Section       84  bsp_led.o(.data)
+    .data                                    0x20000120   Section       24  bsp_sdio_sdcard.o(.data)
+    CardType                                 0x20000120   Data           4  bsp_sdio_sdcard.o(.data)
+    RCA                                      0x20000124   Data           4  bsp_sdio_sdcard.o(.data)
+    .data                                    0x20000138   Section        3  bsp_usart1.o(.data)
+    uart1_sending                            0x20000138   Data           1  bsp_usart1.o(.data)
+    num                                      0x20000139   Data           1  bsp_usart1.o(.data)
+    index                                    0x2000013a   Data           1  bsp_usart1.o(.data)
+    .data                                    0x2000013b   Section        1  bsp_oled.o(.data)
+    .data                                    0x2000013c   Section        8  bsp_gy30.o(.data)
+    .data                                    0x20000144   Section        3  bsp_usart2.o(.data)
+    uart2_sending                            0x20000144   Data           1  bsp_usart2.o(.data)
+    num                                      0x20000145   Data           1  bsp_usart2.o(.data)
+    index                                    0x20000146   Data           1  bsp_usart2.o(.data)
+    .data                                    0x20000148   Section       32  bsp_bme280.o(.data)
+    bme280ID                                 0x20000148   Data           1  bsp_bme280.o(.data)
+    bme280RawPressure                        0x2000014c   Data           4  bsp_bme280.o(.data)
+    bme280RawTemperature                     0x20000150   Data           4  bsp_bme280.o(.data)
+    bme280RawHumidity                        0x20000154   Data           4  bsp_bme280.o(.data)
+    i                                        0x20000158   Data           1  bsp_bme280.o(.data)
+    t                                        0x2000015c   Data           4  bsp_bme280.o(.data)
+    p                                        0x20000160   Data           4  bsp_bme280.o(.data)
+    h                                        0x20000164   Data           4  bsp_bme280.o(.data)
+    .data                                    0x20000168   Section       24  heap_4.o(.data)
+    xStart                                   0x20000168   Data           8  heap_4.o(.data)
+    pxEnd                                    0x20000170   Data           4  heap_4.o(.data)
+    xFreeBytesRemaining                      0x20000174   Data           4  heap_4.o(.data)
+    xMinimumEverFreeBytesRemaining           0x20000178   Data           4  heap_4.o(.data)
+    xBlockAllocatedBit                       0x2000017c   Data           4  heap_4.o(.data)
+    .data                                    0x20000180   Section       12  port.o(.data)
+    uxCriticalNesting                        0x20000180   Data           4  port.o(.data)
+    ucMaxSysCallPriority                     0x20000184   Data           1  port.o(.data)
+    ulMaxPRIGROUPValue                       0x20000188   Data           4  port.o(.data)
+    .data                                    0x2000018c   Section       28  croutine.o(.data)
+    pxDelayedCoRoutineList                   0x2000018c   Data           4  croutine.o(.data)
+    pxOverflowDelayedCoRoutineList           0x20000190   Data           4  croutine.o(.data)
+    uxTopCoRoutineReadyPriority              0x20000198   Data           4  croutine.o(.data)
+    xCoRoutineTickCount                      0x2000019c   Data           4  croutine.o(.data)
+    xLastTickCount                           0x200001a0   Data           4  croutine.o(.data)
+    xPassedTicks                             0x200001a4   Data           4  croutine.o(.data)
+    .data                                    0x200001a8   Section       64  tasks.o(.data)
+    pxDelayedTaskList                        0x200001ac   Data           4  tasks.o(.data)
+    pxOverflowDelayedTaskList                0x200001b0   Data           4  tasks.o(.data)
+    uxTasksDeleted                           0x200001b4   Data           4  tasks.o(.data)
+    uxCurrentNumberOfTasks                   0x200001b8   Data           4  tasks.o(.data)
+    xTickCount                               0x200001bc   Data           4  tasks.o(.data)
+    uxTopReadyPriority                       0x200001c0   Data           4  tasks.o(.data)
+    xSchedulerRunning                        0x200001c4   Data           4  tasks.o(.data)
+    uxPendedTicks                            0x200001c8   Data           4  tasks.o(.data)
+    xYieldPending                            0x200001cc   Data           4  tasks.o(.data)
+    xNumOfOverflows                          0x200001d0   Data           4  tasks.o(.data)
+    uxTaskNumber                             0x200001d4   Data           4  tasks.o(.data)
+    xNextTaskUnblockTime                     0x200001d8   Data           4  tasks.o(.data)
+    uxSchedulerSuspended                     0x200001dc   Data           4  tasks.o(.data)
+    ulTaskSwitchedInTime                     0x200001e0   Data           4  tasks.o(.data)
+    ulTotalRunTime                           0x200001e4   Data           4  tasks.o(.data)
+    .data                                    0x200001e8   Section        1  displaytask.o(.data)
+    .data                                    0x200001ec   Section        8  environmenttask.o(.data)
+    .data                                    0x200001f4   Section        8  lighttask.o(.data)
+    .data                                    0x200001fc   Section        4  pmstask.o(.data)
+    .data                                    0x20000200   Section        4  errno.o(.data)
+    _errno                                   0x20000200   Data           4  errno.o(.data)
+    .bss                                     0x20000208   Section      204  bsp_sdio_sdcard.o(.bss)
+    CSD_Tab                                  0x20000208   Data          16  bsp_sdio_sdcard.o(.bss)
+    CID_Tab                                  0x20000218   Data          16  bsp_sdio_sdcard.o(.bss)
+    SDSTATUS_Tab                             0x20000228   Data          16  bsp_sdio_sdcard.o(.bss)
+    .bss                                     0x200002d4   Section      100  bsp_usart1.o(.bss)
+    SendBuff                                 0x200002d4   Data          50  bsp_usart1.o(.bss)
+    ReadBuff                                 0x20000306   Data          50  bsp_usart1.o(.bss)
+    .bss                                     0x20000338   Section     1024  bsp_oled.o(.bss)
+    oledGram                                 0x20000338   Data        1024  bsp_oled.o(.bss)
+    .bss                                     0x20000738   Section      100  bsp_usart2.o(.bss)
+    SendBuff                                 0x20000738   Data          50  bsp_usart2.o(.bss)
+    ReadBuff                                 0x2000076a   Data          50  bsp_usart2.o(.bss)
+    .bss                                     0x2000079c   Section       60  bsp_bme280.o(.bss)
+    filter_buf                               0x200007c4   Data          20  bsp_bme280.o(.bss)
+    .bss                                     0x200007d8   Section    25600  heap_4.o(.bss)
+    ucHeap                                   0x200007d8   Data       25600  heap_4.o(.bss)
+    .bss                                     0x20006bd8   Section      100  croutine.o(.bss)
+    pxReadyCoRoutineLists                    0x20006bd8   Data          40  croutine.o(.bss)
+    xDelayedCoRoutineList1                   0x20006c00   Data          20  croutine.o(.bss)
+    xDelayedCoRoutineList2                   0x20006c14   Data          20  croutine.o(.bss)
+    xPendingReadyCoRoutineList               0x20006c28   Data          20  croutine.o(.bss)
+    .bss                                     0x20006c3c   Section      700  tasks.o(.bss)
+    pxReadyTasksLists                        0x20006c3c   Data         600  tasks.o(.bss)
+    xDelayedTaskList1                        0x20006e94   Data          20  tasks.o(.bss)
+    xDelayedTaskList2                        0x20006ea8   Data          20  tasks.o(.bss)
+    xPendingReadyList                        0x20006ebc   Data          20  tasks.o(.bss)
+    xTasksWaitingTermination                 0x20006ed0   Data          20  tasks.o(.bss)
+    xSuspendedTaskList                       0x20006ee4   Data          20  tasks.o(.bss)
+    .bss                                     0x20006ef8   Section       72  clocktask.o(.bss)
+    .bss                                     0x20006f40   Section       16  bmetask.o(.bss)
+    .bss                                     0x20006f50   Section       80  main_ui.o(.bss)
+    STACK                                    0x20006fa0   Section     1024  startup_stm32f10x_hd.o(STACK)
 
     Global Symbols
 
@@ -1630,102 +1637,102 @@ Image Symbol Table
     vTaskNotifyGiveFromISR                   0x080098b5   Thumb Code   158  tasks.o(.text)
     xTaskNotifyStateClear                    0x08009953   Thumb Code    78  tasks.o(.text)
     vTaskKey                                 0x080099a1   Thumb Code    40  keytask.o(.text)
-    vTaskLed                                 0x080099dd   Thumb Code    26  ledtask.o(.text)
-    vTaskDisplay                             0x08009a01   Thumb Code    34  displaytask.o(.text)
-    setShow_ui                               0x08009a23   Thumb Code    14  displaytask.o(.text)
-    DisplayInit                              0x08009a31   Thumb Code     8  displaytask.o(.text)
-    Show_Para_Con                            0x08009a39   Thumb Code    72  displaytask.o(.text)
-    vTaskEnvironment                         0x08009a87   Thumb Code    22  environmenttask.o(.text)
-    vTaskClock                               0x08009aa1   Thumb Code    16  clocktask.o(.text)
-    vTaskLight                               0x08009ab5   Thumb Code    22  lighttask.o(.text)
-    UpdataPms                                0x08009ad1   Thumb Code    34  pmstask.o(.text)
-    vTaskPms                                 0x08009af3   Thumb Code    30  pmstask.o(.text)
-    vTaskBme                                 0x08009b1b   Thumb Code    20  bmetask.o(.text)
-    Main_uiconfigParamInit                   0x08009b35   Thumb Code    90  main_ui.o(.text)
-    Main_ZUI                                 0x08009b8f   Thumb Code  3332  main_ui.o(.text)
-    Main_uictrl                              0x0800a8ed   Thumb Code   490  main_ui.o(.text)
-    __aeabi_uldivmod                         0x0800aafd   Thumb Code    98  uldiv.o(.text)
-    __aeabi_ldivmod                          0x0800ab5f   Thumb Code    98  ldiv.o(.text)
-    __aeabi_memcpy                           0x0800abc1   Thumb Code    36  memcpya.o(.text)
-    __aeabi_memcpy4                          0x0800abc1   Thumb Code     0  memcpya.o(.text)
-    __aeabi_memcpy8                          0x0800abc1   Thumb Code     0  memcpya.o(.text)
-    __aeabi_memset                           0x0800abe5   Thumb Code    14  memseta.o(.text)
-    __aeabi_memset4                          0x0800abe5   Thumb Code     0  memseta.o(.text)
-    __aeabi_memset8                          0x0800abe5   Thumb Code     0  memseta.o(.text)
-    __aeabi_memclr                           0x0800abf3   Thumb Code     4  memseta.o(.text)
-    __aeabi_memclr4                          0x0800abf3   Thumb Code     0  memseta.o(.text)
-    __aeabi_memclr8                          0x0800abf3   Thumb Code     0  memseta.o(.text)
-    _memset$wrapper                          0x0800abf7   Thumb Code    18  memseta.o(.text)
-    strlen                                   0x0800ac09   Thumb Code    14  strlen.o(.text)
-    strcpy                                   0x0800ac17   Thumb Code    18  strcpy.o(.text)
-    __aeabi_fadd                             0x0800ac29   Thumb Code   164  fadd.o(.text)
-    __aeabi_fsub                             0x0800accd   Thumb Code     6  fadd.o(.text)
-    __aeabi_frsub                            0x0800acd3   Thumb Code     6  fadd.o(.text)
-    __aeabi_fmul                             0x0800acd9   Thumb Code   100  fmul.o(.text)
-    __aeabi_fdiv                             0x0800ad3d   Thumb Code   124  fdiv.o(.text)
-    __aeabi_dadd                             0x0800adb9   Thumb Code   322  dadd.o(.text)
-    __aeabi_dsub                             0x0800aefb   Thumb Code     6  dadd.o(.text)
-    __aeabi_drsub                            0x0800af01   Thumb Code     6  dadd.o(.text)
-    __aeabi_dmul                             0x0800af07   Thumb Code   228  dmul.o(.text)
-    __aeabi_ddiv                             0x0800afeb   Thumb Code   222  ddiv.o(.text)
-    __aeabi_i2f                              0x0800b0c9   Thumb Code    18  fflti.o(.text)
-    __aeabi_ui2f                             0x0800b0db   Thumb Code    10  ffltui.o(.text)
-    __aeabi_i2d                              0x0800b0e5   Thumb Code    34  dflti.o(.text)
-    __aeabi_ui2d                             0x0800b107   Thumb Code    26  dfltui.o(.text)
-    __aeabi_f2iz                             0x0800b121   Thumb Code    50  ffixi.o(.text)
-    __aeabi_f2d                              0x0800b153   Thumb Code    38  f2d.o(.text)
-    __aeabi_cdcmpeq                          0x0800b179   Thumb Code     0  cdcmple.o(.text)
-    __aeabi_cdcmple                          0x0800b179   Thumb Code    48  cdcmple.o(.text)
-    __aeabi_d2f                              0x0800b1a9   Thumb Code    56  d2f.o(.text)
-    __aeabi_cfcmpeq                          0x0800b1e1   Thumb Code     0  cfcmple.o(.text)
-    __aeabi_cfcmple                          0x0800b1e1   Thumb Code    20  cfcmple.o(.text)
-    __aeabi_cfrcmple                         0x0800b1f5   Thumb Code    20  cfrcmple.o(.text)
-    __aeabi_uidiv                            0x0800b209   Thumb Code     0  uidiv.o(.text)
-    __aeabi_uidivmod                         0x0800b209   Thumb Code    44  uidiv.o(.text)
-    __aeabi_llsl                             0x0800b235   Thumb Code    30  llshl.o(.text)
-    _ll_shift_l                              0x0800b235   Thumb Code     0  llshl.o(.text)
-    __aeabi_llsr                             0x0800b253   Thumb Code    32  llushr.o(.text)
-    _ll_ushift_r                             0x0800b253   Thumb Code     0  llushr.o(.text)
-    __aeabi_lasr                             0x0800b273   Thumb Code    36  llsshr.o(.text)
-    _ll_sshift_r                             0x0800b273   Thumb Code     0  llsshr.o(.text)
-    __I$use$fp                               0x0800b297   Thumb Code     0  iusefp.o(.text)
-    _float_round                             0x0800b297   Thumb Code    18  fepilogue.o(.text)
-    _float_epilogue                          0x0800b2a9   Thumb Code    92  fepilogue.o(.text)
-    _double_round                            0x0800b305   Thumb Code    30  depilogue.o(.text)
-    _double_epilogue                         0x0800b323   Thumb Code   156  depilogue.o(.text)
-    __ARM_scalbn                             0x0800b3bf   Thumb Code    46  dscalb.o(.text)
-    scalbn                                   0x0800b3bf   Thumb Code     0  dscalb.o(.text)
-    __aeabi_cdrcmple                         0x0800b3ed   Thumb Code    48  cdrcmple.o(.text)
-    __scatterload                            0x0800b41d   Thumb Code    28  init.o(.text)
-    __scatterload_rt2                        0x0800b41d   Thumb Code     0  init.o(.text)
-    _dsqrt                                   0x0800b441   Thumb Code   162  dsqrt.o(.text)
-    __decompress                             0x0800b4e3   Thumb Code     0  __dczerorl2.o(.text)
-    __decompress1                            0x0800b4e3   Thumb Code    86  __dczerorl2.o(.text)
-    __0sprintf$3                             0x0800b539   Thumb Code    34  printf3.o(i.__0sprintf$3)
-    __1sprintf$3                             0x0800b539   Thumb Code     0  printf3.o(i.__0sprintf$3)
-    __2sprintf                               0x0800b539   Thumb Code     0  printf3.o(i.__0sprintf$3)
-    __ARM_fpclassify                         0x0800b561   Thumb Code    40  fpclassify.o(i.__ARM_fpclassify)
-    __kernel_poly                            0x0800b589   Thumb Code   170  poly.o(i.__kernel_poly)
-    __mathlib_dbl_divzero                    0x0800b635   Thumb Code    12  dunder.o(i.__mathlib_dbl_divzero)
-    __mathlib_dbl_infnan2                    0x0800b645   Thumb Code     4  dunder.o(i.__mathlib_dbl_infnan2)
-    __mathlib_dbl_invalid                    0x0800b649   Thumb Code    12  dunder.o(i.__mathlib_dbl_invalid)
-    __mathlib_dbl_overflow                   0x0800b655   Thumb Code    14  dunder.o(i.__mathlib_dbl_overflow)
-    __mathlib_dbl_underflow                  0x0800b665   Thumb Code    10  dunder.o(i.__mathlib_dbl_underflow)
-    __scatterload_copy                       0x0800b675   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x0800b683   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x0800b685   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    __set_errno                              0x0800b695   Thumb Code     6  errno.o(i.__set_errno)
-    pow                                      0x0800b865   Thumb Code  2478  pow.o(i.pow)
-    sqrt                                     0x0800c21d   Thumb Code    76  sqrt.o(i.sqrt)
-    F6x8                                     0x0800c268   Data         552  bsp_oled.o(.constdata)
-    F8X16                                    0x0800c490   Data        1520  bsp_oled.o(.constdata)
-    F16X32                                   0x0800ca80   Data         896  bsp_oled.o(.constdata)
-    Hzk                                      0x0800ce00   Data        1024  bsp_oled.o(.constdata)
-    UI_NOSIGNAL8X8                           0x0800d200   Data           8  bmp.o(.constdata)
-    UI_ASIGNAL8X8                            0x0800d208   Data           8  bmp.o(.constdata)
-    __mathlib_zero                           0x0800d298   Data           8  qnan.o(.constdata)
-    Region$$Table$$Base                      0x0800d2a0   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x0800d2c0   Number         0  anon$$obj.o(Region$$Table)
+    vTaskLed                                 0x08009a69   Thumb Code    18  ledtask.o(.text)
+    vTaskDisplay                             0x08009a89   Thumb Code    34  displaytask.o(.text)
+    setShow_ui                               0x08009aab   Thumb Code    14  displaytask.o(.text)
+    DisplayInit                              0x08009ab9   Thumb Code     8  displaytask.o(.text)
+    Show_Para_Con                            0x08009ac1   Thumb Code    72  displaytask.o(.text)
+    vTaskEnvironment                         0x08009b0f   Thumb Code    22  environmenttask.o(.text)
+    vTaskClock                               0x08009b35   Thumb Code    20  clocktask.o(.text)
+    vTaskLight                               0x08009b51   Thumb Code    22  lighttask.o(.text)
+    UpdataPms                                0x08009b6d   Thumb Code    34  pmstask.o(.text)
+    vTaskPms                                 0x08009b8f   Thumb Code    30  pmstask.o(.text)
+    vTaskBme                                 0x08009bb7   Thumb Code    20  bmetask.o(.text)
+    Main_uiconfigParamInit                   0x08009bd1   Thumb Code    94  main_ui.o(.text)
+    Main_ZUI                                 0x08009c2f   Thumb Code  7008  main_ui.o(.text)
+    Main_uictrl                              0x0800b7f3   Thumb Code  1332  main_ui.o(.text)
+    __aeabi_uldivmod                         0x0800bd41   Thumb Code    98  uldiv.o(.text)
+    __aeabi_ldivmod                          0x0800bda3   Thumb Code    98  ldiv.o(.text)
+    __aeabi_memcpy                           0x0800be05   Thumb Code    36  memcpya.o(.text)
+    __aeabi_memcpy4                          0x0800be05   Thumb Code     0  memcpya.o(.text)
+    __aeabi_memcpy8                          0x0800be05   Thumb Code     0  memcpya.o(.text)
+    __aeabi_memset                           0x0800be29   Thumb Code    14  memseta.o(.text)
+    __aeabi_memset4                          0x0800be29   Thumb Code     0  memseta.o(.text)
+    __aeabi_memset8                          0x0800be29   Thumb Code     0  memseta.o(.text)
+    __aeabi_memclr                           0x0800be37   Thumb Code     4  memseta.o(.text)
+    __aeabi_memclr4                          0x0800be37   Thumb Code     0  memseta.o(.text)
+    __aeabi_memclr8                          0x0800be37   Thumb Code     0  memseta.o(.text)
+    _memset$wrapper                          0x0800be3b   Thumb Code    18  memseta.o(.text)
+    strlen                                   0x0800be4d   Thumb Code    14  strlen.o(.text)
+    strcpy                                   0x0800be5b   Thumb Code    18  strcpy.o(.text)
+    __aeabi_fadd                             0x0800be6d   Thumb Code   164  fadd.o(.text)
+    __aeabi_fsub                             0x0800bf11   Thumb Code     6  fadd.o(.text)
+    __aeabi_frsub                            0x0800bf17   Thumb Code     6  fadd.o(.text)
+    __aeabi_fmul                             0x0800bf1d   Thumb Code   100  fmul.o(.text)
+    __aeabi_fdiv                             0x0800bf81   Thumb Code   124  fdiv.o(.text)
+    __aeabi_dadd                             0x0800bffd   Thumb Code   322  dadd.o(.text)
+    __aeabi_dsub                             0x0800c13f   Thumb Code     6  dadd.o(.text)
+    __aeabi_drsub                            0x0800c145   Thumb Code     6  dadd.o(.text)
+    __aeabi_dmul                             0x0800c14b   Thumb Code   228  dmul.o(.text)
+    __aeabi_ddiv                             0x0800c22f   Thumb Code   222  ddiv.o(.text)
+    __aeabi_i2f                              0x0800c30d   Thumb Code    18  fflti.o(.text)
+    __aeabi_ui2f                             0x0800c31f   Thumb Code    10  ffltui.o(.text)
+    __aeabi_i2d                              0x0800c329   Thumb Code    34  dflti.o(.text)
+    __aeabi_ui2d                             0x0800c34b   Thumb Code    26  dfltui.o(.text)
+    __aeabi_f2iz                             0x0800c365   Thumb Code    50  ffixi.o(.text)
+    __aeabi_f2d                              0x0800c397   Thumb Code    38  f2d.o(.text)
+    __aeabi_cdcmpeq                          0x0800c3bd   Thumb Code     0  cdcmple.o(.text)
+    __aeabi_cdcmple                          0x0800c3bd   Thumb Code    48  cdcmple.o(.text)
+    __aeabi_d2f                              0x0800c3ed   Thumb Code    56  d2f.o(.text)
+    __aeabi_cfcmpeq                          0x0800c425   Thumb Code     0  cfcmple.o(.text)
+    __aeabi_cfcmple                          0x0800c425   Thumb Code    20  cfcmple.o(.text)
+    __aeabi_cfrcmple                         0x0800c439   Thumb Code    20  cfrcmple.o(.text)
+    __aeabi_uidiv                            0x0800c44d   Thumb Code     0  uidiv.o(.text)
+    __aeabi_uidivmod                         0x0800c44d   Thumb Code    44  uidiv.o(.text)
+    __aeabi_llsl                             0x0800c479   Thumb Code    30  llshl.o(.text)
+    _ll_shift_l                              0x0800c479   Thumb Code     0  llshl.o(.text)
+    __aeabi_llsr                             0x0800c497   Thumb Code    32  llushr.o(.text)
+    _ll_ushift_r                             0x0800c497   Thumb Code     0  llushr.o(.text)
+    __aeabi_lasr                             0x0800c4b7   Thumb Code    36  llsshr.o(.text)
+    _ll_sshift_r                             0x0800c4b7   Thumb Code     0  llsshr.o(.text)
+    __I$use$fp                               0x0800c4db   Thumb Code     0  iusefp.o(.text)
+    _float_round                             0x0800c4db   Thumb Code    18  fepilogue.o(.text)
+    _float_epilogue                          0x0800c4ed   Thumb Code    92  fepilogue.o(.text)
+    _double_round                            0x0800c549   Thumb Code    30  depilogue.o(.text)
+    _double_epilogue                         0x0800c567   Thumb Code   156  depilogue.o(.text)
+    __ARM_scalbn                             0x0800c603   Thumb Code    46  dscalb.o(.text)
+    scalbn                                   0x0800c603   Thumb Code     0  dscalb.o(.text)
+    __aeabi_cdrcmple                         0x0800c631   Thumb Code    48  cdrcmple.o(.text)
+    __scatterload                            0x0800c661   Thumb Code    28  init.o(.text)
+    __scatterload_rt2                        0x0800c661   Thumb Code     0  init.o(.text)
+    _dsqrt                                   0x0800c685   Thumb Code   162  dsqrt.o(.text)
+    __decompress                             0x0800c727   Thumb Code     0  __dczerorl2.o(.text)
+    __decompress1                            0x0800c727   Thumb Code    86  __dczerorl2.o(.text)
+    __0sprintf$3                             0x0800c77d   Thumb Code    34  printf3.o(i.__0sprintf$3)
+    __1sprintf$3                             0x0800c77d   Thumb Code     0  printf3.o(i.__0sprintf$3)
+    __2sprintf                               0x0800c77d   Thumb Code     0  printf3.o(i.__0sprintf$3)
+    __ARM_fpclassify                         0x0800c7a5   Thumb Code    40  fpclassify.o(i.__ARM_fpclassify)
+    __kernel_poly                            0x0800c7cd   Thumb Code   170  poly.o(i.__kernel_poly)
+    __mathlib_dbl_divzero                    0x0800c879   Thumb Code    12  dunder.o(i.__mathlib_dbl_divzero)
+    __mathlib_dbl_infnan2                    0x0800c889   Thumb Code     4  dunder.o(i.__mathlib_dbl_infnan2)
+    __mathlib_dbl_invalid                    0x0800c88d   Thumb Code    12  dunder.o(i.__mathlib_dbl_invalid)
+    __mathlib_dbl_overflow                   0x0800c899   Thumb Code    14  dunder.o(i.__mathlib_dbl_overflow)
+    __mathlib_dbl_underflow                  0x0800c8a9   Thumb Code    10  dunder.o(i.__mathlib_dbl_underflow)
+    __scatterload_copy                       0x0800c8b9   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x0800c8c7   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x0800c8c9   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    __set_errno                              0x0800c8d9   Thumb Code     6  errno.o(i.__set_errno)
+    pow                                      0x0800caa9   Thumb Code  2478  pow.o(i.pow)
+    sqrt                                     0x0800d461   Thumb Code    76  sqrt.o(i.sqrt)
+    F6x8                                     0x0800d4ac   Data         552  bsp_oled.o(.constdata)
+    F8X16                                    0x0800d6d4   Data        1520  bsp_oled.o(.constdata)
+    F16X32                                   0x0800dcc4   Data         896  bsp_oled.o(.constdata)
+    Hzk                                      0x0800e044   Data        1024  bsp_oled.o(.constdata)
+    UI_NOSIGNAL8X8                           0x0800e444   Data           8  bmp.o(.constdata)
+    UI_ASIGNAL8X8                            0x0800e44c   Data           8  bmp.o(.constdata)
+    __mathlib_zero                           0x0800e4e0   Data           8  qnan.o(.constdata)
+    Region$$Table$$Base                      0x0800e4e8   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x0800e508   Number         0  anon$$obj.o(Region$$Table)
     SystemCoreClock                          0x20000000   Data           4  system_stm32f10x.o(.data)
     AHBPrescTable                            0x20000004   Data          16  system_stm32f10x.o(.data)
     xHandleTaskDisplay                       0x20000038   Data           4  main.o(.data)
@@ -1744,31 +1751,31 @@ Image Symbol Table
     Key_PL                                   0x20000090   Data          20  bsp_key.o(.data)
     Key_PR                                   0x200000a4   Data          20  bsp_key.o(.data)
     Key_PM                                   0x200000b8   Data          20  bsp_key.o(.data)
-    LedA                                     0x200000cc   Data          24  bsp_led.o(.data)
-    LedB                                     0x200000e4   Data          24  bsp_led.o(.data)
-    Fmq                                      0x200000fc   Data          24  bsp_led.o(.data)
-    StopCondition                            0x2000011c   Data           4  bsp_sdio_sdcard.o(.data)
-    TransferError                            0x20000120   Data           1  bsp_sdio_sdcard.o(.data)
-    TransferEnd                              0x20000124   Data           4  bsp_sdio_sdcard.o(.data)
-    DMAEndOfTransfer                         0x20000128   Data           4  bsp_sdio_sdcard.o(.data)
-    Oled_Colour                              0x2000012f   Data           1  bsp_oled.o(.data)
-    BH_Buf                                   0x20000130   Data           8  bsp_gy30.o(.data)
-    pxCurrentCoRoutine                       0x20000188   Data           4  croutine.o(.data)
-    pxCurrentTCB                             0x2000019c   Data           4  tasks.o(.data)
-    Show_ui                                  0x200001dc   Data           1  displaytask.o(.data)
-    Huimiture                                0x200001e0   Data           8  environmenttask.o(.data)
-    Light                                    0x200001e8   Data           8  lighttask.o(.data)
-    Pms                                      0x200001f0   Data           4  pmstask.o(.data)
-    SDCardInfo                               0x20000228   Data          88  bsp_sdio_sdcard.o(.bss)
-    SDIO_InitStructure                       0x20000280   Data          24  bsp_sdio_sdcard.o(.bss)
-    SDIO_CmdInitStructure                    0x20000298   Data          20  bsp_sdio_sdcard.o(.bss)
-    SDIO_DataInitStructure                   0x200002ac   Data          24  bsp_sdio_sdcard.o(.bss)
-    bme280Cal                                0x2000078c   Data          40  bsp_bme280.o(.bss)
-    ClockA                                   0x20006ee8   Data          36  clocktask.o(.bss)
-    SetClock                                 0x20006f0c   Data          36  clocktask.o(.bss)
-    Bme                                      0x20006f30   Data          16  bmetask.o(.bss)
-    Main_uiconfigParam                       0x20006f40   Data          80  main_ui.o(.bss)
-    __initial_sp                             0x20007390   Data           0  startup_stm32f10x_hd.o(STACK)
+    LedA                                     0x200000cc   Data          28  bsp_led.o(.data)
+    LedB                                     0x200000e8   Data          28  bsp_led.o(.data)
+    Fmq                                      0x20000104   Data          28  bsp_led.o(.data)
+    StopCondition                            0x20000128   Data           4  bsp_sdio_sdcard.o(.data)
+    TransferError                            0x2000012c   Data           1  bsp_sdio_sdcard.o(.data)
+    TransferEnd                              0x20000130   Data           4  bsp_sdio_sdcard.o(.data)
+    DMAEndOfTransfer                         0x20000134   Data           4  bsp_sdio_sdcard.o(.data)
+    Oled_Colour                              0x2000013b   Data           1  bsp_oled.o(.data)
+    BH_Buf                                   0x2000013c   Data           8  bsp_gy30.o(.data)
+    pxCurrentCoRoutine                       0x20000194   Data           4  croutine.o(.data)
+    pxCurrentTCB                             0x200001a8   Data           4  tasks.o(.data)
+    Show_ui                                  0x200001e8   Data           1  displaytask.o(.data)
+    Huimiture                                0x200001ec   Data           8  environmenttask.o(.data)
+    Light                                    0x200001f4   Data           8  lighttask.o(.data)
+    Pms                                      0x200001fc   Data           4  pmstask.o(.data)
+    SDCardInfo                               0x20000238   Data          88  bsp_sdio_sdcard.o(.bss)
+    SDIO_InitStructure                       0x20000290   Data          24  bsp_sdio_sdcard.o(.bss)
+    SDIO_CmdInitStructure                    0x200002a8   Data          20  bsp_sdio_sdcard.o(.bss)
+    SDIO_DataInitStructure                   0x200002bc   Data          24  bsp_sdio_sdcard.o(.bss)
+    bme280Cal                                0x2000079c   Data          40  bsp_bme280.o(.bss)
+    ClockA                                   0x20006ef8   Data          36  clocktask.o(.bss)
+    SetClock                                 0x20006f1c   Data          36  clocktask.o(.bss)
+    Bme                                      0x20006f40   Data          16  bmetask.o(.bss)
+    Main_uiconfigParam                       0x20006f50   Data          80  main_ui.o(.bss)
+    __initial_sp                             0x200073a0   Data           0  startup_stm32f10x_hd.o(STACK)
 
 
 
@@ -1778,9 +1785,9 @@ Memory Map of the image
 
   Image Entry point : 0x08000131
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x0000d4b8, Max: 0x00040000, ABSOLUTE, COMPRESSED[0x0000d318])
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x0000e70c, Max: 0x00040000, ABSOLUTE, COMPRESSED[0x0000e560])
 
-    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x0000d2c0, Max: 0x00040000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x0000e508, Max: 0x00040000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1830,76 +1837,77 @@ Memory Map of the image
     0x08007b64   0x0000091c   Code   RO          999    .text               queue.o
     0x08008480   0x00001520   Code   RO         1014    .text               tasks.o
     0x080099a0   0x0000003c   Code   RO         1043    .text               keytask.o
-    0x080099dc   0x00000024   Code   RO         1055    .text               ledtask.o
-    0x08009a00   0x00000084   Code   RO         1115    .text               displaytask.o
-    0x08009a84   0x0000001c   Code   RO         1137    .text               environmenttask.o
-    0x08009aa0   0x00000014   Code   RO         1155    .text               clocktask.o
-    0x08009ab4   0x0000001c   Code   RO         1173    .text               lighttask.o
-    0x08009ad0   0x00000048   Code   RO         1191    .text               pmstask.o
-    0x08009b18   0x0000001c   Code   RO         1209    .text               bmetask.o
-    0x08009b34   0x00000fc8   Code   RO         1251    .text               main_ui.o
-    0x0800aafc   0x00000062   Code   RO         1294    .text               mc_w.l(uldiv.o)
-    0x0800ab5e   0x00000062   Code   RO         1296    .text               mc_w.l(ldiv.o)
-    0x0800abc0   0x00000024   Code   RO         1298    .text               mc_w.l(memcpya.o)
-    0x0800abe4   0x00000024   Code   RO         1300    .text               mc_w.l(memseta.o)
-    0x0800ac08   0x0000000e   Code   RO         1302    .text               mc_w.l(strlen.o)
-    0x0800ac16   0x00000012   Code   RO         1304    .text               mc_w.l(strcpy.o)
-    0x0800ac28   0x000000b0   Code   RO         1569    .text               mf_w.l(fadd.o)
-    0x0800acd8   0x00000064   Code   RO         1571    .text               mf_w.l(fmul.o)
-    0x0800ad3c   0x0000007c   Code   RO         1573    .text               mf_w.l(fdiv.o)
-    0x0800adb8   0x0000014e   Code   RO         1575    .text               mf_w.l(dadd.o)
-    0x0800af06   0x000000e4   Code   RO         1577    .text               mf_w.l(dmul.o)
-    0x0800afea   0x000000de   Code   RO         1579    .text               mf_w.l(ddiv.o)
-    0x0800b0c8   0x00000012   Code   RO         1581    .text               mf_w.l(fflti.o)
-    0x0800b0da   0x0000000a   Code   RO         1583    .text               mf_w.l(ffltui.o)
-    0x0800b0e4   0x00000022   Code   RO         1585    .text               mf_w.l(dflti.o)
-    0x0800b106   0x0000001a   Code   RO         1587    .text               mf_w.l(dfltui.o)
-    0x0800b120   0x00000032   Code   RO         1589    .text               mf_w.l(ffixi.o)
-    0x0800b152   0x00000026   Code   RO         1591    .text               mf_w.l(f2d.o)
-    0x0800b178   0x00000030   Code   RO         1593    .text               mf_w.l(cdcmple.o)
-    0x0800b1a8   0x00000038   Code   RO         1595    .text               mf_w.l(d2f.o)
-    0x0800b1e0   0x00000014   Code   RO         1597    .text               mf_w.l(cfcmple.o)
-    0x0800b1f4   0x00000014   Code   RO         1599    .text               mf_w.l(cfrcmple.o)
-    0x0800b208   0x0000002c   Code   RO         1643    .text               mc_w.l(uidiv.o)
-    0x0800b234   0x0000001e   Code   RO         1645    .text               mc_w.l(llshl.o)
-    0x0800b252   0x00000020   Code   RO         1647    .text               mc_w.l(llushr.o)
-    0x0800b272   0x00000024   Code   RO         1649    .text               mc_w.l(llsshr.o)
-    0x0800b296   0x00000000   Code   RO         1658    .text               mc_w.l(iusefp.o)
-    0x0800b296   0x0000006e   Code   RO         1659    .text               mf_w.l(fepilogue.o)
-    0x0800b304   0x000000ba   Code   RO         1661    .text               mf_w.l(depilogue.o)
-    0x0800b3be   0x0000002e   Code   RO         1663    .text               mf_w.l(dscalb.o)
-    0x0800b3ec   0x00000030   Code   RO         1667    .text               mf_w.l(cdrcmple.o)
-    0x0800b41c   0x00000024   Code   RO         1669    .text               mc_w.l(init.o)
-    0x0800b440   0x000000a2   Code   RO         1671    .text               mf_w.l(dsqrt.o)
-    0x0800b4e2   0x00000056   Code   RO         1681    .text               mc_w.l(__dczerorl2.o)
-    0x0800b538   0x00000028   Code   RO         1399    i.__0sprintf$3      mc_w.l(printf3.o)
-    0x0800b560   0x00000028   Code   RO         1615    i.__ARM_fpclassify  m_ws.l(fpclassify.o)
-    0x0800b588   0x000000aa   Code   RO         1617    i.__kernel_poly     m_ws.l(poly.o)
-    0x0800b632   0x00000002   PAD
-    0x0800b634   0x00000010   Code   RO         1601    i.__mathlib_dbl_divzero  m_ws.l(dunder.o)
-    0x0800b644   0x00000004   Code   RO         1603    i.__mathlib_dbl_infnan2  m_ws.l(dunder.o)
-    0x0800b648   0x0000000c   Code   RO         1604    i.__mathlib_dbl_invalid  m_ws.l(dunder.o)
-    0x0800b654   0x0000000e   Code   RO         1605    i.__mathlib_dbl_overflow  m_ws.l(dunder.o)
-    0x0800b662   0x00000002   PAD
-    0x0800b664   0x00000010   Code   RO         1607    i.__mathlib_dbl_underflow  m_ws.l(dunder.o)
-    0x0800b674   0x0000000e   Code   RO         1675    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x0800b682   0x00000002   Code   RO         1676    i.__scatterload_null  mc_w.l(handlers.o)
-    0x0800b684   0x0000000e   Code   RO         1677    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x0800b692   0x00000002   PAD
-    0x0800b694   0x0000000c   Code   RO         1653    i.__set_errno       mc_w.l(errno.o)
-    0x0800b6a0   0x000001b8   Code   RO         1404    i._printf_core      mc_w.l(printf3.o)
-    0x0800b858   0x0000000a   Code   RO         1406    i._sputc            mc_w.l(printf3.o)
-    0x0800b862   0x00000002   PAD
-    0x0800b864   0x000009b8   Code   RO         1282    i.pow               m_ws.l(pow.o)
-    0x0800c21c   0x0000004c   Code   RO         1621    i.sqrt              m_ws.l(sqrt.o)
-    0x0800c268   0x00000f98   Data   RO          783    .constdata          bsp_oled.o
-    0x0800d200   0x00000010   Data   RO         1269    .constdata          bmp.o
-    0x0800d210   0x00000088   Data   RO         1283    .constdata          m_ws.l(pow.o)
-    0x0800d298   0x00000008   Data   RO         1619    .constdata          m_ws.l(qnan.o)
-    0x0800d2a0   0x00000020   Data   RO         1673    Region$$Table       anon$$obj.o
+    0x080099dc   0x000000ac   Code   RO         1055    .text               ledtask.o
+    0x08009a88   0x00000084   Code   RO         1115    .text               displaytask.o
+    0x08009b0c   0x0000001c   Code   RO         1137    .text               environmenttask.o
+    0x08009b28   0x00000028   Code   RO         1155    .text               clocktask.o
+    0x08009b50   0x0000001c   Code   RO         1173    .text               lighttask.o
+    0x08009b6c   0x00000048   Code   RO         1191    .text               pmstask.o
+    0x08009bb4   0x0000001c   Code   RO         1209    .text               bmetask.o
+    0x08009bd0   0x00002170   Code   RO         1251    .text               main_ui.o
+    0x0800bd40   0x00000062   Code   RO         1294    .text               mc_w.l(uldiv.o)
+    0x0800bda2   0x00000062   Code   RO         1296    .text               mc_w.l(ldiv.o)
+    0x0800be04   0x00000024   Code   RO         1298    .text               mc_w.l(memcpya.o)
+    0x0800be28   0x00000024   Code   RO         1300    .text               mc_w.l(memseta.o)
+    0x0800be4c   0x0000000e   Code   RO         1302    .text               mc_w.l(strlen.o)
+    0x0800be5a   0x00000012   Code   RO         1304    .text               mc_w.l(strcpy.o)
+    0x0800be6c   0x000000b0   Code   RO         1569    .text               mf_w.l(fadd.o)
+    0x0800bf1c   0x00000064   Code   RO         1571    .text               mf_w.l(fmul.o)
+    0x0800bf80   0x0000007c   Code   RO         1573    .text               mf_w.l(fdiv.o)
+    0x0800bffc   0x0000014e   Code   RO         1575    .text               mf_w.l(dadd.o)
+    0x0800c14a   0x000000e4   Code   RO         1577    .text               mf_w.l(dmul.o)
+    0x0800c22e   0x000000de   Code   RO         1579    .text               mf_w.l(ddiv.o)
+    0x0800c30c   0x00000012   Code   RO         1581    .text               mf_w.l(fflti.o)
+    0x0800c31e   0x0000000a   Code   RO         1583    .text               mf_w.l(ffltui.o)
+    0x0800c328   0x00000022   Code   RO         1585    .text               mf_w.l(dflti.o)
+    0x0800c34a   0x0000001a   Code   RO         1587    .text               mf_w.l(dfltui.o)
+    0x0800c364   0x00000032   Code   RO         1589    .text               mf_w.l(ffixi.o)
+    0x0800c396   0x00000026   Code   RO         1591    .text               mf_w.l(f2d.o)
+    0x0800c3bc   0x00000030   Code   RO         1593    .text               mf_w.l(cdcmple.o)
+    0x0800c3ec   0x00000038   Code   RO         1595    .text               mf_w.l(d2f.o)
+    0x0800c424   0x00000014   Code   RO         1597    .text               mf_w.l(cfcmple.o)
+    0x0800c438   0x00000014   Code   RO         1599    .text               mf_w.l(cfrcmple.o)
+    0x0800c44c   0x0000002c   Code   RO         1643    .text               mc_w.l(uidiv.o)
+    0x0800c478   0x0000001e   Code   RO         1645    .text               mc_w.l(llshl.o)
+    0x0800c496   0x00000020   Code   RO         1647    .text               mc_w.l(llushr.o)
+    0x0800c4b6   0x00000024   Code   RO         1649    .text               mc_w.l(llsshr.o)
+    0x0800c4da   0x00000000   Code   RO         1658    .text               mc_w.l(iusefp.o)
+    0x0800c4da   0x0000006e   Code   RO         1659    .text               mf_w.l(fepilogue.o)
+    0x0800c548   0x000000ba   Code   RO         1661    .text               mf_w.l(depilogue.o)
+    0x0800c602   0x0000002e   Code   RO         1663    .text               mf_w.l(dscalb.o)
+    0x0800c630   0x00000030   Code   RO         1667    .text               mf_w.l(cdrcmple.o)
+    0x0800c660   0x00000024   Code   RO         1669    .text               mc_w.l(init.o)
+    0x0800c684   0x000000a2   Code   RO         1671    .text               mf_w.l(dsqrt.o)
+    0x0800c726   0x00000056   Code   RO         1681    .text               mc_w.l(__dczerorl2.o)
+    0x0800c77c   0x00000028   Code   RO         1399    i.__0sprintf$3      mc_w.l(printf3.o)
+    0x0800c7a4   0x00000028   Code   RO         1615    i.__ARM_fpclassify  m_ws.l(fpclassify.o)
+    0x0800c7cc   0x000000aa   Code   RO         1617    i.__kernel_poly     m_ws.l(poly.o)
+    0x0800c876   0x00000002   PAD
+    0x0800c878   0x00000010   Code   RO         1601    i.__mathlib_dbl_divzero  m_ws.l(dunder.o)
+    0x0800c888   0x00000004   Code   RO         1603    i.__mathlib_dbl_infnan2  m_ws.l(dunder.o)
+    0x0800c88c   0x0000000c   Code   RO         1604    i.__mathlib_dbl_invalid  m_ws.l(dunder.o)
+    0x0800c898   0x0000000e   Code   RO         1605    i.__mathlib_dbl_overflow  m_ws.l(dunder.o)
+    0x0800c8a6   0x00000002   PAD
+    0x0800c8a8   0x00000010   Code   RO         1607    i.__mathlib_dbl_underflow  m_ws.l(dunder.o)
+    0x0800c8b8   0x0000000e   Code   RO         1675    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x0800c8c6   0x00000002   Code   RO         1676    i.__scatterload_null  mc_w.l(handlers.o)
+    0x0800c8c8   0x0000000e   Code   RO         1677    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x0800c8d6   0x00000002   PAD
+    0x0800c8d8   0x0000000c   Code   RO         1653    i.__set_errno       mc_w.l(errno.o)
+    0x0800c8e4   0x000001b8   Code   RO         1404    i._printf_core      mc_w.l(printf3.o)
+    0x0800ca9c   0x0000000a   Code   RO         1406    i._sputc            mc_w.l(printf3.o)
+    0x0800caa6   0x00000002   PAD
+    0x0800caa8   0x000009b8   Code   RO         1282    i.pow               m_ws.l(pow.o)
+    0x0800d460   0x0000004c   Code   RO         1621    i.sqrt              m_ws.l(sqrt.o)
+    0x0800d4ac   0x00000f98   Data   RO          783    .constdata          bsp_oled.o
+    0x0800e444   0x00000010   Data   RO         1269    .constdata          bmp.o
+    0x0800e454   0x00000004   PAD
+    0x0800e458   0x00000088   Data   RO         1283    .constdata          m_ws.l(pow.o)
+    0x0800e4e0   0x00000008   Data   RO         1619    .constdata          m_ws.l(qnan.o)
+    0x0800e4e8   0x00000020   Data   RO         1673    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x00007390, Max: 0x0000c000, ABSOLUTE, COMPRESSED[0x00000058])
+    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x000073a0, Max: 0x0000c000, ABSOLUTE, COMPRESSED[0x00000058])
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1909,36 +1917,37 @@ Memory Map of the image
     0x2000005c   0x00000004   Data   RW          585    .data               sysinfotest.o
     0x20000060   0x00000004   Data   RW          656    .data               bsp_dwt_delay.o
     0x20000064   0x00000068   Data   RW          682    .data               bsp_key.o
-    0x200000cc   0x00000048   Data   RW          715    .data               bsp_led.o
-    0x20000114   0x00000018   Data   RW          735    .data               bsp_sdio_sdcard.o
-    0x2000012c   0x00000003   Data   RW          768    .data               bsp_usart1.o
-    0x2000012f   0x00000001   Data   RW          784    .data               bsp_oled.o
-    0x20000130   0x00000008   Data   RW          843    .data               bsp_gy30.o
-    0x20000138   0x00000003   Data   RW          866    .data               bsp_usart2.o
-    0x2000013b   0x00000001   PAD
-    0x2000013c   0x00000020   Data   RW          888    .data               bsp_bme280.o
-    0x2000015c   0x00000018   Data   RW          904    .data               heap_4.o
-    0x20000174   0x0000000c   Data   RW          928    .data               port.o
-    0x20000180   0x0000001c   Data   RW          952    .data               croutine.o
-    0x2000019c   0x00000040   Data   RW         1016    .data               tasks.o
-    0x200001dc   0x00000001   Data   RW         1116    .data               displaytask.o
-    0x200001dd   0x00000003   PAD
-    0x200001e0   0x00000008   Data   RW         1138    .data               environmenttask.o
-    0x200001e8   0x00000008   Data   RW         1174    .data               lighttask.o
-    0x200001f0   0x00000004   Data   RW         1192    .data               pmstask.o
-    0x200001f4   0x00000004   Data   RW         1654    .data               mc_w.l(errno.o)
-    0x200001f8   0x000000cc   Zero   RW          734    .bss                bsp_sdio_sdcard.o
-    0x200002c4   0x00000064   Zero   RW          767    .bss                bsp_usart1.o
-    0x20000328   0x00000400   Zero   RW          782    .bss                bsp_oled.o
-    0x20000728   0x00000064   Zero   RW          865    .bss                bsp_usart2.o
-    0x2000078c   0x0000003c   Zero   RW          887    .bss                bsp_bme280.o
-    0x200007c8   0x00006400   Zero   RW          903    .bss                heap_4.o
-    0x20006bc8   0x00000064   Zero   RW          951    .bss                croutine.o
-    0x20006c2c   0x000002bc   Zero   RW         1015    .bss                tasks.o
-    0x20006ee8   0x00000048   Zero   RW         1156    .bss                clocktask.o
-    0x20006f30   0x00000010   Zero   RW         1210    .bss                bmetask.o
-    0x20006f40   0x00000050   Zero   RW         1252    .bss                main_ui.o
-    0x20006f90   0x00000400   Zero   RW          396    STACK               startup_stm32f10x_hd.o
+    0x200000cc   0x00000054   Data   RW          715    .data               bsp_led.o
+    0x20000120   0x00000018   Data   RW          735    .data               bsp_sdio_sdcard.o
+    0x20000138   0x00000003   Data   RW          768    .data               bsp_usart1.o
+    0x2000013b   0x00000001   Data   RW          784    .data               bsp_oled.o
+    0x2000013c   0x00000008   Data   RW          843    .data               bsp_gy30.o
+    0x20000144   0x00000003   Data   RW          866    .data               bsp_usart2.o
+    0x20000147   0x00000001   PAD
+    0x20000148   0x00000020   Data   RW          888    .data               bsp_bme280.o
+    0x20000168   0x00000018   Data   RW          904    .data               heap_4.o
+    0x20000180   0x0000000c   Data   RW          928    .data               port.o
+    0x2000018c   0x0000001c   Data   RW          952    .data               croutine.o
+    0x200001a8   0x00000040   Data   RW         1016    .data               tasks.o
+    0x200001e8   0x00000001   Data   RW         1116    .data               displaytask.o
+    0x200001e9   0x00000003   PAD
+    0x200001ec   0x00000008   Data   RW         1138    .data               environmenttask.o
+    0x200001f4   0x00000008   Data   RW         1174    .data               lighttask.o
+    0x200001fc   0x00000004   Data   RW         1192    .data               pmstask.o
+    0x20000200   0x00000004   Data   RW         1654    .data               mc_w.l(errno.o)
+    0x20000204   0x00000004   PAD
+    0x20000208   0x000000cc   Zero   RW          734    .bss                bsp_sdio_sdcard.o
+    0x200002d4   0x00000064   Zero   RW          767    .bss                bsp_usart1.o
+    0x20000338   0x00000400   Zero   RW          782    .bss                bsp_oled.o
+    0x20000738   0x00000064   Zero   RW          865    .bss                bsp_usart2.o
+    0x2000079c   0x0000003c   Zero   RW          887    .bss                bsp_bme280.o
+    0x200007d8   0x00006400   Zero   RW          903    .bss                heap_4.o
+    0x20006bd8   0x00000064   Zero   RW          951    .bss                croutine.o
+    0x20006c3c   0x000002bc   Zero   RW         1015    .bss                tasks.o
+    0x20006ef8   0x00000048   Zero   RW         1156    .bss                clocktask.o
+    0x20006f40   0x00000010   Zero   RW         1210    .bss                bmetask.o
+    0x20006f50   0x00000050   Zero   RW         1252    .bss                main_ui.o
+    0x20006fa0   0x00000400   Zero   RW          396    STACK               startup_stm32f10x_hd.o
 
 
 ==============================================================================
@@ -1952,18 +1961,18 @@ Image component sizes
          0          0         16          0          0        567   bmp.o
         56          6          0          0          0        463   bsp.o
       2604        128          0         32         60       6439   bsp_bme280.o
-      1452         36          0          0          0       6179   bsp_ds3231.o
+      1452         36          0          0          0       6195   bsp_ds3231.o
        124         20          0          4          0       1051   bsp_dwt_delay.o
       1040         20          0          8          0       5022   bsp_gy30.o
        284         26          0        104          0       2574   bsp_key.o
-       180         16          0         72          0       2104   bsp_led.o
+       180         16          0         84          0       2168   bsp_led.o
       3268         60       3992          1       1024       9339   bsp_oled.o
       6596        270          0         24        204      25115   bsp_sdio_sdcard.o
       1140         54          0          0          0       4347   bsp_sht3x.o
       1832        130          0          0          0       4720   bsp_tim_pwm.o
        928         38          0          3        100       3790   bsp_usart1.o
        748         38          0          3        100       2784   bsp_usart2.o
-        20          4          0          0         72        711   clocktask.o
+        40          8          0          0         72        791   clocktask.o
          0          0          0          0          0       4536   core_cm3.o
        752         44          0         28        100       5540   croutine.o
        132          4          0          1          0       2278   displaytask.o
@@ -1971,11 +1980,11 @@ Image component sizes
          8          0          0          0          0        437   gather.o
        600         26          0         24      25600       4656   heap_4.o
         60         20          0          0          0        463   keytask.o
-        36         10          0          0          0        451   ledtask.o
+       172         12          0          0          0        779   ledtask.o
         28          6          0          8          0        677   lighttask.o
        148          0          0          0          0       1814   list.o
-       524        204          0         52          0      42069   main.o
-      4040        238          0          0         80       2467   main_ui.o
+       524        204          0         52          0      42085   main.o
+      8560        436          0          0         80       4079   main_ui.o
        220         22          0          0          0       1893   misc.o
         72          8          0          4          0       1191   pmstask.o
        662         40          0         12          0       4886   port.o
@@ -1993,9 +2002,9 @@ Image component sizes
       5408        334          0         64        700      20239   tasks.o
 
     ----------------------------------------------------------------------
-     43448       2082       4344        500      29080     510728   Object Totals
+     48124       2286       4348        512      29080     512844   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-         4          0          0          4          0          0   (incl. Padding)
+         4          0          4          4          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -2054,8 +2063,8 @@ Image component sizes
        100          0          0          0          0         76   fmul.o
 
     ----------------------------------------------------------------------
-      6016        232        144          4          0       4004   Library Totals
-         8          0          0          0          0          0   (incl. Padding)
+      6016        232        144          4          4       4004   Library Totals
+         8          0          0          0          4          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -2066,7 +2075,7 @@ Image component sizes
       2056          0          0          0          0       1956   mf_w.l
 
     ----------------------------------------------------------------------
-      6016        232        144          4          0       4004   Library Totals
+      6016        232        144          4          4       4004   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -2075,15 +2084,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     49464       2314       4488        504      29080     509348   Grand Totals
-     49464       2314       4488         88      29080     509348   ELF Image Totals (compressed)
-     49464       2314       4488         88          0          0   ROM Totals
+     54140       2518       4492        516      29084     511464   Grand Totals
+     54140       2518       4492         88      29084     511464   ELF Image Totals (compressed)
+     54140       2518       4492         88          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                53952 (  52.69kB)
-    Total RW  Size (RW Data + ZI Data)             29584 (  28.89kB)
-    Total ROM Size (Code + RO Data + RW Data)      54040 (  52.77kB)
+    Total RO  Size (Code + RO Data)                58632 (  57.26kB)
+    Total RW  Size (RW Data + ZI Data)             29600 (  28.91kB)
+    Total ROM Size (Code + RO Data + RW Data)      58720 (  57.34kB)
 
 ==============================================================================
 
