@@ -701,7 +701,7 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 F (..\Libraries\CMSIS\startup\startup_stm32f10x_hd.s)(0x5DE63959)(--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 515" --pd "STM32F10X_HD SETA 1"--list .\listings\startup_stm32f10x_hd.lst --xref -o .\objects\startup_stm32f10x_hd.o --depend .\objects\startup_stm32f10x_hd.d)
 F (..\User\stm32f10x_conf.h)(0x559784D6)()
 F (..\User\stm32f10x_it.c)(0x5E884DC4)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f10x_it.o --omf_browse .\objects\stm32f10x_it.crf --depend .\objects\stm32f10x_it.d)
-I (..\Top\inc\includes.h)(0x5E88429F)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -710,7 +710,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -748,18 +748,19 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -772,12 +773,12 @@ I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
 F (..\User\stm32f10x_it.h)(0x59E8AA90)()
-F (..\User\main.c)(0x5E885A4B)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
-I (..\Top\inc\includes.h)(0x5E88429F)
+F (..\User\main.c)(0x5EA2F11E)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -786,7 +787,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -824,18 +825,19 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -848,12 +850,12 @@ I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
-F (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)()
+F (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)()
 F (..\User\SysInfoTest.c)(0x5DAD1FC5)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\sysinfotest.o --omf_browse .\objects\sysinfotest.crf --depend .\objects\sysinfotest.d)
-I (..\Top\inc\includes.h)(0x5E88429F)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -862,7 +864,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -900,18 +902,19 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -924,12 +927,12 @@ I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
 F (..\Top\src\control.c)(0x5DA82745)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\control.o --omf_browse .\objects\control.crf --depend .\objects\control.d)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
-I (..\Top\inc\includes.h)(0x5E88429F)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -938,7 +941,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -975,18 +978,19 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x5C1D0478)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -999,13 +1003,12 @@ I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
-F (..\Top\src\gather.c)(0x5E860F68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\gather.o --omf_browse .\objects\gather.crf --depend .\objects\gather.d)
-I (..\Top\inc\gather.h)(0x5C5BBC38)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Top\inc\includes.h)(0x5E88429F)
+F (..\Top\src\gather.c)(0x5E9DAC40)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\gather.o --omf_browse .\objects\gather.crf --depend .\objects\gather.d)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -1014,7 +1017,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -1055,14 +1058,15 @@ I (..\Top\inc\control.h)(0x5CF7D9B2)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -1075,12 +1079,12 @@ I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
 F (..\Top\src\file_sys.c)(0x5E764528)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\file_sys.o --omf_browse .\objects\file_sys.crf --depend .\objects\file_sys.d)
 I (..\Top\inc\file_sys.h)(0x5DF1DB10)
-I (..\Top\inc\includes.h)(0x5E88429F)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -1089,7 +1093,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -1127,18 +1131,19 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -1151,12 +1156,12 @@ I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
 F (..\Basic\SYS\sys.c)(0x5C5BE16A)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\sys.o --omf_browse .\objects\sys.crf --depend .\objects\sys.d)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Top\inc\includes.h)(0x5E88429F)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -1165,7 +1170,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -1203,17 +1208,18 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -1226,12 +1232,12 @@ I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
 F (..\Basic\DWT\bsp_dwt_delay.c)(0x5CAF3B60)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\bsp_dwt_delay.o --omf_browse .\objects\bsp_dwt_delay.crf --depend .\objects\bsp_dwt_delay.d)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
-I (..\Top\inc\includes.h)(0x5E88429F)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -1240,7 +1246,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -1278,17 +1284,18 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -1301,12 +1308,12 @@ I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
-F (..\Basic\BSP\bsp.c)(0x5E884A49)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\bsp.o --omf_browse .\objects\bsp.crf --depend .\objects\bsp.d)
+F (..\Basic\BSP\bsp.c)(0x5EA3210C)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\bsp.o --omf_browse .\objects\bsp.crf --depend .\objects\bsp.d)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
-I (..\Top\inc\includes.h)(0x5E88429F)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -1315,7 +1322,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -1353,17 +1360,18 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -1376,12 +1384,12 @@ I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
-F (..\Basic\KEY\bsp_key.c)(0x5E7EE962)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\bsp_key.o --omf_browse .\objects\bsp_key.crf --depend .\objects\bsp_key.d)
+F (..\Basic\KEY\bsp_key.c)(0x5EA2F166)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\bsp_key.o --omf_browse .\objects\bsp_key.crf --depend .\objects\bsp_key.d)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
-I (..\Top\inc\includes.h)(0x5E88429F)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -1390,7 +1398,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -1428,17 +1436,18 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -1451,12 +1460,12 @@ I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
 F (..\Basic\BSP\bsp_tim_pwm.c)(0x5DAD1F69)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\bsp_tim_pwm.o --omf_browse .\objects\bsp_tim_pwm.crf --depend .\objects\bsp_tim_pwm.d)
 I (..\Basic\BSP\bsp_tim_pwm.h)(0x5DAD1F72)
-I (..\Top\inc\includes.h)(0x5E88429F)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -1465,7 +1474,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -1503,18 +1512,19 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -1527,12 +1537,12 @@ I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
-F (..\Basic\LED\bsp_led.c)(0x5E76517B)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\bsp_led.o --omf_browse .\objects\bsp_led.crf --depend .\objects\bsp_led.d)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
-I (..\Top\inc\includes.h)(0x5E88429F)
+F (..\Basic\LED\bsp_led.c)(0x5EA2F44D)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\bsp_led.o --omf_browse .\objects\bsp_led.crf --depend .\objects\bsp_led.d)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -1541,7 +1551,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -1579,17 +1589,18 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -1602,13 +1613,13 @@ I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
 F (..\Basic\SYSTICK\delay.c)(0x5DEF14B4)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\delay.o --omf_browse .\objects\delay.crf --depend .\objects\delay.d)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Top\inc\includes.h)(0x5E88429F)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -1617,7 +1628,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -1655,16 +1666,17 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -1677,12 +1689,12 @@ I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
 F (..\Basic\USART1\bsp_usart1.c)(0x5E7B8107)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\bsp_usart1.o --omf_browse .\objects\bsp_usart1.crf --depend .\objects\bsp_usart1.d)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Top\inc\includes.h)(0x5E88429F)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -1691,7 +1703,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -1729,17 +1741,18 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -1752,12 +1765,12 @@ I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
-F (..\Basic\OLED\bsp_oled.c)(0x5E7B7FCC)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\bsp_oled.o --omf_browse .\objects\bsp_oled.crf --depend .\objects\bsp_oled.d)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
-I (..\Top\inc\includes.h)(0x5E88429F)
+F (..\Basic\OLED\bsp_oled.c)(0x5E9DB30F)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\bsp_oled.o --omf_browse .\objects\bsp_oled.crf --depend .\objects\bsp_oled.d)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -1766,7 +1779,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -1804,17 +1817,18 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -1827,13 +1841,13 @@ I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
 I (..\Basic\OLED\bsp_oledfont.h)(0x5E6E1B67)
-F (..\Basic\MOTOR\bsp_motor.c)(0x5E7F3403)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\bsp_motor.o --omf_browse .\objects\bsp_motor.crf --depend .\objects\bsp_motor.d)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Top\inc\includes.h)(0x5E88429F)
+F (..\Basic\MOTOR\bsp_motor.c)(0x5EA320C4)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\bsp_motor.o --omf_browse .\objects\bsp_motor.crf --depend .\objects\bsp_motor.d)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -1842,7 +1856,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -1880,17 +1894,18 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -1903,12 +1918,12 @@ I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
 F (..\Basic\ENCODER\bsp_encoder.c)(0x5E85FB0C)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\bsp_encoder.o --omf_browse .\objects\bsp_encoder.crf --depend .\objects\bsp_encoder.d)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Top\inc\includes.h)(0x5E88429F)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -1917,7 +1932,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -1955,17 +1970,18 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -1978,12 +1994,12 @@ I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
 F (..\Basic\IIC\bsp_iic.c)(0x5E8602DB)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\bsp_iic.o --omf_browse .\objects\bsp_iic.crf --depend .\objects\bsp_iic.d)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
-I (..\Top\inc\includes.h)(0x5E88429F)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -1992,7 +2008,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -2030,17 +2046,18 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -2053,12 +2070,12 @@ I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
 F (..\Basic\MPU\bsp_mpu6050.c)(0x5E860FE9)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\bsp_mpu6050.o --omf_browse .\objects\bsp_mpu6050.crf --depend .\objects\bsp_mpu6050.d)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
-I (..\Top\inc\includes.h)(0x5E88429F)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -2067,7 +2084,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -2105,18 +2122,19 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
 I (..\Basic\MPU\inv_mpu_dmp_motion_driver.h)(0x5E860D9F)
@@ -2128,12 +2146,12 @@ I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
 F (..\Basic\MPU\filter.c)(0x5A7C4CF6)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\filter.o --omf_browse .\objects\filter.crf --depend .\objects\filter.d)
 I (..\Basic\MPU\filter.h)(0x5E860D7C)
-I (..\Top\inc\includes.h)(0x5E88429F)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -2142,7 +2160,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -2180,18 +2198,19 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -2203,12 +2222,12 @@ I (..\Zui\inc\main_ui.h)(0x5E764FAD)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
 F (..\Basic\MPU\inv_mpu.c)(0x5E860D3C)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\inv_mpu.o --omf_browse .\objects\inv_mpu.crf --depend .\objects\inv_mpu.d)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
-I (..\Top\inc\includes.h)(0x5E88429F)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -2217,7 +2236,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -2255,18 +2274,19 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu_dmp_motion_driver.h)(0x5E860D9F)
@@ -2278,12 +2298,12 @@ I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
 F (..\Basic\MPU\inv_mpu_dmp_motion_driver.c)(0x5E860DA1)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\inv_mpu_dmp_motion_driver.o --omf_browse .\objects\inv_mpu_dmp_motion_driver.crf --depend .\objects\inv_mpu_dmp_motion_driver.d)
 I (..\Basic\MPU\inv_mpu_dmp_motion_driver.h)(0x5E860D9F)
-I (..\Top\inc\includes.h)(0x5E88429F)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -2292,7 +2312,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -2330,18 +2350,19 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -2353,12 +2374,12 @@ I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
 F (..\Basic\EXTI\bsp_exti.c)(0x5E876924)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\bsp_exti.o --omf_browse .\objects\bsp_exti.crf --depend .\objects\bsp_exti.d)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
-I (..\Top\inc\includes.h)(0x5E88429F)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -2367,7 +2388,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -2405,18 +2426,19 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
 I (..\Basic\MPU\inv_mpu_dmp_motion_driver.h)(0x5E860D9F)
@@ -2428,15 +2450,15 @@ I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
 F (..\FreeRTOS\src\heap_4.c)(0x5620F7DC)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\heap_4.o --omf_browse .\objects\heap_4.crf --depend .\objects\heap_4.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -2448,7 +2470,7 @@ F (..\FreeRTOS\src\port.c)(0x5620F7DC)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g 
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -2461,7 +2483,7 @@ F (..\FreeRTOS\src\croutine.c)(0x5620F7DC)(--c99 -c --cpu Cortex-M3 -D__MICROLIB
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -2475,7 +2497,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -2490,7 +2512,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -2503,7 +2525,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -2519,7 +2541,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -2535,7 +2557,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -2545,9 +2567,9 @@ I (..\FreeRTOS\inc\task.h)(0x5DAD1D69)
 I (..\FreeRTOS\inc\list.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\queue.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\timers.h)(0x5620F7DC)
-F (..\TASK\src\KeyTask.c)(0x5DEF5625)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\keytask.o --omf_browse .\objects\keytask.crf --depend .\objects\keytask.d)
+F (..\TASK\src\KeyTask.c)(0x5EA2F14C)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\keytask.o --omf_browse .\objects\keytask.crf --depend .\objects\keytask.d)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
-I (..\Top\inc\includes.h)(0x5E88429F)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -2556,7 +2578,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -2594,18 +2616,19 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -2617,12 +2640,12 @@ I (..\Zui\inc\main_ui.h)(0x5E764FAD)
 I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
-F (..\TASK\src\LedTask.c)(0x5E7F36BA)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\ledtask.o --omf_browse .\objects\ledtask.crf --depend .\objects\ledtask.d)
+F (..\TASK\src\LedTask.c)(0x5EA2F474)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\ledtask.o --omf_browse .\objects\ledtask.crf --depend .\objects\ledtask.d)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
-I (..\Top\inc\includes.h)(0x5E88429F)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -2631,7 +2654,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -2669,18 +2692,19 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -2692,12 +2716,12 @@ I (..\Zui\inc\main_ui.h)(0x5E764FAD)
 I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
 F (..\TASK\src\CommunicateTask.c)(0x5DAD3D2C)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\communicatetask.o --omf_browse .\objects\communicatetask.crf --depend .\objects\communicatetask.d)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\Top\inc\includes.h)(0x5E88429F)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -2706,7 +2730,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -2744,18 +2768,19 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -2767,12 +2792,12 @@ I (..\Zui\inc\main_ui.h)(0x5E764FAD)
 I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
 F (..\TASK\src\CpuTask.c)(0x5DE70662)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\cputask.o --omf_browse .\objects\cputask.crf --depend .\objects\cputask.d)
 I (..\TASK\inc\CpuTask.h)(0x5DAD0C96)
-I (..\Top\inc\includes.h)(0x5E88429F)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -2781,7 +2806,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -2819,18 +2844,19 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -2843,12 +2869,12 @@ I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
-F (..\TASK\src\DisplayTask.c)(0x5E6FA176)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\displaytask.o --omf_browse .\objects\displaytask.crf --depend .\objects\displaytask.d)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\Top\inc\includes.h)(0x5E88429F)
+F (..\TASK\src\DisplayTask.c)(0x5E9DB3F3)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\displaytask.o --omf_browse .\objects\displaytask.crf --depend .\objects\displaytask.d)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -2857,7 +2883,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -2895,18 +2921,19 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -2919,11 +2946,11 @@ I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
-F (..\TASK\src\MoveCtrlTask.c)(0x5E7F4077)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\movectrltask.o --omf_browse .\objects\movectrltask.crf --depend .\objects\movectrltask.d)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
-I (..\Top\inc\includes.h)(0x5E88429F)
+F (..\TASK\src\MoveCtrlTask.c)(0x5EA3213F)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\movectrltask.o --omf_browse .\objects\movectrltask.crf --depend .\objects\movectrltask.d)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -2932,7 +2959,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -2970,18 +2997,19 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -2994,11 +3022,11 @@ I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
-F (..\TASK\src\MpuTask.c)(0x5E885A75)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\mputask.o --omf_browse .\objects\mputask.crf --depend .\objects\mputask.d)
+F (..\TASK\src\MpuTask.c)(0x5E885A9B)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\mputask.o --omf_browse .\objects\mputask.crf --depend .\objects\mputask.d)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
-I (..\Top\inc\includes.h)(0x5E88429F)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -3007,7 +3035,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -3045,18 +3073,19 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -3069,11 +3098,11 @@ I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 F (..\FATFS\src\diskio.c)(0x5E7B7F20)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\diskio.o --omf_browse .\objects\diskio.crf --depend .\objects\diskio.d)
 I (..\FATFS\src\diskio.h)(0x5E76445C)
-I (..\Top\inc\includes.h)(0x5E88429F)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -3082,7 +3111,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -3120,18 +3149,19 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -3144,15 +3174,15 @@ I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
 F (..\FATFS\src\ff.c)(0x5E764496)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\ff.o --omf_browse .\objects\ff.crf --depend .\objects\ff.d)
 I (..\FATFS\src\ff.h)(0x5DF1DCB7)
 I (..\FATFS\src\integer.h)(0x5DF1D1C6)
 I (..\FATFS\src\ffconf.h)(0x5DF1D1C6)
 I (..\FATFS\src\diskio.h)(0x5E76445C)
-I (..\Top\inc\includes.h)(0x5E88429F)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -3161,7 +3191,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -3199,18 +3229,19 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -3223,12 +3254,12 @@ I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
-F (..\Zui\src\main_ui.c)(0x5E8839C9)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\main_ui.o --omf_browse .\objects\main_ui.crf --depend .\objects\main_ui.d)
+F (..\Zui\src\main_ui.c)(0x5EA31C32)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\main_ui.o --omf_browse .\objects\main_ui.crf --depend .\objects\main_ui.d)
 I (..\Zui\inc\main_ui.h)(0x5E764FAD)
-I (..\Top\inc\includes.h)(0x5E88429F)
+I (..\Top\inc\includes.h)(0x5E9DAC86)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
@@ -3237,7 +3268,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54C245B8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x54C245B8)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x5620F7DC)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
-I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E76506D)
+I (..\FreeRTOS\inc\FreeRTOSConfig.h)(0x5E9DB756)
 I (..\FreeRTOS\inc\projdefs.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\portable.h)(0x5620F7DC)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x5620F7DC)
@@ -3275,18 +3306,19 @@ I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x559784E2)
 I (..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x559784E2)
 I (..\Top\inc\control.h)(0x5CF7D9B2)
+I (..\Top\inc\gather.h)(0x5E9DAC3C)
 I (..\Basic\BSP\bsp.h)(0x5CF7DB3C)
 I (..\Basic\DWT\bsp_dwt_delay.h)(0x5CAF3BC6)
 I (..\Basic\SYSTICK\delay.h)(0x59E77580)
-I (..\Basic\SYS\sys.h)(0x5C5C02E4)
-I (..\Basic\LED\bsp_led.h)(0x5E764D38)
+I (..\Basic\SYS\sys.h)(0x5EA2FB79)
+I (..\Basic\LED\bsp_led.h)(0x5EA2F380)
 I (..\Basic\KEY\bsp_key.h)(0x5DA82F6E)
 I (..\Basic\USART1\bsp_usart1.h)(0x5E764D10)
-I (..\Basic\OLED\bsp_oled.h)(0x5E7731DC)
+I (..\Basic\OLED\bsp_oled.h)(0x5E9DB308)
 I (..\Basic\CONFIG\config_param.h)(0x5DA7F36B)
-I (..\Basic\MOTOR\bsp_motor.h)(0x5E860372)
-I (..\Basic\ENCODER\bsp_encoder.h)(0x5E85FB83)
-I (..\Basic\IIC\bsp_iic.h)(0x5E86044F)
+I (..\Basic\MOTOR\bsp_motor.h)(0x5EA31D08)
+I (..\Basic\ENCODER\bsp_encoder.h)(0x5EA31C48)
+I (..\Basic\IIC\bsp_iic.h)(0x5E9DAA1F)
 I (..\Basic\MPU\bsp_mpu6050.h)(0x5E860B27)
 I (..\Basic\EXTI\bsp_exti.h)(0x5E8769A2)
 I (..\Basic\MPU\inv_mpu.h)(0x5E860CF6)
@@ -3298,8 +3330,8 @@ I (..\Basic\MPU\filter.h)(0x5E860D7C)
 I (..\TASK\inc\LedTask.h)(0x5DA90E98)
 I (..\TASK\inc\KeyTask.h)(0x5DA820B4)
 I (..\TASK\inc\CommunicateTask.h)(0x5DAAC86F)
-I (..\TASK\inc\DisplayTask.h)(0x5E6E067C)
-I (..\TASK\inc\MoveCtrlTask.h)(0x5E7F3795)
+I (..\TASK\inc\DisplayTask.h)(0x5E9DB409)
+I (..\TASK\inc\MoveCtrlTask.h)(0x5EA31D1E)
 I (..\TASK\inc\MpuTask.h)(0x5E883B63)
 F (..\Zui\src\bmp.c)(0x5E6E515E)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork -I..\Libraries\CMSIS -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\User -I..\User\OLED_SPI -I..\Top\inc -I..\Basic\SYSTICK -I..\Basic\LED -I..\FreeRTOS\inc -I..\Basic\SYS -I..\Basic\DWT -I..\Basic\BSP -I..\Basic\CONFIG -I..\Basic\KEY -I..\TASK\inc -I..\Basic\USART1 -I..\Basic\SDIO -I..\FATFS\src -I..\FATFS\src\option -I..\Basic\USMART -I..\Zui\inc -I..\Basic\OLED -I..\Basic\MOTOR -I..\Basic\ENCODER -I..\Basic\IIC -I..\Basic\MPU -I..\Basic\EXTI-I D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE-I D:\MYzy\Important\MDK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\bmp.o --omf_browse .\objects\bmp.crf --depend .\objects\bmp.d)
 I (..\Zui\inc\bmp.h)(0x5E6E4EBF)

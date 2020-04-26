@@ -51,7 +51,7 @@ struct class_uiconfigParam
 
 void setShow_ui(ui_mode ui);
 void vTaskDisplay( void * pvParameters );
-void Show_Para_Con(CLASS_UIconfigParam ui_configparam);
+void Show_Para_Con(CLASS_UIconfigParam *ui_configparam);
 void DisplayInit(void);
 
 #endif

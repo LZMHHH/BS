@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * @file    
+  * @file    gather.c
   * @author  lss
   * @version V1.0
   * @date    2020-xx-xx
@@ -17,6 +17,11 @@
 #include "gather.h"	
 
 
-
+void ParametersInit(void)
+{
+	
+	/* 主模式显示参数数据初始化 */
+	Main_uiconfigParamInit();
+}
 
 

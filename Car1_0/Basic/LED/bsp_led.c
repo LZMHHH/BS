@@ -18,9 +18,9 @@
 
 //创建led + 配置
 CLASS_Led   LedA={  .led_name         = LED_A,
-										.config.gpio_clk  = RCC_APB2Periph_GPIOB,
-										.config.gpio_port = GPIOB,
-										.config.gpio_pin  = GPIO_Pin_5,
+										.config.gpio_clk  = RCC_APB2Periph_GPIOC,
+										.config.gpio_port = GPIOC,
+										.config.gpio_pin  = GPIO_Pin_4,
 										};
 CLASS_Led   LedB={ .led_name          = LED_B,
 										.config.gpio_clk  = RCC_APB2Periph_GPIOA,
@@ -33,8 +33,8 @@ CLASS_Led   LedC={ .led_name          = LED_C,
 										.config.gpio_pin  = GPIO_Pin_1,
 										};
 CLASS_Led   Fmq ={ .led_name          = FMQ,
-										.config.gpio_clk  = RCC_APB2Periph_GPIOB,
-										.config.gpio_port = GPIOB,
+										.config.gpio_clk  = RCC_APB2Periph_GPIOA,
+										.config.gpio_port = GPIOA,
 										.config.gpio_pin  = GPIO_Pin_8,
 										};
 
@@ -64,14 +64,14 @@ static void led_init(CLASS_Led* led_n)
 void bsp_LED_Init(void)
 {
 	    led_init(&LedA);
-			led_init(&LedB);
-			led_init(&LedC);
-//			led_init(&Fmq);
+//			led_init(&LedB);
+//			led_init(&LedC);
+			led_init(&Fmq);
    
-	    GPIO_SetBits(LedA.config.gpio_port,LedA.config.gpio_pin);    //输出
-			GPIO_SetBits(LedB.config.gpio_port,LedB.config.gpio_pin);    //输出
-			GPIO_SetBits(LedC.config.gpio_port,LedC.config.gpio_pin);    //输出
-//			GPIO_SetBits(Fmq.config.gpio_port,Fmq.config.gpio_pin);      //输出
+	    GPIO_ResetBits(LedA.config.gpio_port,LedA.config.gpio_pin);    //输出
+//			GPIO_SetBits(LedB.config.gpio_port,LedB.config.gpio_pin);    //输出
+//			GPIO_SetBits(LedC.config.gpio_port,LedC.config.gpio_pin);    //输出
+			GPIO_ResetBits(Fmq.config.gpio_port,Fmq.config.gpio_pin);      //输出
 	        
 }
 

@@ -49,6 +49,7 @@
 .\objects\main_ui.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\objects\main_ui.o: ..\Top\inc\control.h
 .\objects\main_ui.o: ..\Top\inc\includes.h
+.\objects\main_ui.o: ..\Top\inc\gather.h
 .\objects\main_ui.o: ..\Basic\BSP\bsp.h
 .\objects\main_ui.o: ..\Basic\DWT\bsp_dwt_delay.h
 .\objects\main_ui.o: ..\Basic\SYSTICK\delay.h

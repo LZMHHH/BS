@@ -49,6 +49,7 @@
 .\objects\bsp_encoder.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\objects\bsp_encoder.o: ..\Top\inc\control.h
 .\objects\bsp_encoder.o: ..\Top\inc\includes.h
+.\objects\bsp_encoder.o: ..\Top\inc\gather.h
 .\objects\bsp_encoder.o: ..\Basic\BSP\bsp.h
 .\objects\bsp_encoder.o: ..\Basic\DWT\bsp_dwt_delay.h
 .\objects\bsp_encoder.o: ..\Basic\SYSTICK\delay.h

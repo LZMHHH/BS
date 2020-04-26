@@ -94,6 +94,23 @@
 #define            ENCODE4_TIM_INT_FUN             TIM4_IRQHandler
 
 #define ENCODER_TIM_PERIOD (u16)(65535)   //不可大于65535 因为F103的定时器是16位的。
+
+
+/* 别名 */
+typedef  struct  class_encoderdata    CLASS_EncoderData;
+/* 界面显示参数 */
+struct class_encoderdata 
+{
+	int   encoderAVal;
+	int   encoderBVal;
+	int   encoderCVal;
+	int   encoderDVal;
+};
+
+
+
+
+
 void Encoder1_Init_TIM(void);
 void Encoder2_Init_TIM(void);
 void Encoder3_Init_TIM(void);

@@ -21,29 +21,29 @@ u8 KEY_RetValue;
 
 //创建按键 + 配置
 CLASS_Key   Key_PU={.key_name         = enKey_PU,
-										.config.gpio_clk  = RCC_APB2Periph_GPIOE,
-										.config.gpio_port = GPIOE,
-										.config.gpio_pin  = GPIO_Pin_4
+										.config.gpio_clk  = RCC_APB2Periph_GPIOC,
+										.config.gpio_port = GPIOC,
+										.config.gpio_pin  = GPIO_Pin_14
 										};     //上
 CLASS_Key   Key_PD={.key_name         = enKey_PD,
-										.config.gpio_clk  = RCC_APB2Periph_GPIOA,
-										.config.gpio_port = GPIOA,
+										.config.gpio_clk  = RCC_APB2Periph_GPIOC,
+										.config.gpio_port = GPIOC,
 										.config.gpio_pin  = GPIO_Pin_0
 										};     //下
 CLASS_Key   Key_PL={.key_name         = enKey_PL,
-										.config.gpio_clk  = RCC_APB2Periph_GPIOB,
-										.config.gpio_port = GPIOB,
-										.config.gpio_pin  = GPIO_Pin_8
+										.config.gpio_clk  = RCC_APB2Periph_GPIOC,
+										.config.gpio_port = GPIOC,
+										.config.gpio_pin  = GPIO_Pin_13
 										};     //左
 CLASS_Key   Key_PR={.key_name         = enKey_PR,
 										.config.gpio_clk  = RCC_APB2Periph_GPIOC,
 										.config.gpio_port = GPIOC,
-										.config.gpio_pin  = GPIO_Pin_13
+										.config.gpio_pin  = GPIO_Pin_15
 										};     //右
 CLASS_Key   Key_PM={.key_name         = enKey_PM,
 										.config.gpio_clk  = RCC_APB2Periph_GPIOC,
 										.config.gpio_port = GPIOC,
-										.config.gpio_pin  = GPIO_Pin_14
+										.config.gpio_pin  = GPIO_Pin_1
 										};     //中
 
 

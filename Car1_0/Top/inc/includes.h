@@ -92,6 +92,11 @@
 
 
 // 用户开发的头文件
+/* soft */
+#include "control.h"
+#include "gather.h"	
+
+/* bsp */
 #include "control.h"
 #include "bsp.h"
 #include "bsp_dwt_delay.h"

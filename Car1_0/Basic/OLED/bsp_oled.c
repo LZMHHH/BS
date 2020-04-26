@@ -173,7 +173,7 @@ void OLED_Clear(void)
 	for(i=0;i<8;i++)
 		for(n=0;n<128;n++)
 			oledGram[n][i]=0X00;  
-	OLED_Refresh_Gram();//¸üÐÂÏÔÊ
+	OLED_Refresh_Gram();//¸üÐÂÏÔ?
 }
 void OLED_FillAll(void)  
 {  
@@ -181,7 +181,7 @@ void OLED_FillAll(void)
 	for(i=0;i<8;i++)
 		for(n=0;n<128;n++)
 			oledGram[n][i]=0Xff;  
-	OLED_Refresh_Gram();//¸üÐÂÏÔÊ
+	OLED_Refresh_Gram();//¸üÐÂÏÔ?
 }
 
 //x1,y1,x2,y2 Ìî³äÇøÓòµÄ¶Ô½Ç×ø±ê

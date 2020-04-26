@@ -48,6 +48,7 @@
 .\objects\sysinfotest.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\objects\sysinfotest.o: ..\Top\inc\control.h
 .\objects\sysinfotest.o: ..\Top\inc\includes.h
+.\objects\sysinfotest.o: ..\Top\inc\gather.h
 .\objects\sysinfotest.o: ..\Basic\BSP\bsp.h
 .\objects\sysinfotest.o: ..\Basic\DWT\bsp_dwt_delay.h
 .\objects\sysinfotest.o: ..\Basic\SYSTICK\delay.h

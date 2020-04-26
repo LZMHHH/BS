@@ -77,7 +77,7 @@ void MOTOR_GPIO_Init(void)
 
 /**  固件库
   * @brief  电机  定时器 PWM 配置     
-  * @param  arr   ：PWM频率=72M/（arr+1）； psc ：分频
+  * @param  arr   ：//PWM频率=72000/((arr+1)*psc)=10Khz,如果psc为0，这pwm最大值为arr+1，即周期
   * @retval 用于PWM配置
   */
 void bsp_Motor_Init(u16 arr,u16 psc)    
@@ -107,20 +107,20 @@ void bsp_Motor_Init(u16 arr,u16 psc)
 	  TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;          //比较输出使能        
 	  TIM_OCInitStructure.TIM_Pulse = 0;                                     //设置初始脉宽
 	  TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;              //输出极性:TIM输出比较极性高
-	  PWMB_TIM_CHANNEL(PWM_TIM, &TIM_OCInitStructure);                       //相当于初始化通道
-		PWMC_TIM_CHANNEL(PWM_TIM, &TIM_OCInitStructure);                       //根据TIM_OCInitStruct中指定的参数初始化外设TIMx
-	  PWMD_TIM_CHANNEL(PWM_TIM, &TIM_OCInitStructure);                       //相当于初始化通道
+//	  PWMB_TIM_CHANNEL(PWM_TIM, &TIM_OCInitStructure);                       //相当于初始化通道
+//		PWMC_TIM_CHANNEL(PWM_TIM, &TIM_OCInitStructure);                       //根据TIM_OCInitStruct中指定的参数初始化外设TIMx
+//	  PWMD_TIM_CHANNEL(PWM_TIM, &TIM_OCInitStructure);                       //相当于初始化通道
 //		PWMA_TIM_CHANNEL(PWM_TIM, &TIM_OCInitStructure);    /* 因为使用该语句失效，所以使用下面直接寄存器方式 */                   //根据TIM_OCInitStruct中指定的参数初始化外设TIMx
 	  
 		PWM_TIM->CCMR1|=6<<4;         //CH1 PWM1模式	
-//		PWM_TIM->CCMR1|=6<<12;        //CH2 PWM1模式	
-//		PWM_TIM->CCMR2|=6<<4;         //CH3 PWM1模式	
-//		PWM_TIM->CCMR2|=6<<12;        //CH4 PWM1模式	
+		PWM_TIM->CCMR1|=6<<12;        //CH2 PWM1模式	
+		PWM_TIM->CCMR2|=6<<4;         //CH3 PWM1模式	
+		PWM_TIM->CCMR2|=6<<12;        //CH4 PWM1模式	
 		
 		PWM_TIM->CCER|=1<<0;         //CH1输出使能	
-//		PWM_TIM->CCER|=1<<4;         //CH2输出使能	   
-//		PWM_TIM->CCER|=1<<8;         //CH3输出使能	 
-//		PWM_TIM->CCER|=1<<12;        //CH4输出使能
+		PWM_TIM->CCER|=1<<4;         //CH2输出使能	   
+		PWM_TIM->CCER|=1<<8;         //CH3输出使能	 
+		PWM_TIM->CCER|=1<<12;        //CH4输出使能
 		
 	  PWMA_TIM_CHANNEL_Config(PWM_TIM, TIM_OCPreload_Enable);                //使能 CH1预装载 
 	  PWMB_TIM_CHANNEL_Config(PWM_TIM, TIM_OCPreload_Enable);                //使能 CH2预装载	
@@ -129,9 +129,14 @@ void bsp_Motor_Init(u16 arr,u16 psc)
 		
 	  TIM_ARRPreloadConfig(PWM_TIM, ENABLE);                                 //使能TIMx在ARR上的预装载寄存器
 		TIM_CtrlPWMOutputs(PWM_TIM,ENABLE);//使能TIM8外设的主输出
-	  TIM_Cmd(PWM_TIM, ENABLE);                                              //使能TIM1	
+	  
+		/* 先停机（满输出，不同器件不同，请留意） */
+		PWMA = 7200;
+		PWMB = 7200;
+		PWMC = 7200;
+		PWMD = 7200;
 		
-		
+		TIM_Cmd(PWM_TIM, ENABLE);                                              //使能TIM1	
 } 
 
  /****************************************************************************
@@ -155,7 +160,7 @@ int myabs(int a)
   * @author   LZM
   * @note     此实验最大10000
   */
-void Set_Pwm(MOTOR_ID id,int pwm)
+void Set_Pwm(CLASS_Motor *motor)
 {
 	  
 //	/* 限幅 */
@@ -164,49 +169,48 @@ void Set_Pwm(MOTOR_ID id,int pwm)
 //	else
 //		if(pwm < -Limit_Amplitude)
 //			pwm =  -Limit_Amplitude;
-  
-	switch(id)
+	
+	switch(motor->name)
 	{
-		case MotorA:
+		case enMotorA:
 				/* 方向 */
-				if(pwm < 0)
+				if(motor->pwmout > 0)
 					AINA = 0;
 				else
 					AINA = 1;
 				/* 输出pwm */
-				PWMA=myabs(pwm);        // 转速大小
+				PWMA=7000 - myabs(motor->pwmout);        // 转速大小
 				break;
-		case MotorB:
+		case enMotorB:
 				/* 方向 */
-				if(pwm < 0)
+				if(motor->pwmout < 0)
 					AINB = 0;
 				else
 					AINB = 1;
 				/* 输出pwm */
-				PWMB=myabs(pwm);        // 转速大小
+				PWMB=7000 - myabs(motor->pwmout);        // 转速大小
 				break;
-		case MotorC:
+		case enMotorC:
 				/* 方向 */
-				if(pwm < 0)
+				if(motor->pwmout > 0)
 					AINC = 0;
 				else
 					AINC = 1;
 				/* 输出pwm */
-				PWMC=myabs(pwm);        // 转速大小
+				PWMC=7000 - myabs(motor->pwmout);        // 转速大小
 				break;
-		case MotorD:
+		case enMotorD:
 				/* 方向 */
-				if(pwm < 0)
+				if(motor->pwmout < 0)
 					AIND = 0;
 				else
 					AIND = 1;
 				/* 输出pwm */
-				PWMD=myabs(pwm);        // 转速大小
+				PWMD=7000 - myabs(motor->pwmout);        // 转速大小
 				break;
 		default:
 				break;
 	}
-	
 
 }
 

@@ -57,7 +57,7 @@ static TaskHandle_t xHandleTaskLed       = NULL;  //LED任务
 #if IFPRINTTASK
 static TaskHandle_t xHandleTaskCpu       = NULL;  //CPU任务
 #endif
-//static TaskHandle_t xHandleTaskKey       = NULL;  //KEY任务
+static TaskHandle_t xHandleTaskKey       = NULL;  //KEY任务
 //static TaskHandle_t xHandleTaskUart1Rx   = NULL;  //KEY任务
 //static TaskHandle_t xHandleTaskUart1Tx   = NULL;  //KEY任务
 			 TaskHandle_t xHandleTaskDisplay   = NULL;  //显示任务
@@ -98,6 +98,9 @@ int main(void)
 	//bsp初始化
   bsp_Init();
 
+	/* 参数初始化 */
+	ParametersInit();
+		
 #if IFPRINTTASK
 	/* 1. 初始化一个定时器中断，精度高于滴答定时器中断，这样才可以获得准确的系统信息 仅供调试目的，实际项
 		  目中不要使用，因为这个功能比较影响系统实时性。
@@ -152,12 +155,12 @@ static void AppTaskCreate (void)
                  3,                     	/* 任务优先级*/
                  &xHandleTaskCpu );       /* 任务句柄  */
 #endif	
-//	  xTaskCreate( vTaskKey,   	            /* 任务函数  */
-//                 "Task Key",     	        /* 任务名    */
-//                 256,                   	/* 任务栈大小，单位word，也就是4字节 */
-//                 NULL,                  	/* 任务参数  */
-//                 6,                     	/* 任务优先级*/
-//                 &xHandleTaskKey );       /* 任务句柄  */
+	  xTaskCreate( vTaskKey,   	            /* 任务函数  */
+                 "Task Key",     	        /* 任务名    */
+                 256,                   	/* 任务栈大小，单位word，也就是4字节 */
+                 NULL,                  	/* 任务参数  */
+                 6,                     	/* 任务优先级*/
+                 &xHandleTaskKey );       /* 任务句柄  */
 
 		xTaskCreate( vTaskDisplay,   	      /* 任务函数  */
 							   "Task Display",          /* 任务名    */
@@ -173,12 +176,12 @@ static void AppTaskCreate (void)
 							   11,                     	/* 任务优先级*/
 							   &xHandleTaskMoveCtrl );   /* 任务句柄  */
 								 
-		xTaskCreate( vTaskMpu,   	             /* 任务函数  */
-							   "Task Mpu",               /* 任务名    */
-							   256,                   	 /* 任务栈大小，单位word，也就是4字节 */
-							   NULL,              	     /* 任务参数  */
-							   11,                     	 /* 任务优先级*/
-							   &xHandleTaskMpu );        /* 任务句柄  */
+//		xTaskCreate( vTaskMpu,   	             /* 任务函数  */
+//							   "Task Mpu",               /* 任务名    */
+//							   256,                   	 /* 任务栈大小，单位word，也就是4字节 */
+//							   NULL,              	     /* 任务参数  */
+//							   11,                     	 /* 任务优先级*/
+//							   &xHandleTaskMpu );        /* 任务句柄  */
 
 //	  xTaskCreate( vTaskUart1Rx,   	        /* 任务函数  */
 //								 "Task Uart1Rx",          /* 任务名    */

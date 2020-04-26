@@ -75,26 +75,42 @@
 #define PWMB   TIM8->CCR2  // PWM输出
 #define AINB   PBout(13)
 #define PWMC   TIM8->CCR3  // PWM输出
-#define AINC   PBout(15)
+#define AINC   PBout(14)
 #define PWMD   TIM8->CCR4  // PWM输出
-#define AIND   PBout(14)
+#define AIND   PBout(15)
 
 
 /* 扫描状态机表 */
 typedef enum
 {
-    MotorA,          /* M1 */
-    MotorB,     /* M1 */
-    MotorC,       /* M1 */
-		MotorD,       /* M1 */
-}MOTOR_ID;
+    enMotorA,          /* M1 */
+    enMotorB,     /* M1 */
+    enMotorC,       /* M1 */
+		enMotorD,       /* M1 */
+}MOTOR_status;
 
+
+typedef struct class_motor CLASS_Motor;
+	
+struct class_motor
+{
+	MOTOR_status name;
+	
+	/* 值 */
+	int pwmtar;    /* 目标输出的pwm值 */
+	int pwmout;    /* 最终输出的pwm值 */
+	int encoderVal;/* 编码器值 */
+	
+	/* 配置 */
+//	__IO uint16_t ccr;         /* ccr寄存器 */
+	
+};
 
 
 //void MiniBalance_PWM_Init(u16 arr,u16 psc);
 
 void bsp_Motor_Init(u16 arr,u16 psc);
-void Set_Pwm(MOTOR_ID id,int pwm);
+void Set_Pwm(CLASS_Motor *motor);
 #endif
 
 

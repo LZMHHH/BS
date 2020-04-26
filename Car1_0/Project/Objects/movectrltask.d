@@ -49,6 +49,7 @@
 .\objects\movectrltask.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\objects\movectrltask.o: ..\Top\inc\control.h
 .\objects\movectrltask.o: ..\Top\inc\includes.h
+.\objects\movectrltask.o: ..\Top\inc\gather.h
 .\objects\movectrltask.o: ..\Basic\BSP\bsp.h
 .\objects\movectrltask.o: ..\Basic\DWT\bsp_dwt_delay.h
 .\objects\movectrltask.o: ..\Basic\SYSTICK\delay.h

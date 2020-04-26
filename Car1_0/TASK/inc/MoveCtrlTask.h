@@ -18,6 +18,14 @@
 #define __MOVECTRLTASK_H	 
 #include "includes.h"
 
+/* ¹ã²¥ */
+typedef struct class_motor CLASS_Motor;
+
+extern   CLASS_Motor MotorA;
+extern   CLASS_Motor MotorB;
+extern   CLASS_Motor MotorC;
+extern   CLASS_Motor MotorD;
+
 void vTaskMoveCtrl( void * pvParameters );
 
 

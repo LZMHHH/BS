@@ -49,6 +49,7 @@
 .\objects\communicatetask.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\objects\communicatetask.o: ..\Top\inc\control.h
 .\objects\communicatetask.o: ..\Top\inc\includes.h
+.\objects\communicatetask.o: ..\Top\inc\gather.h
 .\objects\communicatetask.o: ..\Basic\BSP\bsp.h
 .\objects\communicatetask.o: ..\Basic\DWT\bsp_dwt_delay.h
 .\objects\communicatetask.o: ..\Basic\SYSTICK\delay.h

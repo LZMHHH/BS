@@ -26,11 +26,12 @@ void vTaskKey( void * pvParameters )
 	{
 		Key_Scan(&Key_PU);
 		Key_Scan(&Key_PD);
+		Key_Scan(&Key_PL);
+		Key_Scan(&Key_PR);
+		Key_Scan(&Key_PM);
 		
-		Key_Control();
 		
-		
-		vTaskDelay( 1000 );
+		vTaskDelay( 10 );
 	}
 	
 }

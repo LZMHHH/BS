@@ -1,6 +1,5 @@
 .\objects\gather.o: ..\Top\src\gather.c
 .\objects\gather.o: ..\Top\inc\gather.h
-.\objects\gather.o: ..\Basic\SYS\sys.h
 .\objects\gather.o: ..\Top\inc\includes.h
 .\objects\gather.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
 .\objects\gather.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
@@ -50,6 +49,7 @@
 .\objects\gather.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\objects\gather.o: ..\Top\inc\control.h
 .\objects\gather.o: ..\Top\inc\includes.h
+.\objects\gather.o: ..\Top\inc\gather.h
 .\objects\gather.o: ..\Basic\BSP\bsp.h
 .\objects\gather.o: ..\Basic\DWT\bsp_dwt_delay.h
 .\objects\gather.o: ..\Basic\SYSTICK\delay.h
