@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=5V Pin=De1-2
+Removed Pin From Net: NetName=5V Pin=PFMQ-1
+Added Pin To Net: NetName=VCC Pin=De1-2
+Added Pin To Net: NetName=VCC Pin=PFMQ-1
+Added Room: Name=remote

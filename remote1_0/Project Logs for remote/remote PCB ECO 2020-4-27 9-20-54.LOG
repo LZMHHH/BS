@@ -1,0 +1,24 @@
+Removed Pin From Net: NetName=PA15 Pin=PFMQ-1
+Removed Pin From Net: NetName=GND Pin=PFMQ-2
+Added Component: Designator=De1(SOD-323)
+Added Component: Designator=MOS1(SO-G3/C2.5)
+Added Component: Designator=Rmos1(0603P)
+Added Component: Designator=Rmos2(0603P)
+Added Pin To Net: NetName=5V Pin=De1-2
+Added Pin To Net: NetName=GND Pin=MOS1-2
+Added Pin To Net: NetName=5V Pin=PFMQ-1
+Added Pin To Net: NetName=PA15 Pin=Rmos1-1
+Added Pin To Net: NetName=GND Pin=Rmos2-2
+Added Pin To Net: NetName=NetDe1_1 Pin=De1-1
+Added Pin To Net: NetName=NetDe1_1 Pin=MOS1-3
+Added Pin To Net: NetName=NetDe1_1 Pin=PFMQ-2
+Added Net: Name=NetDe1_1
+Added Pin To Net: NetName=NetMOS1_1 Pin=MOS1-1
+Added Pin To Net: NetName=NetMOS1_1 Pin=Rmos1-2
+Added Pin To Net: NetName=NetMOS1_1 Pin=Rmos2-1
+Added Net: Name=NetMOS1_1
+Added Member To Class: ClassName=remote Member=Component De1 BAT54WS
+Added Member To Class: ClassName=remote Member=Component MOS1 SI2302
+Added Member To Class: ClassName=remote Member=Component Rmos1 100R
+Added Member To Class: ClassName=remote Member=Component Rmos2 10K
+Added Room: Name=remote
