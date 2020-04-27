@@ -19,7 +19,35 @@
 
 #include "includes.h"
 
-long map(long x, long in_min, long in_max, long out_min, long out_max);
+typedef struct class_carmoveval CLASS_CarMoveVal;
 
+/* 小车移动值 */
+struct class_carmoveval
+{	
+	int    MoveX;     //小车移动X轴
+	int    MoveY;     //小车移动Y轴
+	int    MoveZ;     //小车移动Z轴	
+};
+
+/*控制小车模式*/
+typedef enum 
+{
+	enNoCon,   /* 不控制 */
+	enJoystick,/* 摇杆控制 */
+	enMpuAcc,  /* 加速度控制 */
+	enMpuAng,  /* 角度控制 */
+}ConMode_e;
+
+
+/* 广播 */
+extern ConMode_e        ConCarMode;
+extern CLASS_CarMoveVal CarMoveVal;
+
+
+
+long map(long x, long in_min, long in_max, long out_min, long out_max);
+int myabs(int a);
+
+void ParaInit(void);
 
 #endif

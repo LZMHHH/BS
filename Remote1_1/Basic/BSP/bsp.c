@@ -47,15 +47,22 @@ void bsp_Init(void)
 	bsp_DWT_init(MY_MCU_SYSCLK);    //dwt时钟初始化
 
 	bsp_LED_Init();
+	
+	bsp_KEY_Init();
 
 	bsp_OLED_Init();
 	
 	Adc_Init();
 	
+	USART3_Config(5);
 	
-	//mpu初始化
-//	bsp_I2C_Init();                     //=====模拟IIC初始化
+//	//mpu初始化
+//	IIC_Init();                         //=====模拟IIC初始化
 //  MPU6050_initialize();               //=====MPU6050初始化	
-//  DMP_Init();                         //=====初始化DMP     
+//	DMP_Init();                         //=====初始化DMP  
+	
+	//中断初始化 （mpu引发的 5ms 中断）
+// 	EXTI_Pxy_Config();                  //=====MPU6050 5ms定时中断初始化                //=====MPU6050 5ms定时中断初始化
+	
 }
 

@@ -16,21 +16,85 @@
   */
 #include "LedTask.h"
 
+static void Para_Init(void);
+static void Fmq_Ctrl(void);
+static void Led_Ctrl(void);
+
 void vTaskLed( void * pvParameters )
 {
+	
+	/* 初始化参数 */
+	Para_Init();
 	
 	while(1)
 	{
 
-//		bsp_Led_Flash(&LedA,1);
-		bsp_Led_Flash(&LedB,10);
-//		bsp_Led_Flash(&LedC,100);
+
+		Led_Ctrl();
+		
 		vTaskDelay( 10 );
 	}
 	
 }
 
+static void Para_Init(void)
+{
+	LedA.flag_mode = enFre;
+	LedA.cycle     = 100;
+	LedB.flag_mode = enFre;
+	LedB.cycle     = 10;
+	LedC.flag_mode = enFre;
+	LedC.cycle     = -1;
+}
 
+static void Led_Ctrl(void)
+{
+	switch(LedA.flag_mode)
+	{
+		case enON:
+					bsp_Led_Flash(&LedA,-1);
+					break;
+		case enOFF:
+					bsp_Led_Flash(&LedA,0);
+					break;
+		case enFre:
+					bsp_Led_Flash(&LedA,LedA.cycle);
+					break;
+		default:break;
+	}
+	
+//	switch(LedB.flag_mode)
+//	{
+//		case enON:
+//					bsp_Led_Flash(&LedB,-1);
+//					break;
+//		case enOFF:
+//					bsp_Led_Flash(&LedB,0);
+//					break;
+//		case enFre:
+//					bsp_Led_Flash(&LedB,LedB.cycle);
+//					break;
+//		default:break;
+//	}
+//	
+	switch(LedC.flag_mode)
+	{
+		case enON:
+					bsp_Led_Flash(&LedC,-1);
+					break;
+		case enOFF:
+					bsp_Led_Flash(&LedC,0);
+					break;
+		case enFre:
+					bsp_Led_Flash(&LedC,LedC.cycle);
+					break;
+		default:break;
+	}
+}
 
+static void Fmq_Ctrl(void)
+{
+	
+}
 
 

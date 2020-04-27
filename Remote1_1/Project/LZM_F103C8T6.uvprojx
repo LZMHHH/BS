@@ -369,7 +369,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER,STM32F10X_MD</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Libraries\CMSIS;..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\User;..\User\OLED_SPI;..\Top\inc;..\Basic\SYSTICK;..\Basic\LED;..\FreeRTOS\inc;..\Basic\SYS;..\Basic\DWT;..\TASK\inc;..\Basic\BSP;..\Basic\KEY;..\Basic\USART1;..\Basic\OLED;..\Zui\inc;..\Basic\ADC;..\Basic\IIC</IncludePath>
+              <IncludePath>..\Libraries\CMSIS;..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\User;..\User\OLED_SPI;..\Top\inc;..\Basic\SYSTICK;..\Basic\LED;..\FreeRTOS\inc;..\Basic\SYS;..\Basic\DWT;..\TASK\inc;..\Basic\BSP;..\Basic\KEY;..\Basic\USART1;..\Basic\OLED;..\Zui\inc;..\Basic\ADC;..\Basic\IIC;..\Basic\EXTI;..\Basic\MPU;..\Basic\USART3</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -608,24 +608,9 @@
               <FilePath>..\Top\src\gather.c</FilePath>
             </File>
             <File>
-              <FileName>mpu6050.c</FileName>
+              <FileName>protocol3.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Top\src\mpu6050.c</FilePath>
-            </File>
-            <File>
-              <FileName>inv_mpu.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Top\src\inv_mpu.c</FilePath>
-            </File>
-            <File>
-              <FileName>inv_mpu_dmp_motion_driver.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Top\src\inv_mpu_dmp_motion_driver.c</FilePath>
-            </File>
-            <File>
-              <FileName>filter.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Top\src\filter.c</FilePath>
+              <FilePath>..\Basic\USART3\protocol3.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -678,9 +663,39 @@
               <FilePath>..\Basic\ADC\bsp_adc.c</FilePath>
             </File>
             <File>
-              <FileName>bsp_i2c.c</FileName>
+              <FileName>bsp_exti.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Basic\IIC\bsp_i2c.c</FilePath>
+              <FilePath>..\Basic\EXTI\bsp_exti.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_mpu6050.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Basic\MPU\bsp_mpu6050.c</FilePath>
+            </File>
+            <File>
+              <FileName>filter.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Basic\MPU\filter.c</FilePath>
+            </File>
+            <File>
+              <FileName>inv_mpu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Basic\MPU\inv_mpu.c</FilePath>
+            </File>
+            <File>
+              <FileName>inv_mpu_dmp_motion_driver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Basic\MPU\inv_mpu_dmp_motion_driver.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_iic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Basic\IIC\bsp_iic.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_usart3.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Basic\USART3\bsp_usart3.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -771,6 +786,11 @@
               <FileName>CommunicateATask.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\TASK\src\CommunicateATask.c</FilePath>
+            </File>
+            <File>
+              <FileName>CommunicateCTask.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\TASK\src\CommunicateCTask.c</FilePath>
             </File>
           </Files>
         </Group>

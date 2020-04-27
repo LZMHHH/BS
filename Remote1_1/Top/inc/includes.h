@@ -74,7 +74,7 @@
 #include "task.h"
 #include "queue.h"
 
-
+#include "semphr.h"
 /*
 *********************************************************************************************************
 *                                                 ST
@@ -91,22 +91,28 @@
 #include "bsp_led.h"
 #include "bsp_key.h"
 #include "bsp_usart1.h"
+#include "bsp_usart3.h"
 #include "bsp_oled.h"
 #include "bsp_adc.h"
-#include "bsp_i2c.h"
+#include "bsp_iic.h"
+#include "bsp_mpu6050.h"
+#include "bsp_exti.h"
 
+//6050的
 #include "inv_mpu.h"
 #include "inv_mpu_dmp_motion_driver.h"
 #include "dmpKey.h"
 #include "dmpmap.h"
-#include "mpu6050.h"
+#include "filter.h"
 
-
+//UI
 #include "bmp.h"
 #include "main_ui.h"
 #include "car_ui.h"
 #include "envi_ui.h"
 
+//应用层
+#include "protocol3.h"  /* 本工程通讯协议主要放在协议三文件 */
 
 //任务头文件
 #include "LedTask.h"
@@ -115,6 +121,7 @@
 #include "JoystickTask.h"
 #include "MpuTask.h"
 #include "CommunicateATask.h"
+#include "CommunicateCTask.h"
 
 /* ===== 广播 ===== */
 
@@ -122,10 +129,11 @@
 /* 长数据队列句柄 */
 extern TaskHandle_t xQueue_uart1Rx;  //uart1的接收消息队列
 extern TaskHandle_t xQueue_uart1Tx;  //uart1的发送消息队列
+extern TaskHandle_t xQueue_uart3Rx;  //uart3的接收消息队列
+extern TaskHandle_t xQueue_uart3Tx;  //uart3的发送消息队列
 
 //普通值队列句柄
-extern TaskHandle_t vQueue_JoystickLeft; //左摇杆Data句柄
-extern TaskHandle_t vQueue_JoystickRight; //右摇杆Data句柄
+extern SemaphoreHandle_t BinarySem_Mpu;  //mpu二值信号量
 
 /*
 *********************************************************************************************************

@@ -21,19 +21,19 @@ u8 KEY_RetValue;
 
 //创建按键 + 配置
 CLASS_Key   Key_PU={.key_name         = enKey_PU,
-										.config.gpio_clk  = RCC_APB2Periph_GPIOE,
-										.config.gpio_port = GPIOE,
-										.config.gpio_pin  = GPIO_Pin_4
+										.config.gpio_clk  = RCC_APB2Periph_GPIOA,
+										.config.gpio_port = GPIOA,
+										.config.gpio_pin  = GPIO_Pin_5
 										};     //上
 CLASS_Key   Key_PD={.key_name         = enKey_PD,
 										.config.gpio_clk  = RCC_APB2Periph_GPIOA,
 										.config.gpio_port = GPIOA,
-										.config.gpio_pin  = GPIO_Pin_0
+										.config.gpio_pin  = GPIO_Pin_3
 										};     //下
 CLASS_Key   Key_PL={.key_name         = enKey_PL,
-										.config.gpio_clk  = RCC_APB2Periph_GPIOB,
-										.config.gpio_port = GPIOB,
-										.config.gpio_pin  = GPIO_Pin_8
+										.config.gpio_clk  = RCC_APB2Periph_GPIOA,
+										.config.gpio_port = GPIOA,
+										.config.gpio_pin  = GPIO_Pin_4
 										};     //左
 CLASS_Key   Key_PR={.key_name         = enKey_PR,
 										.config.gpio_clk  = RCC_APB2Periph_GPIOC,
@@ -45,7 +45,21 @@ CLASS_Key   Key_PM={.key_name         = enKey_PM,
 										.config.gpio_port = GPIOC,
 										.config.gpio_pin  = GPIO_Pin_14
 										};     //中
-
+CLASS_Key   Key_PA={.key_name         = enKey_PA,
+										.config.gpio_clk  = RCC_APB2Periph_GPIOA,
+										.config.gpio_port = GPIOA,
+										.config.gpio_pin  = GPIO_Pin_7
+										};     //A
+CLASS_Key   Key_PB={.key_name         = enKey_PB,
+										.config.gpio_clk  = RCC_APB2Periph_GPIOB,
+										.config.gpio_port = GPIOB,
+										.config.gpio_pin  = GPIO_Pin_8
+										};     //B
+CLASS_Key   Key_PC={.key_name         = enKey_PC,
+										.config.gpio_clk  = RCC_APB2Periph_GPIOB,
+										.config.gpio_port = GPIOB,
+										.config.gpio_pin  = GPIO_Pin_3
+										};     //C
 
 /**************************************************************************
 函数功能：单个按键引脚初始化
@@ -75,6 +89,9 @@ void bsp_KEY_Init(void)
 	key_config(&Key_PL);
 	key_config(&Key_PR);
 	key_config(&Key_PM);
+	key_config(&Key_PA);
+	key_config(&Key_PB);
+	key_config(&Key_PC);
 
 } 
 

@@ -24,5 +24,6 @@ extern struct  class_uiconfigParam Main_uiconfigParam;
 
 void Main_ZUI(void);
 void Main_uiconfigParamInit(void);
+void Main_uictrl(void);
 
 #endif

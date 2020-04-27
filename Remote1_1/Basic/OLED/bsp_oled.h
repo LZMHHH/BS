@@ -61,12 +61,12 @@
 //  CLK
 #define SCLK_GPIO_PORT    	GPIOB			              /* GPIO端口 */
 #define SCLK_GPIO_CLK 	    RCC_APB2Periph_GPIOB		/* GPIO端口时钟 */
-#define SCLK_GPIO_PIN		    GPIO_Pin_13			        /* 连接到SCL时钟线的GPIO */
+#define SCLK_GPIO_PIN		    GPIO_Pin_12			        /* 连接到SCL时钟线的GPIO */
 
 //  DIN / SDA
 #define SDIN_GPIO_PORT    	GPIOB			              /* GPIO端口 */
 #define SDIN_GPIO_CLK 	    RCC_APB2Periph_GPIOB		/* GPIO端口时钟 */
-#define SDIN_GPIO_PIN		    GPIO_Pin_15			        /* 连接到SCL时钟线的GPIO */
+#define SDIN_GPIO_PIN		    GPIO_Pin_13			        /* 连接到SCL时钟线的GPIO */
 
 //  RES
 #define RST_GPIO_PORT      	GPIOB			              /* GPIO端口 */
@@ -76,7 +76,7 @@
 //  DC
 #define DC_GPIO_PORT    	  GPIOB 		              /* GPIO端口 */
 #define DC_GPIO_CLK 	      RCC_APB2Periph_GPIOB		/* GPIO端口时钟 */
-#define DC_GPIO_PIN		      GPIO_Pin_12			        /* 连接到SCL时钟线的GPIO */
+#define DC_GPIO_PIN		      GPIO_Pin_15			        /* 连接到SCL时钟线的GPIO */
 
 //  CS
 //#define CS_GPIO_PORT      	GPIOB 		              /* GPIO端口 */

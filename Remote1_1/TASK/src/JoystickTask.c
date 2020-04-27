@@ -22,39 +22,52 @@ CLASS_Joystick Joystick_Right;
 
 
 /* 函数声明 */
-static void JoystickData_Init(void);
+static void Para_Init(void);
 static void UpJoystickData(void);
-static void Ipc_RxJoystickData(void);
-static void Ipc_TxJoystickData(void);
 
+/* 通讯部分 */
 
 
 
 void vTaskJoystick( void * pvParameters )
 {
 	
-	JoystickData_Init();
+	Para_Init();
 	
 	while(1)
 	{
+		
 		/* 更新数据 */
-		Ipc_RxJoystickData();
 		UpJoystickData();
 		
-		/* 发送数据 */
-		Ipc_TxJoystickData();
+		
+		if(ConCarMode == enJoystick)
+		{
+			CarMoveVal.MoveX = Joystick_Left.NorX;
+			CarMoveVal.MoveY = Joystick_Left.NorY;
+			CarMoveVal.MoveZ = Joystick_Right.NorX;
+			
 
-		vTaskDelay( 20 );
+			sendRmotorData(enIDCAR, (u8*)&CarMoveVal, sizeof(CarMoveVal), 20);
+		}
+		
+		
+		vTaskDelay( 2000 );
 	}
 	
 }
 
-static void JoystickData_Init(void)
+static void Para_Init(void)
 {
 	Joystick_Left.YZeroSet  = 2048;
 	Joystick_Left.XZeroSet  = 2048;
 	Joystick_Right.YZeroSet = 2048;
 	Joystick_Right.XZeroSet = 2048;
+	
+	Joystick_Left.XShieldVal  = 100;
+	Joystick_Left.YShieldVal  = 100;
+	Joystick_Right.XShieldVal = 100;
+	Joystick_Right.YShieldVal = 100;
 }
 
 static void UpJoystickData(void)
@@ -71,53 +84,8 @@ static void UpJoystickData(void)
 	
 }
 
-static void copyJoystickData(CLASS_Joystick dest,CLASS_Joystick src)
-{
-	dest.PriY = src.PriY;
-	dest.PriX = src.PriX;
-	
-	dest.NorY = src.NorY;
-	dest.NorX = src.NorX;
-	
-	dest.YZeroSet = src.YZeroSet;
-	dest.XZeroSet = src.XZeroSet;
-	
-	dest.Mode = src.Mode;
-}
 
-static void Ipc_RxJoystickData(void)
-{
-	BaseType_t xReturn = pdTRUE;/* 定义一个创建信息返回值，默认为pdTRUE */
-	CLASS_Joystick       Joystick_x;
-	
-	/*先读空，再发送*/
-	xReturn = xQueueReceive( vQueue_JoystickLeft,        /* 消息队列的句柄 */
-                             (void *)&Joystick_x,      /* 发送的消息内容 */
-                             0);                       /* 不等待 */
-														 
-	copyJoystickData(Joystick_Left,Joystick_x);
-														 
-	/*先读空，再发送*/
-	xReturn = xQueueReceive( vQueue_JoystickRight,       /* 消息队列的句柄 */
-                             (void *)&Joystick_x,      /* 发送的消息内容 */
-                             0);                       /* 不等待 */
-														 
-	copyJoystickData(Joystick_Right,Joystick_x);
 
-}
-
-static void Ipc_TxJoystickData(void)
-{
-	BaseType_t xReturn = pdTRUE;/* 定义一个创建信息返回值，默认为pdTRUE */
-
-	xQueueSend( vQueue_JoystickLeft,      /* 消息队列的句柄 */
-								 (void *)&Joystick_Left,   /* 发送的消息内容 */
-								 0);                       /* 不等待 */
-														 
-	xQueueSend( vQueue_JoystickRight,     /* 消息队列的句柄 */
-							 (void *)&Joystick_Right,     /* 发送的消息内容 */
-							 0);                         /* 不等待 */
-}
 
 
 

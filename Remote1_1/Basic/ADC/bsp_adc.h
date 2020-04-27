@@ -39,14 +39,14 @@
 #define    ADC_GPIO_APBxClkCmd1     RCC_APB2PeriphClockCmd
 
 #define    ADC_BAT_PORT             GPIOA
-#define    ADC_BAT_PIN              GPIO_Pin_0
-#define    ADC_BAT_CHANNEL          ADC_Channel_0
+#define    ADC_BAT_PIN              GPIO_Pin_2
+#define    ADC_BAT_CHANNEL          ADC_Channel_2
 #define    ADC_LLINE_PORT           GPIOA
-#define    ADC_LLINE_PIN            GPIO_Pin_1
-#define    ADC_LLINE_CHANNEL        ADC_Channel_1
+#define    ADC_LLINE_PIN            GPIO_Pin_0
+#define    ADC_LLINE_CHANNEL        ADC_Channel_0
 #define    ADC_LROW_PORT            GPIOA
-#define    ADC_LROW_PIN             GPIO_Pin_2
-#define    ADC_LROW_CHANNEL         ADC_Channel_2
+#define    ADC_LROW_PIN             GPIO_Pin_1
+#define    ADC_LROW_CHANNEL         ADC_Channel_1
 #define    ADC_RLINE_PORT           GPIOB
 #define    ADC_RLINE_PIN            GPIO_Pin_0
 #define    ADC_RLINE_CHANNEL        ADC_Channel_8
@@ -66,6 +66,28 @@ typedef enum
 	ADC_RROW,         
 }ADCx_Kind;	
 
+
+/* 别名 */
+typedef  struct  class_joystick    CLASS_Joystick; 
+/* 摇杆类参数 */
+struct class_joystick 
+{
+	
+	u16    PriY;     //原始的摇杆AD值 Y
+	u16    PriX;     //原始的摇杆AD值 X
+	
+	int    NorY;     //正常的摇杆AD值 Y
+	int    NorX;     //正常的摇杆AD值 X
+	
+	u16    YZeroSet; //调零值（2048） Y
+	u16    XZeroSet; //调零值（2048） X
+	
+	u16    XShieldVal;//屏蔽发送阈值  X
+	u16    YShieldVal;//屏蔽发送阈值  Y
+	
+	u8     Mode;     //当前模式
+	
+};
 
 void  Adc_Init(void);
 void  ADC_Filter(u16* adc_val);

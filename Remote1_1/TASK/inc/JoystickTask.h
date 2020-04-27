@@ -19,25 +19,20 @@
 #include "includes.h"
 
 
-/* 别名 */
-typedef  struct  class_joystick    CLASS_Joystick; 
-/* 摇杆类参数 */
-struct class_joystick 
-{
-	
-	u16    PriY;     //原始的摇杆AD值 Y
-	u16    PriX;     //原始的摇杆AD值 X
-	
-	int    NorY;     //正常的摇杆AD值 Y
-	int    NorX;     //正常的摇杆AD值 X
-	
-	u16    YZeroSet; //调零值（2048） Y
-	u16    XZeroSet; //调零值（2048） X
-	
-	u8     Mode;     //当前模式
-	
-};
 
+
+
+
+
+
+
+
+/* 防止报错 */
+typedef  struct  class_joystick    CLASS_Joystick; 
+
+/* 广播 */
+extern CLASS_Joystick Joystick_Left; 
+extern CLASS_Joystick Joystick_Right;
 
 void vTaskJoystick( void * pvParameters );
 

@@ -46,12 +46,14 @@ typedef enum
 typedef enum
 {
 	  enKey_NO,          
-      enKey_PU,       
-      enKey_PD,
-      enKey_PL,
-      enKey_PR,	
+		enKey_PU,       
+		enKey_PD,
+		enKey_PL,
+		enKey_PR,	
 	  enKey_PM,	
-	  enKey_PT,	
+		enKey_PA,	
+		enKey_PB,	
+		enKey_PC,	
 }KEYx_Status;		
 /* 类型状态机表 */
 typedef enum
@@ -93,6 +95,9 @@ extern CLASS_Key   Key_PD;     //下
 extern CLASS_Key   Key_PL;     //左
 extern CLASS_Key   Key_PR;     //右
 extern CLASS_Key   Key_PM;     //中
+extern CLASS_Key   Key_PA;     //A
+extern CLASS_Key   Key_PB;     //B
+extern CLASS_Key   Key_PC;     //C
 
 #define Key_Pre( CLASS_Key )	       GPIO_ReadInputDataBit((CLASS_Key)->config.gpio_port,(CLASS_Key)->config.gpio_pin) 
 
