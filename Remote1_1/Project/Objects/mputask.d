@@ -72,6 +72,7 @@
 .\objects\mputask.o: ..\Zui\inc\car_ui.h
 .\objects\mputask.o: ..\Zui\inc\envi_ui.h
 .\objects\mputask.o: ..\Basic\USART3\protocol3.h
+.\objects\mputask.o: ..\Top\inc\communicate.h
 .\objects\mputask.o: ..\TASK\inc\LedTask.h
 .\objects\mputask.o: ..\TASK\inc\KeyTask.h
 .\objects\mputask.o: ..\TASK\inc\DisplayTask.h

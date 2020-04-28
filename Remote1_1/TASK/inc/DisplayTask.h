@@ -47,6 +47,9 @@ struct class_uiconfigParam
 };
 
 
+/* ¹ã²¥ */
+extern ui_mode Show_ui;
+
 
 
 void setShow_ui(ui_mode ui);

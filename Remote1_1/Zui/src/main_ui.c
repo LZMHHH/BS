@@ -183,12 +183,12 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"LedAs:",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"LedAs:",1);
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"LedAs:",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"LedAs:",1);
 			}	
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
 			{
@@ -196,13 +196,13 @@ void Main_ZUI(void)
 					switch(LedA.flag_mode)
 					{
 						case enON:
-									OLED_ShowString(108,(7-h)*8," ON",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)" ON",1);
 									break;
 						case enOFF:
-									OLED_ShowString(108,(7-h)*8,"OFF",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)"OFF",1);
 									break;
 						case enFre:
-									OLED_ShowString(108,(7-h)*8,"Cyc",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)"Cyc",1);
 									break;
 						default:break;
 					}
@@ -213,13 +213,13 @@ void Main_ZUI(void)
 					switch(LedA.flag_mode)
 					{
 						case enON:
-									OLED_ShowString(108,(7-h)*8," ON",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)" ON",1);
 									break;
 						case enOFF:
-									OLED_ShowString(108,(7-h)*8,"OFF",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)"OFF",1);
 									break;
 						case enFre:
-									OLED_ShowString(108,(7-h)*8,"Cyc",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)"Cyc",1);
 									break;
 						default:break;
 					}
@@ -234,12 +234,12 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"LedAc:",1); //LedA的闪烁周期
+					OLED_ShowString(0,(7-h)*8,(u8 *)"LedAc:",1); //LedA的闪烁周期
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"LedAc:",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"LedAc:",1);
 			}	
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
 			{
@@ -261,12 +261,12 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"LedBs:",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"LedBs:",1);
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"LedBs:",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"LedBs:",1);
 			}	
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
 			{
@@ -274,13 +274,13 @@ void Main_ZUI(void)
 					switch(LedB.flag_mode)
 					{
 						case enON:
-									OLED_ShowString(108,(7-h)*8," ON",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)" ON",1);
 									break;
 						case enOFF:
-									OLED_ShowString(108,(7-h)*8,"OFF",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)"OFF",1);
 									break;
 						case enFre:
-									OLED_ShowString(108,(7-h)*8,"Cyc",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)"Cyc",1);
 									break;
 						default:break;
 					}
@@ -291,13 +291,13 @@ void Main_ZUI(void)
 					switch(LedB.flag_mode)
 					{
 						case enON:
-									OLED_ShowString(108,(7-h)*8," ON",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)" ON",1);
 									break;
 						case enOFF:
-									OLED_ShowString(108,(7-h)*8,"OFF",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)"OFF",1);
 									break;
 						case enFre:
-									OLED_ShowString(108,(7-h)*8,"Cyc",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)"Cyc",1);
 									break;
 						default:break;
 					}
@@ -312,12 +312,12 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"LedBc:",1); //LedB的闪烁周期
+					OLED_ShowString(0,(7-h)*8,(u8 *)"LedBc:",1); //LedB的闪烁周期
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"LedBc:",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"LedBc:",1);
 			}	
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
 			{
@@ -339,12 +339,12 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"LedCs:",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"LedCs:",1);
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"LedCs:",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"LedCs:",1);
 			}	
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
 			{
@@ -352,13 +352,13 @@ void Main_ZUI(void)
 					switch(LedC.flag_mode)
 					{
 						case enON:
-									OLED_ShowString(108,(7-h)*8," ON",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)" ON",1);
 									break;
 						case enOFF:
-									OLED_ShowString(108,(7-h)*8,"OFF",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)"OFF",1);
 									break;
 						case enFre:
-									OLED_ShowString(108,(7-h)*8,"Cyc",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)"Cyc",1);
 									break;
 						default:break;
 					}
@@ -369,13 +369,13 @@ void Main_ZUI(void)
 					switch(LedC.flag_mode)
 					{
 						case enON:
-									OLED_ShowString(108,(7-h)*8," ON",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)" ON",1);
 									break;
 						case enOFF:
-									OLED_ShowString(108,(7-h)*8,"OFF",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)"OFF",1);
 									break;
 						case enFre:
-									OLED_ShowString(108,(7-h)*8,"Cyc",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)"Cyc",1);
 									break;
 						default:break;
 					}
@@ -390,12 +390,12 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"LedCc:",1); //LedB的闪烁周期
+					OLED_ShowString(0,(7-h)*8,(u8 *)"LedCc:",1); //LedB的闪烁周期
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"LedCc:",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"LedCc:",1);
 			}	
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
 			{
@@ -417,12 +417,12 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"Fmqs :",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"Fmqs :",1);
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"Fmqs :",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"Fmqs :",1);
 			}	
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
 			{
@@ -430,13 +430,13 @@ void Main_ZUI(void)
 					switch(Fmq.flag_mode)
 					{
 						case enON:
-									OLED_ShowString(108,(7-h)*8," ON",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)" ON",1);
 									break;
 						case enOFF:
-									OLED_ShowString(108,(7-h)*8,"OFF",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)"OFF",1);
 									break;
 						case enFre:
-									OLED_ShowString(108,(7-h)*8,"Cyc",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)"Cyc",1);
 									break;
 						default:break;
 					}
@@ -447,13 +447,13 @@ void Main_ZUI(void)
 					switch(Fmq.flag_mode)
 					{
 						case enON:
-									OLED_ShowString(108,(7-h)*8," ON",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)" ON",1);
 									break;
 						case enOFF:
-									OLED_ShowString(108,(7-h)*8,"OFF",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)"OFF",1);
 									break;
 						case enFre:
-									OLED_ShowString(108,(7-h)*8,"Cyc",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)"Cyc",1);
 									break;
 						default:break;
 					}
@@ -468,12 +468,12 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"Fmqc :",1); //LedB的闪烁周期
+					OLED_ShowString(0,(7-h)*8,(u8 *)"Fmqc :",1); //LedB的闪烁周期
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"Fmqc :",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"Fmqc :",1);
 			}	
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
 			{

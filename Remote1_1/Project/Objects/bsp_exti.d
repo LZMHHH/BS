@@ -72,6 +72,7 @@
 .\objects\bsp_exti.o: ..\Zui\inc\car_ui.h
 .\objects\bsp_exti.o: ..\Zui\inc\envi_ui.h
 .\objects\bsp_exti.o: ..\Basic\USART3\protocol3.h
+.\objects\bsp_exti.o: ..\Top\inc\communicate.h
 .\objects\bsp_exti.o: ..\TASK\inc\LedTask.h
 .\objects\bsp_exti.o: ..\TASK\inc\KeyTask.h
 .\objects\bsp_exti.o: ..\TASK\inc\DisplayTask.h

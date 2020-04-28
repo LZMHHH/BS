@@ -54,6 +54,7 @@ typedef struct
 }msg_t;
 
 
+
 /* 协议ID */
 /*上行指令ID*/
 typedef enum 
@@ -109,6 +110,10 @@ typedef enum
 #define  CMD_CHANGE_MODE		0x01	/*切换模式*/
 
 
+/* kind:种类用于遥控中data[1] */
+#define KIND_MOVE     0x01
+#define KIND_LED      0x02  /* LED类要更新 */
+
 
 
 /* 把整形编码成字符串数据   5位数字 */
@@ -117,6 +122,6 @@ char Protocol3_EncodeCInt(char* ProtocolString, const char *pSrc,long int pnum, 
 
 /* 通讯部分封装 */
 void sendRmotorCmd(MCU_ID mcu_id,u8 cmd, u8 data,TickType_t xTicksToWait);
-void sendRmotorData(MCU_ID mcu_id,u8 *data, u8 len,TickType_t xTicksToWait);
+void sendRmotorData(MCU_ID mcu_id,u8 kind,u8 *data, u8 len,TickType_t xTicksToWait);
 
 #endif /* __USART_H */

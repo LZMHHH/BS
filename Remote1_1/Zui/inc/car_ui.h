@@ -20,6 +20,12 @@
 #include "includes.h" 
 
 
+/* ¹ã²¥ */
+extern struct  class_uiconfigParam Car_uiconfigParam;
+
+void Car_ZUI(void);
+void Car_uiconfigParamInit(void);
+void Car_uictrl(void);
 
 
 

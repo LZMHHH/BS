@@ -73,6 +73,7 @@
 .\objects\gather.o: ..\Zui\inc\car_ui.h
 .\objects\gather.o: ..\Zui\inc\envi_ui.h
 .\objects\gather.o: ..\Basic\USART3\protocol3.h
+.\objects\gather.o: ..\Top\inc\communicate.h
 .\objects\gather.o: ..\TASK\inc\LedTask.h
 .\objects\gather.o: ..\TASK\inc\KeyTask.h
 .\objects\gather.o: ..\TASK\inc\DisplayTask.h

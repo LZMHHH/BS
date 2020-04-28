@@ -42,13 +42,22 @@ int myabs(int a)
 	  return temp;
 }
 
-/*数据初始化*/
-void ParaInit(void)
+
+void ConParaInit(void)
 {
 	/* 小车控制模式 */
 	ConCarMode = enJoystick;
+}
+
+
+/*数据初始化*/
+void ParaInit(void)
+{
+	ConParaInit();
 	
+	CommunicateParaInit();
 	
 	Main_uiconfigParamInit();
+	Car_uiconfigParamInit();
 	
 }

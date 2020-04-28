@@ -72,6 +72,7 @@
 .\objects\bsp_mpu6050.o: ..\Zui\inc\car_ui.h
 .\objects\bsp_mpu6050.o: ..\Zui\inc\envi_ui.h
 .\objects\bsp_mpu6050.o: ..\Basic\USART3\protocol3.h
+.\objects\bsp_mpu6050.o: ..\Top\inc\communicate.h
 .\objects\bsp_mpu6050.o: ..\TASK\inc\LedTask.h
 .\objects\bsp_mpu6050.o: ..\TASK\inc\KeyTask.h
 .\objects\bsp_mpu6050.o: ..\TASK\inc\DisplayTask.h

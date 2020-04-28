@@ -72,6 +72,7 @@
 .\objects\joysticktask.o: ..\Zui\inc\car_ui.h
 .\objects\joysticktask.o: ..\Zui\inc\envi_ui.h
 .\objects\joysticktask.o: ..\Basic\USART3\protocol3.h
+.\objects\joysticktask.o: ..\Top\inc\communicate.h
 .\objects\joysticktask.o: ..\TASK\inc\LedTask.h
 .\objects\joysticktask.o: ..\TASK\inc\KeyTask.h
 .\objects\joysticktask.o: ..\TASK\inc\DisplayTask.h

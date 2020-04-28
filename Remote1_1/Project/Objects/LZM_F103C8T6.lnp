@@ -30,6 +30,7 @@
 ".\objects\control.o"
 ".\objects\gather.o"
 ".\objects\protocol3.o"
+".\objects\communicate.o"
 ".\objects\sys.o"
 ".\objects\delay.o"
 ".\objects\bsp_dwt_delay.o"

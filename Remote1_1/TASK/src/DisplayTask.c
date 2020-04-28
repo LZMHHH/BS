@@ -16,7 +16,7 @@
   */
 #include "DisplayTask.h"
 
-static ui_mode Show_ui = MAIN_ui;
+ui_mode Show_ui = MAIN_ui;
 
 
 void vTaskDisplay( void * pvParameters )
@@ -32,6 +32,10 @@ void vTaskDisplay( void * pvParameters )
 			case MAIN_ui:
 						Main_uictrl();
 						Main_ZUI();
+						break;
+			case CAR_ui:
+						Car_uictrl();
+						Car_ZUI();
 						break;
 			default:break;
 		}

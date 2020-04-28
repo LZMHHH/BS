@@ -48,7 +48,7 @@ void vTaskJoystick( void * pvParameters )
 			CarMoveVal.MoveZ = Joystick_Right.NorX;
 			
 
-			sendRmotorData(enIDCAR, (u8*)&CarMoveVal, sizeof(CarMoveVal), 20);
+			sendRmotorData(enIDCAR, KIND_MOVE, (u8*)&CarMoveVal, sizeof(CarMoveVal), 20);
 		}
 		
 		

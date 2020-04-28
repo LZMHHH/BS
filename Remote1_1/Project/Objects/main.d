@@ -71,6 +71,7 @@
 .\objects\main.o: ..\Zui\inc\car_ui.h
 .\objects\main.o: ..\Zui\inc\envi_ui.h
 .\objects\main.o: ..\Basic\USART3\protocol3.h
+.\objects\main.o: ..\Top\inc\communicate.h
 .\objects\main.o: ..\TASK\inc\LedTask.h
 .\objects\main.o: ..\TASK\inc\KeyTask.h
 .\objects\main.o: ..\TASK\inc\DisplayTask.h

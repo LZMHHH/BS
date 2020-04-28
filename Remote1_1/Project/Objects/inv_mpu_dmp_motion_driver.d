@@ -72,6 +72,7 @@
 .\objects\inv_mpu_dmp_motion_driver.o: ..\Zui\inc\car_ui.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\Zui\inc\envi_ui.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\Basic\USART3\protocol3.h
+.\objects\inv_mpu_dmp_motion_driver.o: ..\Top\inc\communicate.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\TASK\inc\LedTask.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\TASK\inc\KeyTask.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\TASK\inc\DisplayTask.h

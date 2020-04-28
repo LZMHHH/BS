@@ -72,6 +72,7 @@
 .\objects\bsp_oled.o: ..\Zui\inc\car_ui.h
 .\objects\bsp_oled.o: ..\Zui\inc\envi_ui.h
 .\objects\bsp_oled.o: ..\Basic\USART3\protocol3.h
+.\objects\bsp_oled.o: ..\Top\inc\communicate.h
 .\objects\bsp_oled.o: ..\TASK\inc\LedTask.h
 .\objects\bsp_oled.o: ..\TASK\inc\KeyTask.h
 .\objects\bsp_oled.o: ..\TASK\inc\DisplayTask.h

@@ -60,6 +60,32 @@ void  Key_Control(void)
 		;
 	}	
 	
+	//B键被单击
+	if(Key_PB.Key_RetVal == enKey_Click)
+	{
+		
+		/* 切换显示模式 */
+		switch(Show_ui)
+		{
+			case MAIN_ui:
+						Show_ui = CAR_ui;
+						OLED_Fill(0,0,128,64,0);
+						break;
+			case CAR_ui:
+						Show_ui = MAIN_ui;
+			      OLED_Fill(0,0,128,64,0);
+						break;
+			default:break;
+		}
+		
+		Key_PB.Key_RetVal = enKey_No;   //标志复位
+	}
+	//B键被长按中
+	if(Key_PB.Key_RetVal == enKey_LongPress)
+	{
+		;
+	}	
+	
 }
 
 

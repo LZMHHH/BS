@@ -72,6 +72,7 @@
 .\objects\communicateatask.o: ..\Zui\inc\car_ui.h
 .\objects\communicateatask.o: ..\Zui\inc\envi_ui.h
 .\objects\communicateatask.o: ..\Basic\USART3\protocol3.h
+.\objects\communicateatask.o: ..\Top\inc\communicate.h
 .\objects\communicateatask.o: ..\TASK\inc\LedTask.h
 .\objects\communicateatask.o: ..\TASK\inc\KeyTask.h
 .\objects\communicateatask.o: ..\TASK\inc\DisplayTask.h

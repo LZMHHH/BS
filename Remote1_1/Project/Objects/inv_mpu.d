@@ -72,6 +72,7 @@
 .\objects\inv_mpu.o: ..\Zui\inc\car_ui.h
 .\objects\inv_mpu.o: ..\Zui\inc\envi_ui.h
 .\objects\inv_mpu.o: ..\Basic\USART3\protocol3.h
+.\objects\inv_mpu.o: ..\Top\inc\communicate.h
 .\objects\inv_mpu.o: ..\TASK\inc\LedTask.h
 .\objects\inv_mpu.o: ..\TASK\inc\KeyTask.h
 .\objects\inv_mpu.o: ..\TASK\inc\DisplayTask.h

@@ -72,6 +72,7 @@
 .\objects\filter.o: ..\Zui\inc\car_ui.h
 .\objects\filter.o: ..\Zui\inc\envi_ui.h
 .\objects\filter.o: ..\Basic\USART3\protocol3.h
+.\objects\filter.o: ..\Top\inc\communicate.h
 .\objects\filter.o: ..\TASK\inc\LedTask.h
 .\objects\filter.o: ..\TASK\inc\KeyTask.h
 .\objects\filter.o: ..\TASK\inc\DisplayTask.h

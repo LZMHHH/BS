@@ -71,6 +71,7 @@
 .\objects\stm32f10x_it.o: ..\Zui\inc\car_ui.h
 .\objects\stm32f10x_it.o: ..\Zui\inc\envi_ui.h
 .\objects\stm32f10x_it.o: ..\Basic\USART3\protocol3.h
+.\objects\stm32f10x_it.o: ..\Top\inc\communicate.h
 .\objects\stm32f10x_it.o: ..\TASK\inc\LedTask.h
 .\objects\stm32f10x_it.o: ..\TASK\inc\KeyTask.h
 .\objects\stm32f10x_it.o: ..\TASK\inc\DisplayTask.h

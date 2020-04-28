@@ -53,7 +53,7 @@ void vTaskUart3Tx( void * pvParameters )
 										
 		
 		
-		Uart3_DMA_SendString((char *)&p,
+		Uart3_DMA_SendString((u8 *)&p,
 													p.dataLen + 3);	  /*  */
 		
 		if(LedB.flag_mode != enOFF)

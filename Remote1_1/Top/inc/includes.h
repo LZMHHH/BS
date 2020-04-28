@@ -113,6 +113,7 @@
 
 //应用层
 #include "protocol3.h"  /* 本工程通讯协议主要放在协议三文件 */
+#include "communicate.h"
 
 //任务头文件
 #include "LedTask.h"

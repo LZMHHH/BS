@@ -72,6 +72,7 @@
 .\objects\delay.o: ..\Zui\inc\car_ui.h
 .\objects\delay.o: ..\Zui\inc\envi_ui.h
 .\objects\delay.o: ..\Basic\USART3\protocol3.h
+.\objects\delay.o: ..\Top\inc\communicate.h
 .\objects\delay.o: ..\TASK\inc\LedTask.h
 .\objects\delay.o: ..\TASK\inc\KeyTask.h
 .\objects\delay.o: ..\TASK\inc\DisplayTask.h

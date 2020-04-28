@@ -170,14 +170,15 @@ void sendRmotorCmd(MCU_ID mcu_id,u8 cmd, u8 data,TickType_t xTicksToWait)
 	xQueueSend(xQueue_uart3Tx, &p, xTicksToWait);
 }
 /*发送遥控控制数据*/
-void sendRmotorData(MCU_ID mcu_id,u8 *data, u8 len,TickType_t xTicksToWait)
+void sendRmotorData(MCU_ID mcu_id,u8 kind,u8 *data, u8 len,TickType_t xTicksToWait)
 {
 	msg_t p;
 	p.msgID = DOWN_REMOTOR;
 	p.mcuID = mcu_id;
-	p.dataLen = len + 1; 
+	p.dataLen = len + 2; 
 	p.data[0] = enDATA;
-	memcpy(p.data+1, data, len);  /* 特别留意，低字节在前 */
+	p.data[1] = kind;
+	memcpy(p.data+2, data, len);  /* 特别留意，低字节在前 */
 	xQueueSend(xQueue_uart3Tx, &p, xTicksToWait);
 }
 
