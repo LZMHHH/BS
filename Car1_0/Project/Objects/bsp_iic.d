@@ -70,6 +70,7 @@
 .\objects\bsp_iic.o: ..\Basic\MPU\dmpmap.h
 .\objects\bsp_iic.o: ..\Zui\inc\bmp.h
 .\objects\bsp_iic.o: ..\Zui\inc\main_ui.h
+.\objects\bsp_iic.o: ..\Basic\USART1\protocol.h
 .\objects\bsp_iic.o: ..\Basic\MPU\filter.h
 .\objects\bsp_iic.o: ..\TASK\inc\LedTask.h
 .\objects\bsp_iic.o: ..\TASK\inc\KeyTask.h

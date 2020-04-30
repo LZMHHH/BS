@@ -70,6 +70,7 @@
 .\objects\inv_mpu_dmp_motion_driver.o: ..\Basic\MPU\dmpmap.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\Zui\inc\bmp.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\Zui\inc\main_ui.h
+.\objects\inv_mpu_dmp_motion_driver.o: ..\Basic\USART1\protocol.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\Basic\MPU\filter.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\TASK\inc\LedTask.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\TASK\inc\KeyTask.h

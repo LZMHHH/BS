@@ -70,6 +70,7 @@
 .\objects\delay.o: ..\Basic\MPU\dmpmap.h
 .\objects\delay.o: ..\Zui\inc\bmp.h
 .\objects\delay.o: ..\Zui\inc\main_ui.h
+.\objects\delay.o: ..\Basic\USART1\protocol.h
 .\objects\delay.o: ..\Basic\MPU\filter.h
 .\objects\delay.o: ..\TASK\inc\LedTask.h
 .\objects\delay.o: ..\TASK\inc\KeyTask.h

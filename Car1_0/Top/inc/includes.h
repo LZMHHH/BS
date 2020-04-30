@@ -119,11 +119,12 @@
 #include "dmpKey.h"
 #include "dmpmap.h"
 
-
+/* UI */
 #include "bmp.h"
 #include "main_ui.h"
 
-
+//应用层
+#include "protocol.h"  /* 本工程通讯协议主要放在协议三文件 */
 
 #if IFPRINTTASK
 #include "bsp_tim_pwm.h"

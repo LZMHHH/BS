@@ -58,8 +58,8 @@ static TaskHandle_t xHandleTaskLed       = NULL;  //LED任务
 static TaskHandle_t xHandleTaskCpu       = NULL;  //CPU任务
 #endif
 static TaskHandle_t xHandleTaskKey       = NULL;  //KEY任务
-//static TaskHandle_t xHandleTaskUart1Rx   = NULL;  //KEY任务
-//static TaskHandle_t xHandleTaskUart1Tx   = NULL;  //KEY任务
+static TaskHandle_t xHandleTaskUart1Rx   = NULL;  //KEY任务
+static TaskHandle_t xHandleTaskUart1Tx   = NULL;  //KEY任务
 			 TaskHandle_t xHandleTaskDisplay   = NULL;  //显示任务
 			 TaskHandle_t xHandleTaskMoveCtrl  = NULL;  //移动控制任务
 			 TaskHandle_t xHandleTaskMpu       = NULL;  //陀螺仪任务
@@ -176,26 +176,26 @@ static void AppTaskCreate (void)
 							   11,                     	/* 任务优先级*/
 							   &xHandleTaskMoveCtrl );   /* 任务句柄  */
 								 
-//		xTaskCreate( vTaskMpu,   	             /* 任务函数  */
-//							   "Task Mpu",               /* 任务名    */
-//							   256,                   	 /* 任务栈大小，单位word，也就是4字节 */
-//							   NULL,              	     /* 任务参数  */
-//							   11,                     	 /* 任务优先级*/
-//							   &xHandleTaskMpu );        /* 任务句柄  */
+		xTaskCreate( vTaskMpu,   	             /* 任务函数  */
+							   "Task Mpu",               /* 任务名    */
+							   256,                   	 /* 任务栈大小，单位word，也就是4字节 */
+							   NULL,              	     /* 任务参数  */
+							   11,                     	 /* 任务优先级*/
+							   &xHandleTaskMpu );        /* 任务句柄  */
 
-//	  xTaskCreate( vTaskUart1Rx,   	        /* 任务函数  */
-//								 "Task Uart1Rx",          /* 任务名    */
-//								 256,                   	/* 任务栈大小，单位word，也就是4字节 */
-//								 NULL,              	    /* 任务参数  */
-//								 12,                 	    /* 任务优先级*/
-//								 &xHandleTaskUart1Rx );   /* 任务句柄  */
-//								 
-//		xTaskCreate( vTaskUart1Tx,   	        /* 任务函数  */
-//								 "Task Uart1Rx",          /* 任务名    */
-//								 256,                   	/* 任务栈大小，单位word，也就是4字节 */
-//								 NULL,              	    /* 任务参数  */
-//								 12,                 	    /* 任务优先级*/
-//								 &xHandleTaskUart1Tx );   /* 任务句柄  */
+	  xTaskCreate( vTaskUart1Rx,   	        /* 任务函数  */
+								 "Task Uart1Rx",          /* 任务名    */
+								 256,                   	/* 任务栈大小，单位word，也就是4字节 */
+								 NULL,              	    /* 任务参数  */
+								 12,                 	    /* 任务优先级*/
+								 &xHandleTaskUart1Rx );   /* 任务句柄  */
+								 
+		xTaskCreate( vTaskUart1Tx,   	        /* 任务函数  */
+								 "Task Uart1Tx",          /* 任务名    */
+								 256,                   	/* 任务栈大小，单位word，也就是4字节 */
+								 NULL,              	    /* 任务参数  */
+								 12,                 	    /* 任务优先级*/
+								 &xHandleTaskUart1Tx );   /* 任务句柄  */
 		
 
 	
@@ -219,20 +219,20 @@ static void AppObjCreate (void)
 
 #if DEBUG1_SAFETY	
 	 /* xQueue_uart1Tx */
-  xQueue_uart1Rx = xQueueCreate((UBaseType_t ) 5,                  /* 消息队列的长度 */
+  xQueue_uart1Rx = xQueueCreate((UBaseType_t ) 10,                  /* 消息队列的长度 */
                                 (UBaseType_t ) DEBUG1_RX_BSIZE);   /* 消息的大小 */
 	
 	 /* xQueue_uart1Rx */
-  xQueue_uart1Tx = xQueueCreate((UBaseType_t ) 1,                  /* 消息队列的长度 */
+  xQueue_uart1Tx = xQueueCreate((UBaseType_t ) 10,                  /* 消息队列的长度 */
                                 (UBaseType_t ) DEBUG1_TX_BSIZE);   /* 消息的大小 */
 	
 #else
 	/* 创建存储指针变量xQueue_uart1Tx */
-  xQueue_uart1Rx = xQueueCreate((UBaseType_t ) 5,                  /* 消息队列的长度 */
+  xQueue_uart1Rx = xQueueCreate((UBaseType_t ) 10,                  /* 消息队列的长度 */
                                 (UBaseType_t ) sizeof(uint32_t));   /* 消息的大小 */
 	
 	/* 创建存储指针变量xQueue_uart1Rx */
-  xQueue_uart1Tx = xQueueCreate((UBaseType_t ) 5,                  /* 消息队列的长度 */
+  xQueue_uart1Tx = xQueueCreate((UBaseType_t ) 10,                  /* 消息队列的长度 */
                                 (UBaseType_t ) sizeof(uint32_t));   /* 消息的大小 */
 	
 #endif	

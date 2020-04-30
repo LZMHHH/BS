@@ -70,6 +70,7 @@
 .\objects\movectrltask.o: ..\Basic\MPU\dmpmap.h
 .\objects\movectrltask.o: ..\Zui\inc\bmp.h
 .\objects\movectrltask.o: ..\Zui\inc\main_ui.h
+.\objects\movectrltask.o: ..\Basic\USART1\protocol.h
 .\objects\movectrltask.o: ..\Basic\MPU\filter.h
 .\objects\movectrltask.o: ..\TASK\inc\LedTask.h
 .\objects\movectrltask.o: ..\TASK\inc\KeyTask.h

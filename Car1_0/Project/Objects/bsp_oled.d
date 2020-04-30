@@ -70,6 +70,7 @@
 .\objects\bsp_oled.o: ..\Basic\MPU\dmpmap.h
 .\objects\bsp_oled.o: ..\Zui\inc\bmp.h
 .\objects\bsp_oled.o: ..\Zui\inc\main_ui.h
+.\objects\bsp_oled.o: ..\Basic\USART1\protocol.h
 .\objects\bsp_oled.o: ..\Basic\MPU\filter.h
 .\objects\bsp_oled.o: ..\TASK\inc\LedTask.h
 .\objects\bsp_oled.o: ..\TASK\inc\KeyTask.h

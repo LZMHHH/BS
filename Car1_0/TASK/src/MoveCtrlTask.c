@@ -21,33 +21,34 @@ CLASS_Motor MotorA;
 CLASS_Motor MotorB;
 CLASS_Motor MotorC;
 CLASS_Motor MotorD;
+car_t       Car;
+
+car_motor_e Car_Motor;
+
+
+volatile TickType_t CarTickCount; 
 
 
 static void Para_Init(void);
+void vCarMoveCon(void);
+
+
 
 void vTaskMoveCtrl( void * pvParameters )
 {
-	int a = 0;
 	
 	/* 初始化参数 */
 	Para_Init();
 	
 	while(1)
 	{
-		a+=5;
-		if(a > 7000)
-			a = -7000;
 		
-		MotorA.encoderVal =  Read_Encoder(1);
-		MotorB.encoderVal =  Read_Encoder(2);
-		MotorC.encoderVal = -Read_Encoder(3);
-		MotorD.encoderVal = -Read_Encoder(4);
+		MotorA.encoderVal = -Read_Encoder(1);
+		MotorB.encoderVal = -Read_Encoder(2);
+		MotorC.encoderVal =  Read_Encoder(3);
+		MotorD.encoderVal =  Read_Encoder(4);
 		
-		MotorA.pwmout     = a;
-		MotorB.pwmout     = a;
-		MotorC.pwmout     = a;
-		MotorD.pwmout     = a;
-		
+		vCarMoveCon();
 		
 		
 		Set_Pwm(&MotorA);
@@ -72,12 +73,44 @@ static void Para_Init(void)
 	MotorC.pwmout     = 0;
 	MotorD.pwmout     = 0;
 	
+	Car_Motor         = CAR_MOTOR_PWM;
+	
+	CarTickCount      = 0;
+	
+	
 	Set_Pwm(&MotorA);
 	Set_Pwm(&MotorB);
 	Set_Pwm(&MotorC);
 	Set_Pwm(&MotorD);
+
 }
 
 
-
+void vCarMoveCon(void)
+{
+	if((xTaskGetTickCount() - CarTickCount) > 150 )
+	{
+		MotorA.pwmout = 0;
+		MotorB.pwmout = 0;
+		MotorC.pwmout = 0;
+		MotorD.pwmout = 0;
+	}
+	else
+	{
+		MotorA.pwmout =   Car.speedX + Car.speedY - Car.speedZ;
+		MotorB.pwmout =   Car.speedX + Car.speedY + Car.speedZ;
+		MotorC.pwmout =  -Car.speedX + Car.speedY - Car.speedZ;
+		MotorD.pwmout =  -Car.speedX + Car.speedY + Car.speedZ;
+		
+		MotorA.pwmout = map(MotorA.pwmout,-3000,3000,-7200,7200);
+		MotorB.pwmout = map(MotorB.pwmout,-3000,3000,-7200,7200);
+		MotorC.pwmout = map(MotorC.pwmout,-3000,3000,-7200,7200);
+		MotorD.pwmout = map(MotorD.pwmout,-3000,3000,-7200,7200);
+	}
+	
+	
+	
+	
+}
+	
 

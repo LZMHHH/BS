@@ -1,10 +1,10 @@
 /**
   ******************************************************************************
   * @file    control.c
-  * @author  lss
+  * @author  fire
   * @version V1.0
-  * @date    2017-xx-xx
-  * @brief   卡尔曼滤波  及  一阶互补滤波
+  * @date    2020-xx-xx
+  * @brief   
   ******************************************************************************
   * @attention
   *
@@ -19,4 +19,23 @@
 
 
 
-
+/* 数学公式 */
+//转移范围
+long map(long x, long in_min, long in_max, long out_min, long out_max)
+{
+  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
+ /****************************************************************************
+  * @brief    绝对值函数
+  * @param    a
+  * @retval   |a|
+  * @author   LZM
+  * @note      
+  */
+int myabs(int a)
+{ 		   
+	  int temp;
+		if(a<0)  temp=-a;  
+	  else temp=a;
+	  return temp;
+}

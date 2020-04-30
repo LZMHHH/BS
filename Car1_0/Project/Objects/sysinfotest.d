@@ -69,6 +69,7 @@
 .\objects\sysinfotest.o: ..\Basic\MPU\dmpmap.h
 .\objects\sysinfotest.o: ..\Zui\inc\bmp.h
 .\objects\sysinfotest.o: ..\Zui\inc\main_ui.h
+.\objects\sysinfotest.o: ..\Basic\USART1\protocol.h
 .\objects\sysinfotest.o: ..\Basic\MPU\filter.h
 .\objects\sysinfotest.o: ..\TASK\inc\LedTask.h
 .\objects\sysinfotest.o: ..\TASK\inc\KeyTask.h

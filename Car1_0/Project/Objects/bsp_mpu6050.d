@@ -70,6 +70,7 @@
 .\objects\bsp_mpu6050.o: ..\Basic\MPU\dmpmap.h
 .\objects\bsp_mpu6050.o: ..\Zui\inc\bmp.h
 .\objects\bsp_mpu6050.o: ..\Zui\inc\main_ui.h
+.\objects\bsp_mpu6050.o: ..\Basic\USART1\protocol.h
 .\objects\bsp_mpu6050.o: ..\Basic\MPU\filter.h
 .\objects\bsp_mpu6050.o: ..\TASK\inc\LedTask.h
 .\objects\bsp_mpu6050.o: ..\TASK\inc\KeyTask.h

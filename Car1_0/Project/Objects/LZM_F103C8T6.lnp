@@ -31,6 +31,7 @@
 ".\objects\control.o"
 ".\objects\gather.o"
 ".\objects\file_sys.o"
+".\objects\protocol.o"
 ".\objects\sys.o"
 ".\objects\bsp_dwt_delay.o"
 ".\objects\bsp.o"

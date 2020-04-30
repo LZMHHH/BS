@@ -70,6 +70,7 @@
 .\objects\mputask.o: ..\Basic\MPU\dmpmap.h
 .\objects\mputask.o: ..\Zui\inc\bmp.h
 .\objects\mputask.o: ..\Zui\inc\main_ui.h
+.\objects\mputask.o: ..\Basic\USART1\protocol.h
 .\objects\mputask.o: ..\Basic\MPU\filter.h
 .\objects\mputask.o: ..\TASK\inc\LedTask.h
 .\objects\mputask.o: ..\TASK\inc\KeyTask.h

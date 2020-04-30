@@ -64,7 +64,7 @@ void Usar1_SendHalfWord( USART_TypeDef * pUSARTx, uint16_t ch);
 
 //DMA
 void Uart1_Start_DMA_Tx(uint16_t size);
-void Uart1_DMA_SendString( char *SendString,short int size);
+void Uart1_DMA_SendString( u8 *SendString,short int size);
 
 
 #endif /* __USART_H */

@@ -70,6 +70,7 @@
 .\objects\communicatetask.o: ..\Basic\MPU\dmpmap.h
 .\objects\communicatetask.o: ..\Zui\inc\bmp.h
 .\objects\communicatetask.o: ..\Zui\inc\main_ui.h
+.\objects\communicatetask.o: ..\Basic\USART1\protocol.h
 .\objects\communicatetask.o: ..\Basic\MPU\filter.h
 .\objects\communicatetask.o: ..\TASK\inc\LedTask.h
 .\objects\communicatetask.o: ..\TASK\inc\KeyTask.h

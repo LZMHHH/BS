@@ -70,6 +70,7 @@
 .\objects\gather.o: ..\Basic\MPU\dmpmap.h
 .\objects\gather.o: ..\Zui\inc\bmp.h
 .\objects\gather.o: ..\Zui\inc\main_ui.h
+.\objects\gather.o: ..\Basic\USART1\protocol.h
 .\objects\gather.o: ..\Basic\MPU\filter.h
 .\objects\gather.o: ..\TASK\inc\LedTask.h
 .\objects\gather.o: ..\TASK\inc\KeyTask.h

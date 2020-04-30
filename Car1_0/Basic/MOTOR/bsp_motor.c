@@ -139,20 +139,7 @@ void bsp_Motor_Init(u16 arr,u16 psc)
 		TIM_Cmd(PWM_TIM, ENABLE);                                              //使能TIM1	
 } 
 
- /****************************************************************************
-  * @brief    绝对值函数
-  * @param    a
-  * @retval   |a|
-  * @author   LZM
-  * @note      
-  */
-int myabs(int a)
-{ 		   
-	  int temp;
-		if(a<0)  temp=-a;  
-	  else temp=a;
-	  return temp;
-}
+
  /****************************************************************************
   * @brief    赋值给PWM寄存器
   * @param    哪一个电机；输出
@@ -174,39 +161,39 @@ void Set_Pwm(CLASS_Motor *motor)
 	{
 		case enMotorA:
 				/* 方向 */
-				if(motor->pwmout > 0)
+				if(motor->pwmout < 0)
 					AINA = 0;
 				else
 					AINA = 1;
 				/* 输出pwm */
-				PWMA=7000 - myabs(motor->pwmout);        // 转速大小
+				PWMA=7200 - myabs(motor->pwmout);        // 转速大小
 				break;
 		case enMotorB:
 				/* 方向 */
-				if(motor->pwmout < 0)
+				if(motor->pwmout > 0)
 					AINB = 0;
 				else
 					AINB = 1;
 				/* 输出pwm */
-				PWMB=7000 - myabs(motor->pwmout);        // 转速大小
+				PWMB=7200 - myabs(motor->pwmout);        // 转速大小
 				break;
 		case enMotorC:
 				/* 方向 */
-				if(motor->pwmout > 0)
+				if(motor->pwmout < 0)
 					AINC = 0;
 				else
 					AINC = 1;
 				/* 输出pwm */
-				PWMC=7000 - myabs(motor->pwmout);        // 转速大小
+				PWMC=7200 - myabs(motor->pwmout);        // 转速大小
 				break;
 		case enMotorD:
 				/* 方向 */
-				if(motor->pwmout < 0)
+				if(motor->pwmout > 0)
 					AIND = 0;
 				else
 					AIND = 1;
 				/* 输出pwm */
-				PWMD=7000 - myabs(motor->pwmout);        // 转速大小
+				PWMD=7200 - myabs(motor->pwmout);        // 转速大小
 				break;
 		default:
 				break;

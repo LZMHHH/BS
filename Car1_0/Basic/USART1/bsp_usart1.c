@@ -251,17 +251,19 @@ void DEBUG1_USART_IRQHandler(void)
 			  //DMA_Cmd(DEBUG1_UART_Rx_DMA_Channel, ENABLE);        //DMA 开启，等待数据。注意，如果中断发送数据帧的速率很快，MCU来不及处理此次接收到的数据，中断又发来数据的话，这里不能开启，否则数据会被覆盖。有2种方式解决。
 			
 #if DEBUG1_SAFETY
-				xQueueSendFromISR(  xQueue_uart1Tx,               /* 消息队列的句柄 */
+				xQueueSendFromISR(  xQueue_uart1Rx,               /* 消息队列的句柄 */
                     (void *)ReadBuff,                   /* 发送的消息内容 */
                             &xHigherPriorityTaskWoken); /* 高优先级任务是否被唤醒的状态保存 */
 
 #else
-				xQueueSendFromISR(  xQueue_uart1Tx,               /* 消息队列的句柄 */
+				xQueueSendFromISR(  xQueue_uart1Rx,               /* 消息队列的句柄 */
 				            (void *)&ReadBuff,                    /* 发送的消息内容 发送字符串的地址*/
                             &xHigherPriorityTaskWoken);   /* 高优先级任务是否被唤醒的状态保存 */
 
 #endif
 
+				memset(&ReadBuff, 0x00, sizeof(ReadBuff));
+										
 				DEBUG1_UART_Rx_DMA_Channel->CMAR  = (uint32_t)ReadBuff; 					
 				DMA_Cmd(DEBUG1_UART_Rx_DMA_Channel, ENABLE);
 
@@ -273,7 +275,7 @@ void DEBUG1_USART_IRQHandler(void)
 		portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
 }
 /* 发送数据，再次开发（待优化） */
-void Uart1_DMA_SendString( char *SendString,short int size)
+void Uart1_DMA_SendString( u8 *SendString,short int size)
 {
 	if(size < 0)
 	{

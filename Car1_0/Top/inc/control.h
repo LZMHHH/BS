@@ -4,7 +4,7 @@
   * @author  fire
   * @version V1.0
   * @date    2017-xx-xx
-  * @brief   Ö÷º¯Êý.
+  * @brief   
   ******************************************************************************
   * @attention
   *
@@ -20,7 +20,8 @@
 #include "includes.h"
 
 
-
+long map(long x, long in_min, long in_max, long out_min, long out_max);
+int myabs(int a);
 
 
 

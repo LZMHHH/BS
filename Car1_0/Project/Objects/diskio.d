@@ -70,6 +70,7 @@
 .\objects\diskio.o: ..\Basic\MPU\dmpmap.h
 .\objects\diskio.o: ..\Zui\inc\bmp.h
 .\objects\diskio.o: ..\Zui\inc\main_ui.h
+.\objects\diskio.o: ..\Basic\USART1\protocol.h
 .\objects\diskio.o: ..\Basic\MPU\filter.h
 .\objects\diskio.o: ..\TASK\inc\LedTask.h
 .\objects\diskio.o: ..\TASK\inc\KeyTask.h

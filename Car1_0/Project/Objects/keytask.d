@@ -70,6 +70,7 @@
 .\objects\keytask.o: ..\Basic\MPU\dmpmap.h
 .\objects\keytask.o: ..\Zui\inc\bmp.h
 .\objects\keytask.o: ..\Zui\inc\main_ui.h
+.\objects\keytask.o: ..\Basic\USART1\protocol.h
 .\objects\keytask.o: ..\Basic\MPU\filter.h
 .\objects\keytask.o: ..\TASK\inc\LedTask.h
 .\objects\keytask.o: ..\TASK\inc\KeyTask.h
