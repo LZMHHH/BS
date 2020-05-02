@@ -18,6 +18,8 @@
 .\objects\movectrltask.o: ..\FreeRTOS\inc\task.h
 .\objects\movectrltask.o: ..\FreeRTOS\inc\list.h
 .\objects\movectrltask.o: ..\FreeRTOS\inc\queue.h
+.\objects\movectrltask.o: ..\FreeRTOS\inc\event_groups.h
+.\objects\movectrltask.o: ..\FreeRTOS\inc\timers.h
 .\objects\movectrltask.o: ..\FreeRTOS\inc\semphr.h
 .\objects\movectrltask.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\movectrltask.o: ..\Libraries\CMSIS\core_cm3.h
@@ -71,6 +73,7 @@
 .\objects\movectrltask.o: ..\Zui\inc\bmp.h
 .\objects\movectrltask.o: ..\Zui\inc\main_ui.h
 .\objects\movectrltask.o: ..\Basic\USART1\protocol.h
+.\objects\movectrltask.o: ..\Top\inc\communicate.h
 .\objects\movectrltask.o: ..\Basic\MPU\filter.h
 .\objects\movectrltask.o: ..\TASK\inc\LedTask.h
 .\objects\movectrltask.o: ..\TASK\inc\KeyTask.h

@@ -88,6 +88,7 @@ extern CLASS_Led   Fmq;
 
 void   bsp_LED_Init      (void);  //≥ı ºªØ
 void   bsp_Led_Flash    (CLASS_Led* led_n,int time);
+void   bsp_Fmq_Flash(CLASS_Led* fmq,int time);
 #endif
 
 

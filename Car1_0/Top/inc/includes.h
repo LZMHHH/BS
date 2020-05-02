@@ -79,7 +79,7 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "queue.h"
-
+#include "event_groups.h"
 #include "semphr.h"
 
 /*
@@ -125,6 +125,8 @@
 
 //应用层
 #include "protocol.h"  /* 本工程通讯协议主要放在协议三文件 */
+#include "communicate.h"
+
 
 #if IFPRINTTASK
 #include "bsp_tim_pwm.h"
@@ -173,6 +175,8 @@ extern TaskHandle_t xQueue_uart1Rx;  //uart1的接收消息队列
 extern TaskHandle_t xQueue_uart1Tx;  //uart1的发送消息队列
 
 extern SemaphoreHandle_t BinarySem_Mpu;  //mpu二值信号量
+
+extern EventGroupHandle_t Event_SendData;  //上传数据事件标志着组
 
 //事件标志组涉及的函数句柄广播
 extern TaskHandle_t xHandleTaskInit;  //file任务

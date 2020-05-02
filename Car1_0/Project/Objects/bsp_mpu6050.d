@@ -18,6 +18,8 @@
 .\objects\bsp_mpu6050.o: ..\FreeRTOS\inc\task.h
 .\objects\bsp_mpu6050.o: ..\FreeRTOS\inc\list.h
 .\objects\bsp_mpu6050.o: ..\FreeRTOS\inc\queue.h
+.\objects\bsp_mpu6050.o: ..\FreeRTOS\inc\event_groups.h
+.\objects\bsp_mpu6050.o: ..\FreeRTOS\inc\timers.h
 .\objects\bsp_mpu6050.o: ..\FreeRTOS\inc\semphr.h
 .\objects\bsp_mpu6050.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\bsp_mpu6050.o: ..\Libraries\CMSIS\core_cm3.h
@@ -71,6 +73,7 @@
 .\objects\bsp_mpu6050.o: ..\Zui\inc\bmp.h
 .\objects\bsp_mpu6050.o: ..\Zui\inc\main_ui.h
 .\objects\bsp_mpu6050.o: ..\Basic\USART1\protocol.h
+.\objects\bsp_mpu6050.o: ..\Top\inc\communicate.h
 .\objects\bsp_mpu6050.o: ..\Basic\MPU\filter.h
 .\objects\bsp_mpu6050.o: ..\TASK\inc\LedTask.h
 .\objects\bsp_mpu6050.o: ..\TASK\inc\KeyTask.h

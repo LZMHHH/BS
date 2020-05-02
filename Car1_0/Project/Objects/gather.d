@@ -18,6 +18,8 @@
 .\objects\gather.o: ..\FreeRTOS\inc\task.h
 .\objects\gather.o: ..\FreeRTOS\inc\list.h
 .\objects\gather.o: ..\FreeRTOS\inc\queue.h
+.\objects\gather.o: ..\FreeRTOS\inc\event_groups.h
+.\objects\gather.o: ..\FreeRTOS\inc\timers.h
 .\objects\gather.o: ..\FreeRTOS\inc\semphr.h
 .\objects\gather.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\gather.o: ..\Libraries\CMSIS\core_cm3.h
@@ -71,6 +73,7 @@
 .\objects\gather.o: ..\Zui\inc\bmp.h
 .\objects\gather.o: ..\Zui\inc\main_ui.h
 .\objects\gather.o: ..\Basic\USART1\protocol.h
+.\objects\gather.o: ..\Top\inc\communicate.h
 .\objects\gather.o: ..\Basic\MPU\filter.h
 .\objects\gather.o: ..\TASK\inc\LedTask.h
 .\objects\gather.o: ..\TASK\inc\KeyTask.h

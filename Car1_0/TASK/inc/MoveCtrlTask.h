@@ -33,9 +33,9 @@ typedef enum{
 
 typedef struct{
 	/* 三轴速度值 */
-	float speedX;
-	float speedY;
-	float speedZ;	
+	int speedX;
+	int speedY;
+	int speedZ;	
 }car_t;
 
 

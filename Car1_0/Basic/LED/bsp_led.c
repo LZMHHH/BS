@@ -105,5 +105,31 @@ void bsp_Led_Flash(CLASS_Led* led_n,int time)
 		}
 	}
 }
-
+/**************************************************************************
+函数功能：FMQ闪烁
+入口参数：闪烁频率 
+返回  值：无
+**************************************************************************/
+void bsp_Fmq_Flash(CLASS_Led* fmq,int time)
+{
+	if(0==time) 
+	{
+		digitalLo(fmq->config.gpio_port,fmq->config.gpio_pin);
+	}
+	else
+	{
+		if(time < 0)
+		{
+			digitalHi(fmq->config.gpio_port,fmq->config.gpio_pin);
+		}
+		else
+		{
+			if(++fmq->temp>=time)	
+			{
+				digitalToggle(fmq->config.gpio_port,fmq->config.gpio_pin);
+				fmq->temp=0;
+			}
+		}
+	}
+}
 

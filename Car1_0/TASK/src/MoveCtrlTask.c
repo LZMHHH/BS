@@ -26,8 +26,8 @@ car_t       Car;
 car_motor_e Car_Motor;
 
 
-volatile TickType_t CarTickCount; 
-
+volatile TickType_t CarTickCount; //用于检测小车信号中断
+volatile TickType_t CarSendDataTickCount;  //用于定时上传数据
 
 static void Para_Init(void);
 void vCarMoveCon(void);
@@ -36,7 +36,6 @@ void vCarMoveCon(void);
 
 void vTaskMoveCtrl( void * pvParameters )
 {
-	
 	/* 初始化参数 */
 	Para_Init();
 	
@@ -50,11 +49,20 @@ void vTaskMoveCtrl( void * pvParameters )
 		
 		vCarMoveCon();
 		
-		
 		Set_Pwm(&MotorA);
 		Set_Pwm(&MotorB);
 		Set_Pwm(&MotorC);
 		Set_Pwm(&MotorD);
+		
+		CarSendDataTickCount++;
+		if(CarSendDataTickCount > 20)
+		{
+			/* 触发一个上传pwm数据的事件 */
+			xEventGroupSetBits(Event_SendData,EVENT_MOTOR);		
+			/* 触发一个上传编码器数据的事件 */
+			xEventGroupSetBits(Event_SendData,EVENT_ENCODER);		
+			CarSendDataTickCount = 0;
+		}
 		
 		vTaskDelay( 10 );
 	}
@@ -76,7 +84,7 @@ static void Para_Init(void)
 	Car_Motor         = CAR_MOTOR_PWM;
 	
 	CarTickCount      = 0;
-	
+	CarSendDataTickCount = 0;
 	
 	Set_Pwm(&MotorA);
 	Set_Pwm(&MotorB);

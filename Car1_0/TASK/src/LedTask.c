@@ -31,6 +31,7 @@ void vTaskLed( void * pvParameters )
 
 
 		Led_Ctrl();
+		Fmq_Ctrl();
 		
 		vTaskDelay( 10 );
 	}
@@ -62,12 +63,25 @@ static void Led_Ctrl(void)
 					break;
 		default:break;
 	}
+
 	
 }
 
 static void Fmq_Ctrl(void)
 {
-	
+	switch(Fmq.flag_mode)
+	{
+		case enON:
+					bsp_Fmq_Flash(&Fmq,-1);
+					break;
+		case enOFF:
+					bsp_Fmq_Flash(&Fmq,0);
+					break;
+		case enFre:
+					bsp_Fmq_Flash(&Fmq,Fmq.cycle);
+					break;
+		default:break;
+	}
 }
 
 

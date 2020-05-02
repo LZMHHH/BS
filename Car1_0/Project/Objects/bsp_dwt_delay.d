@@ -18,6 +18,8 @@
 .\objects\bsp_dwt_delay.o: ..\FreeRTOS\inc\task.h
 .\objects\bsp_dwt_delay.o: ..\FreeRTOS\inc\list.h
 .\objects\bsp_dwt_delay.o: ..\FreeRTOS\inc\queue.h
+.\objects\bsp_dwt_delay.o: ..\FreeRTOS\inc\event_groups.h
+.\objects\bsp_dwt_delay.o: ..\FreeRTOS\inc\timers.h
 .\objects\bsp_dwt_delay.o: ..\FreeRTOS\inc\semphr.h
 .\objects\bsp_dwt_delay.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\bsp_dwt_delay.o: ..\Libraries\CMSIS\core_cm3.h
@@ -71,6 +73,7 @@
 .\objects\bsp_dwt_delay.o: ..\Zui\inc\bmp.h
 .\objects\bsp_dwt_delay.o: ..\Zui\inc\main_ui.h
 .\objects\bsp_dwt_delay.o: ..\Basic\USART1\protocol.h
+.\objects\bsp_dwt_delay.o: ..\Top\inc\communicate.h
 .\objects\bsp_dwt_delay.o: ..\Basic\MPU\filter.h
 .\objects\bsp_dwt_delay.o: ..\TASK\inc\LedTask.h
 .\objects\bsp_dwt_delay.o: ..\TASK\inc\KeyTask.h

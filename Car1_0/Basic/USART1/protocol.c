@@ -184,8 +184,34 @@ u8 DataHeadFind(msg_t *msg,u8 Dst)
 **********************************************************/
 
 /******************** 编码部分 ********************/
+/*发送命令*/
+void sendCmd(upmsgID_e msg_id,MCU_ID mcu_id,kind_e cmd, u8 data,TickType_t xTicksToWait)
+{
+	msg_t p;
+	p.msg_head = MSG_HEAD;
+	p.msgID = msg_id;
+	p.mcuID = mcu_id;
+	p.dataLen = 3;
+	p.data[0] = enCMD;
+	p.data[1] = cmd;
+	p.data[2] = data;
+	xQueueSend(xQueue_uart1Tx, &p, xTicksToWait);
+}
+/*发送数据*/
+void sendData(upmsgID_e msg_id,MCU_ID mcu_id,kind_e kind,u8 *data, u8 len,TickType_t xTicksToWait)
+{
+	msg_t p;
+	p.msg_head = MSG_HEAD;
+	p.msgID = msg_id;
+	p.mcuID = mcu_id;
+	p.dataLen = len + 2; 
+	p.data[0] = enDATA;
+	p.data[1] = kind;
+	memcpy(p.data+2, data, len);  /* 特别留意，低字节在前 */
+	xQueueSend(xQueue_uart1Tx, &p, xTicksToWait);
+}
 /*发送遥控命令*/
-void sendRmotorCmd(MCU_ID mcu_id,u8 cmd, u8 data,TickType_t xTicksToWait)
+void sendRmotorCmd(MCU_ID mcu_id,kind_e cmd, u8 data,TickType_t xTicksToWait)
 {
 	msg_t p;
 	p.msg_head = MSG_HEAD;
@@ -198,13 +224,13 @@ void sendRmotorCmd(MCU_ID mcu_id,u8 cmd, u8 data,TickType_t xTicksToWait)
 	xQueueSend(xQueue_uart1Tx, &p, xTicksToWait);
 }
 /*发送遥控控制数据*/
-void sendRmotorData(MCU_ID mcu_id,u8 kind,u8 *data, u8 len,TickType_t xTicksToWait)
+void sendRmotorData(MCU_ID mcu_id,kind_e kind,u8 *data, u8 len,TickType_t xTicksToWait)
 {
 	msg_t p;
 	p.msg_head = MSG_HEAD;
 	p.msgID = DOWN_REMOTOR;
 	p.mcuID = mcu_id;
-	p.dataLen = len + 3; 
+	p.dataLen = len + 2; 
 	p.data[0] = enDATA;
 	p.data[1] = kind;
 	memcpy(p.data+2, data, len);  /* 特别留意，低字节在前 */
@@ -217,23 +243,77 @@ void sendRmotorData(MCU_ID mcu_id,u8 kind,u8 *data, u8 len,TickType_t xTicksToWa
 /*来自串口解码*/
 void msgAnalyze(msg_t *p)
 {
+	int intdata;
+	
 	/*  */
 	DataHeadFind(p,MSG_HEAD);
 	
-	if(p->mcuID == enIDCAR)
+	/* 小车 */
+	if(p->mcuID == enIDCar)
 	{
 		if(p->msgID == DOWN_REMOTOR)
 		{
-			if(p->data[0] == enDATA)
+			if(p->data[0] == enCMD)
 			{
 				switch(p->data[1])
 				{
-					case KIND_MOVE:
-								Car.speedX = (float)((*(p->data+5) <<24)|(*(p->data+4) <<16)|(*(p->data+3) <<8)|*(p->data+2));
-								Car.speedY = (float)((*(p->data+9) <<24)|(*(p->data+8) <<16)|(*(p->data+7) <<8)|*(p->data+6));
-								Car.speedZ = (float)((*(p->data+13)<<24)|(*(p->data+12)<<16)|(*(p->data+11)<<8)|*(p->data+10));
-								CarTickCount = xTaskGetTickCount();
-								break;
+					case KIND_KEY:
+									if(p->data[2] == NAME_KEYU) Key_PU.Key_RetVal = enKey_Click;
+									if(p->data[2] == NAME_KEYD) Key_PD.Key_RetVal = enKey_Click;
+									if(p->data[2] == NAME_KEYL) Key_PL.Key_RetVal = enKey_Click;
+									if(p->data[2] == NAME_KEYR) Key_PR.Key_RetVal = enKey_Click;
+									if(p->data[2] == NAME_KEYM) Key_PM.Key_RetVal = enKey_Click;
+									/* 触发一个上传keyack数据的事件  目的是回传更新数据*/
+									xEventGroupSetBits(Event_SendData,EVENT_KEYACK);		
+									break;
+				}
+			}
+			else
+			{
+				if(p->data[0] == enDATA)
+				{
+					switch(p->data[1])
+					{
+						case KIND_MOVE:
+									intdata = (int)((*(p->data+5) <<24)|(*(p->data+4) <<16)|(*(p->data+3) <<8)|*(p->data+2));
+									if(myabs(intdata) < 3000) Car.speedX = intdata;
+									intdata = (int)((*(p->data+9) <<24)|(*(p->data+8) <<16)|(*(p->data+7) <<8)|*(p->data+6));
+									if(myabs(intdata) < 3000) Car.speedZ = intdata;
+									intdata = (int)((*(p->data+13)<<24)|(*(p->data+12)<<16)|(*(p->data+11)<<8)|*(p->data+10));
+									if(myabs(intdata) < 3000) Car.speedZ = intdata;
+									CarTickCount = xTaskGetTickCount();
+									break;
+						case KIND_LED:
+									switch((u8)(*(p->data+2)))
+									{
+										case NAME_LEDA:
+													LedA.flag_mode = (u8)(*(p->data+3));
+													LedA.cycle = (int)((*(p->data+9) <<24)|(*(p->data+8) <<16)|(*(p->data+7) <<8)|*(p->data+6));						
+													break;
+										case NAME_FMQ:
+													Fmq.flag_mode = (u8)(*(p->data+3));
+													Fmq.cycle = (int)((*(p->data+9) <<24)|(*(p->data+8) <<16)|(*(p->data+7) <<8)|*(p->data+6));						
+													break;
+									}
+									break;
+						case KIND_UI:
+									if(*(p->data+2) == true)
+									{
+										Main_uiconfigParam.Sync = true;
+										
+										Main_uiconfigParam.Step_Index      = *(p->data+3);
+										Main_uiconfigParam.Page_Index      = *(p->data+4);
+										Main_uiconfigParam.Page_Index_Last = *(p->data+5);
+										Main_uiconfigParam.Para_Index      = *(p->data+6);
+										Main_uiconfigParam.Para_IfControl  = *(p->data+7);
+										
+										Show_Para_Con(&Main_uiconfigParam);
+										OLED_Fill(0,0,128,64,0);
+									}
+									/* 触发一个上传led数据的事件  目的是回传更新数据*/
+									xEventGroupSetBits(Event_SendData,EVENT_LED);		
+									break;
+					}
 				}
 			}
 		}

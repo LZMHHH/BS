@@ -18,6 +18,8 @@
 .\objects\bsp_led.o: ..\FreeRTOS\inc\task.h
 .\objects\bsp_led.o: ..\FreeRTOS\inc\list.h
 .\objects\bsp_led.o: ..\FreeRTOS\inc\queue.h
+.\objects\bsp_led.o: ..\FreeRTOS\inc\event_groups.h
+.\objects\bsp_led.o: ..\FreeRTOS\inc\timers.h
 .\objects\bsp_led.o: ..\FreeRTOS\inc\semphr.h
 .\objects\bsp_led.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\bsp_led.o: ..\Libraries\CMSIS\core_cm3.h
@@ -71,6 +73,7 @@
 .\objects\bsp_led.o: ..\Zui\inc\bmp.h
 .\objects\bsp_led.o: ..\Zui\inc\main_ui.h
 .\objects\bsp_led.o: ..\Basic\USART1\protocol.h
+.\objects\bsp_led.o: ..\Top\inc\communicate.h
 .\objects\bsp_led.o: ..\Basic\MPU\filter.h
 .\objects\bsp_led.o: ..\TASK\inc\LedTask.h
 .\objects\bsp_led.o: ..\TASK\inc\KeyTask.h

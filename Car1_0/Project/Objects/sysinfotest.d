@@ -17,6 +17,8 @@
 .\objects\sysinfotest.o: ..\FreeRTOS\inc\task.h
 .\objects\sysinfotest.o: ..\FreeRTOS\inc\list.h
 .\objects\sysinfotest.o: ..\FreeRTOS\inc\queue.h
+.\objects\sysinfotest.o: ..\FreeRTOS\inc\event_groups.h
+.\objects\sysinfotest.o: ..\FreeRTOS\inc\timers.h
 .\objects\sysinfotest.o: ..\FreeRTOS\inc\semphr.h
 .\objects\sysinfotest.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\sysinfotest.o: ..\Libraries\CMSIS\core_cm3.h
@@ -70,6 +72,7 @@
 .\objects\sysinfotest.o: ..\Zui\inc\bmp.h
 .\objects\sysinfotest.o: ..\Zui\inc\main_ui.h
 .\objects\sysinfotest.o: ..\Basic\USART1\protocol.h
+.\objects\sysinfotest.o: ..\Top\inc\communicate.h
 .\objects\sysinfotest.o: ..\Basic\MPU\filter.h
 .\objects\sysinfotest.o: ..\TASK\inc\LedTask.h
 .\objects\sysinfotest.o: ..\TASK\inc\KeyTask.h

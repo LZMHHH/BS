@@ -18,6 +18,8 @@
 .\objects\keytask.o: ..\FreeRTOS\inc\task.h
 .\objects\keytask.o: ..\FreeRTOS\inc\list.h
 .\objects\keytask.o: ..\FreeRTOS\inc\queue.h
+.\objects\keytask.o: ..\FreeRTOS\inc\event_groups.h
+.\objects\keytask.o: ..\FreeRTOS\inc\timers.h
 .\objects\keytask.o: ..\FreeRTOS\inc\semphr.h
 .\objects\keytask.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\keytask.o: ..\Libraries\CMSIS\core_cm3.h
@@ -71,6 +73,7 @@
 .\objects\keytask.o: ..\Zui\inc\bmp.h
 .\objects\keytask.o: ..\Zui\inc\main_ui.h
 .\objects\keytask.o: ..\Basic\USART1\protocol.h
+.\objects\keytask.o: ..\Top\inc\communicate.h
 .\objects\keytask.o: ..\Basic\MPU\filter.h
 .\objects\keytask.o: ..\TASK\inc\LedTask.h
 .\objects\keytask.o: ..\TASK\inc\KeyTask.h

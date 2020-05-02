@@ -22,16 +22,21 @@ Dialog DLL:      TCM.DLL V1.14.5.0
  
 <h2>Project:</h2>
 D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\LZM_F103RCT6.uvprojx
-Project File Date:  04/04/2020
+Project File Date:  05/02/2020
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.05 update 2 (build 169)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
-compiling MoveCtrlTask.c...
+compiling CommunicateTask.c...
+..\TASK\src\CommunicateTask.c(23): warning:  #550-D: variable "xReturn" was set but never used
+        BaseType_t xReturn = pdTRUE;/* 定??一?龃唇???息返??值，默??为pdTRUE */
+..\TASK\src\CommunicateTask.c(43): warning:  #550-D: variable "xReturn" was set but never used
+        BaseType_t xReturn = pdTRUE;/* 定??一?龃唇???息返??值，默??为pdTRUE */
+..\TASK\src\CommunicateTask.c: 2 warnings, 0 errors
 linking...
-Program Size: Code=51690 RO-data=7798 RW-data=548 ZI-data=28892  
+Program Size: Code=55710 RO-data=7794 RW-data=560 ZI-data=28928  
 FromELF: creating hex file...
-".\Objects\LZM_F103C8T6.axf" - 0 Error(s), 0 Warning(s).
+".\Objects\LZM_F103C8T6.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE

@@ -30,12 +30,7 @@ typedef enum
 
 
 
-/*遥控数据类别*/
-typedef enum 
-{
-	enCMD,
-	enDATA,
-}remoterType_e;
+
 
 #define MSG_MAX_DATA_SIZE 30
 /*通讯数据结构*/
@@ -52,71 +47,52 @@ typedef struct
 
 /* 协议ID */
 #define MSG_HEAD '$'
+/* 上下行ID为msg_id */
+/*上行指令ID*/
+typedef enum 
+{
+	UP_VERSION	= 0x00,
+	UP_STATUS		= 0x01,
+	UP_ACK      = 0x02,
+  UP_DATA     = 0x03,
+
+}upmsgID_e;
+/*下行指令ID*/
+typedef enum 
+{
+	DOWN_COMMAND	= 0x01,
+	DOWN_ACK		  = 0x02,
+	DOWN_REMOTOR	= 0x50,
+	
+}downmsgID_e;
 /* mcuID号 */
 typedef enum
 {
   enIDRemote = 0x00,      // mcuID号
-	enIDCAR    = 0x01,      // mcuID号
+	enIDCar    = 0x01,      // mcuID号
 	enIDEnvironment = 0x02, // mcuID号
 }MCU_ID;
-/*上行指令ID*/
+/*遥控数据类别：用于遥控中data[0]*/
 typedef enum 
 {
-	/* car */
-	UP_VERSION	= 0x00,
-	UP_STATUS		= 0x01,
-	UP_SENSER		= 0x02,
-	UP_RCDATA		= 0x03,
-	UP_GPSDATA	= 0x04,
-	UP_POWER		= 0x05,
-	UP_MOTOR		= 0x06,
-	UP_SENSER2	= 0x07,
-	UP_FLYMODE	= 0x0A,
-	UP_SPEED 		= 0x0B,
-	UP_PID1			= 0x10,
-	UP_PID2			= 0x11,
-	UP_PID3			= 0x12,
-	UP_PID4			= 0x13,
-	UP_RADIO		= 0x20,
-	UP_MSG			= 0x21,
-	UP_CHECK		= 0x22,	
-	UP_REMOTOR	= 0x30,
-	UP_PRINTF		= 0x31,
-	
-	/* environment */
-	
-	
-
-}upmsgID_e;
-
-/*下行指令ID*/
-typedef enum 
-{
-	/* car */
-	DOWN_COMMAND	= 0x01,
-	DOWN_ACK		  = 0x02,
-	DOWN_RCDATA		= 0x03,
-	DOWN_POWER		= 0x05,
-	DOWN_FLYMODE	= 0x0A,
-	DOWN_PID1		  = 0x10,
-	DOWN_PID2		  = 0x11,
-	DOWN_PID3		  = 0x12,
-	DOWN_PID4		  = 0x13,
-	DOWN_RADIO		= 0x40,
-	DOWN_REMOTOR	= 0x50,
-	
-	
-}downmsgID_e;
-
-/*下行命令*/
-/* car */
-#define  CMD_CHANGE_MODE		0x01	/*切换模式*/
+	enCMD,
+	enDATA,
+}remoterType_e;
 
 
 /* kind:种类用于遥控中data[1] */
-#define KIND_MOVE     0x01
-#define KIND_LED      0x02  /* LED类要更新 */
-
+typedef enum 
+{
+	KIND_MOVE   	= 0x01,
+	KIND_LED		  = 0x02,
+	KIND_MOTOR	  = 0x03,
+	KIND_ENCODER	= 0x04,
+	KIND_UI     	= 0x05,
+	KIND_KEY     	= 0x06,
+	
+	CMD_CHANGE_MODE	=	0x21,	/*切换模式*/
+	
+}kind_e;
 
 
 /* 把整形编码成字符串数据   5位数字 */
@@ -124,8 +100,12 @@ char Protocol3_EncodeCInt(char* ProtocolString, const char *pSrc,long int pnum, 
 
 
 /* 通讯部分封装 */
-void sendRmotorCmd(MCU_ID mcu_id,u8 cmd, u8 data,TickType_t xTicksToWait);
-void sendRmotorData(MCU_ID mcu_id,u8 kind,u8 *data, u8 len,TickType_t xTicksToWait);
+/* 通用 */
+void sendCmd(upmsgID_e msg_id,MCU_ID mcu_id,kind_e cmd, u8 data,TickType_t xTicksToWait);
+void sendData(upmsgID_e msg_id,MCU_ID mcu_id,kind_e kind,u8 *data, u8 len,TickType_t xTicksToWait);
+
+void sendRmotorCmd(MCU_ID mcu_id,kind_e cmd, u8 data,TickType_t xTicksToWait);
+void sendRmotorData(MCU_ID mcu_id,kind_e kind,u8 *data, u8 len,TickType_t xTicksToWait);
 
 void msgAnalyze(msg_t *p);
 #endif /* __USART_H */

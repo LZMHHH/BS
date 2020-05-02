@@ -83,10 +83,10 @@
 /* É¨Ãè×´Ì¬»ú±í */
 typedef enum
 {
-    enMotorA,          /* M1 */
-    enMotorB,     /* M1 */
-    enMotorC,       /* M1 */
-		enMotorD,       /* M1 */
+    enMotorA,      /* M1 */
+    enMotorB,      /* M2 */
+    enMotorC,      /* M3 */
+		enMotorD,      /* M4 */
 }MOTOR_status;
 
 

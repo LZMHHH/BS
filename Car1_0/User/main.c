@@ -63,6 +63,7 @@ static TaskHandle_t xHandleTaskUart1Tx   = NULL;  //KEY任务
 			 TaskHandle_t xHandleTaskDisplay   = NULL;  //显示任务
 			 TaskHandle_t xHandleTaskMoveCtrl  = NULL;  //移动控制任务
 			 TaskHandle_t xHandleTaskMpu       = NULL;  //陀螺仪任务
+			 TaskHandle_t xHandleTaskSendData  = NULL;  //上传数据处理任务
 			 
 /********************************** 内核对象句柄 *********************************/
 /*
@@ -78,7 +79,7 @@ static TaskHandle_t xHandleTaskUart1Tx   = NULL;  //KEY任务
        TaskHandle_t xQueue_uart1Rx       = NULL;  //uart1的接收消息队列
 			 TaskHandle_t xQueue_uart1Tx       = NULL;  //uart1的发送消息队列
 			 SemaphoreHandle_t BinarySem_Mpu   = NULL;  //mpu二值信号量
-
+       EventGroupHandle_t Event_SendData = NULL;  //上传数据事件标志着组
 
 
 
@@ -197,6 +198,12 @@ static void AppTaskCreate (void)
 								 12,                 	    /* 任务优先级*/
 								 &xHandleTaskUart1Tx );   /* 任务句柄  */
 		
+		xTaskCreate( vTaskSendData,   	      /* 任务函数  */
+								 "Task Uart1Tx",          /* 任务名    */
+								 256,                   	/* 任务栈大小，单位word，也就是4字节 */
+								 NULL,              	    /* 任务参数  */
+								 10,                 	    /* 任务优先级*/
+								 &xHandleTaskSendData );  /* 任务句柄  */
 
 	
 }
@@ -247,6 +254,13 @@ static void AppObjCreate (void)
   if(NULL != BinarySem_Mpu)
 	{
 //    Uart1_DMA_SendString("BinarySem_Handle二值信号量创建成功!\r\n",-1);
+	}
+	
+	 /* 创建 Event_Handle */
+  Event_SendData = xEventGroupCreate();	 
+	if(NULL != Event_SendData)
+	{
+//    Uart1_DMA_SendString("Event_SendData事件标志组创建成功!\r\n",-1);
 	}
 }
 

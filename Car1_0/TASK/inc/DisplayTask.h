@@ -44,6 +44,8 @@ struct class_uiconfigParam
 	u8       Page_Index_Last;       //上次页面索引
 	u8       Para_Index;            //参数索引
 	u8       Para_IfControl;        //参数是否可控
+	
+	u8       Sync;                  //是否与外同步
 };
 
 
