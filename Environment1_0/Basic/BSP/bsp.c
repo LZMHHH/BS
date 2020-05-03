@@ -76,6 +76,9 @@ void bsp_Init(void)
 	/* 大气压传感器初始化 */
 	BME280_Init();
 	
+	/* CAN通讯初始化 */
+	bsp_CAN_Init();
+	
 #if IFFILESYSTEM
 	File_sys_init();
 #endif

@@ -65,4 +65,17 @@ u32 FILTER_median(u32 *value_buf,u8 N,u8 Flag)//ÖÐÎ»ÖµÂË²¨,ÖÐÎ»ÖµÆ½¾ùÂË²¨,NÎª²ÉÑ
 	}
 	else return value_buf[(N-1)/2];//ÖÐÎ»Öµ
 }
-
+ /****************************************************************************
+  * @brief    ¾ø¶ÔÖµº¯Êý
+  * @param    a
+  * @retval   |a|
+  * @author   LZM
+  * @note      
+  */
+int myabs(int a)
+{ 		   
+	  int temp;
+		if(a<0)  temp=-a;  
+	  else temp=a;
+	  return temp;
+}

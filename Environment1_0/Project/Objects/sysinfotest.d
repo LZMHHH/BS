@@ -17,6 +17,9 @@
 .\objects\sysinfotest.o: ..\FreeRTOS\inc\task.h
 .\objects\sysinfotest.o: ..\FreeRTOS\inc\list.h
 .\objects\sysinfotest.o: ..\FreeRTOS\inc\queue.h
+.\objects\sysinfotest.o: ..\FreeRTOS\inc\event_groups.h
+.\objects\sysinfotest.o: ..\FreeRTOS\inc\timers.h
+.\objects\sysinfotest.o: ..\FreeRTOS\inc\semphr.h
 .\objects\sysinfotest.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\sysinfotest.o: ..\Libraries\CMSIS\core_cm3.h
 .\objects\sysinfotest.o: ..\Libraries\CMSIS\system_stm32f10x.h
@@ -62,13 +65,17 @@
 .\objects\sysinfotest.o: ..\Basic\COLOCK\bsp_DS3231.h
 .\objects\sysinfotest.o: ..\Basic\GY\bsp_gy30.h
 .\objects\sysinfotest.o: ..\Basic\BME\bsp_bme280.h
+.\objects\sysinfotest.o: ..\Basic\CAN\bsp_can.h
 .\objects\sysinfotest.o: ..\Zui\inc\bmp.h
 .\objects\sysinfotest.o: ..\Zui\inc\main_ui.h
+.\objects\sysinfotest.o: ..\Top\inc\protocol.h
+.\objects\sysinfotest.o: ..\Top\inc\canCommunicate.h
 .\objects\sysinfotest.o: ..\TASK\inc\LedTask.h
 .\objects\sysinfotest.o: ..\TASK\inc\KeyTask.h
 .\objects\sysinfotest.o: ..\TASK\inc\CommunicateTask.h
 .\objects\sysinfotest.o: ..\TASK\inc\DisplayTask.h
 .\objects\sysinfotest.o: ..\TASK\inc\EnvironmentTask.h
+.\objects\sysinfotest.o: ..\TASK\inc\canCommunicateTask.h
 .\objects\sysinfotest.o: ..\TASK\inc\ClockTask.h
 .\objects\sysinfotest.o: ..\TASK\inc\LightTask.h
 .\objects\sysinfotest.o: ..\TASK\inc\PmsTask.h

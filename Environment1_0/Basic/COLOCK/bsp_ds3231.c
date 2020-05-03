@@ -365,3 +365,102 @@ void bsp_DS3231_Init(void)
 //	DS3231_SetTime(&clock);
 
 }
+
+//累加函数
+void SetTime_Add(CLASS_Clock *clock,SetT_Status timestatus,u8 add)  
+{
+	switch(timestatus)
+	{
+		case enSecond:
+			if(add)
+			{
+			   clock->Second++;
+				 if(clock->Second > 59) clock->Second=0;   //最大60s
+			}
+			else 
+			{
+				if(clock->Second <= 0) clock->Second=60;  
+				clock->Second--;
+				
+			}
+		  break;
+		case enMinute:
+			if(add)
+			{
+			   clock->Minute++;
+				 if(clock->Minute > 59) clock->Minute=0;   //最大60min
+			}
+			else 
+			{
+				if(clock->Minute <= 0) clock->Minute=60;   
+				clock->Minute--;
+			}
+		  break;
+		case enHour:
+			if(add)
+			{
+			   clock->Hour++;
+				 if(clock->Hour > 23) clock->Hour=0;      //最大24h
+			}
+			else 
+			{
+				if(clock->Hour <= 0) clock->Hour=24;      
+				clock->Hour--;				
+			}
+		  break;
+		case enDay:
+			if(add)
+			{
+			   clock->Day++;
+				 if(clock->Month==1||clock->Month==3||clock->Month==5||clock->Month==7||clock->Month==8||clock->Month==10||clock->Month==12)
+				 {
+					 if(clock->Day > 31) clock->Day=1;      //最大31day
+				 }
+				 else 
+					  if(clock->Day > 30) clock->Day=1;      //最大30day
+			}
+			else 
+			{
+				clock->Day--;
+				if(clock->Month==1||clock->Month==3||clock->Month==5||clock->Month==7||clock->Month==8||clock->Month==10||clock->Month==12)
+				{
+					if(clock->Day < 1) clock->Day=31;      //最大31day
+				}
+				else 
+					 if(clock->Day < 1) clock->Day=30;      //最大30day
+			}
+		  break;
+			
+		case enWeek:
+			if(add)
+			{
+			   clock->Week++;
+				 if(clock->Week > 7) clock->Week=1;      //最大7
+			}
+			else 
+			{
+				clock->Week--;
+				if(clock->Week < 1) clock->Week=7;      
+			}
+		  break;
+			
+		case enMonth:
+			if(add)
+			{
+			   clock->Month++;
+				 if(clock->Month > 12) clock->Month=1;      \
+			}
+			else 
+			{
+				clock->Month--;
+				if(clock->Month < 1) clock->Month=12;      
+			}
+		  break;
+		case enYear:
+			if(add)
+			   clock->Year++;
+			else clock->Year--;
+		  break;
+		default:break;
+	}
+}

@@ -18,6 +18,9 @@
 .\objects\cputask.o: ..\FreeRTOS\inc\task.h
 .\objects\cputask.o: ..\FreeRTOS\inc\list.h
 .\objects\cputask.o: ..\FreeRTOS\inc\queue.h
+.\objects\cputask.o: ..\FreeRTOS\inc\event_groups.h
+.\objects\cputask.o: ..\FreeRTOS\inc\timers.h
+.\objects\cputask.o: ..\FreeRTOS\inc\semphr.h
 .\objects\cputask.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\cputask.o: ..\Libraries\CMSIS\core_cm3.h
 .\objects\cputask.o: ..\Libraries\CMSIS\system_stm32f10x.h
@@ -63,13 +66,17 @@
 .\objects\cputask.o: ..\Basic\COLOCK\bsp_DS3231.h
 .\objects\cputask.o: ..\Basic\GY\bsp_gy30.h
 .\objects\cputask.o: ..\Basic\BME\bsp_bme280.h
+.\objects\cputask.o: ..\Basic\CAN\bsp_can.h
 .\objects\cputask.o: ..\Zui\inc\bmp.h
 .\objects\cputask.o: ..\Zui\inc\main_ui.h
+.\objects\cputask.o: ..\Top\inc\protocol.h
+.\objects\cputask.o: ..\Top\inc\canCommunicate.h
 .\objects\cputask.o: ..\TASK\inc\LedTask.h
 .\objects\cputask.o: ..\TASK\inc\KeyTask.h
 .\objects\cputask.o: ..\TASK\inc\CommunicateTask.h
 .\objects\cputask.o: ..\TASK\inc\DisplayTask.h
 .\objects\cputask.o: ..\TASK\inc\EnvironmentTask.h
+.\objects\cputask.o: ..\TASK\inc\canCommunicateTask.h
 .\objects\cputask.o: ..\TASK\inc\ClockTask.h
 .\objects\cputask.o: ..\TASK\inc\LightTask.h
 .\objects\cputask.o: ..\TASK\inc\PmsTask.h

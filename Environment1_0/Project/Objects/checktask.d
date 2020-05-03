@@ -18,6 +18,9 @@
 .\objects\checktask.o: ..\FreeRTOS\inc\task.h
 .\objects\checktask.o: ..\FreeRTOS\inc\list.h
 .\objects\checktask.o: ..\FreeRTOS\inc\queue.h
+.\objects\checktask.o: ..\FreeRTOS\inc\event_groups.h
+.\objects\checktask.o: ..\FreeRTOS\inc\timers.h
+.\objects\checktask.o: ..\FreeRTOS\inc\semphr.h
 .\objects\checktask.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\checktask.o: ..\Libraries\CMSIS\core_cm3.h
 .\objects\checktask.o: ..\Libraries\CMSIS\system_stm32f10x.h
@@ -63,13 +66,17 @@
 .\objects\checktask.o: ..\Basic\COLOCK\bsp_DS3231.h
 .\objects\checktask.o: ..\Basic\GY\bsp_gy30.h
 .\objects\checktask.o: ..\Basic\BME\bsp_bme280.h
+.\objects\checktask.o: ..\Basic\CAN\bsp_can.h
 .\objects\checktask.o: ..\Zui\inc\bmp.h
 .\objects\checktask.o: ..\Zui\inc\main_ui.h
+.\objects\checktask.o: ..\Top\inc\protocol.h
+.\objects\checktask.o: ..\Top\inc\canCommunicate.h
 .\objects\checktask.o: ..\TASK\inc\LedTask.h
 .\objects\checktask.o: ..\TASK\inc\KeyTask.h
 .\objects\checktask.o: ..\TASK\inc\CommunicateTask.h
 .\objects\checktask.o: ..\TASK\inc\DisplayTask.h
 .\objects\checktask.o: ..\TASK\inc\EnvironmentTask.h
+.\objects\checktask.o: ..\TASK\inc\canCommunicateTask.h
 .\objects\checktask.o: ..\TASK\inc\ClockTask.h
 .\objects\checktask.o: ..\TASK\inc\LightTask.h
 .\objects\checktask.o: ..\TASK\inc\PmsTask.h

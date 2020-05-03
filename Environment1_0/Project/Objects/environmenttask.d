@@ -18,6 +18,9 @@
 .\objects\environmenttask.o: ..\FreeRTOS\inc\task.h
 .\objects\environmenttask.o: ..\FreeRTOS\inc\list.h
 .\objects\environmenttask.o: ..\FreeRTOS\inc\queue.h
+.\objects\environmenttask.o: ..\FreeRTOS\inc\event_groups.h
+.\objects\environmenttask.o: ..\FreeRTOS\inc\timers.h
+.\objects\environmenttask.o: ..\FreeRTOS\inc\semphr.h
 .\objects\environmenttask.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\environmenttask.o: ..\Libraries\CMSIS\core_cm3.h
 .\objects\environmenttask.o: ..\Libraries\CMSIS\system_stm32f10x.h
@@ -63,13 +66,17 @@
 .\objects\environmenttask.o: ..\Basic\COLOCK\bsp_DS3231.h
 .\objects\environmenttask.o: ..\Basic\GY\bsp_gy30.h
 .\objects\environmenttask.o: ..\Basic\BME\bsp_bme280.h
+.\objects\environmenttask.o: ..\Basic\CAN\bsp_can.h
 .\objects\environmenttask.o: ..\Zui\inc\bmp.h
 .\objects\environmenttask.o: ..\Zui\inc\main_ui.h
+.\objects\environmenttask.o: ..\Top\inc\protocol.h
+.\objects\environmenttask.o: ..\Top\inc\canCommunicate.h
 .\objects\environmenttask.o: ..\TASK\inc\LedTask.h
 .\objects\environmenttask.o: ..\TASK\inc\KeyTask.h
 .\objects\environmenttask.o: ..\TASK\inc\CommunicateTask.h
 .\objects\environmenttask.o: ..\TASK\inc\DisplayTask.h
 .\objects\environmenttask.o: ..\TASK\inc\EnvironmentTask.h
+.\objects\environmenttask.o: ..\TASK\inc\canCommunicateTask.h
 .\objects\environmenttask.o: ..\TASK\inc\ClockTask.h
 .\objects\environmenttask.o: ..\TASK\inc\LightTask.h
 .\objects\environmenttask.o: ..\TASK\inc\PmsTask.h

@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * @file    main.c
+  * @file    main_ui.c
   * @author  lss
   * @version V1.0
   * @date    2020-xx-xx
@@ -27,7 +27,7 @@ void Main_uiconfigParamInit(void)
 	Main_uiconfigParam.Para_Index_Limit[0] = 7;
 	Main_uiconfigParam.Para_Index_Limit[1] = 9;
 	Main_uiconfigParam.Para_Index_Limit[2] = 8;
-	Main_uiconfigParam.Para_Index_Limit[3] = 8;
+	Main_uiconfigParam.Para_Index_Limit[3] = 6;
 	Main_uiconfigParam.Para_Index_Limit[4] = 8;
 	
 	Main_uiconfigParam.Step_Index_Limit    = 6;
@@ -42,7 +42,7 @@ void Main_uiconfigParamInit(void)
 	Show_Para_Con(&Main_uiconfigParam);
 	
 	Main_uiconfigParam.Step_Index          = 1;
-	Main_uiconfigParam.Page_Index          = 2;
+	Main_uiconfigParam.Page_Index          = 3;
 	Main_uiconfigParam.Page_Index_Last     = 0;
 	Main_uiconfigParam.Para_Index          = 0;
 	Main_uiconfigParam.Para_IfControl      = false;
@@ -58,13 +58,20 @@ void Main_ZUI(void)
 	
 	
 	
+	/* 信号 */
+	if(canConnect.status == enBreak)
+	{
+		OLED_DrawBMP(12,56,UI_NOSIGNAL8X8,8,8);	
+	}
+	else
+	{
+		OLED_DrawBMP(12,56,UI_ASIGNAL8X8,8,8);
+	}
+	
 	/* 页面 */
+	OLED_ShowChar(109,56,'e',1);
 	OLED_ShowChar(115,56,'P',1);
   OLED_ShowNum(121,56,Main_uiconfigParam.Page_Index,1,0,1);
-	
-	/* 信号 */
-	OLED_DrawBMP(2,56,UI_NOSIGNAL8X8,8,8);	
-	OLED_DrawBMP(12,56,UI_ASIGNAL8X8,8,8);
 	
 	
 	//第 0 页
@@ -83,7 +90,7 @@ void Main_ZUI(void)
 		{
 			OLED_ShowNum(40,(7-h)*8,ClockA.Hour,2,0,1);
 		}
-		OLED_ShowString(52,(7-h)*8,":",1);
+		OLED_ShowString(52,(7-h)*8,(u8 *)":",1);
 		if(ClockA.Minute < 10)
 		{
 			OLED_ShowNum(58,(7-h)*8,0,1,0,1);
@@ -93,7 +100,7 @@ void Main_ZUI(void)
 		{
 			OLED_ShowNum(58,(7-h)*8,ClockA.Minute,2,0,1);
 		}
-		OLED_ShowString(70,(7-h)*8,":",1);
+		OLED_ShowString(70,(7-h)*8,(u8 *)":",1);
 		if(ClockA.Second < 10)
 		{
 			OLED_ShowNum(76,(7-h)*8,0,1,0,1);
@@ -122,7 +129,7 @@ void Main_ZUI(void)
 		{
 			OLED_ShowNum(40,(7-h)*8,ClockA.Hour,2,0,1);
 		}
-		OLED_ShowString(52,(7-h)*8,":",1);
+		OLED_ShowString(52,(7-h)*8,(u8 *)":",1);
 		if(ClockA.Minute < 10)
 		{
 			OLED_ShowNum(58,(7-h)*8,0,1,0,1);
@@ -132,7 +139,7 @@ void Main_ZUI(void)
 		{
 			OLED_ShowNum(58,(7-h)*8,ClockA.Minute,2,0,1);
 		}
-		OLED_ShowString(70,(7-h)*8,":",1);
+		OLED_ShowString(70,(7-h)*8,(u8 *)":",1);
 		if(ClockA.Second < 10)
 		{
 			OLED_ShowNum(76,(7-h)*8,0,1,0,1);
@@ -151,12 +158,12 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"Temp :",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"Temp :",1);
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"Temp :",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"Temp :",1);
 			}
 			OLED_ShowString(54,(7-h)*8,"`C",1);		
 			OLED_ShowNum(86,(7-h)*8,Huimiture.temperature,5,1,1);
@@ -170,14 +177,14 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"Huim :",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"Huim :",1);
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"Huim :",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"Huim :",1);
 			}
-			OLED_ShowString(54,(7-h)*8,"%RH",1);
+			OLED_ShowString(54,(7-h)*8,(u8 *)"%RH",1);
 			OLED_ShowNum(86,(7-h)*8,Huimiture.huimidity,5,1,1);
 			h++;
 	  }
@@ -189,14 +196,14 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"Light:",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"Light:",1);
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"Light:",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"Light:",1);
 			}
-			OLED_ShowString(54,(7-h)*8,"lx",1);
+			OLED_ShowString(54,(7-h)*8,(u8 *)"lx",1);
 			OLED_ShowNum(86,(7-h)*8,Light.BH_Voltage,5,1,1);
 			h++;
 	  }
@@ -208,14 +215,14 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"PM2.5:",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"PM2.5:",1);
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"PM2.5:",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"PM2.5:",1);
 			}
-			OLED_ShowString(54,(7-h)*8,"ug/m3",1);
+			OLED_ShowString(54,(7-h)*8,(u8 *)"ug/m3",1);
 			OLED_ShowNum(86,(7-h)*8,Pms.PM2_5_Vol,5,1,1);
 			h++;
 	  }
@@ -227,14 +234,14 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"PM10 :",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"PM10 :",1);
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"PM10 :",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"PM10 :",1);
 			}
-			OLED_ShowString(54,(7-h)*8,"ug/m3",1);
+			OLED_ShowString(54,(7-h)*8,(u8 *)"ug/m3",1);
 			OLED_ShowNum(86,(7-h)*8,Pms.PM10_Vol,5,1,1);
 			h++;
 	  }
@@ -246,14 +253,14 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"BME_P:",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"BME_P:",1);
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"BME_P:",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"BME_P:",1);
 			}
-			OLED_ShowString(54,(7-h)*8,"hPa",1);
+			OLED_ShowString(54,(7-h)*8,(u8 *)"hPa",1);
 			OLED_ShowNum(86,(7-h)*8,Bme.pressure,5,1,1);
 			h++;
 	  }
@@ -265,14 +272,14 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"BME_A:",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"BME_A:",1);
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"BME_A:",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"BME_A:",1);
 			}
-			OLED_ShowString(54,(7-h)*8,"m",1);
+			OLED_ShowString(54,(7-h)*8,(u8 *)"m",1);
 			OLED_ShowNum(86,(7-h)*8,Bme.asl,5,1,1);
 			h++;
 	  }
@@ -284,14 +291,14 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"BME_T:",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"BME_T:",1);
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"BME_T:",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"BME_T:",1);
 			}
-			OLED_ShowString(54,(7-h)*8,"`C",1);
+			OLED_ShowString(54,(7-h)*8,(u8 *)"`C",1);
 			OLED_ShowNum(86,(7-h)*8,Bme.temperature,5,1,1);
 			h++;
 	  }
@@ -303,21 +310,21 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"BME_H:",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"BME_H:",1);
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"BME_H:",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"BME_H:",1);
 			}
-			OLED_ShowString(54,(7-h)*8,"%RH",1);
+			OLED_ShowString(54,(7-h)*8,(u8 *)"%RH",1);
 			OLED_ShowNum(86,(7-h)*8,Bme.humidity,5,1,1);
 			h++;
 	  }
 	}
 	
-	//第 2 页
-	if(Main_uiconfigParam.Page_Index == 2)
+	//第 3 页
+	if(Main_uiconfigParam.Page_Index == 3)
 	{  
 		
 		OLED_ShowNum(49,56,Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index],3,3,1);
@@ -330,12 +337,12 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"LedAs:",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"LedAs:",1);
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"LedAs:",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"LedAs:",1);
 			}	
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
 			{
@@ -343,13 +350,16 @@ void Main_ZUI(void)
 					switch(LedA.flag_mode)
 					{
 						case enON:
-									OLED_ShowString(108,(7-h)*8," ON",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)" ON",1);
 									break;
 						case enOFF:
-									OLED_ShowString(108,(7-h)*8,"OFF",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)"OFF",1);
 									break;
 						case enFre:
-									OLED_ShowString(108,(7-h)*8,"Cyc",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)"Cyc",1);
+									break;
+						case enCom:
+									OLED_ShowString(108,(7-h)*8,(u8 *)"Com",1);
 									break;
 						default:break;
 					}
@@ -360,13 +370,16 @@ void Main_ZUI(void)
 					switch(LedA.flag_mode)
 					{
 						case enON:
-									OLED_ShowString(108,(7-h)*8," ON",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)" ON",1);
 									break;
 						case enOFF:
-									OLED_ShowString(108,(7-h)*8,"OFF",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)"OFF",1);
 									break;
 						case enFre:
-									OLED_ShowString(108,(7-h)*8,"Cyc",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)"Cyc",1);
+									break;
+						case enCom:
+									OLED_ShowString(108,(7-h)*8,(u8 *)"Com",1);
 									break;
 						default:break;
 					}
@@ -381,12 +394,12 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"LedAc:",1); //LedA的闪烁周期
+					OLED_ShowString(0,(7-h)*8,(u8 *)"LedAc:",1); //LedA的闪烁周期
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"LedAc:",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"LedAc:",1);
 			}	
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
 			{
@@ -408,12 +421,12 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"LedBs:",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"LedBs:",1);
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"LedBs:",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"LedBs:",1);
 			}	
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
 			{
@@ -421,13 +434,16 @@ void Main_ZUI(void)
 					switch(LedB.flag_mode)
 					{
 						case enON:
-									OLED_ShowString(108,(7-h)*8," ON",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)" ON",1);
 									break;
 						case enOFF:
-									OLED_ShowString(108,(7-h)*8,"OFF",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)"OFF",1);
 									break;
 						case enFre:
-									OLED_ShowString(108,(7-h)*8,"Cyc",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)"Cyc",1);
+									break;
+						case enCom:
+									OLED_ShowString(108,(7-h)*8,(u8 *)"Com",1);
 									break;
 						default:break;
 					}
@@ -438,13 +454,16 @@ void Main_ZUI(void)
 					switch(LedB.flag_mode)
 					{
 						case enON:
-									OLED_ShowString(108,(7-h)*8," ON",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)" ON",1);
 									break;
 						case enOFF:
-									OLED_ShowString(108,(7-h)*8,"OFF",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)"OFF",1);
 									break;
 						case enFre:
-									OLED_ShowString(108,(7-h)*8,"Cyc",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)"Cyc",1);
+									break;
+						case enCom:
+									OLED_ShowString(108,(7-h)*8,(u8 *)"Com",1);
 									break;
 						default:break;
 					}
@@ -459,12 +478,12 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"LedBc:",1); //LedB的闪烁周期
+					OLED_ShowString(0,(7-h)*8,(u8 *)"LedBc:",1); //LedB的闪烁周期
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"LedBc:",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"LedBc:",1);
 			}	
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
 			{
@@ -486,12 +505,12 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"Fmqs :",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"Fmqs :",1);
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"Fmqs :",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"Fmqs :",1);
 			}	
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
 			{
@@ -499,13 +518,16 @@ void Main_ZUI(void)
 					switch(Fmq.flag_mode)
 					{
 						case enON:
-									OLED_ShowString(108,(7-h)*8," ON",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)" ON",1);
 									break;
 						case enOFF:
-									OLED_ShowString(108,(7-h)*8,"OFF",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)"OFF",1);
 									break;
 						case enFre:
-									OLED_ShowString(108,(7-h)*8,"Cyc",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)"Cyc",1);
+									break;
+						case enCom:
+									OLED_ShowString(108,(7-h)*8,(u8 *)"Com",1);
 									break;
 						default:break;
 					}
@@ -516,13 +538,16 @@ void Main_ZUI(void)
 					switch(Fmq.flag_mode)
 					{
 						case enON:
-									OLED_ShowString(108,(7-h)*8," ON",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)" ON",1);
 									break;
 						case enOFF:
-									OLED_ShowString(108,(7-h)*8,"OFF",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)"OFF",1);
 									break;
 						case enFre:
-									OLED_ShowString(108,(7-h)*8,"Cyc",1);
+									OLED_ShowString(108,(7-h)*8,(u8 *)"Cyc",1);
+									break;
+						case enCom:
+									OLED_ShowString(108,(7-h)*8,(u8 *)"Com",1);
 									break;
 						default:break;
 					}
@@ -537,12 +562,12 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"Fmqc :",1); //LedB的闪烁周期
+					OLED_ShowString(0,(7-h)*8,(u8 *)"Fmqc :",1); //LedB的闪烁周期
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"Fmqc :",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"Fmqc :",1);
 			}	
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
 			{
@@ -571,12 +596,12 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"T_Y :",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"T_Y :",1);
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"T_Y :",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"T_Y :",1);
 			}	
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
 			{
@@ -599,12 +624,12 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"T_M :",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"T_M :",1);
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"T_M :",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"T_M :",1);
 			}	
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
 			{
@@ -616,7 +641,7 @@ void Main_ZUI(void)
 			{
 					OLED_ShowNum(104,(7-h)*8,SetClock.Month,4,0,1);
 			}
-			OLED_ShowNum(58,(7-h)*8,ClockA.Month,2,0,1);
+			OLED_ShowNum(52,(7-h)*8,ClockA.Month,4,0,1);
 			h++;
 	  }
 		
@@ -627,12 +652,12 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"T_W :",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"T_W :",1);
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"T_W :",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"T_W :",1);
 			}	
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
 			{
@@ -644,7 +669,7 @@ void Main_ZUI(void)
 			{
 					OLED_ShowNum(104,(7-h)*8,SetClock.Week,4,0,1);
 			}
-			OLED_ShowNum(58,(7-h)*8,ClockA.Week,2,0,1);
+			OLED_ShowNum(52,(7-h)*8,ClockA.Week,4,0,1);
 			h++;
 	  }
 		
@@ -655,12 +680,12 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"T_D :",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"T_D :",1);
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"T_D :",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"T_D :",1);
 			}	
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
 			{
@@ -672,7 +697,7 @@ void Main_ZUI(void)
 			{
 					OLED_ShowNum(104,(7-h)*8,SetClock.Day,4,0,1);
 			}
-			OLED_ShowNum(58,(7-h)*8,ClockA.Day,2,0,1);
+			OLED_ShowNum(52,(7-h)*8,ClockA.Day,4,0,1);
 			h++;
 	  }
 		
@@ -683,12 +708,12 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"T_H :",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"T_H :",1);
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"T_H :",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"T_H :",1);
 			}	
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
 			{
@@ -700,7 +725,7 @@ void Main_ZUI(void)
 			{
 					OLED_ShowNum(104,(7-h)*8,SetClock.Hour,4,0,1);
 			}
-			OLED_ShowNum(58,(7-h)*8,ClockA.Hour,2,0,1);
+			OLED_ShowNum(52,(7-h)*8,ClockA.Hour,4,0,1);
 			h++;
 	  }
 		
@@ -711,12 +736,12 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"T_m :",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"T_m :",1);
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"T_m :",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"T_m :",1);
 			}	
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
 			{
@@ -728,7 +753,7 @@ void Main_ZUI(void)
 			{
 					OLED_ShowNum(104,(7-h)*8,SetClock.Minute,4,0,1);
 			}
-			OLED_ShowNum(58,(7-h)*8,ClockA.Minute,2,0,1);
+			OLED_ShowNum(52,(7-h)*8,ClockA.Minute,4,0,1);
 			h++;
 	  }
 		
@@ -739,12 +764,12 @@ void Main_ZUI(void)
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"T_S :",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"T_S :",1);
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"T_S :",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"T_S :",1);
 			}	
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
 			{
@@ -756,23 +781,23 @@ void Main_ZUI(void)
 			{
 					OLED_ShowNum(104,(7-h)*8,SetClock.Second,4,0,1);
 			}
-			OLED_ShowNum(58,(7-h)*8,ClockA.Second,2,0,1);
+			OLED_ShowNum(52,(7-h)*8,ClockA.Second,4,0,1);
 			h++;
 	  }
 		
-		//7行
-	  Ph = 7;
+		//8行
+	  Ph = 8;
 	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
 	  {
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
 			{
 					Oled_Colour = 1;     //fanzhuan
-					OLED_ShowString(0,(7-h)*8,"T_n :",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"T_n :",1);
 					Oled_Colour = 0;
 			}
 			else
 			{
-					OLED_ShowString(0,(7-h)*8,"T_n :",1);
+					OLED_ShowString(0,(7-h)*8,(u8 *)"T_n :",1);
 			}	
 			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
 			{
@@ -784,6 +809,7 @@ void Main_ZUI(void)
 			{
 					OLED_ShowNum(98,(7-h)*8,SetClock.num_save,5,0,1);
 			}
+			OLED_ShowString(52,(7-h)*8,(u8 *)"    ",1);
 			h++;
 	  }
 	}
@@ -805,7 +831,7 @@ static void Para_Prepare(void)
     OLED_Clear();
   }
   
-  if(Main_uiconfigParam.Page_Index==3)
+  if(Main_uiconfigParam.Page_Index==4)
   {
     SetClock.Year  =ClockA.Year;
 		SetClock.Month =ClockA.Month;
@@ -823,7 +849,10 @@ void Main_uictrl(void)
 	//中键被单击
 	if(Key_PM.Key_RetVal == enKey_Click)
 	{
-    if(Main_uiconfigParam.Para_IfControl==false && ((Main_uiconfigParam.Page_Index == 1) || (Main_uiconfigParam.Page_Index == 2) || (Main_uiconfigParam.Page_Index == 3))) 
+    if(Main_uiconfigParam.Para_IfControl==false && ((Main_uiconfigParam.Page_Index == 1)   
+																							   || (Main_uiconfigParam.Page_Index == 2)  
+																								 || (Main_uiconfigParam.Page_Index == 3)  
+																								 || (Main_uiconfigParam.Page_Index == 4))) 
 			 Main_uiconfigParam.Para_IfControl=true;    //可控页
     else                                                                  
 			 Main_uiconfigParam.Para_IfControl=false;
@@ -908,7 +937,7 @@ void Main_uictrl(void)
     else
     { 
 			
-			if(Main_uiconfigParam.Page_Index==2)     //修改第2页参数
+			if(Main_uiconfigParam.Page_Index==3)     //修改第2页参数
       {
 				//参数行
 				switch(Main_uiconfigParam.Para_Index)
@@ -923,6 +952,9 @@ void Main_uictrl(void)
 											LedA.flag_mode = enFre;
 											break;
 								case enFre:
+											LedA.flag_mode = enCom;
+											break;
+								case enCom:
 											LedA.flag_mode = enON;
 											break;
 								default:
@@ -944,10 +976,13 @@ void Main_uictrl(void)
 											LedB.flag_mode = enFre;
 											break;
 								case enFre:
+											LedB.flag_mode = enCom;
+											break;
+								case enCom:
 											LedB.flag_mode = enON;
 											break;
 								default:
-											LedA.flag_mode = enON;
+											LedB.flag_mode = enON;
 											break;
 							}
 							break;
@@ -965,6 +1000,9 @@ void Main_uictrl(void)
 											Fmq.flag_mode = enFre;
 											break;
 								case enFre:
+											Fmq.flag_mode = enCom;
+											break;
+								case enCom:
 											Fmq.flag_mode = enON;
 											break;
 								default:
@@ -977,6 +1015,39 @@ void Main_uictrl(void)
 							if(Fmq.cycle > 10000) Fmq.cycle = 10000;
 							break;
 					default:break;
+				}
+			}
+			
+			if(Main_uiconfigParam.Page_Index==4)     //修改第4页参数
+      {
+				//参数行
+				switch(Main_uiconfigParam.Para_Index)
+				{
+					case 1:
+								 SetTime_Add(&SetClock,enYear,1);
+								 break;
+					case 2:
+								 SetTime_Add(&SetClock,enMonth,1);
+								 break;
+					case 3:
+								 SetTime_Add(&SetClock,enWeek,1);
+								 break;
+					case 4:
+								 SetTime_Add(&SetClock,enDay,1);
+								 break;
+					case 5:
+								 SetTime_Add(&SetClock,enHour,1);
+								 break;
+					case 6:
+								 SetTime_Add(&SetClock,enMinute,1);
+								 break;
+					case 7:
+								 SetTime_Add(&SetClock,enSecond,1);
+								 break;
+					case 8:
+								SetClock.num_save++;
+								DS3231_SetTime(&SetClock);
+								break;
 				}
 			}
 			
@@ -1016,7 +1087,7 @@ void Main_uictrl(void)
     }
     else
     { 
-			if(Main_uiconfigParam.Page_Index==2)     //修改第2页参数
+			if(Main_uiconfigParam.Page_Index==3)     //修改第2页参数
       {
 				//参数行
 				switch(Main_uiconfigParam.Para_Index)
@@ -1025,12 +1096,15 @@ void Main_uictrl(void)
 							switch(LedA.flag_mode)
 							{
 								case enON:
-											LedA.flag_mode = enOFF;
+											LedA.flag_mode = enCom;
 											break;
-								case enOFF:
+								case enCom:
 											LedA.flag_mode = enFre;
 											break;
 								case enFre:
+											LedA.flag_mode = enOFF;
+											break;
+								case enOFF:
 											LedA.flag_mode = enON;
 											break;
 								default:
@@ -1046,16 +1120,19 @@ void Main_uictrl(void)
 							switch(LedB.flag_mode)
 							{
 								case enON:
-											LedB.flag_mode = enOFF;
+											LedB.flag_mode = enCom;
 											break;
-								case enOFF:
+								case enCom:
 											LedB.flag_mode = enFre;
 											break;
 								case enFre:
+											LedB.flag_mode = enOFF;
+											break;
+								case enOFF:
 											LedB.flag_mode = enON;
 											break;
 								default:
-											LedA.flag_mode = enON;
+											LedB.flag_mode = enON;
 											break;
 							}
 							break;
@@ -1067,12 +1144,15 @@ void Main_uictrl(void)
 							switch(Fmq.flag_mode)
 							{
 								case enON:
-											Fmq.flag_mode = enOFF;
+											Fmq.flag_mode = enCom;
 											break;
-								case enOFF:
+								case enCom:
 											Fmq.flag_mode = enFre;
 											break;
 								case enFre:
+											Fmq.flag_mode = enOFF;
+											break;
+								case enOFF:
 											Fmq.flag_mode = enON;
 											break;
 								default:
@@ -1088,6 +1168,38 @@ void Main_uictrl(void)
 				}
 			}
 				
+			if(Main_uiconfigParam.Page_Index==4)     //修改第4页参数
+      {
+				//参数行
+				switch(Main_uiconfigParam.Para_Index)
+				{
+					case 1:
+									 SetTime_Add(&SetClock,enYear,0);
+									 break;
+					case 2:
+								 SetTime_Add(&SetClock,enMonth,0);
+								 break;
+					case 3:
+								 SetTime_Add(&SetClock,enWeek,0);
+								 break;
+					case 4:
+								 SetTime_Add(&SetClock,enDay,0);
+								 break;
+					case 5:
+								 SetTime_Add(&SetClock,enHour,0);
+								 break;
+					case 6:
+								 SetTime_Add(&SetClock,enMinute,0);
+								 break;
+					case 7:
+								 SetTime_Add(&SetClock,enSecond,0);
+								 break;
+					case 8:
+								SetClock.num_save++;
+								DS3231_SetTime(&SetClock);
+								break;
+				}
+			}
 			
 		}
 

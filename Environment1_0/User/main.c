@@ -42,6 +42,8 @@ void AppObjCreate  ( void );
 //void vTaskDisplay  ( void * pvParameters );
 //void vTaskUart1Rx  ( void * pvParameters );
 //void vTaskUart1Tx  ( void * pvParameters );
+//void vTaskCanRx    ( void * pvParameters );
+//void vTaskCanTx    ( void * pvParameters );
 //void vTaskFile     ( void * pvParameters );
 //void vTaskCheck    ( void * pvParameters );
 //void vTaskInit     ( void * pvParameters );
@@ -66,17 +68,33 @@ static TaskHandle_t xHandleTaskCpu       = NULL;  //CPU任务
 static TaskHandle_t xHandleTaskKey       = NULL;  //KEY任务
 static TaskHandle_t xHandleTaskUart1Rx   = NULL;  //KEY任务
 static TaskHandle_t xHandleTaskUart1Tx   = NULL;  //KEY任务
+static TaskHandle_t xHandleTaskCanRx     = NULL;  //Can任务
+static TaskHandle_t xHandleTaskCanTx     = NULL;  //Can任务
 			 TaskHandle_t xHandleTaskDisplay   = NULL;  //显示任务
 			 TaskHandle_t xHandleTaskEnvironment = NULL;  //环境数据采集任务
 			 TaskHandle_t xHandleTaskClock     = NULL;  //时钟任务
 			 TaskHandle_t xHandleTaskLight     = NULL;  //亮度任务
 			 TaskHandle_t xHandleTaskPms       = NULL;  //PMs任务
 			 TaskHandle_t xHandleTaskBme       = NULL;  //大气压任务
+			 TaskHandle_t xHandleTaskSendData  = NULL;  //上传数据处理任务
 			 
-			 
+/********************************** 内核对象句柄 *********************************/
+/*
+ * 信号量，消息队列，事件标志组，软件定时器这些都属于内核的对象，要想使用这些内核
+ * 对象，必须先创建，创建成功之后会返回一个相应的句柄。实际上就是一个指针，后续我
+ * 们就可以通过这个句柄操作这些内核对象。
+ *
+ * 内核对象说白了就是一种全局的数据结构，通过这些数据结构我们可以实现任务间的通信，
+ * 任务间的事件同步等各种功能。至于这些功能的实现我们是通过调用这些内核对象的函数
+ * 来完成的
+ * 
+ */			 
        TaskHandle_t xQueue_uart1Rx       = NULL;  //uart1的接收消息队列
 			 TaskHandle_t xQueue_uart1Tx       = NULL;  //uart1的发送消息队列
 			 TaskHandle_t xQueue_uart2Rx       = NULL;  //uart2的接收消息队列
+			 TaskHandle_t xQueue_canRx         = NULL;  //can的接收消息队列
+			 TaskHandle_t xQueue_canTx         = NULL;  //can的发送消息队列
+			 EventGroupHandle_t Event_SendData = NULL;  //上传数据事件标志着组
 
 #if IFFILESYSTEM
 			 TaskHandle_t xHandleTaskFile      = NULL;  //file任务
@@ -188,13 +206,33 @@ static void AppTaskCreate (void)
 //								 NULL,              	    /* 任务参数  */
 //								 12,                 	    /* 任务优先级*/
 //								 &xHandleTaskUart1Tx );   /* 任务句柄  */
-		
+								 
+		xTaskCreate( vTaskCanRx,   	          /* 任务函数  */
+								 "Task CanRx",            /* 任务名    */
+								 256,                   	/* 任务栈大小，单位word，也就是4字节 */
+								 NULL,              	    /* 任务参数  */
+								 12,                 	    /* 任务优先级*/
+								 &xHandleTaskCanRx );     /* 任务句柄  */
+								 
+		xTaskCreate( vTaskCanTx,   	          /* 任务函数  */
+								 "Task CanTx",            /* 任务名    */
+								 256,                   	/* 任务栈大小，单位word，也就是4字节 */
+								 NULL,              	    /* 任务参数  */
+								 12,                 	    /* 任务优先级*/
+								 &xHandleTaskCanTx );     /* 任务句柄  */
+								 
+		xTaskCreate( vTaskcanSendData,   	      /* 任务函数  */
+								 "Task SendData",         /* 任务名    */
+								 256,                   	/* 任务栈大小，单位word，也就是4字节 */
+								 NULL,              	    /* 任务参数  */
+								 11,                 	    /* 任务优先级*/
+								 &xHandleTaskSendData );  /* 任务句柄  */
 
 		xTaskCreate( vTaskEnvironment,   	      /* 任务函数  */
 								 "Task Environment",        /* 任务名    */
-								 256,                   	/* 任务栈大小，单位word，也就是4字节 */
-								 NULL,              	    /* 任务参数  */
-								 10,                 	    /* 任务优先级*/
+								 256,                   	  /* 任务栈大小，单位word，也就是4字节 */
+								 NULL,              	      /* 任务参数  */
+								 10,                 	      /* 任务优先级*/
 								 &xHandleTaskEnvironment ); /* 任务句柄  */
 
 		xTaskCreate( vTaskClock,   	            /* 任务函数  */
@@ -290,12 +328,18 @@ static void AppObjCreate (void)
 	/* 创建存储指针变量xQueue_uart2Tx */
   xQueue_uart2Rx = xQueueCreate((UBaseType_t ) 5,                  /* 消息队列的长度 */
                                 (UBaseType_t ) DEBUG1_TX_BSIZE);   /* 消息的大小 */
+					
+	/* xQueue_canTx */
+  xQueue_canRx = xQueueCreate((UBaseType_t ) 20,                  /* 消息队列的长度 */
+                                (UBaseType_t ) (sizeof(CanRxMsg)+2));   /* 消息的大小 */
+	
+	 /* xQueue_canRx */
+  xQueue_canTx = xQueueCreate((UBaseType_t ) 20,                  /* 消息队列的长度 */
+                                (UBaseType_t ) (sizeof(CanTxMsg)+2));   /* 消息的大小 */
 																
-																
-	if(NULL != xQueue_uart1Rx && NULL != xQueue_uart1Tx)
-	{
-		Uart1_DMA_SendString("创建消息队列成功!\r\n",-1);
-	}
+
+	/* 创建 Event_Handle */
+  Event_SendData = xEventGroupCreate();	 
 
 }
 

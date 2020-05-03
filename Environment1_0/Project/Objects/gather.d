@@ -18,6 +18,9 @@
 .\objects\gather.o: ..\FreeRTOS\inc\task.h
 .\objects\gather.o: ..\FreeRTOS\inc\list.h
 .\objects\gather.o: ..\FreeRTOS\inc\queue.h
+.\objects\gather.o: ..\FreeRTOS\inc\event_groups.h
+.\objects\gather.o: ..\FreeRTOS\inc\timers.h
+.\objects\gather.o: ..\FreeRTOS\inc\semphr.h
 .\objects\gather.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\gather.o: ..\Libraries\CMSIS\core_cm3.h
 .\objects\gather.o: ..\Libraries\CMSIS\system_stm32f10x.h
@@ -63,13 +66,17 @@
 .\objects\gather.o: ..\Basic\COLOCK\bsp_DS3231.h
 .\objects\gather.o: ..\Basic\GY\bsp_gy30.h
 .\objects\gather.o: ..\Basic\BME\bsp_bme280.h
+.\objects\gather.o: ..\Basic\CAN\bsp_can.h
 .\objects\gather.o: ..\Zui\inc\bmp.h
 .\objects\gather.o: ..\Zui\inc\main_ui.h
+.\objects\gather.o: ..\Top\inc\protocol.h
+.\objects\gather.o: ..\Top\inc\canCommunicate.h
 .\objects\gather.o: ..\TASK\inc\LedTask.h
 .\objects\gather.o: ..\TASK\inc\KeyTask.h
 .\objects\gather.o: ..\TASK\inc\CommunicateTask.h
 .\objects\gather.o: ..\TASK\inc\DisplayTask.h
 .\objects\gather.o: ..\TASK\inc\EnvironmentTask.h
+.\objects\gather.o: ..\TASK\inc\canCommunicateTask.h
 .\objects\gather.o: ..\TASK\inc\ClockTask.h
 .\objects\gather.o: ..\TASK\inc\LightTask.h
 .\objects\gather.o: ..\TASK\inc\PmsTask.h

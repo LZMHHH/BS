@@ -18,6 +18,9 @@
 .\objects\diskio.o: ..\FreeRTOS\inc\task.h
 .\objects\diskio.o: ..\FreeRTOS\inc\list.h
 .\objects\diskio.o: ..\FreeRTOS\inc\queue.h
+.\objects\diskio.o: ..\FreeRTOS\inc\event_groups.h
+.\objects\diskio.o: ..\FreeRTOS\inc\timers.h
+.\objects\diskio.o: ..\FreeRTOS\inc\semphr.h
 .\objects\diskio.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\diskio.o: ..\Libraries\CMSIS\core_cm3.h
 .\objects\diskio.o: ..\Libraries\CMSIS\system_stm32f10x.h
@@ -63,13 +66,17 @@
 .\objects\diskio.o: ..\Basic\COLOCK\bsp_DS3231.h
 .\objects\diskio.o: ..\Basic\GY\bsp_gy30.h
 .\objects\diskio.o: ..\Basic\BME\bsp_bme280.h
+.\objects\diskio.o: ..\Basic\CAN\bsp_can.h
 .\objects\diskio.o: ..\Zui\inc\bmp.h
 .\objects\diskio.o: ..\Zui\inc\main_ui.h
+.\objects\diskio.o: ..\Top\inc\protocol.h
+.\objects\diskio.o: ..\Top\inc\canCommunicate.h
 .\objects\diskio.o: ..\TASK\inc\LedTask.h
 .\objects\diskio.o: ..\TASK\inc\KeyTask.h
 .\objects\diskio.o: ..\TASK\inc\CommunicateTask.h
 .\objects\diskio.o: ..\TASK\inc\DisplayTask.h
 .\objects\diskio.o: ..\TASK\inc\EnvironmentTask.h
+.\objects\diskio.o: ..\TASK\inc\canCommunicateTask.h
 .\objects\diskio.o: ..\TASK\inc\ClockTask.h
 .\objects\diskio.o: ..\TASK\inc\LightTask.h
 .\objects\diskio.o: ..\TASK\inc\PmsTask.h

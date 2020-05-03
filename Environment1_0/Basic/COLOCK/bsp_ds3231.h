@@ -80,6 +80,17 @@
 #define DS3231_TEMP_H   0x11    //温度寄存器高字节(8位)
 #define DS3231_TEMP_L   0x12    //温度寄存器低字节(高2位)  
 
+/* 状态机表 */
+typedef enum
+{
+   enSecond,
+	 enMinute,
+	 enHour,
+	 enWeek,
+	 enDay,
+	 enMonth,
+	 enYear,
+}SetT_Status;  /* 一般用于 */
 
 typedef struct class_clock CLASS_Clock;
 	
@@ -115,6 +126,7 @@ u8   DS3231_I2C_Read_Add ( u8 reg_addr );
 void bsp_DS3231_Init(void);
 void DS3231_Readtime(CLASS_Clock* clock);
 void DS3231_SetTime ( CLASS_Clock* clock );
+void SetTime_Add(CLASS_Clock *clock,SetT_Status timestatus,u8 add) ;
 
 #endif  
 

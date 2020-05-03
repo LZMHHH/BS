@@ -20,6 +20,8 @@
 
 void vTaskLed( void * pvParameters );
 
+/* ͨѶ */
+void canSendLedData(void);
 
 #endif
 

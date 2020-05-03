@@ -18,6 +18,8 @@
 
 //声明
 void Key_Control(void);
+void Status_Scan(void);
+
 
 void vTaskKey( void * pvParameters )
 {
@@ -30,7 +32,8 @@ void vTaskKey( void * pvParameters )
 		Key_Scan(&Key_PR);
 		Key_Scan(&Key_PM);
 		
-		/* 数据处理在其他任务，如UI */
+		
+		Status_Scan();
 		
 		vTaskDelay( 10 );
 	}
@@ -38,7 +41,24 @@ void vTaskKey( void * pvParameters )
 }
 
 
-
+void Status_Scan(void)
+{
+	
+	/* can */
+	if((xTaskGetTickCount() - 300) > canConnect.tickCount)
+	{
+		canConnect.status = enBreak;
+	}
+	else
+	{
+		canConnect.status = enSig3;
+	}
+	if(canConnect.tickCount > xTaskGetTickCount())
+	{
+		canConnect.tickCount = xTaskGetTickCount();
+	}
+	
+}
 
 
 

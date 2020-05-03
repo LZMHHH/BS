@@ -18,6 +18,9 @@
 .\objects\bsp_sht3x.o: ..\FreeRTOS\inc\task.h
 .\objects\bsp_sht3x.o: ..\FreeRTOS\inc\list.h
 .\objects\bsp_sht3x.o: ..\FreeRTOS\inc\queue.h
+.\objects\bsp_sht3x.o: ..\FreeRTOS\inc\event_groups.h
+.\objects\bsp_sht3x.o: ..\FreeRTOS\inc\timers.h
+.\objects\bsp_sht3x.o: ..\FreeRTOS\inc\semphr.h
 .\objects\bsp_sht3x.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\bsp_sht3x.o: ..\Libraries\CMSIS\core_cm3.h
 .\objects\bsp_sht3x.o: ..\Libraries\CMSIS\system_stm32f10x.h
@@ -63,13 +66,17 @@
 .\objects\bsp_sht3x.o: ..\Basic\COLOCK\bsp_DS3231.h
 .\objects\bsp_sht3x.o: ..\Basic\GY\bsp_gy30.h
 .\objects\bsp_sht3x.o: ..\Basic\BME\bsp_bme280.h
+.\objects\bsp_sht3x.o: ..\Basic\CAN\bsp_can.h
 .\objects\bsp_sht3x.o: ..\Zui\inc\bmp.h
 .\objects\bsp_sht3x.o: ..\Zui\inc\main_ui.h
+.\objects\bsp_sht3x.o: ..\Top\inc\protocol.h
+.\objects\bsp_sht3x.o: ..\Top\inc\canCommunicate.h
 .\objects\bsp_sht3x.o: ..\TASK\inc\LedTask.h
 .\objects\bsp_sht3x.o: ..\TASK\inc\KeyTask.h
 .\objects\bsp_sht3x.o: ..\TASK\inc\CommunicateTask.h
 .\objects\bsp_sht3x.o: ..\TASK\inc\DisplayTask.h
 .\objects\bsp_sht3x.o: ..\TASK\inc\EnvironmentTask.h
+.\objects\bsp_sht3x.o: ..\TASK\inc\canCommunicateTask.h
 .\objects\bsp_sht3x.o: ..\TASK\inc\ClockTask.h
 .\objects\bsp_sht3x.o: ..\TASK\inc\LightTask.h
 .\objects\bsp_sht3x.o: ..\TASK\inc\PmsTask.h

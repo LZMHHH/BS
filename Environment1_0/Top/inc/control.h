@@ -21,7 +21,7 @@
 
 
 u32 FILTER_median(u32 *value_buf,u8 N,u8 Flag);
-
+int myabs(int a);
 
 
 #endif

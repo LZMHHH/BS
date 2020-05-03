@@ -19,6 +19,9 @@
 .\objects\delay.o: ..\FreeRTOS\inc\task.h
 .\objects\delay.o: ..\FreeRTOS\inc\list.h
 .\objects\delay.o: ..\FreeRTOS\inc\queue.h
+.\objects\delay.o: ..\FreeRTOS\inc\event_groups.h
+.\objects\delay.o: ..\FreeRTOS\inc\timers.h
+.\objects\delay.o: ..\FreeRTOS\inc\semphr.h
 .\objects\delay.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\delay.o: ..\Libraries\CMSIS\core_cm3.h
 .\objects\delay.o: ..\Libraries\CMSIS\system_stm32f10x.h
@@ -63,13 +66,17 @@
 .\objects\delay.o: ..\Basic\COLOCK\bsp_DS3231.h
 .\objects\delay.o: ..\Basic\GY\bsp_gy30.h
 .\objects\delay.o: ..\Basic\BME\bsp_bme280.h
+.\objects\delay.o: ..\Basic\CAN\bsp_can.h
 .\objects\delay.o: ..\Zui\inc\bmp.h
 .\objects\delay.o: ..\Zui\inc\main_ui.h
+.\objects\delay.o: ..\Top\inc\protocol.h
+.\objects\delay.o: ..\Top\inc\canCommunicate.h
 .\objects\delay.o: ..\TASK\inc\LedTask.h
 .\objects\delay.o: ..\TASK\inc\KeyTask.h
 .\objects\delay.o: ..\TASK\inc\CommunicateTask.h
 .\objects\delay.o: ..\TASK\inc\DisplayTask.h
 .\objects\delay.o: ..\TASK\inc\EnvironmentTask.h
+.\objects\delay.o: ..\TASK\inc\canCommunicateTask.h
 .\objects\delay.o: ..\TASK\inc\ClockTask.h
 .\objects\delay.o: ..\TASK\inc\LightTask.h
 .\objects\delay.o: ..\TASK\inc\PmsTask.h

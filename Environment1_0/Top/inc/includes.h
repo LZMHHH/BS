@@ -79,6 +79,8 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "queue.h"
+#include "event_groups.h"
+#include "semphr.h"
 
 
 /*
@@ -109,11 +111,15 @@
 #include "bsp_DS3231.h"  
 #include "bsp_gy30.h"
 #include "bsp_bme280.h"
+#include "bsp_can.h"
 
+/* UI */
 #include "bmp.h"
 #include "main_ui.h"
 
-
+/* 通讯 */
+#include "protocol.h"  
+#include "canCommunicate.h"
 
 #if IFPRINTTASK
 #include "bsp_tim_pwm.h"
@@ -136,6 +142,7 @@
 #include "CommunicateTask.h"
 #include "DisplayTask.h"
 #include "EnvironmentTask.h"
+#include "canCommunicateTask.h"
 #include "ClockTask.h"
 #include "LightTask.h"
 #include "PmsTask.h"
@@ -177,7 +184,9 @@ extern void vSetupSysInfoTest(void);
 extern TaskHandle_t xQueue_uart1Rx;  //uart1的接收消息队列
 extern TaskHandle_t xQueue_uart1Tx;  //uart1的发送消息队列
 extern TaskHandle_t xQueue_uart2Rx;  //uart2的接收消息队列
-
+extern TaskHandle_t xQueue_canRx;  //can的接收消息队列
+extern TaskHandle_t xQueue_canTx;  //can的发送消息队列
+extern EventGroupHandle_t Event_SendData;  //上传数据事件标志着组
 
 //事件标志组涉及的函数句柄广播
 extern TaskHandle_t xHandleTaskInit;  //file任务

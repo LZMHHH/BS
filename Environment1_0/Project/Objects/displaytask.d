@@ -18,6 +18,9 @@
 .\objects\displaytask.o: ..\FreeRTOS\inc\task.h
 .\objects\displaytask.o: ..\FreeRTOS\inc\list.h
 .\objects\displaytask.o: ..\FreeRTOS\inc\queue.h
+.\objects\displaytask.o: ..\FreeRTOS\inc\event_groups.h
+.\objects\displaytask.o: ..\FreeRTOS\inc\timers.h
+.\objects\displaytask.o: ..\FreeRTOS\inc\semphr.h
 .\objects\displaytask.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\displaytask.o: ..\Libraries\CMSIS\core_cm3.h
 .\objects\displaytask.o: ..\Libraries\CMSIS\system_stm32f10x.h
@@ -63,13 +66,17 @@
 .\objects\displaytask.o: ..\Basic\COLOCK\bsp_DS3231.h
 .\objects\displaytask.o: ..\Basic\GY\bsp_gy30.h
 .\objects\displaytask.o: ..\Basic\BME\bsp_bme280.h
+.\objects\displaytask.o: ..\Basic\CAN\bsp_can.h
 .\objects\displaytask.o: ..\Zui\inc\bmp.h
 .\objects\displaytask.o: ..\Zui\inc\main_ui.h
+.\objects\displaytask.o: ..\Top\inc\protocol.h
+.\objects\displaytask.o: ..\Top\inc\canCommunicate.h
 .\objects\displaytask.o: ..\TASK\inc\LedTask.h
 .\objects\displaytask.o: ..\TASK\inc\KeyTask.h
 .\objects\displaytask.o: ..\TASK\inc\CommunicateTask.h
 .\objects\displaytask.o: ..\TASK\inc\DisplayTask.h
 .\objects\displaytask.o: ..\TASK\inc\EnvironmentTask.h
+.\objects\displaytask.o: ..\TASK\inc\canCommunicateTask.h
 .\objects\displaytask.o: ..\TASK\inc\ClockTask.h
 .\objects\displaytask.o: ..\TASK\inc\LightTask.h
 .\objects\displaytask.o: ..\TASK\inc\PmsTask.h

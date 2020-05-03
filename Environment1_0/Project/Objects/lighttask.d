@@ -18,6 +18,9 @@
 .\objects\lighttask.o: ..\FreeRTOS\inc\task.h
 .\objects\lighttask.o: ..\FreeRTOS\inc\list.h
 .\objects\lighttask.o: ..\FreeRTOS\inc\queue.h
+.\objects\lighttask.o: ..\FreeRTOS\inc\event_groups.h
+.\objects\lighttask.o: ..\FreeRTOS\inc\timers.h
+.\objects\lighttask.o: ..\FreeRTOS\inc\semphr.h
 .\objects\lighttask.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\lighttask.o: ..\Libraries\CMSIS\core_cm3.h
 .\objects\lighttask.o: ..\Libraries\CMSIS\system_stm32f10x.h
@@ -63,13 +66,17 @@
 .\objects\lighttask.o: ..\Basic\COLOCK\bsp_DS3231.h
 .\objects\lighttask.o: ..\Basic\GY\bsp_gy30.h
 .\objects\lighttask.o: ..\Basic\BME\bsp_bme280.h
+.\objects\lighttask.o: ..\Basic\CAN\bsp_can.h
 .\objects\lighttask.o: ..\Zui\inc\bmp.h
 .\objects\lighttask.o: ..\Zui\inc\main_ui.h
+.\objects\lighttask.o: ..\Top\inc\protocol.h
+.\objects\lighttask.o: ..\Top\inc\canCommunicate.h
 .\objects\lighttask.o: ..\TASK\inc\LedTask.h
 .\objects\lighttask.o: ..\TASK\inc\KeyTask.h
 .\objects\lighttask.o: ..\TASK\inc\CommunicateTask.h
 .\objects\lighttask.o: ..\TASK\inc\DisplayTask.h
 .\objects\lighttask.o: ..\TASK\inc\EnvironmentTask.h
+.\objects\lighttask.o: ..\TASK\inc\canCommunicateTask.h
 .\objects\lighttask.o: ..\TASK\inc\ClockTask.h
 .\objects\lighttask.o: ..\TASK\inc\LightTask.h
 .\objects\lighttask.o: ..\TASK\inc\PmsTask.h
