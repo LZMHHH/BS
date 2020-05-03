@@ -67,15 +67,16 @@ void bsp_Init(void)
 	Encoder4_Init_TIM();
 	
 	//mpu初始化
-	IIC_Init();                         //=====模拟IIC初始化
-  MPU6050_initialize();               //=====MPU6050初始化	
+//	IIC_Init();                         //=====模拟IIC初始化
+//  MPU6050_initialize();               //=====MPU6050初始化	
 //	DMP_Init();                         //=====初始化DMP  
-	
-	//中断初始化 （mpu引发的 5ms 中断）
- 	EXTI_Pxy_Config();                  //=====MPU6050 5ms定时中断初始化
+//	
+//	//中断初始化 （mpu引发的 5ms 中断）
+// 	EXTI_Pxy_Config();                  //=====MPU6050 5ms定时中断初始化
 	
 	bsp_KEY_Init();
 
+	bsp_CAN_Init();
 	
 	
 #if IFFILESYSTEM

@@ -180,7 +180,7 @@ u8 DataHeadFind(msg_t *msg,u8 Dst)
 } 
 
 /********************************************************** 
-	公共部分通讯
+	串口通讯
 **********************************************************/
 
 /******************** 编码部分 ********************/
@@ -248,8 +248,8 @@ void msgAnalyze(msg_t *p)
 	/*  */
 	DataHeadFind(p,MSG_HEAD);
 	
-	/* 小车 */
-	if(p->mcuID == enIDCar)
+	/* 来自遥控 */
+	if(p->mcuID == enIDRemote)
 	{
 		if(p->msgID == DOWN_REMOTOR)
 		{
@@ -321,10 +321,212 @@ void msgAnalyze(msg_t *p)
 }
 
 
+/********************************************************** 
+	can通讯
+**********************************************************/
 
 
 
+/******************** 解码部分 ********************/
 
-
+/*来自串口解码*/
+void canmsgAnalyze(CanRxMsg *p)
+{
+	/* 环境ID */
+	if((p->IDE == CAN_ID_STD) && (p->StdId == CAN_EVNID))
+	{
+		if(*(p->Data) == enIDEnvironment)
+		{
+			if(*(p->Data+1) == enDATA)
+			{
+				
+				switch(*(p->Data+2))
+				{
+					case CAN_SHTX:
+						   switch(*(p->Data+3))
+								{
+									case CAN_Temperature:
+												Huimiture.temperature = (float)(((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4))/100.0);
+												break;
+									case CAN_Humidity:
+												Huimiture.huimidity   = (float)(((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4))/100.0);
+												break;
+								}
+								break;
+					case CAN_GY30:
+						   switch(*(p->Data+3))
+								{
+									case CAN_Light:
+												Light.BH_Voltage = (float)(((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4))/100.0);
+												break;
+								}
+								break;
+					case CAN_PMS:
+						   switch(*(p->Data+3))
+								{
+									case CAN_PM2_5:
+												Pms.PM2_5_Vol = (u16)(((*(p->Data+5) <<8)|*(p->Data+4)));
+												break;
+									case CAN_PM10:
+												Pms.PM10_Vol = (u16)(((*(p->Data+5) <<8)|*(p->Data+4)));
+												break;
+								}
+								break;
+					case CAN_BME:
+						   switch(*(p->Data+3))
+								{
+									case CAN_Pressure:
+												Bme.pressure = (float)(((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4))/100.0);
+												break;
+									case CAN_Hight:
+												Bme.asl = (float)(((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4))/100.0);
+												break;
+									case CAN_Temperature:
+												Bme.temperature = (float)(((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4))/100.0);
+												break;
+									case CAN_Humidity:
+												Bme.humidity = (float)(((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4))/100.0);
+												break;
+								}
+								break;
+					
+				}
+			}
+		}
+	}
+	/* LEDID */
+	if((p->IDE == CAN_ID_STD) && (p->StdId == CAN_LEDID))
+	{
+		if(*(p->Data) == enIDEnvironment)
+		{
+			if(*(p->Data+1) == enDATA)
+			{
+				
+				switch(*(p->Data+2))
+				{
+					case CAN_LEDA:
+						   switch(*(p->Data+3))
+								{
+									case CAN_LedMode:
+												envLEDA.mode = (u8)(*(p->Data+4));
+												break;
+									case CAN_LedFre:
+												envLEDA.cycle = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+								}
+								break;
+					case CAN_LEDB:
+						   switch(*(p->Data+3))
+								{
+									case CAN_LedMode:
+												envLEDB.mode = (u8)(*(p->Data+4));
+												break;
+									case CAN_LedFre:
+												envLEDB.cycle = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+								}
+								break;
+					case CAN_FMQ:
+						   switch(*(p->Data+3))
+								{
+									case CAN_LedMode:
+												envFMQ.mode = (u8)(*(p->Data+4));
+												break;
+									case CAN_LedFre:
+												envFMQ.cycle = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+								}
+								break;
+					
+				}
+			}
+		}
+	}
+	/* TIMEID */
+	if((p->IDE == CAN_ID_STD) && (p->StdId == CAN_TIMEID))
+	{
+		if(*(p->Data) == enIDEnvironment)
+		{
+			if(*(p->Data+1) == enDATA)
+			{
+				
+				switch(*(p->Data+2))
+				{
+					case CAN_DS3231:
+						   switch(*(p->Data+3))
+								{
+									case CAN_Second:
+												ClockA.Second = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+									case CAN_Minute:
+												ClockA.Minute = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+									case CAN_Hour:
+												ClockA.Hour = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+									case CAN_Week:
+												ClockA.Week = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+									case CAN_Day:
+												ClockA.Day = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+									case CAN_Month:
+												ClockA.Month = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+									case CAN_Year:
+												ClockA.Year = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+									case CAN_Temperature:
+												ClockA.Temp = (float)(((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4))/100.0);
+												break;
+									case CAN_ClockMode:
+												ClockA.Switch = (char)(*(p->Data+4));
+												break;
+									case CAN_SaveNum:
+												ClockA.num_save = (u16)((*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+								}
+								break;
+					case CAN_SETCLOCK:
+						   switch(*(p->Data+3))
+								{
+									case CAN_Second:
+												SetClock.Second = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+									case CAN_Minute:
+												SetClock.Minute = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+									case CAN_Hour:
+												SetClock.Hour = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+									case CAN_Week:
+												SetClock.Week = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+									case CAN_Day:
+												SetClock.Day = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+									case CAN_Month:
+												SetClock.Month = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+									case CAN_Year:
+												SetClock.Year = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+									case CAN_Temperature:
+												SetClock.Temp = (float)(((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4))/100.0);
+												break;
+									case CAN_ClockMode:
+												SetClock.Switch = (char)(*(p->Data+4));
+												break;
+									case CAN_SaveNum:
+												SetClock.num_save = (u16)((*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+								}
+								break;
+				}
+			}
+		}
+	}
+	
+}
 
 

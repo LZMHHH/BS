@@ -33,6 +33,10 @@ void vTaskDisplay( void * pvParameters )
 						Main_uictrl();
 						Main_ZUI();
 						break;
+			case ENVI_ui:
+						Envi_uictrl();
+						Envi_ZUI();
+						break;
 			default:break;
 		}
 		
@@ -55,6 +59,7 @@ void setShow_ui(ui_mode ui)
 void DisplayInit(void)
 {
 	Main_uiconfigParamInit();
+	Envi_uiconfigParamInit();
 }
 
 //参数显示控制
@@ -92,4 +97,19 @@ void Show_Para_Con(CLASS_UIconfigParam *ui_configparam)
 	
 }
 
-
+void Change_UIMode(void)
+{
+	/* 切换显示模式 */
+	switch(Show_ui)
+	{
+		case MAIN_ui:
+					Show_ui = ENVI_ui;
+					OLED_Fill(0,0,128,64,0);			
+					break;
+		case ENVI_ui:
+					Show_ui = MAIN_ui;
+					OLED_Fill(0,0,128,64,0);
+					break;
+		default:break;
+	}
+}

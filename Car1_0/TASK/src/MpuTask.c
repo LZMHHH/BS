@@ -46,7 +46,6 @@ void vTaskMpu( void * pvParameters )
 //5ms 周期处理
 u8 Period_Control(void)
 {
-	
 	Get_Angle(&mpu_data,2);
 }
 

@@ -20,6 +20,19 @@
 
 #include "includes.h" 
 
+/*UI同步*/
+typedef struct _ui_t
+{
+	u8       Sync;                  //是否开启同步模式0：不开启
+	
+	u8       Step_Index;            //步长索引
+	u8       Page_Index;            //页面索引
+	u8       Page_Index_Last;       //上次页面索引
+	u8       Para_Index;            //参数索引
+	u8       Para_IfControl;        //参数是否可控
+
+}ui_t;
+
 /*********************** 外发 ***********************/
 
 /*编码器*/
@@ -67,13 +80,15 @@ typedef struct
 #define NAME_KEYR 0x04
 #define NAME_KEYM 0x05
 
+/* 防爆墙 */
+typedef struct _connect_t connect_t;
 /* 广播 */
 extern led_t carLEDA;
 extern led_t carFMQ;
 extern led_t envLEDA;
 extern led_t envLEDB;
 extern led_t envFMQ;
-
+extern connect_t   uart1Connect;
 
 
 void CommunicateParaInit(void);

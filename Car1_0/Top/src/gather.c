@@ -21,7 +21,7 @@ void ParametersInit(void)
 {
 	
 	/* 主模式显示参数数据初始化 */
-	Main_uiconfigParamInit();
+	DisplayInit();
 }
 
 

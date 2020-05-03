@@ -56,13 +56,29 @@ void Main_ZUI(void)
 	u8 h;    //显示行系数
 	u8 Ph;   //参数行系数
 	
+	/* 信号 */
+	if(uart1Connect.status == enBreak)
+	{
+		OLED_DrawBMP(2,56,UI_NOSIGNAL8X8,8,8);	
+	}
+	else
+	{
+		OLED_DrawBMP(2,56,UI_ASIGNAL8X8,8,8);
+	}
+	if(canConnect.status == enBreak)
+	{
+		OLED_DrawBMP(12,56,UI_NOSIGNAL8X8,8,8);	
+	}
+	else
+	{
+		OLED_DrawBMP(12,56,UI_ASIGNAL8X8,8,8);
+	}
+	
 	/* 页面 */
+	OLED_ShowChar(109,56,'c',1);
 	OLED_ShowChar(115,56,'P',1);
   OLED_ShowNum(121,56,Main_uiconfigParam.Page_Index,1,0,1);
 	
-	/* 信号 */
-	OLED_DrawBMP(2,56,UI_NOSIGNAL8X8,8,8);	
-	OLED_DrawBMP(12,56,UI_ASIGNAL8X8,8,8);
 	
 	//第 0 页
 	if(Main_uiconfigParam.Page_Index == 0)
@@ -425,6 +441,15 @@ void Main_uictrl(void)
     else                                                                  
 			 Main_uiconfigParam.Para_IfControl=false;
 
+		if(Main_uiconfigParam.Page_Index==0)    
+    {
+			/* 切换UImode */
+			Change_UIMode();
+		}
+		else
+		{
+			
+		}
 		
 		Key_PM.Key_RetVal = enKey_No;   //标志复位
 	}

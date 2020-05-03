@@ -369,7 +369,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Libraries\CMSIS;..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\User;..\User\OLED_SPI;..\Top\inc;..\Basic\SYSTICK;..\Basic\LED;..\FreeRTOS\inc;..\Basic\SYS;..\Basic\DWT;..\Basic\BSP;..\Basic\CONFIG;..\Basic\KEY;..\TASK\inc;..\Basic\USART1;..\Basic\SDIO;..\FATFS\src;..\FATFS\src\option;..\Basic\USMART;..\Zui\inc;..\Basic\OLED;..\Basic\MOTOR;..\Basic\ENCODER;..\Basic\IIC;..\Basic\MPU;..\Basic\EXTI</IncludePath>
+              <IncludePath>..\Libraries\CMSIS;..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\User;..\User\OLED_SPI;..\Top\inc;..\Basic\SYSTICK;..\Basic\LED;..\FreeRTOS\inc;..\Basic\SYS;..\Basic\DWT;..\Basic\BSP;..\Basic\CONFIG;..\Basic\KEY;..\TASK\inc;..\Basic\USART1;..\Basic\SDIO;..\FATFS\src;..\FATFS\src\option;..\Basic\USMART;..\Zui\inc;..\Basic\OLED;..\Basic\MOTOR;..\Basic\ENCODER;..\Basic\IIC;..\Basic\MPU;..\Basic\EXTI;..\Basic\CAN</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -627,6 +627,11 @@
               <FileType>1</FileType>
               <FilePath>..\Top\src\communicate.c</FilePath>
             </File>
+            <File>
+              <FileName>cancommunicate.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Top\src\cancommunicate.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -716,6 +721,11 @@
               <FileName>bsp_exti.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Basic\EXTI\bsp_exti.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_can.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Basic\CAN\bsp_can.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -812,6 +822,11 @@
               <FileType>1</FileType>
               <FilePath>..\TASK\src\MpuTask.c</FilePath>
             </File>
+            <File>
+              <FileName>canCommunicateTask.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\TASK\src\canCommunicateTask.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -841,6 +856,11 @@
               <FileName>bmp.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Zui\src\bmp.c</FilePath>
+            </File>
+            <File>
+              <FileName>envi_ui.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Zui\src\envi_ui.c</FilePath>
             </File>
           </Files>
         </Group>

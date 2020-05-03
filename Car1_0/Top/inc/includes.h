@@ -111,7 +111,7 @@
 #include "bsp_iic.h"
 #include "bsp_mpu6050.h"
 #include "bsp_exti.h"
-
+#include "bsp_can.h"
 
 //6050的
 #include "inv_mpu.h"
@@ -122,11 +122,12 @@
 /* UI */
 #include "bmp.h"
 #include "main_ui.h"
+#include "envi_ui.h"
 
 //应用层
 #include "protocol.h"  /* 本工程通讯协议主要放在协议三文件 */
 #include "communicate.h"
-
+#include "canCommunicate.h"
 
 #if IFPRINTTASK
 #include "bsp_tim_pwm.h"
@@ -139,6 +140,7 @@
 #include "LedTask.h"
 #include "KeyTask.h"
 #include "CommunicateTask.h"
+#include "canCommunicateTask.h"
 #include "DisplayTask.h"
 #if IFPRINTTASK
 #include "CpuTask.h"
@@ -173,6 +175,8 @@ extern void vSetupSysInfoTest(void);
 //消息广播
 extern TaskHandle_t xQueue_uart1Rx;  //uart1的接收消息队列
 extern TaskHandle_t xQueue_uart1Tx;  //uart1的发送消息队列
+extern TaskHandle_t xQueue_canRx;    //can的接收消息队列
+extern TaskHandle_t xQueue_canTx;    //can的发送消息队列
 
 extern SemaphoreHandle_t BinarySem_Mpu;  //mpu二值信号量
 

@@ -23,6 +23,9 @@ void vTaskUart1Rx( void * pvParameters )
 	BaseType_t xReturn = pdTRUE;/* 定义一个创建信息返回值，默认为pdTRUE */
 	msg_t      p;  /* 实数组 接收copy数据*/
 	//const      TickType_t xMaxBlockTime = pdMS_TO_TICKS(500);
+	
+	CommunicateParaInit();
+	
 	while(1)
 	{
 		xReturn = xQueueReceive( xQueue_uart1Rx,           /* 消息队列的句柄 */
@@ -32,6 +35,8 @@ void vTaskUart1Rx( void * pvParameters )
 		
 		/* 解码 */
 		msgAnalyze(&p);
+				
+		uart1Connect.tickCount = xTaskGetTickCount();
 														 
 		memset(&p, 0x00, sizeof(p));
 	}
@@ -94,7 +99,7 @@ void vTaskSendData( void * pvParameters )
 			Motorpwm.pwmoutC = MotorC.pwmout;
 			Motorpwm.pwmoutD = MotorD.pwmout;
 			/*发送电机数据*/
-			sendData(UP_DATA,enIDRemote, KIND_MOTOR, (u8*)&Motorpwm, sizeof(Motorpwm), 20);
+			sendData(UP_DATA,enIDCar, KIND_MOTOR, (u8*)&Motorpwm, sizeof(Motorpwm), 20);
     }
 		/* 编码器事件 */
 		if((r_event & EVENT_ENCODER) == (EVENT_ENCODER)) 
@@ -104,7 +109,7 @@ void vTaskSendData( void * pvParameters )
 			Encoder.motorC = MotorC.encoderVal;
 			Encoder.motorD = MotorD.encoderVal;
 			/*发送编码器数据*/
-			sendData(UP_DATA,enIDRemote, KIND_ENCODER, (u8*)&Encoder, sizeof(Encoder), 20);
+			sendData(UP_DATA,enIDCar, KIND_ENCODER, (u8*)&Encoder, sizeof(Encoder), 20);
     }
 		/* LED事件 */
 		if((r_event & EVENT_LED) == (EVENT_LED)) 
@@ -125,7 +130,7 @@ void sendLedData(void)
 	msg_t p;
 	p.msg_head = MSG_HEAD;
 	p.msgID = UP_DATA;
-	p.mcuID = enIDRemote;
+	p.mcuID = enIDCar;
 	p.dataLen = 2+sizeof(LedA.flag_mode)+sizeof(LedA.cycle)+sizeof(LedB.flag_mode)+sizeof(LedB.cycle); 
 	p.data[0] = enDATA;
 	p.data[1] = KIND_LED;
@@ -147,7 +152,7 @@ void sendKeyAckData(void)
 	msg_t p;
 	p.msg_head = MSG_HEAD;
 	p.msgID = UP_ACK;
-	p.mcuID = enIDRemote;
+	p.mcuID = enIDCar;
 	p.dataLen = 2; 
 	p.data[0] = enCMD;
 	p.data[1] = KIND_KEY;

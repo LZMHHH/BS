@@ -16,8 +16,8 @@
   */
 #include "communicate.h"
 
-/* 声明 */
-static void LedCommunicateParaInit(void);
+connect_t   uart1Connect;
+
 
 /*********************** 外发 ***********************/
 encoder_t Encoder;
@@ -31,6 +31,8 @@ led_t envLEDB;
 led_t envFMQ;
 
 
+/* 声明 */
+static void LedCommunicateParaInit(void);
 
 void CommunicateParaInit(void)
 {

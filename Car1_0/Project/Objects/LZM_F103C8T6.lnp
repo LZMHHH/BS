@@ -33,6 +33,7 @@
 ".\objects\file_sys.o"
 ".\objects\protocol.o"
 ".\objects\communicate.o"
+".\objects\cancommunicate.o"
 ".\objects\sys.o"
 ".\objects\bsp_dwt_delay.o"
 ".\objects\bsp.o"
@@ -50,6 +51,7 @@
 ".\objects\inv_mpu.o"
 ".\objects\inv_mpu_dmp_motion_driver.o"
 ".\objects\bsp_exti.o"
+".\objects\bsp_can.o"
 ".\objects\heap_4.o"
 ".\objects\port.o"
 ".\objects\croutine.o"
@@ -65,10 +67,12 @@
 ".\objects\displaytask.o"
 ".\objects\movectrltask.o"
 ".\objects\mputask.o"
+".\objects\cancommunicatetask.o"
 ".\objects\diskio.o"
 ".\objects\ff.o"
 ".\objects\main_ui.o"
 ".\objects\bmp.o"
+".\objects\envi_ui.o"
 --library_type=microlib --strict --scatter ".\Objects\LZM_F103C8T6.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

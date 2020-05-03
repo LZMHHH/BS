@@ -19,5 +19,13 @@
 #define _ENVI_UI_H
 #include "includes.h" 
 
+/* ¹ã²¥ */
+extern struct  class_uiconfigParam Envi_uiconfigParam;
+
+
+
+void Envi_ZUI(void);
+void Envi_uiconfigParamInit(void);
+void Envi_uictrl(void);
 
 #endif

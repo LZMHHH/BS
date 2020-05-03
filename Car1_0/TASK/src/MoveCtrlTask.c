@@ -33,7 +33,6 @@ static void Para_Init(void);
 void vCarMoveCon(void);
 
 
-
 void vTaskMoveCtrl( void * pvParameters )
 {
 	/* 初始化参数 */
@@ -114,6 +113,10 @@ void vCarMoveCon(void)
 		MotorB.pwmout = map(MotorB.pwmout,-3000,3000,-7200,7200);
 		MotorC.pwmout = map(MotorC.pwmout,-3000,3000,-7200,7200);
 		MotorD.pwmout = map(MotorD.pwmout,-3000,3000,-7200,7200);
+	}
+	if(CarTickCount > xTaskGetTickCount())
+	{
+		CarTickCount = xTaskGetTickCount();
 	}
 	
 	
