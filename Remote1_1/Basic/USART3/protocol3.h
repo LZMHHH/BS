@@ -28,13 +28,7 @@ typedef enum
 	enReTed,      //       发送函数已经执行
 }State_ReData;
 
-/* mcuID号 */
-typedef enum
-{
-  enIDRemote = 0x00,      // mcuID号
-	enIDCAR    = 0x01,      // mcuID号
-	enIDEnvironment = 0x02, // mcuID号
-}MCU_ID;
+
 
 /*遥控数据类别*/
 typedef enum 
@@ -47,6 +41,7 @@ typedef enum
 /*通讯数据结构*/
 typedef struct
 {
+	u8 msg_head;   /* 信息头 本次采用 "$" 即为0x24 */
 	u8 msgID;
 	u8 mcuID;
 	u8 dataLen;
@@ -56,29 +51,26 @@ typedef struct
 
 
 /* 协议ID */
+#define MSG_HEAD '$'
+
+/* mcuID号 */
+typedef enum
+{
+	enIDBroadcast = 0x00,   // 广播ID号
+  enIDRemote    = 0x01,      // mcuID号
+	enIDCar       = 0x02,      // mcuID号
+	enIDEnvironment = 0x03, // mcuID号
+}MCU_ID;
+
 /*上行指令ID*/
 typedef enum 
 {
 	/* car */
 	UP_VERSION	= 0x00,
 	UP_STATUS		= 0x01,
-	UP_SENSER		= 0x02,
-	UP_RCDATA		= 0x03,
-	UP_GPSDATA	= 0x04,
-	UP_POWER		= 0x05,
-	UP_MOTOR		= 0x06,
-	UP_SENSER2	= 0x07,
-	UP_FLYMODE	= 0x0A,
-	UP_SPEED 		= 0x0B,
-	UP_PID1			= 0x10,
-	UP_PID2			= 0x11,
-	UP_PID3			= 0x12,
-	UP_PID4			= 0x13,
-	UP_RADIO		= 0x20,
-	UP_MSG			= 0x21,
-	UP_CHECK		= 0x22,	
-	UP_REMOTOR	= 0x30,
-	UP_PRINTF		= 0x31,
+	UP_ACK      = 0x02,
+  UP_DATA     = 0x03,
+
 	
 	/* environment */
 	
@@ -86,42 +78,67 @@ typedef enum
 
 }upmsgID_e;
 
+/* 通讯连接状态 */
+typedef enum
+{
+  enBreak  = 0x00,  //断开
+	enSig1   = 0x01,  //一格
+	enSig2   = 0x02,  //二格
+	enSig3   = 0x03,  //三格
+}connect_e;
+typedef struct _connect_t
+{
+	volatile  TickType_t tickCount;
+	connect_e status;
+}connect_t;
+
 /*下行指令ID*/
 typedef enum 
 {
 	/* car */
 	DOWN_COMMAND	= 0x01,
 	DOWN_ACK		  = 0x02,
-	DOWN_RCDATA		= 0x03,
-	DOWN_POWER		= 0x05,
-	DOWN_FLYMODE	= 0x0A,
-	DOWN_PID1		  = 0x10,
-	DOWN_PID2		  = 0x11,
-	DOWN_PID3		  = 0x12,
-	DOWN_PID4		  = 0x13,
-	DOWN_RADIO		= 0x40,
 	DOWN_REMOTOR	= 0x50,
-	
 	
 }downmsgID_e;
 
-/*下行命令*/
-/* car */
-#define  CMD_CHANGE_MODE		0x01	/*切换模式*/
-
 
 /* kind:种类用于遥控中data[1] */
-#define KIND_MOVE     0x01
-#define KIND_LED      0x02  /* LED类要更新 */
+typedef enum 
+{
+	KIND_MOVE   	= 0x01,
+	KIND_LED		  = 0x02,
+	KIND_MOTOR	  = 0x03,
+	KIND_ENCODER	= 0x04,
+	KIND_KEY     	= 0x05,
+	KIND_UI     	= 0x11,
+	KIND_UIREQ    = 0x12,
+	KIND_SHT3X    = 0x21,
+	KIND_GY30     = 0x22,
+	KIND_PMS      = 0x23,
+	KIND_BME      = 0x24,
+	
+	CMD_CHANGE_MODE	=	0x21,	/*切换模式*/
+	
+}kind_e;
 
 
+/* KIND_UIREQ 用于CMD,下为请求哪一个MCU的UI*/
+#define UIREQ_CAR          0x01
+#define UIREQ_ENVIRONMENT  0x02
 
 /* 把整形编码成字符串数据   5位数字 */
 char Protocol3_EncodeCInt(char* ProtocolString, const char *pSrc,long int pnum, u8 pSite);
 
 
 /* 通讯部分封装 */
-void sendRmotorCmd(MCU_ID mcu_id,u8 cmd, u8 data,TickType_t xTicksToWait);
-void sendRmotorData(MCU_ID mcu_id,u8 kind,u8 *data, u8 len,TickType_t xTicksToWait);
+/* 通用 */
+void sendCmd(downmsgID_e msg_id,u8 cmd, u8 data,TickType_t xTicksToWait);
+void sendData(downmsgID_e msg_id,kind_e kind,u8 *data, u8 len,TickType_t xTicksToWait);
 
+void sendRmotorCmd(MCU_ID mcu_id,u8 cmd, u8 data,TickType_t xTicksToWait);
+void sendRmotorData(MCU_ID mcu_id,kind_e kind,u8 *data, u8 len,TickType_t xTicksToWait);
+
+
+void msgAnalyze(msg_t *p);
 #endif /* __USART_H */

@@ -57,7 +57,6 @@ void ParaInit(void)
 	
 	CommunicateParaInit();
 	
-	Main_uiconfigParamInit();
-	Car_uiconfigParamInit();
+	
 	
 }

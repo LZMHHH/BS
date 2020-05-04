@@ -57,7 +57,7 @@ static TaskHandle_t xHandleTaskUart1Tx   = NULL;  //串口任务
 			 TaskHandle_t xHandleTaskDisplay   = NULL;  //显示任务
 			 TaskHandle_t xHandleTaskJoyStick  = NULL;  //摇杆任务
 			 TaskHandle_t xHandleTaskMpu       = NULL;  //Mpu任务
-
+			 TaskHandle_t xHandleTaskuart3SendData  = NULL;  //上传数据处理任务
 		
 /* 消息队列的句柄 */		
 /* 长数据队列句柄 */
@@ -65,7 +65,8 @@ static TaskHandle_t xHandleTaskUart1Tx   = NULL;  //串口任务
 			 TaskHandle_t xQueue_uart1Tx  = NULL;  //uart1的发送消息队列
 			 TaskHandle_t xQueue_uart3Rx  = NULL;  //uart1的接收消息队列
 			 TaskHandle_t xQueue_uart3Tx  = NULL;  //uart1的发送消息队列
-
+			 EventGroupHandle_t Event_uart3SendData = NULL;  //上传数据事件标志着组
+			 
 //普通值队列句柄
 			 SemaphoreHandle_t BinarySem_Mpu   = NULL;  //mpu二值信号量
 
@@ -130,19 +131,19 @@ static void AppTaskCreate (void)
                  "Task Key",     	    /* 任务名    */
                  128,               	/* 任务栈大小，单位word，也就是4字节 */
                  NULL,              	/* 任务参数  */
-                 9,                 	/* 任务优先级*/
+                 8,                 	/* 任务优先级*/
                  &xHandleTaskKey );   /* 任务句柄  */
 	
 		xTaskCreate( vTaskDisplay,   	      /* 任务函数  */
 							 "Task Display",          /* 任务名    */
 							 256,                   	/* 任务栈大小，单位word，也就是4字节 */
 							 NULL,              	    /* 任务参数  */
-							 7,                     	/* 任务优先级*/
+							 8,                     	/* 任务优先级*/
 							 &xHandleTaskDisplay );   /* 任务句柄  */
 							 
 		xTaskCreate( vTaskMpu,  	          /* 任务函数  */
 							 "Task Mpu",              /* 任务名    */
-							 256,                   	/* 任务栈大小，单位word，也就是4字节 */
+							 128,                   	/* 任务栈大小，单位word，也就是4字节 */
 							 NULL,              	    /* 任务参数  */
 							 10,                     	/* 任务优先级*/
 							 &xHandleTaskMpu );       /* 任务句柄  */
@@ -177,11 +178,17 @@ static void AppTaskCreate (void)
 								 
 		xTaskCreate( vTaskUart3Tx,   	        /* 任务函数  */
 								 "Task Uart3Tx",          /* 任务名    */
-								 512,                   	/* 任务栈大小，单位word，也就是4字节 */
+								 256,                   	/* 任务栈大小，单位word，也就是4字节 */
 								 NULL,              	    /* 任务参数  */
 								 12,                 	    /* 任务优先级*/
 								 &xHandleTaskUart3Tx );   /* 任务句柄  */
 	
+		xTaskCreate( vTaskuart3SendData,   	      /* 任务函数  */
+								 "Task SendData",         /* 任务名    */
+								 256,                   	/* 任务栈大小，单位word，也就是4字节 */
+								 NULL,              	    /* 任务参数  */
+								 11,                 	    /* 任务优先级*/
+								 &xHandleTaskuart3SendData );  /* 任务句柄  */
 }
 
 
@@ -222,11 +229,11 @@ static void AppObjCreate (void)
 
 #if DEBUG3_SAFETY	
 	 /* xQueue_uart1Tx */
-  xQueue_uart3Rx = xQueueCreate((UBaseType_t ) 5,                  /* 消息队列的长度 */
+  xQueue_uart3Rx = xQueueCreate((UBaseType_t ) 7,                  /* 消息队列的长度 */
                                 (UBaseType_t ) DEBUG3_RX_BSIZE);   /* 消息的大小 */
 	
 	 /* xQueue_uart1Rx */
-  xQueue_uart3Tx = xQueueCreate((UBaseType_t ) 1,                  /* 消息队列的长度 */
+  xQueue_uart3Tx = xQueueCreate((UBaseType_t ) 7,                  /* 消息队列的长度 */
                                 (UBaseType_t ) DEBUG3_TX_BSIZE);   /* 消息的大小 */
 	
 #else
@@ -245,10 +252,10 @@ static void AppObjCreate (void)
 */
 	 /* 创建 BinarySem */
   BinarySem_Mpu = xSemaphoreCreateBinary();	 
-  if(NULL != BinarySem_Mpu)
-	{
-//    Uart1_DMA_SendString("BinarySem_Handle二值信号量创建成功!\r\n",-1);
-	}
+
+
+	/* 创建 Event_uart3SendData */
+  Event_uart3SendData = xEventGroupCreate();	 
   
 
 }

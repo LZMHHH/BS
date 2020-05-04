@@ -18,6 +18,8 @@
 .\objects\inv_mpu_dmp_motion_driver.o: ..\FreeRTOS\inc\task.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\FreeRTOS\inc\list.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\FreeRTOS\inc\queue.h
+.\objects\inv_mpu_dmp_motion_driver.o: ..\FreeRTOS\inc\event_groups.h
+.\objects\inv_mpu_dmp_motion_driver.o: ..\FreeRTOS\inc\timers.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\FreeRTOS\inc\semphr.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\Libraries\CMSIS\core_cm3.h

@@ -19,10 +19,18 @@
 
 #include "includes.h"
 
+/* 事件组宏定义 */
+#define EVENT_uart3OLEDCLEAR (0x01 << 8)
+#define EVENT_uart3CARUI    (0x01 << 16)
+#define EVENT_uart3CARUIREQ (0x01 << 17)
+
+
+
+
 //Uart1的接收任务
 void vTaskUart3Rx( void * pvParameters );
 void vTaskUart3Tx( void * pvParameters );
-
+void vTaskuart3SendData( void * pvParameters );
 #endif
 
 

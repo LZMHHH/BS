@@ -60,7 +60,7 @@ typedef enum
 {
 	enKey_No,           //没有按下
 	enKey_Click,        //单击
-	enKey_LongPress,    //长按
+	enKey_LongPress,    //长按中
 }KEY_RetStatus;
 
 //引脚配置
@@ -79,7 +79,7 @@ struct class_key
 	KEY_RetStatus      Key_RetVal;     //返回类型
 	u16                Time_Press;     //时间值（次数）
 	u8                 Flag_IfDataed;  //是否被处理过标志位
-	u8                 Flag_AddDir;    //区分按压次数心跳
+	u8                 Flag_LongPress; //按过长按就至1，直至被处理或者下一次单击复位为0.
 	
 	CLASS_key_config   config;         //引脚配置
 };

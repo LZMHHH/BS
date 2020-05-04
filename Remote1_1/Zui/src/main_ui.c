@@ -56,14 +56,20 @@ void Main_ZUI(void)
 	u8 Ph;   //参数行系数
 	
 
+	/* 信号 */
+	if(uart3Connect.status == enBreak)
+	{
+		OLED_DrawBMP(2,56,UI_NOSIGNAL8X8,8,8);	
+	}
+	else
+	{
+		OLED_DrawBMP(2,56,UI_ASIGNAL8X8,8,8);
+	}
 	
 	/* 页面 */
+	OLED_ShowChar(109,56,'r',1);
 	OLED_ShowChar(115,56,'P',1);
-  OLED_ShowNum(121,56,Main_uiconfigParam.Page_Index,1,0,1);
-	
-	/* 信号 */
-	OLED_DrawBMP(2,56,UI_NOSIGNAL8X8,8,8);	
-	OLED_DrawBMP(12,56,UI_ASIGNAL8X8,8,8);
+  OLED_ShowNum(121,56,Car_uiconfigParam.Page_Index,1,0,1);
 	
 	//第 0 页
 	if(Main_uiconfigParam.Page_Index == 0)
@@ -645,7 +651,7 @@ void Main_uictrl(void)
 											LedB.flag_mode = enON;
 											break;
 								default:
-											LedA.flag_mode = enON;
+											LedB.flag_mode = enON;
 											break;
 							}
 							break;

@@ -263,6 +263,7 @@ void DEBUG3_USART_IRQHandler(void)
 
 #endif
 
+				memset(&ReadBuff, 0x00, sizeof(ReadBuff));
 				DEBUG3_UART_Rx_DMA_Channel->CMAR  = (uint32_t)ReadBuff; 					
 				DMA_Cmd(DEBUG3_UART_Rx_DMA_Channel, ENABLE);
 
@@ -278,7 +279,7 @@ void Uart3_DMA_SendString( u8 *SendString,short int size)
 {
 	if(size < 0)
 	{
-		size = strlen(SendString);
+		size = strlen((char *)SendString);
 	}
 	
 //	while(DMA_GetFlagStatus(DEBUG3_UART_Tx_DMA_FLAG) == RESET){;}

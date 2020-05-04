@@ -47,6 +47,7 @@ typedef enum
 	enON,               //开
 	enOFF,              //关
 	enFre,              //频率（周期）
+	enCom,              //用于通讯
 }DEV_Status;
 
 

@@ -137,6 +137,7 @@ void Key_Scan(CLASS_Key* key_x)
 					{
 							KEY_RetValue = key_x->key_name;
 							key_x->Key_RetVal = enKey_Click;
+							key_x->Flag_LongPress = false;  //取消长按标志
 							
 					}
 					else
@@ -144,9 +145,7 @@ void Key_Scan(CLASS_Key* key_x)
 						  KEY_RetValue = enKey_NO;
 						  key_x->Key_RetVal = enKey_No;
 						  
-					}
-					if(key_x->Flag_AddDir == true) key_x->Flag_AddDir = false;
-									else                           key_x->Flag_AddDir = true;												
+					}											
 					 key_x->Status_Scan = enKEYx_Leisure;
 									 key_x->Time_Press=0;	
 					 key_x->Flag_IfDataed = OFF;								
@@ -156,6 +155,7 @@ void Key_Scan(CLASS_Key* key_x)
 					if(key_x->Time_Press > 50)
 					{
 						key_x->Key_RetVal = enKey_LongPress;    //长按
+						key_x->Flag_LongPress = true;
 					}
 					if(key_x->Time_Press > 5000) key_x->Time_Press = 5000;   //限幅
 				}

@@ -18,6 +18,8 @@
 .\objects\envi_ui.o: ..\FreeRTOS\inc\task.h
 .\objects\envi_ui.o: ..\FreeRTOS\inc\list.h
 .\objects\envi_ui.o: ..\FreeRTOS\inc\queue.h
+.\objects\envi_ui.o: ..\FreeRTOS\inc\event_groups.h
+.\objects\envi_ui.o: ..\FreeRTOS\inc\timers.h
 .\objects\envi_ui.o: ..\FreeRTOS\inc\semphr.h
 .\objects\envi_ui.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\envi_ui.o: ..\Libraries\CMSIS\core_cm3.h

@@ -18,6 +18,8 @@
 .\objects\displaytask.o: ..\FreeRTOS\inc\task.h
 .\objects\displaytask.o: ..\FreeRTOS\inc\list.h
 .\objects\displaytask.o: ..\FreeRTOS\inc\queue.h
+.\objects\displaytask.o: ..\FreeRTOS\inc\event_groups.h
+.\objects\displaytask.o: ..\FreeRTOS\inc\timers.h
 .\objects\displaytask.o: ..\FreeRTOS\inc\semphr.h
 .\objects\displaytask.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\displaytask.o: ..\Libraries\CMSIS\core_cm3.h

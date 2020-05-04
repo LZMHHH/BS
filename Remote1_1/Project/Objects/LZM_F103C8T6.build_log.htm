@@ -22,16 +22,19 @@ Dialog DLL:      TCM.DLL V1.14.5.0
  
 <h2>Project:</h2>
 D:\MYjiezuo\STM32\BS\Remote\Remote1_1\Project\LZM_F103C8T6.uvprojx
-Project File Date:  04/27/2020
+Project File Date:  04/29/2020
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.05 update 2 (build 169)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
-compiling JoystickTask.c...
+compiling protocol3.c...
+..\Basic\USART3\protocol3.c(296): warning:  #186-D: pointless comparison of unsigned integer with zero
+                                                                if(u8data<Car_uiconfigParam.Page_Index_Limit && u8data >=0)
+..\Basic\USART3\protocol3.c: 1 warning, 0 errors
 linking...
-Program Size: Code=33264 RO-data=4340 RW-data=532 ZI-data=13540  
+Program Size: Code=45948 RO-data=4340 RW-data=580 ZI-data=15812  
 FromELF: creating hex file...
-".\Objects\LZM_F103C8T6.axf" - 0 Error(s), 0 Warning(s).
+".\Objects\LZM_F103C8T6.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   D:\MYjiezuo\STM32\BS\Remote\Remote1_1\Project\RTE

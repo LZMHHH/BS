@@ -18,6 +18,8 @@
 .\objects\bsp_oled.o: ..\FreeRTOS\inc\task.h
 .\objects\bsp_oled.o: ..\FreeRTOS\inc\list.h
 .\objects\bsp_oled.o: ..\FreeRTOS\inc\queue.h
+.\objects\bsp_oled.o: ..\FreeRTOS\inc\event_groups.h
+.\objects\bsp_oled.o: ..\FreeRTOS\inc\timers.h
 .\objects\bsp_oled.o: ..\FreeRTOS\inc\semphr.h
 .\objects\bsp_oled.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\bsp_oled.o: ..\Libraries\CMSIS\core_cm3.h

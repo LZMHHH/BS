@@ -19,6 +19,8 @@
 .\objects\delay.o: ..\FreeRTOS\inc\task.h
 .\objects\delay.o: ..\FreeRTOS\inc\list.h
 .\objects\delay.o: ..\FreeRTOS\inc\queue.h
+.\objects\delay.o: ..\FreeRTOS\inc\event_groups.h
+.\objects\delay.o: ..\FreeRTOS\inc\timers.h
 .\objects\delay.o: ..\FreeRTOS\inc\semphr.h
 .\objects\delay.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\delay.o: ..\Libraries\CMSIS\core_cm3.h

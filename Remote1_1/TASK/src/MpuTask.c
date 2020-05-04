@@ -21,7 +21,7 @@
 //MPU
 CLASS_mpu_data mpu_data; 
 
-
+static void Para_Init(void);
 
 void vTaskMpu( void * pvParameters )
 {

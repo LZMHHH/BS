@@ -73,7 +73,7 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "queue.h"
-
+#include "event_groups.h"
 #include "semphr.h"
 /*
 *********************************************************************************************************
@@ -132,6 +132,7 @@ extern TaskHandle_t xQueue_uart1Rx;  //uart1的接收消息队列
 extern TaskHandle_t xQueue_uart1Tx;  //uart1的发送消息队列
 extern TaskHandle_t xQueue_uart3Rx;  //uart3的接收消息队列
 extern TaskHandle_t xQueue_uart3Tx;  //uart3的发送消息队列
+extern EventGroupHandle_t Event_uart3SendData;  //上传数据事件标志着组
 
 //普通值队列句柄
 extern SemaphoreHandle_t BinarySem_Mpu;  //mpu二值信号量

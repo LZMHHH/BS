@@ -73,17 +73,17 @@ typedef  struct  class_joystick    CLASS_Joystick;
 struct class_joystick 
 {
 	
-	u16    PriY;     //原始的摇杆AD值 Y
-	u16    PriX;     //原始的摇杆AD值 X
+	int    PriY;     //原始的摇杆AD值 Y
+	int    PriX;     //原始的摇杆AD值 X
 	
 	int    NorY;     //正常的摇杆AD值 Y
 	int    NorX;     //正常的摇杆AD值 X
 	
-	u16    YZeroSet; //调零值（2048） Y
-	u16    XZeroSet; //调零值（2048） X
+	int    YZeroSet; //调零值（2048） Y
+	int    XZeroSet; //调零值（2048） X
 	
-	u16    XShieldVal;//屏蔽发送阈值  X
-	u16    YShieldVal;//屏蔽发送阈值  Y
+	int    XShieldVal;//屏蔽发送阈值  X
+	int    YShieldVal;//屏蔽发送阈值  Y
 	
 	u8     Mode;     //当前模式
 	

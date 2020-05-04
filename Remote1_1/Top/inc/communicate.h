@@ -20,7 +20,21 @@
 
 #include "includes.h" 
 
+/*UI同步*/
+typedef struct
+{
+	u8       Sync;                  //是否开启同步模式0：不开启
+	
+	
+	u8       Step_Index;            //步长索引
+	u8       Page_Index;            //页面索引
+	u8       Page_Index_Last;       //上次页面索引
+	u8       Para_Index;            //参数索引
+	u8       Para_IfControl;        //参数是否可控
 
+}ui_t;
+
+/*********************** 外发 ***********************/
 /*通讯数据结构*/
 typedef struct
 {
@@ -31,10 +45,17 @@ typedef struct
 
 
 
-/* LED种类的nameID */
+/* LED种类的nameID 用于LED种类下data[2]*/
 #define NAME_LEDA 0x01
 #define NAME_LEDB 0x02
 #define NAME_FMQ  0x11
+
+/* KEY种类的nameID 用于KEY种类下data[2] */
+#define NAME_KEYU 0x01 /* 单击 */
+#define NAME_KEYD 0x02
+#define NAME_KEYL 0x03
+#define NAME_KEYR 0x04
+#define NAME_KEYM 0x05
 
 
 
@@ -45,6 +66,79 @@ extern led_t envLEDA;
 extern led_t envLEDB;
 extern led_t envFMQ;
 
+/*********************** 中间 ***********************/
+/*通讯数据结构*/
+typedef struct 
+{
+	float temperature;     //温度
+	float huimidity;			 //湿度
+}huimiture_t;
+typedef struct
+{
+	float BH_Voltage;        //正常数据
+}light_t;
+typedef struct
+{
+	u16  PM2_5_Vol;   //pm2.5数值
+	u16  PM10_Vol;    //pm10数值
+}pms_t;
+typedef struct
+{
+	float   temperature;
+	float   pressure; 
+	float   humidity;
+	float   asl;
+}bme_t;
+/* canled的结构体在另外一个通信头文件 */
+typedef struct
+{
+	int    Second;
+	int    Minute;
+	int    Hour;
+	int    Week;     
+	int    Day;      
+	int    Month;   
+	int    Year;    
+	float  Temp;
+	char   Switch;  //闹钟开关
+	u16    num_save;//本次开机保存的次数
+}clock_t;
+
+/* 防爆墙 */
+typedef struct _connect_t connect_t;
+/* 广播 */
+extern connect_t   uart3Connect;
+extern huimiture_t Huimiture;
+extern light_t     Light;
+extern pms_t       Pms;
+extern bme_t       Bme;
+extern clock_t     ClockA;
+extern clock_t     SetClock;
+extern ui_t        envUIPara;
+extern ui_t        carUIPara;
+
+/*********************** 接收 ***********************/
+/*通讯数据结构*/
+/*编码器*/
+typedef struct
+{
+	int  motorA;
+	int  motorB;
+	int  motorC;
+	int  motorD;
+}encoder_t;
+/*电机PWM*/
+typedef struct
+{
+	int  pwmoutA;
+	int  pwmoutB;
+	int  pwmoutC;
+	int  pwmoutD;
+}motor_t;
+
+/* 广播 */
+extern encoder_t   Encoder;
+extern motor_t     Motorpwm;
 
 void CommunicateParaInit(void);
 

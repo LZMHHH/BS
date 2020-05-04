@@ -18,6 +18,8 @@
 .\objects\ledtask.o: ..\FreeRTOS\inc\task.h
 .\objects\ledtask.o: ..\FreeRTOS\inc\list.h
 .\objects\ledtask.o: ..\FreeRTOS\inc\queue.h
+.\objects\ledtask.o: ..\FreeRTOS\inc\event_groups.h
+.\objects\ledtask.o: ..\FreeRTOS\inc\timers.h
 .\objects\ledtask.o: ..\FreeRTOS\inc\semphr.h
 .\objects\ledtask.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\ledtask.o: ..\Libraries\CMSIS\core_cm3.h

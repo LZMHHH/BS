@@ -18,6 +18,8 @@
 .\objects\mputask.o: ..\FreeRTOS\inc\task.h
 .\objects\mputask.o: ..\FreeRTOS\inc\list.h
 .\objects\mputask.o: ..\FreeRTOS\inc\queue.h
+.\objects\mputask.o: ..\FreeRTOS\inc\event_groups.h
+.\objects\mputask.o: ..\FreeRTOS\inc\timers.h
 .\objects\mputask.o: ..\FreeRTOS\inc\semphr.h
 .\objects\mputask.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\mputask.o: ..\Libraries\CMSIS\core_cm3.h

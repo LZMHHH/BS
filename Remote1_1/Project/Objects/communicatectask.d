@@ -18,6 +18,8 @@
 .\objects\communicatectask.o: ..\FreeRTOS\inc\task.h
 .\objects\communicatectask.o: ..\FreeRTOS\inc\list.h
 .\objects\communicatectask.o: ..\FreeRTOS\inc\queue.h
+.\objects\communicatectask.o: ..\FreeRTOS\inc\event_groups.h
+.\objects\communicatectask.o: ..\FreeRTOS\inc\timers.h
 .\objects\communicatectask.o: ..\FreeRTOS\inc\semphr.h
 .\objects\communicatectask.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\communicatectask.o: ..\Libraries\CMSIS\core_cm3.h

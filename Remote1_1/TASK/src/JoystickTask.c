@@ -47,12 +47,36 @@ void vTaskJoystick( void * pvParameters )
 			CarMoveVal.MoveY = Joystick_Left.NorY;
 			CarMoveVal.MoveZ = Joystick_Right.NorX;
 			
-
-			sendRmotorData(enIDCAR, KIND_MOVE, (u8*)&CarMoveVal, sizeof(CarMoveVal), 20);
+			if( myabs(CarMoveVal.MoveX) < 150 )
+			{
+				CarMoveVal.MoveX = 0;
+			}
+			else
+			{
+				CarMoveVal.MoveX = map(CarMoveVal.MoveX,-2048,2048,-1000,1000);
+			}
+			if( myabs(CarMoveVal.MoveY) < 150 )
+			{
+				CarMoveVal.MoveY = 0;
+			}
+			else
+			{
+				CarMoveVal.MoveY = map(CarMoveVal.MoveY,-2048,2048,-1000,1000);
+			}
+			if( myabs(CarMoveVal.MoveZ) < 150 )
+			{
+				CarMoveVal.MoveZ = 0;
+			}
+			else
+			{
+				CarMoveVal.MoveZ = map(CarMoveVal.MoveZ,-2048,2048,-1000,1000);
+			}
+			if((CarMoveVal.MoveX != 0) || (CarMoveVal.MoveY != 0) || (CarMoveVal.MoveZ != 0))
+					sendRmotorData(enIDRemote, KIND_MOVE, (u8*)&CarMoveVal, sizeof(CarMoveVal), 20);
 		}
 		
 		
-		vTaskDelay( 2000 );
+		vTaskDelay( 20 );
 	}
 	
 }

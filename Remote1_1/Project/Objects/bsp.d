@@ -18,6 +18,8 @@
 .\objects\bsp.o: ..\FreeRTOS\inc\task.h
 .\objects\bsp.o: ..\FreeRTOS\inc\list.h
 .\objects\bsp.o: ..\FreeRTOS\inc\queue.h
+.\objects\bsp.o: ..\FreeRTOS\inc\event_groups.h
+.\objects\bsp.o: ..\FreeRTOS\inc\timers.h
 .\objects\bsp.o: ..\FreeRTOS\inc\semphr.h
 .\objects\bsp.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\bsp.o: ..\Libraries\CMSIS\core_cm3.h
