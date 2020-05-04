@@ -69,6 +69,7 @@
 .\objects\bsp_ds3231.o: ..\Basic\CAN\bsp_can.h
 .\objects\bsp_ds3231.o: ..\Zui\inc\bmp.h
 .\objects\bsp_ds3231.o: ..\Zui\inc\main_ui.h
+.\objects\bsp_ds3231.o: ..\Zui\inc\car_ui.h
 .\objects\bsp_ds3231.o: ..\Top\inc\protocol.h
 .\objects\bsp_ds3231.o: ..\Top\inc\canCommunicate.h
 .\objects\bsp_ds3231.o: ..\TASK\inc\LedTask.h

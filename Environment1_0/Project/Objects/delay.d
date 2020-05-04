@@ -69,6 +69,7 @@
 .\objects\delay.o: ..\Basic\CAN\bsp_can.h
 .\objects\delay.o: ..\Zui\inc\bmp.h
 .\objects\delay.o: ..\Zui\inc\main_ui.h
+.\objects\delay.o: ..\Zui\inc\car_ui.h
 .\objects\delay.o: ..\Top\inc\protocol.h
 .\objects\delay.o: ..\Top\inc\canCommunicate.h
 .\objects\delay.o: ..\TASK\inc\LedTask.h

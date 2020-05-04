@@ -94,7 +94,7 @@ static TaskHandle_t xHandleTaskCanTx     = NULL;  //Can任务
 			 TaskHandle_t xQueue_uart2Rx       = NULL;  //uart2的接收消息队列
 			 TaskHandle_t xQueue_canRx         = NULL;  //can的接收消息队列
 			 TaskHandle_t xQueue_canTx         = NULL;  //can的发送消息队列
-			 EventGroupHandle_t Event_SendData = NULL;  //上传数据事件标志着组
+			 EventGroupHandle_t Event_canSendData = NULL;  //上传数据事件标志着组
 
 #if IFFILESYSTEM
 			 TaskHandle_t xHandleTaskFile      = NULL;  //file任务
@@ -338,8 +338,8 @@ static void AppObjCreate (void)
                                 (UBaseType_t ) (sizeof(CanTxMsg)+2));   /* 消息的大小 */
 																
 
-	/* 创建 Event_Handle */
-  Event_SendData = xEventGroupCreate();	 
+	/* 创建 Event_canSendData */
+  Event_canSendData = xEventGroupCreate();	 
 
 }
 

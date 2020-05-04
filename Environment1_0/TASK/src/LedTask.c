@@ -34,10 +34,8 @@ void vTaskLed( void * pvParameters )
 		
 		if((xTaskGetTickCount()-100) > SendLedDataTickCount)
 		{
-			/* 触发一个上传pwm数据的事件 */
-			xEventGroupSetBits(Event_SendData,EVENT_LED);		
-			/* 触发一个上传编码器数据的事件 */
-			xEventGroupSetBits(Event_SendData,EVENT_LED);		
+			/* 触发事件 */
+			xEventGroupSetBits(Event_canSendData,EVENT_canLED);		
 			SendLedDataTickCount = xTaskGetTickCount();
 		}
 		if(SendLedDataTickCount > xTaskGetTickCount())
@@ -152,5 +150,6 @@ void canSendLedData(void)
 	xQueueSend(xQueue_canTx, &p, 10);
 
 }
+
 
 

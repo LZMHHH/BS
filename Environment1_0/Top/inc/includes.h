@@ -116,6 +116,7 @@
 /* UI */
 #include "bmp.h"
 #include "main_ui.h"
+#include "car_ui.h"
 
 /* 通讯 */
 #include "protocol.h"  
@@ -186,7 +187,7 @@ extern TaskHandle_t xQueue_uart1Tx;  //uart1的发送消息队列
 extern TaskHandle_t xQueue_uart2Rx;  //uart2的接收消息队列
 extern TaskHandle_t xQueue_canRx;  //can的接收消息队列
 extern TaskHandle_t xQueue_canTx;  //can的发送消息队列
-extern EventGroupHandle_t Event_SendData;  //上传数据事件标志着组
+extern EventGroupHandle_t Event_canSendData;  //上传数据事件标志着组
 
 //事件标志组涉及的函数句柄广播
 extern TaskHandle_t xHandleTaskInit;  //file任务

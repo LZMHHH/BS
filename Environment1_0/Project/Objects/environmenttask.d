@@ -69,6 +69,7 @@
 .\objects\environmenttask.o: ..\Basic\CAN\bsp_can.h
 .\objects\environmenttask.o: ..\Zui\inc\bmp.h
 .\objects\environmenttask.o: ..\Zui\inc\main_ui.h
+.\objects\environmenttask.o: ..\Zui\inc\car_ui.h
 .\objects\environmenttask.o: ..\Top\inc\protocol.h
 .\objects\environmenttask.o: ..\Top\inc\canCommunicate.h
 .\objects\environmenttask.o: ..\TASK\inc\LedTask.h

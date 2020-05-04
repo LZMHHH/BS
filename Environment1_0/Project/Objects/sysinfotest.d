@@ -68,6 +68,7 @@
 .\objects\sysinfotest.o: ..\Basic\CAN\bsp_can.h
 .\objects\sysinfotest.o: ..\Zui\inc\bmp.h
 .\objects\sysinfotest.o: ..\Zui\inc\main_ui.h
+.\objects\sysinfotest.o: ..\Zui\inc\car_ui.h
 .\objects\sysinfotest.o: ..\Top\inc\protocol.h
 .\objects\sysinfotest.o: ..\Top\inc\canCommunicate.h
 .\objects\sysinfotest.o: ..\TASK\inc\LedTask.h

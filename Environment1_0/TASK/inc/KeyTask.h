@@ -20,7 +20,7 @@
 
 void vTaskKey( void * pvParameters );
 
-
+void canSendKeyClickData(u8 key,TickType_t xTicksToWait);
 #endif
 
 

@@ -69,6 +69,7 @@
 .\objects\diskio.o: ..\Basic\CAN\bsp_can.h
 .\objects\diskio.o: ..\Zui\inc\bmp.h
 .\objects\diskio.o: ..\Zui\inc\main_ui.h
+.\objects\diskio.o: ..\Zui\inc\car_ui.h
 .\objects\diskio.o: ..\Top\inc\protocol.h
 .\objects\diskio.o: ..\Top\inc\canCommunicate.h
 .\objects\diskio.o: ..\TASK\inc\LedTask.h

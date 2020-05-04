@@ -22,16 +22,20 @@ Dialog DLL:      TCM.DLL V1.14.5.0
  
 <h2>Project:</h2>
 D:\MYjiezuo\STM32\BS\Environment\Environment1_0\Project\LZM_F103RCT6.uvprojx
-Project File Date:  05/03/2020
+Project File Date:  05/04/2020
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.05 update 2 (build 169)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
-compiling ClockTask.c...
+compiling LedTask.c...
+..\TASK\src\LedTask.c(92): warning:  #177-D: function "Fmq_Ctrl" was declared but never referenced
+  static void Fmq_Ctrl(void)
+..\TASK\src\LedTask.c: 1 warning, 0 errors
+compiling car_ui.c...
 linking...
-Program Size: Code=63244 RO-data=4556 RW-data=568 ZI-data=34240  
+Program Size: Code=68816 RO-data=4552 RW-data=592 ZI-data=34352  
 FromELF: creating hex file...
-".\Objects\LZM_F103C8T6.axf" - 0 Error(s), 0 Warning(s).
+".\Objects\LZM_F103C8T6.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   D:\MYjiezuo\STM32\BS\Environment\Environment1_0\Project\RTE

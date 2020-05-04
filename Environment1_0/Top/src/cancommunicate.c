@@ -19,7 +19,10 @@
 connect_t   canConnect;
 ui_t        carUIPara;
 
-
+led_t     carLEDA;
+led_t     carFMQ;
+encoder_t Encoder;
+motor_t   Motorpwm;
 
 /*********************** Õ‚∑¢ ***********************/
 

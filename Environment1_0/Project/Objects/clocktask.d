@@ -69,6 +69,7 @@
 .\objects\clocktask.o: ..\Basic\CAN\bsp_can.h
 .\objects\clocktask.o: ..\Zui\inc\bmp.h
 .\objects\clocktask.o: ..\Zui\inc\main_ui.h
+.\objects\clocktask.o: ..\Zui\inc\car_ui.h
 .\objects\clocktask.o: ..\Top\inc\protocol.h
 .\objects\clocktask.o: ..\Top\inc\canCommunicate.h
 .\objects\clocktask.o: ..\TASK\inc\LedTask.h

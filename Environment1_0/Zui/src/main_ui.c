@@ -857,6 +857,11 @@ void Main_uictrl(void)
     else                                                                  
 			 Main_uiconfigParam.Para_IfControl=false;
 
+		if(Main_uiconfigParam.Page_Index==0)    
+    {
+			/* «–ªªUImode */
+			Change_UIMode();
+		}
 		
 		Key_PM.Key_RetVal = enKey_No;   //±Í÷æ∏¥Œª
 	}

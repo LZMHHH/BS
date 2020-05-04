@@ -69,6 +69,7 @@
 .\objects\cputask.o: ..\Basic\CAN\bsp_can.h
 .\objects\cputask.o: ..\Zui\inc\bmp.h
 .\objects\cputask.o: ..\Zui\inc\main_ui.h
+.\objects\cputask.o: ..\Zui\inc\car_ui.h
 .\objects\cputask.o: ..\Top\inc\protocol.h
 .\objects\cputask.o: ..\Top\inc\canCommunicate.h
 .\objects\cputask.o: ..\TASK\inc\LedTask.h

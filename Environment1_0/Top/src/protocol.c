@@ -200,7 +200,143 @@ u8 DataHeadFind(msg_t *msg,u8 Dst)
 /*来自串口解码*/
 void canmsgAnalyze(CanRxMsg *p)
 {
+	u8 Page_Index_Last;
 	
+	/* LEDID */
+	if((p->IDE == CAN_ID_STD) && (p->StdId == CAN_LEDID))
+	{
+		if(*(p->Data) == enIDCar)
+		{
+			if(*(p->Data+1) == enDATA)
+			{
+				
+				switch(*(p->Data+2))
+				{
+					case CAN_LEDA:
+						   switch(*(p->Data+3))
+								{
+									case CAN_LedMode:
+												carLEDA.mode = (u8)(*(p->Data+4));
+												break;
+									case CAN_LedFre:
+												carLEDA.cycle = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+								}
+								break;
+					case CAN_FMQ:
+						   switch(*(p->Data+3))
+								{
+									case CAN_LedMode:
+												carFMQ.mode = (u8)(*(p->Data+4));
+												break;
+									case CAN_LedFre:
+												carFMQ.cycle = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+								}
+								break;
+					
+				}
+			}
+		}
+	}
+	/* UIID */
+	if((p->IDE == CAN_ID_STD) && (p->StdId == CAN_UIID))
+	{
+		Page_Index_Last = Car_uiconfigParam.Page_Index;
+		
+		if(*(p->Data) == enIDCar)
+		{
+			if(*(p->Data+1) == enDATA)
+			{
+				
+				switch(*(p->Data+2))
+				{
+					case CAN_CARUI:
+						   switch(*(p->Data+3))
+								{
+									case CAN_UIStepIndex:
+												Car_uiconfigParam.Step_Index = (u8)(*(p->Data+4));
+												break;
+									case CAN_UIPageIndex:
+												Car_uiconfigParam.Page_Index = (u8)(*(p->Data+4));
+												break;
+									case CAN_UIPageIndexLast:
+												Car_uiconfigParam.Page_Index_Last = (u8)(*(p->Data+4));
+												break;
+									case CAN_UIPareIndex:
+												Car_uiconfigParam.Para_Index = (u8)(*(p->Data+4));
+												break;
+									case CAN_UIParaIfControl:
+												Car_uiconfigParam.Para_IfControl = (u8)(*(p->Data+4));
+												break;
+								}
+								break;
+				}
+			}
+		}
+		if(Page_Index_Last != Car_uiconfigParam.Page_Index)
+		{
+			xEventGroupSetBits(Event_canSendData,EVENT_canOLEDCLEAR);		
+		}
+	}
+	/* 电机ID */
+	if((p->IDE == CAN_ID_STD) && (p->StdId == CAN_MOTORID))
+	{
+		if(*(p->Data) == enIDCar)
+		{
+			if(*(p->Data+1) == enDATA)
+			{
+				
+				switch(*(p->Data+2))
+				{
+					case CAN_CARMOTORA:
+						   switch(*(p->Data+3))
+								{
+									case CAN_PwmOut:
+												Motorpwm.pwmoutA = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+									case CAN_Encoder:
+												Encoder.motorA = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+								}
+								break;
+					case CAN_CARMOTORB:
+						   switch(*(p->Data+3))
+								{
+									case CAN_PwmOut:
+												Motorpwm.pwmoutB = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+									case CAN_Encoder:
+												Encoder.motorB = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+								}
+								break;
+					case CAN_CARMOTORC:
+						   switch(*(p->Data+3))
+								{
+									case CAN_PwmOut:
+												Motorpwm.pwmoutC = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+									case CAN_Encoder:
+												Encoder.motorC = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+								}
+								break;
+					case CAN_CARMOTORD:
+						   switch(*(p->Data+3))
+								{
+									case CAN_PwmOut:
+												Motorpwm.pwmoutD = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+									case CAN_Encoder:
+												Encoder.motorD = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+								}
+								break;
+				}
+			}
+		}
+	}
 }
 
 

@@ -69,6 +69,7 @@
 .\objects\bsp_sdio_sdcard.o: ..\Basic\CAN\bsp_can.h
 .\objects\bsp_sdio_sdcard.o: ..\Zui\inc\bmp.h
 .\objects\bsp_sdio_sdcard.o: ..\Zui\inc\main_ui.h
+.\objects\bsp_sdio_sdcard.o: ..\Zui\inc\car_ui.h
 .\objects\bsp_sdio_sdcard.o: ..\Top\inc\protocol.h
 .\objects\bsp_sdio_sdcard.o: ..\Top\inc\canCommunicate.h
 .\objects\bsp_sdio_sdcard.o: ..\TASK\inc\LedTask.h

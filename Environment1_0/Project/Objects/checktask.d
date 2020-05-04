@@ -69,6 +69,7 @@
 .\objects\checktask.o: ..\Basic\CAN\bsp_can.h
 .\objects\checktask.o: ..\Zui\inc\bmp.h
 .\objects\checktask.o: ..\Zui\inc\main_ui.h
+.\objects\checktask.o: ..\Zui\inc\car_ui.h
 .\objects\checktask.o: ..\Top\inc\protocol.h
 .\objects\checktask.o: ..\Top\inc\canCommunicate.h
 .\objects\checktask.o: ..\TASK\inc\LedTask.h

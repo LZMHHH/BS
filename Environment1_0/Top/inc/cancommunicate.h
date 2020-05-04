@@ -33,12 +33,38 @@ typedef struct _ui_t
 
 }ui_t;
 
+typedef struct
+{
+	u8  name;
+	u8  mode;
+	int cycle;
+}led_t;
+/*±àÂëÆ÷*/
+typedef struct
+{
+	int  motorA;
+	int  motorB;
+	int  motorC;
+	int  motorD;
+}encoder_t;
+/*µç»úPWM*/
+typedef struct
+{
+	int  pwmoutA;
+	int  pwmoutB;
+	int  pwmoutC;
+	int  pwmoutD;
+}motor_t;
+
 /* ·À±¬Ç½ */
 typedef struct _connect_t connect_t;
 /* ¹ã²¥ */
 extern connect_t   canConnect;
 extern ui_t        carUIPara;
-
+extern led_t       carLEDA;
+extern led_t       carFMQ;
+extern encoder_t   Encoder;
+extern motor_t     Motorpwm;
 
 void canCommunicateParaInit(void);
 

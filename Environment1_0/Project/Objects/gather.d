@@ -69,6 +69,7 @@
 .\objects\gather.o: ..\Basic\CAN\bsp_can.h
 .\objects\gather.o: ..\Zui\inc\bmp.h
 .\objects\gather.o: ..\Zui\inc\main_ui.h
+.\objects\gather.o: ..\Zui\inc\car_ui.h
 .\objects\gather.o: ..\Top\inc\protocol.h
 .\objects\gather.o: ..\Top\inc\canCommunicate.h
 .\objects\gather.o: ..\TASK\inc\LedTask.h

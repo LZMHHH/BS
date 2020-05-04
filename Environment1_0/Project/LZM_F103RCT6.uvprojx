@@ -872,6 +872,11 @@
               <FileType>1</FileType>
               <FilePath>..\Zui\src\bmp.c</FilePath>
             </File>
+            <File>
+              <FileName>car_ui.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Zui\src\car_ui.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

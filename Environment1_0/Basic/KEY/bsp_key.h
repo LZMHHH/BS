@@ -23,7 +23,7 @@
 #define ON  1
 #define OFF 0
 					
-
+#define KEY_PRESS       0   /* 选择按下时的电平，根据实际硬件来定义 */
 
 /* 按键返回状态 0未按 1按下 */
 #define NO_KEY          (0x00)
@@ -75,7 +75,7 @@ struct class_key
 	KEY_RetStatus      Key_RetVal;     //返回类型
 	u16                Time_Press;     //时间值（次数）
 	u8                 Flag_IfDataed;  //是否被处理过标志位
-	u8                 Flag_AddDir;    //区分按压次数心跳
+	u8                 Flag_LongPress; //按过长按就至1，直至被处理或者下一次单击复位为0.
 	
 	CLASS_key_config   config;         //引脚配置
 };

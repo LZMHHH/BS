@@ -82,71 +82,72 @@ void bsp_KEY_Init(void)
 /* 按键扫描程序 */
 void Key_Scan(CLASS_Key* key_x)
 {	
-			key_x->Time_Press++;        //时间值计算
-			switch(key_x->Status_Scan)
-			{
-					case enKEYx_Leisure:
-							if(Key_Pre(key_x) == 0) /* 如果按键被按下 进入确认与消抖态 */
-							{		               			
-									key_x->Status_Scan = enKEYx_Debounce;
-								  key_x->Time_Press  = 0;
-								  key_x->Flag_IfDataed = OFF;
-								  key_x->Key_RetVal = enKey_No;
-							}
-							else
-							{
-								  key_x->Time_Press = 0;
-							}
-							break;
-					case enKEYx_Debounce: /* 确认与消抖态 */
-							if(Key_Pre(key_x) == 0)
-							{
-									key_x->Status_Scan = enKEYx_Confirm;
-							}
-							else
-							{
-									key_x->Status_Scan = enKEYx_Leisure;
-								  KEY_RetValue = enKey_NO;
-									key_x->Key_RetVal = enKey_No;
-								  key_x->Time_Press = 0;
-								  key_x->Flag_IfDataed = OFF;
-								
-							}
-							break;
-					case enKEYx_Confirm: /* 确认态 */
-							if(Key_Pre(key_x) == 1) /* 按键松开 */
-							{
-								if(key_x->Time_Press < 50)
-								{
-										KEY_RetValue = key_x->key_name;
-										key_x->Key_RetVal = enKey_Click;
-										
-								}
-								else
-								{
-									  KEY_RetValue = enKey_NO;
-									  key_x->Key_RetVal = enKey_No;
-									  
-								}
-                if(key_x->Flag_AddDir == true) key_x->Flag_AddDir = false;
-								else                           key_x->Flag_AddDir = true;												
-                 key_x->Status_Scan = enKEYx_Leisure;
-								 key_x->Time_Press=0;	
-                 key_x->Flag_IfDataed = OFF;								
-							}
-							else
-							{
-								if(key_x->Time_Press > 50)
-								{
-									key_x->Key_RetVal = enKey_LongPress;    //长按
-								}
-								if(key_x->Time_Press > 5000) key_x->Time_Press = 5000;   //限幅
-							}
+	key_x->Time_Press++;        //时间值计算
+	switch(key_x->Status_Scan)
+	{
+		case enKEYx_Leisure:
+				if(Key_Pre(key_x) == KEY_PRESS) /* 如果按键被按下 进入确认与消抖态 */
+				{		               			
+						key_x->Status_Scan = enKEYx_Debounce;
+					  key_x->Time_Press  = 0;
+					  key_x->Flag_IfDataed = OFF;
+					  key_x->Key_RetVal = enKey_No;
+				}
+				else
+				{
+					  key_x->Time_Press = 0;
+				}
+				break;
+		case enKEYx_Debounce: /* 确认与消抖态 */
+				if(Key_Pre(key_x) == KEY_PRESS)
+				{
+						key_x->Status_Scan = enKEYx_Confirm;
+				}
+				else
+				{
+						key_x->Status_Scan = enKEYx_Leisure;
+					  KEY_RetValue = enKey_NO;
+						key_x->Key_RetVal = enKey_No;
+					  key_x->Time_Press = 0;
+					  key_x->Flag_IfDataed = OFF;
+					
+				}
+				break;
+		case enKEYx_Confirm: /* 确认态 */
+				if(Key_Pre(key_x) == !KEY_PRESS) /* 按键松开 */
+				{
+					if(key_x->Time_Press < 50)
+					{
+							KEY_RetValue = key_x->key_name;
+							key_x->Key_RetVal = enKey_Click;
+							key_x->Flag_LongPress = false;  //取消长按标志
 							
-							break;
-					default:
-							break;
-			}
+					}
+					else
+					{
+						  KEY_RetValue = enKey_NO;
+						  key_x->Key_RetVal = enKey_No;
+						  
+					}											
+					 key_x->Status_Scan = enKEYx_Leisure;
+									 key_x->Time_Press=0;	
+					 key_x->Flag_IfDataed = OFF;								
+				}
+				else
+				{
+					if(key_x->Time_Press > 50)
+					{
+						key_x->Key_RetVal = enKey_LongPress;    //长按
+						key_x->Flag_LongPress = true;
+					}
+					if(key_x->Time_Press > 5000) key_x->Time_Press = 5000;   //限幅
+				}
+				
+				break;
+		default:
+				break;
+	}
 
 }
+
 

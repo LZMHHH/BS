@@ -95,22 +95,40 @@ void vTaskcanSendData( void * pvParameters )
 	EventBits_t r_event;  /* 定义一个事件接收变量 */
 	while(1)
 	{
-		 r_event = xEventGroupWaitBits(Event_SendData,  /* 事件对象句柄 */
-																EVENT_SHT3X
-															 |EVENT_GY30
-															 |EVENT_PMS
-															 |EVENT_BME
-															 |EVENT_LED,/* 接收线程感兴趣的事件 */
+		 r_event = xEventGroupWaitBits(Event_canSendData,  /* 事件对象句柄 */
+																EVENT_canSHT3X
+															 |EVENT_canGY30
+															 |EVENT_canPMS
+															 |EVENT_canBME
+															 |EVENT_canLED
+															 |EVENT_canCARUI
+															 |EVENT_canCARUIREQ
+															 |EVENT_canOLEDCLEAR,/* 接收线程感兴趣的事件 */
 																pdTRUE,   /* 退出时清除事件位 */
 																pdFALSE,   /* 满足感兴趣的如何一个事件 */
 																portMAX_DELAY);/* 指定超时事件,一直等 */
 		
 		/* LED事件 */
-		if((r_event & EVENT_LED) == (EVENT_LED)) 
+		if((r_event & EVENT_canLED) == (EVENT_canLED)) 
     {		
 			canSendLedData();
     }
 		
+//		/* CARUI事件（下达数据） */
+//		if((r_event & EVENT_canCARUI) == (EVENT_canCARUI)) 
+//    {		
+//			canSendCarUIData();
+//    }
+		/* CARUI请求事件 */
+		if((r_event & EVENT_canCARUIREQ) == (EVENT_canCARUIREQ)) 
+    {		
+			canSendCarUIReqCmd();
+    }
+		/* 清屏事件 */
+		if((r_event & EVENT_canOLEDCLEAR) == (EVENT_canOLEDCLEAR)) 
+    {		
+			OLED_Fill(0,0,128,64,0);
+		}
 		
 	}
 }
