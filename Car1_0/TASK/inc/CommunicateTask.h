@@ -24,8 +24,11 @@
 #define EVENT_ENCODER  (0x01 << 2)//设置事件掩码的位2:上传编码器事件
 #define EVENT_LED      (0x01 << 3)//设置事件掩码的位3:上传led事件
 #define EVENT_KEYACK   (0x01 << 4)//设置事件掩码的位4:返回EVENT_KEYACK事件
-
-
+#define EVENT_uart1CARUI   (0x01 << 5)
+#define EVENT_uart1SHT3X   (0x01 << 11)//设置事件掩码的位1:上传pwm事件
+#define EVENT_uart1GY30    (0x01 << 12)
+#define EVENT_uart1PMS     (0x01 << 13)
+#define EVENT_uart1BME     (0x01 << 14)
 
 //Uart1的任务
 void vTaskUart1Rx( void * pvParameters );

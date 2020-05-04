@@ -83,5 +83,6 @@
 .\objects\cputask.o: ..\TASK\inc\CommunicateTask.h
 .\objects\cputask.o: ..\TASK\inc\canCommunicateTask.h
 .\objects\cputask.o: ..\TASK\inc\DisplayTask.h
+.\objects\cputask.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\cputask.o: ..\TASK\inc\MoveCtrlTask.h
 .\objects\cputask.o: ..\TASK\inc\MpuTask.h

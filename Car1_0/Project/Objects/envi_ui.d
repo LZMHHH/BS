@@ -83,5 +83,6 @@
 .\objects\envi_ui.o: ..\TASK\inc\CommunicateTask.h
 .\objects\envi_ui.o: ..\TASK\inc\canCommunicateTask.h
 .\objects\envi_ui.o: ..\TASK\inc\DisplayTask.h
+.\objects\envi_ui.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\envi_ui.o: ..\TASK\inc\MoveCtrlTask.h
 .\objects\envi_ui.o: ..\TASK\inc\MpuTask.h

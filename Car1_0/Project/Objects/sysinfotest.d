@@ -82,5 +82,6 @@
 .\objects\sysinfotest.o: ..\TASK\inc\CommunicateTask.h
 .\objects\sysinfotest.o: ..\TASK\inc\canCommunicateTask.h
 .\objects\sysinfotest.o: ..\TASK\inc\DisplayTask.h
+.\objects\sysinfotest.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\sysinfotest.o: ..\TASK\inc\MoveCtrlTask.h
 .\objects\sysinfotest.o: ..\TASK\inc\MpuTask.h

@@ -19,7 +19,9 @@
 #include "includes.h"
 
 void vTaskLed( void * pvParameters );
+void canSendLedData(void);
 
+void sendLedData(void);
 
 #endif
 

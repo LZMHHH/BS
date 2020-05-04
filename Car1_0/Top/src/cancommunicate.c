@@ -18,7 +18,7 @@
 
 connect_t   canConnect;
 ui_t        envUIPara;
-
+ui_t        carUIPara;
 
 huimiture_t Huimiture;
 light_t     Light;

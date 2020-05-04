@@ -83,5 +83,6 @@
 .\objects\inv_mpu.o: ..\TASK\inc\CommunicateTask.h
 .\objects\inv_mpu.o: ..\TASK\inc\canCommunicateTask.h
 .\objects\inv_mpu.o: ..\TASK\inc\DisplayTask.h
+.\objects\inv_mpu.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\inv_mpu.o: ..\TASK\inc\MoveCtrlTask.h
 .\objects\inv_mpu.o: ..\TASK\inc\MpuTask.h

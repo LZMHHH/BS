@@ -21,14 +21,19 @@
 
 void vTaskCanRx( void * pvParameters );
 void vTaskCanTx( void * pvParameters );
+void vTaskcanSendData( void * pvParameters );
 
-
-//can的任务
-
-
-//串口的上层任务
-
-
+/* 事件组宏定义 */
+#define EVENT_canSHT3X    (0x01 << 1)//设置事件掩码的位1:上传pwm事件
+#define EVENT_canGY30     (0x01 << 2)
+#define EVENT_canPMS      (0x01 << 3)
+#define EVENT_canBME      (0x01 << 4)
+#define EVENT_canOLEDCLEAR (0x01 << 8)
+#define EVENT_canLED      (0x01 << 11)
+#define EVENT_canCARUI    (0x01 << 16)
+#define EVENT_canCARUIREQ (0x01 << 17)
+#define EVENT_canMOTOR    (0x01 << 18)
+#define EVENT_canENCODER  (0x01 << 19)
 #endif
 
 

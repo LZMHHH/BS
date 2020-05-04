@@ -83,5 +83,6 @@
 .\objects\ledtask.o: ..\TASK\inc\CommunicateTask.h
 .\objects\ledtask.o: ..\TASK\inc\canCommunicateTask.h
 .\objects\ledtask.o: ..\TASK\inc\DisplayTask.h
+.\objects\ledtask.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\ledtask.o: ..\TASK\inc\MoveCtrlTask.h
 .\objects\ledtask.o: ..\TASK\inc\MpuTask.h

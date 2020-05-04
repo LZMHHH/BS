@@ -446,11 +446,6 @@ void Main_uictrl(void)
 			/* 切换UImode */
 			Change_UIMode();
 		}
-		else
-		{
-			
-		}
-		
 		Key_PM.Key_RetVal = enKey_No;   //标志复位
 	}
 	//中键被长按中

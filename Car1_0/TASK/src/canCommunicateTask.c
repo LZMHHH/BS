@@ -70,4 +70,60 @@ void vTaskCanTx( void * pvParameters )
 									  以上为直达can任务
 										以下为准备数据任务
 *****************************************************/
+/* 声明 */
+void sendLedData(void);
+void sendKeyAckData(void);
+
+//上传数据任务
+void vTaskcanSendData( void * pvParameters )
+{
+	EventBits_t r_event;  /* 定义一个事件接收变量 */
+	while(1)
+	{
+		 r_event = xEventGroupWaitBits(Event_canSendData,  /* 事件对象句柄 */
+																EVENT_canSHT3X
+															 |EVENT_canGY30
+															 |EVENT_canPMS
+															 |EVENT_canBME
+															 |EVENT_canLED
+															 |EVENT_canCARUI
+															 |EVENT_canMOTOR
+															 |EVENT_canENCODER
+															 |EVENT_canOLEDCLEAR,/* 接收线程感兴趣的事件 */
+																pdTRUE,   /* 退出时清除事件位 */
+																pdFALSE,   /* 满足感兴趣的如何一个事件 */
+																portMAX_DELAY);/* 指定超时事件,一直等 */
+		
+		/* LED事件 */
+		if((r_event & EVENT_canLED) == (EVENT_canLED)) 
+    {		
+			canSendLedData();
+    }
+		
+		/* CARUI事件 */
+		if((r_event & EVENT_canCARUI) == (EVENT_canCARUI)) 
+    {		
+			canSendCarUIData();
+    }
+		
+		/* 电机事件 */
+		if((r_event & EVENT_canMOTOR) == (EVENT_canMOTOR)) 
+    {		
+			canSendMotorData();
+		}
+		/* 编码器事件 */
+		if((r_event & EVENT_canENCODER) == (EVENT_canENCODER)) 
+    {		
+			canSendEncoderData();
+		}
+		/* 清屏事件 */
+		if((r_event & EVENT_canOLEDCLEAR) == (EVENT_canOLEDCLEAR)) 
+    {		
+			OLED_Fill(0,0,128,64,0);
+		}
+		
+		
+	}
+}
+
 

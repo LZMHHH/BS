@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * @file    HuimitureTask.h
+  * @file    EnvironmentTask.h
   * @author  lss
   * @version V1.0
   * @date    2020-xx-xx
@@ -14,12 +14,18 @@
   *
   ******************************************************************************
   */
-#ifndef _HUIMITURE_H
-#define _HUIMITURE_H	 
+#ifndef _ENVIRONMENT_H
+#define _ENVIRONMENT_H	 
 #include "includes.h"
 
-void vTaskHuimiture( void * pvParameters );
 
+
+void vTaskEnvironment( void * pvParameters );
+
+void sendSht3xData(TickType_t xTicksToWait);
+void sendGy30Data(TickType_t xTicksToWait);
+void sendPmsData(TickType_t xTicksToWait);
+void sendBmeData(TickType_t xTicksToWait);
 
 #endif
 

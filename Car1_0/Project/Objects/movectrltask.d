@@ -83,5 +83,6 @@
 .\objects\movectrltask.o: ..\TASK\inc\CommunicateTask.h
 .\objects\movectrltask.o: ..\TASK\inc\canCommunicateTask.h
 .\objects\movectrltask.o: ..\TASK\inc\DisplayTask.h
+.\objects\movectrltask.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\movectrltask.o: ..\TASK\inc\MoveCtrlTask.h
 .\objects\movectrltask.o: ..\TASK\inc\MpuTask.h

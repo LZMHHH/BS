@@ -101,12 +101,22 @@ typedef enum
 	KIND_LED		  = 0x02,
 	KIND_MOTOR	  = 0x03,
 	KIND_ENCODER	= 0x04,
-	KIND_UI     	= 0x05,
-	KIND_KEY     	= 0x06,
+	KIND_KEY     	= 0x05,
+	KIND_UI     	= 0x11,
+	KIND_UIREQ    = 0x12,
+	KIND_SHT3X    = 0x21,
+	KIND_GY30     = 0x22,
+	KIND_PMS      = 0x23,
+	KIND_BME      = 0x24,
+	
 	
 	CMD_CHANGE_MODE	=	0x21,	/*切换模式*/
 	
 }kind_e;
+
+/* KIND_UIREQ 用于CMD,下为请求哪一个MCU的UI*/
+#define UIREQ_CAR          0x01
+#define UIREQ_ENVIRONMENT  0x02
 
 /********************************************************** 
 	can通讯
@@ -121,40 +131,62 @@ typedef enum
 /* can帧ID */
 #define 	CAN_EVNID    0x031
 #define 	CAN_LEDID    0x032
-#define 	CAN_TIMEID   0x033
+#define 	CAN_KEYID    0x033
+#define 	CAN_TIMEID   0x034
+#define 	CAN_UIID     0x035
+#define 	CAN_MOTORID  0x036
 
 /* data[2] 为一分 */
 /* 器件kind */
-#define 	CAN_SHTX     0x01
-#define 	CAN_GY30     0x02
-#define 	CAN_PMS      0x03
-#define 	CAN_BME      0x04
-#define   CAN_LEDA     0x11
-#define   CAN_LEDB     0x12
-#define   CAN_FMQ      0x13
-#define   CAN_DS3231   0x21
-#define   CAN_SETCLOCK 0x22
+#define 	CAN_SHTX     0x11
+#define 	CAN_GY30     0x12
+#define 	CAN_PMS      0x13
+#define 	CAN_BME      0x14
+#define   CAN_LEDA     0x21
+#define   CAN_LEDB     0x22
+#define   CAN_FMQ      0x23
+#define   CAN_KEYU     0x31
+#define   CAN_KEYD     0x32
+#define   CAN_KEYL     0x33
+#define   CAN_KEYR     0x34
+#define   CAN_KEYM     0x35
+#define   CAN_DS3231   0x41
+#define   CAN_SETCLOCK 0x42
+#define   CAN_CARUI    0x51
+#define   CAN_CARMOTORA    0x61
+#define   CAN_CARMOTORB    0x62
+#define   CAN_CARMOTORC    0x63
+#define   CAN_CARMOTORD    0x64
 
 /* data[3] 为二分 */
 /* 环境参数kind */
-#define 	CAN_Temperature  0x01
-#define 	CAN_Humidity     0x02
-#define 	CAN_Light        0x03
-#define 	CAN_PM2_5        0x04
-#define 	CAN_PM10         0x05
-#define 	CAN_Pressure     0x06
-#define 	CAN_Hight        0x07
-#define 	CAN_LedMode      0x11
-#define 	CAN_LedFre       0x12
-#define 	CAN_Second       0x21
-#define 	CAN_Minute       0x22
-#define 	CAN_Hour         0x23
-#define 	CAN_Day          0x24
-#define 	CAN_Week         0x25
-#define 	CAN_Month        0x26
-#define 	CAN_Year         0x27
-#define 	CAN_ClockMode    0x28
-#define 	CAN_SaveNum      0x29
+#define 	CAN_Temperature  0x11
+#define 	CAN_Humidity     0x12
+#define 	CAN_Light        0x13
+#define 	CAN_PM2_5        0x14
+#define 	CAN_PM10         0x15
+#define 	CAN_Pressure     0x16
+#define 	CAN_Hight        0x17
+#define 	CAN_LedMode      0x21
+#define 	CAN_LedFre       0x22
+#define 	CAN_KeyRet       0x31
+#define 	CAN_Second       0x41
+#define 	CAN_Minute       0x42
+#define 	CAN_Hour         0x43
+#define 	CAN_Day          0x44
+#define 	CAN_Week         0x45
+#define 	CAN_Month        0x46
+#define 	CAN_Year         0x47
+#define 	CAN_ClockMode    0x48
+#define 	CAN_SaveNum      0x49
+#define 	CAN_UIReq        0x50
+#define 	CAN_UIStepIndex  0x51
+#define 	CAN_UIPageIndex  0x52
+#define 	CAN_UIPageIndexLast  0x53
+#define 	CAN_UIPareIndex  0x54
+#define 	CAN_UIParaIfControl  0x55
+#define 	CAN_PwmOut       0x61
+#define 	CAN_Encoder      0x65
 
 
 

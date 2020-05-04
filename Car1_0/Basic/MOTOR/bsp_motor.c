@@ -165,8 +165,8 @@ void Set_Pwm(CLASS_Motor *motor)
 					AINA = 0;
 				else
 					AINA = 1;
-				/* 输出pwm */
-				PWMA=7200 - myabs(motor->pwmout);        // 转速大小
+				if(myabs(motor->pwmout) > 7200) PWMA = 0;
+				else                            PWMA=7200 - myabs(motor->pwmout);        // 转速大小
 				break;
 		case enMotorB:
 				/* 方向 */
@@ -174,8 +174,8 @@ void Set_Pwm(CLASS_Motor *motor)
 					AINB = 0;
 				else
 					AINB = 1;
-				/* 输出pwm */
-				PWMB=7200 - myabs(motor->pwmout);        // 转速大小
+				if(myabs(motor->pwmout) > 7200) PWMB = 0;
+				else                            PWMB=7200 - myabs(motor->pwmout);        // 转速大小
 				break;
 		case enMotorC:
 				/* 方向 */
@@ -183,8 +183,8 @@ void Set_Pwm(CLASS_Motor *motor)
 					AINC = 0;
 				else
 					AINC = 1;
-				/* 输出pwm */
-				PWMC=7200 - myabs(motor->pwmout);        // 转速大小
+				if(myabs(motor->pwmout) > 7200) PWMC = 0;
+				else                            PWMC=7200 - myabs(motor->pwmout);        // 转速大小
 				break;
 		case enMotorD:
 				/* 方向 */
@@ -192,8 +192,8 @@ void Set_Pwm(CLASS_Motor *motor)
 					AIND = 0;
 				else
 					AIND = 1;
-				/* 输出pwm */
-				PWMD=7200 - myabs(motor->pwmout);        // 转速大小
+				if(myabs(motor->pwmout) > 7200) PWMD = 0;
+				else                            PWMD=7200 - myabs(motor->pwmout);        // 转速大小
 				break;
 		default:
 				break;

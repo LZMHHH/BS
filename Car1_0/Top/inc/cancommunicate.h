@@ -79,6 +79,7 @@ extern bme_t       Bme;
 extern clock_t     ClockA;
 extern clock_t     SetClock;
 extern ui_t        envUIPara;
+extern ui_t        carUIPara;
 
 
 void canCommunicateParaInit(void);

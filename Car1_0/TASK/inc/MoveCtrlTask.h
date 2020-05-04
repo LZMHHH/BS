@@ -53,8 +53,8 @@ extern   volatile TickType_t CarTickCount;
 
 
 void vTaskMoveCtrl( void * pvParameters );
-
-
+void canSendMotorData(void);
+void canSendEncoderData(void);
 #endif
 
 

@@ -58,6 +58,8 @@ void DisplayInit(void);
 
 void Change_UIMode(void);
 
+void canSendCarUIData(void);
+void SendCarUIData(void);
 #endif
 
 

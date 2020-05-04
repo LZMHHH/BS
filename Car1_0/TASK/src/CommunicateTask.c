@@ -73,7 +73,6 @@ void vTaskUart1Tx( void * pvParameters )
 *****************************************************/
 
 /* 声明 */
-void sendLedData(void);
 void sendKeyAckData(void);
 
 //上传数据任务
@@ -86,7 +85,12 @@ void vTaskSendData( void * pvParameters )
 																EVENT_MOTOR
 															 |EVENT_ENCODER
 															 |EVENT_LED
-															 |EVENT_KEYACK,/* 接收线程感兴趣的事件 */
+															 |EVENT_KEYACK
+															 |EVENT_uart1CARUI
+															 |EVENT_uart1SHT3X
+															 |EVENT_uart1GY30
+															 |EVENT_uart1PMS
+															 |EVENT_uart1BME,/* 接收线程感兴趣的事件 */
 																pdTRUE,   /* 退出时清除事件位 */
 																pdFALSE,   /* 满足感兴趣的如何一个事件 */
 																portMAX_DELAY);/* 指定超时事件,一直等 */
@@ -121,31 +125,36 @@ void vTaskSendData( void * pvParameters )
     {		
 			sendKeyAckData();
     }
+		/* CARUI事件 */
+		if((r_event & EVENT_uart1CARUI) == (EVENT_uart1CARUI)) 
+    {		
+			SendCarUIData();
+    }
+		/* EVENT_uart1SHT3X事件 */
+		if((r_event & EVENT_uart1SHT3X) == (EVENT_uart1SHT3X)) 
+    {		
+			sendSht3xData(30);
+    }
+		/* EVENT_uart1GY30事件 */
+		if((r_event & EVENT_uart1GY30) == (EVENT_uart1GY30)) 
+    {		
+			sendGy30Data(30);
+    }
+		/* EVENT_uart1PMS事件 */
+		if((r_event & EVENT_uart1PMS) == (EVENT_uart1PMS)) 
+    {		
+			sendPmsData(30);
+    }
+		/* EVENT_uart1BME事件 */
+		if((r_event & EVENT_uart1BME) == (EVENT_uart1BME)) 
+    {		
+			sendBmeData(30);
+    }
 		
 	}
 }
 
-void sendLedData(void)
-{
-	msg_t p;
-	p.msg_head = MSG_HEAD;
-	p.msgID = UP_DATA;
-	p.mcuID = enIDCar;
-	p.dataLen = 2+sizeof(LedA.flag_mode)+sizeof(LedA.cycle)+sizeof(LedB.flag_mode)+sizeof(LedB.cycle); 
-	p.data[0] = enDATA;
-	p.data[1] = KIND_LED;
-	
-	memcpy(p.data+2, 
-				&(LedA.flag_mode), 1);  /* 特别留意，低字节在前 */
-	memcpy(p.data+2+1, 
-				&(LedA.cycle), 4);  /* 特别留意，低字节在前 */
-	memcpy(p.data+2+1+4, 
-				&(Fmq.flag_mode), 1);  /* 特别留意，低字节在前 */
-	memcpy(p.data+2+1+4+1, 
-				&(Fmq.cycle), 4);  /* 特别留意，低字节在前 */
 
-	xQueueSend(xQueue_uart1Tx, &p, 20);
-}
 
 void sendKeyAckData(void)
 {

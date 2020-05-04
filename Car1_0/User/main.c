@@ -68,7 +68,7 @@ static TaskHandle_t xHandleTaskCan       = NULL;  //Can任务
 			 TaskHandle_t xHandleTaskMoveCtrl  = NULL;  //移动控制任务
 			 TaskHandle_t xHandleTaskMpu       = NULL;  //陀螺仪任务
 			 TaskHandle_t xHandleTaskSendData  = NULL;  //上传数据处理任务
-			 
+			 TaskHandle_t xHandleTaskEnvironment = NULL;  //上报环境数据任务
 /********************************** 内核对象句柄 *********************************/
 /*
  * 信号量，消息队列，事件标志组，软件定时器这些都属于内核的对象，要想使用这些内核
@@ -86,6 +86,7 @@ static TaskHandle_t xHandleTaskCan       = NULL;  //Can任务
 			 TaskHandle_t xQueue_canTx         = NULL;  //can的发送消息队列
 			 SemaphoreHandle_t BinarySem_Mpu   = NULL;  //mpu二值信号量
        EventGroupHandle_t Event_SendData = NULL;  //上传数据事件标志着组
+			 EventGroupHandle_t Event_canSendData = NULL;  //上传数据事件标志着组
 
 
 
@@ -192,9 +193,9 @@ static void AppTaskCreate (void)
 
 	  xTaskCreate( vTaskUart1Rx,   	        /* 任务函数  */
 								 "Task Uart1Rx",          /* 任务名    */
-								 256,                   	/* 任务栈大小，单位word，也就是4字节 */
+								 512,                   	/* 任务栈大小，单位word，也就是4字节 */
 								 NULL,              	    /* 任务参数  */
-								 12,                 	    /* 任务优先级*/
+								 13,                 	    /* 任务优先级*/
 								 &xHandleTaskUart1Rx );   /* 任务句柄  */
 								 
 		xTaskCreate( vTaskUart1Tx,   	        /* 任务函数  */
@@ -217,6 +218,20 @@ static void AppTaskCreate (void)
 								 NULL,              	    /* 任务参数  */
 								 12,                 	    /* 任务优先级*/
 								 &xHandleTaskUart1Tx );   /* 任务句柄  */
+		
+		xTaskCreate( vTaskcanSendData,   	      /* 任务函数  */
+								 "Task SendData",         /* 任务名    */
+								 256,                   	/* 任务栈大小，单位word，也就是4字节 */
+								 NULL,              	    /* 任务参数  */
+								 10,                 	    /* 任务优先级*/
+								 &xHandleTaskSendData );  /* 任务句柄  */
+						
+		xTaskCreate( vTaskEnvironment,   	      /* 任务函数  */
+								 "Task Environment",        /* 任务名    */
+								 256,                   	  /* 任务栈大小，单位word，也就是4字节 */
+								 NULL,              	      /* 任务参数  */
+								 10,                 	      /* 任务优先级*/
+								 &xHandleTaskEnvironment ); /* 任务句柄  */
 		
 		xTaskCreate( vTaskSendData,   	      /* 任务函数  */
 								 "Task Uart1Tx",          /* 任务名    */
@@ -269,11 +284,11 @@ static void AppObjCreate (void)
 	}
 
 	 /* xQueue_canTx */
-  xQueue_canRx = xQueueCreate((UBaseType_t ) 10,                  /* 消息队列的长度 */
+  xQueue_canRx = xQueueCreate((UBaseType_t ) 15,                  /* 消息队列的长度 */
                                 (UBaseType_t ) (sizeof(CanRxMsg)+2));   /* 消息的大小 */
 	
 	 /* xQueue_canRx */
-  xQueue_canTx = xQueueCreate((UBaseType_t ) 10,                  /* 消息队列的长度 */
+  xQueue_canTx = xQueueCreate((UBaseType_t ) 15,                  /* 消息队列的长度 */
                                 (UBaseType_t ) (sizeof(CanTxMsg)+2));   /* 消息的大小 */
 
 	 /* 创建 BinarySem */
@@ -285,9 +300,7 @@ static void AppObjCreate (void)
 	
 	 /* 创建 Event_Handle */
   Event_SendData = xEventGroupCreate();	 
-	if(NULL != Event_SendData)
-	{
-//    Uart1_DMA_SendString("Event_SendData事件标志组创建成功!\r\n",-1);
-	}
+
+	Event_canSendData = xEventGroupCreate();	 
 }
 

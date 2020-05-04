@@ -83,6 +83,7 @@
 .\objects\bsp_oled.o: ..\TASK\inc\CommunicateTask.h
 .\objects\bsp_oled.o: ..\TASK\inc\canCommunicateTask.h
 .\objects\bsp_oled.o: ..\TASK\inc\DisplayTask.h
+.\objects\bsp_oled.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\bsp_oled.o: ..\TASK\inc\MoveCtrlTask.h
 .\objects\bsp_oled.o: ..\TASK\inc\MpuTask.h
 .\objects\bsp_oled.o: ..\Basic\OLED\bsp_oledfont.h

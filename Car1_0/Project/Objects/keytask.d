@@ -83,5 +83,6 @@
 .\objects\keytask.o: ..\TASK\inc\CommunicateTask.h
 .\objects\keytask.o: ..\TASK\inc\canCommunicateTask.h
 .\objects\keytask.o: ..\TASK\inc\DisplayTask.h
+.\objects\keytask.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\keytask.o: ..\TASK\inc\MoveCtrlTask.h
 .\objects\keytask.o: ..\TASK\inc\MpuTask.h

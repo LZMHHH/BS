@@ -83,5 +83,6 @@
 .\objects\bsp_mpu6050.o: ..\TASK\inc\CommunicateTask.h
 .\objects\bsp_mpu6050.o: ..\TASK\inc\canCommunicateTask.h
 .\objects\bsp_mpu6050.o: ..\TASK\inc\DisplayTask.h
+.\objects\bsp_mpu6050.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\bsp_mpu6050.o: ..\TASK\inc\MoveCtrlTask.h
 .\objects\bsp_mpu6050.o: ..\TASK\inc\MpuTask.h

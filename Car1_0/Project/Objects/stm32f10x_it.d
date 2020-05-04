@@ -82,5 +82,6 @@
 .\objects\stm32f10x_it.o: ..\TASK\inc\CommunicateTask.h
 .\objects\stm32f10x_it.o: ..\TASK\inc\canCommunicateTask.h
 .\objects\stm32f10x_it.o: ..\TASK\inc\DisplayTask.h
+.\objects\stm32f10x_it.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\stm32f10x_it.o: ..\TASK\inc\MoveCtrlTask.h
 .\objects\stm32f10x_it.o: ..\TASK\inc\MpuTask.h

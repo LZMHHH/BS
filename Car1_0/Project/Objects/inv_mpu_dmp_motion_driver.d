@@ -83,5 +83,6 @@
 .\objects\inv_mpu_dmp_motion_driver.o: ..\TASK\inc\CommunicateTask.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\TASK\inc\canCommunicateTask.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\TASK\inc\DisplayTask.h
+.\objects\inv_mpu_dmp_motion_driver.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\TASK\inc\MoveCtrlTask.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\TASK\inc\MpuTask.h

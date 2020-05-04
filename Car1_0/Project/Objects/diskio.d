@@ -83,5 +83,6 @@
 .\objects\diskio.o: ..\TASK\inc\CommunicateTask.h
 .\objects\diskio.o: ..\TASK\inc\canCommunicateTask.h
 .\objects\diskio.o: ..\TASK\inc\DisplayTask.h
+.\objects\diskio.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\diskio.o: ..\TASK\inc\MoveCtrlTask.h
 .\objects\diskio.o: ..\TASK\inc\MpuTask.h

@@ -266,6 +266,12 @@ void msgAnalyze(msg_t *p)
 									/* 触发一个上传keyack数据的事件  目的是回传更新数据*/
 									xEventGroupSetBits(Event_SendData,EVENT_KEYACK);		
 									break;
+					case KIND_UIREQ:
+									if(p->data[2] == UIREQ_CAR) 
+									{
+										xEventGroupSetBits(Event_SendData,EVENT_uart1CARUI);	
+									}										
+									break;
 				}
 			}
 			else
@@ -278,7 +284,7 @@ void msgAnalyze(msg_t *p)
 									intdata = (int)((*(p->data+5) <<24)|(*(p->data+4) <<16)|(*(p->data+3) <<8)|*(p->data+2));
 									if(myabs(intdata) < 3000) Car.speedX = intdata;
 									intdata = (int)((*(p->data+9) <<24)|(*(p->data+8) <<16)|(*(p->data+7) <<8)|*(p->data+6));
-									if(myabs(intdata) < 3000) Car.speedZ = intdata;
+									if(myabs(intdata) < 3000) Car.speedY = intdata;
 									intdata = (int)((*(p->data+13)<<24)|(*(p->data+12)<<16)|(*(p->data+11)<<8)|*(p->data+10));
 									if(myabs(intdata) < 3000) Car.speedZ = intdata;
 									CarTickCount = xTaskGetTickCount();
@@ -296,23 +302,23 @@ void msgAnalyze(msg_t *p)
 													break;
 									}
 									break;
-						case KIND_UI:
-									if(*(p->data+2) == true)
-									{
-										Main_uiconfigParam.Sync = true;
-										
-										Main_uiconfigParam.Step_Index      = *(p->data+3);
-										Main_uiconfigParam.Page_Index      = *(p->data+4);
-										Main_uiconfigParam.Page_Index_Last = *(p->data+5);
-										Main_uiconfigParam.Para_Index      = *(p->data+6);
-										Main_uiconfigParam.Para_IfControl  = *(p->data+7);
-										
-										Show_Para_Con(&Main_uiconfigParam);
-										OLED_Fill(0,0,128,64,0);
-									}
-									/* 触发一个上传led数据的事件  目的是回传更新数据*/
-									xEventGroupSetBits(Event_SendData,EVENT_LED);		
-									break;
+//						case KIND_UI:
+//									if(*(p->data+2) == true)
+//									{
+//										Main_uiconfigParam.Sync = true;
+//										
+//										Main_uiconfigParam.Step_Index      = *(p->data+3);
+//										Main_uiconfigParam.Page_Index      = *(p->data+4);
+//										Main_uiconfigParam.Page_Index_Last = *(p->data+5);
+//										Main_uiconfigParam.Para_Index      = *(p->data+6);
+//										Main_uiconfigParam.Para_IfControl  = *(p->data+7);
+//										
+//										Show_Para_Con(&Main_uiconfigParam);
+//										OLED_Fill(0,0,128,64,0);
+//									}
+//									/* 触发一个上传led数据的事件  目的是回传更新数据*/
+//									xEventGroupSetBits(Event_SendData,EVENT_LED);		
+//									break;
 					}
 				}
 			}
@@ -332,6 +338,8 @@ void msgAnalyze(msg_t *p)
 /*来自串口解码*/
 void canmsgAnalyze(CanRxMsg *p)
 {
+	u8 Page_Index_Last;
+	
 	/* 环境ID */
 	if((p->IDE == CAN_ID_STD) && (p->StdId == CAN_EVNID))
 	{
@@ -442,6 +450,61 @@ void canmsgAnalyze(CanRxMsg *p)
 			}
 		}
 	}
+	/* KEYID */
+	if((p->IDE == CAN_ID_STD) && (p->StdId == CAN_KEYID))
+	{
+		if(*(p->Data) == enIDEnvironment)
+		{
+			if(*(p->Data+1) == enDATA)
+			{
+				
+				switch(*(p->Data+2))
+				{
+					case CAN_KEYU:
+						   switch(*(p->Data+3))
+								{
+									case CAN_KeyRet:
+												Key_PU.Key_RetVal = (u8)(*(p->Data+4));
+												break;
+								}
+								break;
+					case CAN_KEYD:
+						   switch(*(p->Data+3))
+								{
+									case CAN_KeyRet:
+												Key_PD.Key_RetVal = (u8)(*(p->Data+4));
+												break;
+								}
+								break;
+					case CAN_KEYL:
+						   switch(*(p->Data+3))
+								{
+									case CAN_KeyRet:
+												Key_PL.Key_RetVal = (u8)(*(p->Data+4));
+												break;
+								}
+								break;
+					case CAN_KEYR:
+						   switch(*(p->Data+3))
+								{
+									case CAN_KeyRet:
+												Key_PR.Key_RetVal = (u8)(*(p->Data+4));
+												break;
+								}
+								break;
+					case CAN_KEYM:
+						   switch(*(p->Data+3))
+								{
+									case CAN_KeyRet:
+												Key_PM.Key_RetVal = (u8)(*(p->Data+4));
+												break;
+								}
+								break;
+					
+				}
+			}
+		}
+	}
 	/* TIMEID */
 	if((p->IDE == CAN_ID_STD) && (p->StdId == CAN_TIMEID))
 	{
@@ -526,7 +589,53 @@ void canmsgAnalyze(CanRxMsg *p)
 			}
 		}
 	}
-	
+	/* UIID */
+	if((p->IDE == CAN_ID_STD) && (p->StdId == CAN_UIID))
+	{
+		if(*(p->Data) == enIDEnvironment)
+		{
+			if(*(p->Data+1) == enDATA)
+			{
+				
+				switch(*(p->Data+2))
+				{
+					case CAN_CARUI:
+						   switch(*(p->Data+3))
+								{
+									case CAN_UIStepIndex:
+												Main_uiconfigParam.Step_Index = (u8)(*(p->Data+4));
+												break;
+									case CAN_UIPageIndex:
+												Main_uiconfigParam.Page_Index = (u8)(*(p->Data+4));
+												break;
+									case CAN_UIPageIndexLast:
+												Main_uiconfigParam.Page_Index_Last = (u8)(*(p->Data+4));
+												break;
+									case CAN_UIPareIndex:
+												Main_uiconfigParam.Para_Index = (u8)(*(p->Data+4));
+												break;
+									case CAN_UIParaIfControl:
+												Main_uiconfigParam.Para_IfControl = (u8)(*(p->Data+4));
+												break;
+								}
+								break;
+				}
+			}
+			if(*(p->Data+1) == enCMD)
+			{
+				
+				switch(*(p->Data+2))
+				{
+					case CAN_CARUI:
+						   if(*(p->Data+3) == CAN_UIReq)
+								{
+									xEventGroupSetBits(Event_canSendData,EVENT_canCARUI);		
+								}
+								break;
+				}
+			}
+		}
+	}
 }
 
 

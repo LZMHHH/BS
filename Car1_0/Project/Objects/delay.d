@@ -83,5 +83,6 @@
 .\objects\delay.o: ..\TASK\inc\CommunicateTask.h
 .\objects\delay.o: ..\TASK\inc\canCommunicateTask.h
 .\objects\delay.o: ..\TASK\inc\DisplayTask.h
+.\objects\delay.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\delay.o: ..\TASK\inc\MoveCtrlTask.h
 .\objects\delay.o: ..\TASK\inc\MpuTask.h

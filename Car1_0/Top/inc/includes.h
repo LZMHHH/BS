@@ -142,6 +142,7 @@
 #include "CommunicateTask.h"
 #include "canCommunicateTask.h"
 #include "DisplayTask.h"
+#include "EnvironmentTask.h"
 #if IFPRINTTASK
 #include "CpuTask.h"
 #endif
@@ -181,7 +182,7 @@ extern TaskHandle_t xQueue_canTx;    //can的发送消息队列
 extern SemaphoreHandle_t BinarySem_Mpu;  //mpu二值信号量
 
 extern EventGroupHandle_t Event_SendData;  //上传数据事件标志着组
-
+extern EventGroupHandle_t Event_canSendData;  //上传数据事件标志着组
 //事件标志组涉及的函数句柄广播
 extern TaskHandle_t xHandleTaskInit;  //file任务
 #if IFFILESYSTEM

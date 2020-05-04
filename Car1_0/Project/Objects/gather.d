@@ -83,5 +83,6 @@
 .\objects\gather.o: ..\TASK\inc\CommunicateTask.h
 .\objects\gather.o: ..\TASK\inc\canCommunicateTask.h
 .\objects\gather.o: ..\TASK\inc\DisplayTask.h
+.\objects\gather.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\gather.o: ..\TASK\inc\MoveCtrlTask.h
 .\objects\gather.o: ..\TASK\inc\MpuTask.h

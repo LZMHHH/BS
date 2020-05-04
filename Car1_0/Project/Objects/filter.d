@@ -83,5 +83,6 @@
 .\objects\filter.o: ..\TASK\inc\CommunicateTask.h
 .\objects\filter.o: ..\TASK\inc\canCommunicateTask.h
 .\objects\filter.o: ..\TASK\inc\DisplayTask.h
+.\objects\filter.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\filter.o: ..\TASK\inc\MoveCtrlTask.h
 .\objects\filter.o: ..\TASK\inc\MpuTask.h
