@@ -70,6 +70,12 @@ struct class_light
 {
 	int   BH_Data;           //合成数据
 	float BH_Voltage;        //正常数据
+	
+	float    shieldVal;   //阈值
+	
+	float    a;           //亮度系数
+	
+	u8       mode;        //enON：正向，enOFF：反向
 };
 
 

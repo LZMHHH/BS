@@ -67,6 +67,7 @@
 .\objects\ledtask.o: ..\Basic\GY\bsp_gy30.h
 .\objects\ledtask.o: ..\Basic\BME\bsp_bme280.h
 .\objects\ledtask.o: ..\Basic\CAN\bsp_can.h
+.\objects\ledtask.o: ..\Basic\ADC\bsp_adc.h
 .\objects\ledtask.o: ..\Zui\inc\bmp.h
 .\objects\ledtask.o: ..\Zui\inc\main_ui.h
 .\objects\ledtask.o: ..\Zui\inc\car_ui.h

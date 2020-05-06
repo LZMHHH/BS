@@ -20,12 +20,14 @@
 
 
 //∑¿÷π±®¥Ì
-typedef struct class_huimiture CLASS_Huimiture;
-
+typedef struct   class_huimiture CLASS_Huimiture;
+typedef  struct  class_gas       CLASS_Gas; 
 
 /* π„≤• */
 extern CLASS_Huimiture Huimiture;
-
+extern CLASS_Gas       Smog;
+extern CLASS_Gas       Hydrogen;
+extern CLASS_Gas       CO;
 
 void vTaskEnvironment( void * pvParameters );
 

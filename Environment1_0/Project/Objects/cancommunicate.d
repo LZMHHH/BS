@@ -67,6 +67,7 @@
 .\objects\cancommunicate.o: ..\Basic\GY\bsp_gy30.h
 .\objects\cancommunicate.o: ..\Basic\BME\bsp_bme280.h
 .\objects\cancommunicate.o: ..\Basic\CAN\bsp_can.h
+.\objects\cancommunicate.o: ..\Basic\ADC\bsp_adc.h
 .\objects\cancommunicate.o: ..\Zui\inc\bmp.h
 .\objects\cancommunicate.o: ..\Zui\inc\main_ui.h
 .\objects\cancommunicate.o: ..\Zui\inc\car_ui.h

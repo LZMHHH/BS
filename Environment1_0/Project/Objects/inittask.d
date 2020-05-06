@@ -67,6 +67,7 @@
 .\objects\inittask.o: ..\Basic\GY\bsp_gy30.h
 .\objects\inittask.o: ..\Basic\BME\bsp_bme280.h
 .\objects\inittask.o: ..\Basic\CAN\bsp_can.h
+.\objects\inittask.o: ..\Basic\ADC\bsp_adc.h
 .\objects\inittask.o: ..\Zui\inc\bmp.h
 .\objects\inittask.o: ..\Zui\inc\main_ui.h
 .\objects\inittask.o: ..\Zui\inc\car_ui.h

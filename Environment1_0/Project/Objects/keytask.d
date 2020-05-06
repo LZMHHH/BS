@@ -67,6 +67,7 @@
 .\objects\keytask.o: ..\Basic\GY\bsp_gy30.h
 .\objects\keytask.o: ..\Basic\BME\bsp_bme280.h
 .\objects\keytask.o: ..\Basic\CAN\bsp_can.h
+.\objects\keytask.o: ..\Basic\ADC\bsp_adc.h
 .\objects\keytask.o: ..\Zui\inc\bmp.h
 .\objects\keytask.o: ..\Zui\inc\main_ui.h
 .\objects\keytask.o: ..\Zui\inc\car_ui.h

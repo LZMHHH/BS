@@ -67,6 +67,7 @@
 .\objects\bsp_tim_pwm.o: ..\Basic\GY\bsp_gy30.h
 .\objects\bsp_tim_pwm.o: ..\Basic\BME\bsp_bme280.h
 .\objects\bsp_tim_pwm.o: ..\Basic\CAN\bsp_can.h
+.\objects\bsp_tim_pwm.o: ..\Basic\ADC\bsp_adc.h
 .\objects\bsp_tim_pwm.o: ..\Zui\inc\bmp.h
 .\objects\bsp_tim_pwm.o: ..\Zui\inc\main_ui.h
 .\objects\bsp_tim_pwm.o: ..\Zui\inc\car_ui.h

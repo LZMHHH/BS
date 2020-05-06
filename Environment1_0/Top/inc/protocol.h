@@ -131,6 +131,9 @@ typedef enum
 #define 	CAN_GY30     0x12
 #define 	CAN_PMS      0x13
 #define 	CAN_BME      0x14
+#define 	CAN_MQ2      0x15
+#define 	CAN_MQ8      0x16
+#define 	CAN_MQ7      0x17
 #define   CAN_LEDA     0x21
 #define   CAN_LEDB     0x22
 #define   CAN_FMQ      0x23
@@ -156,6 +159,7 @@ typedef enum
 #define 	CAN_PM10         0x15
 #define 	CAN_Pressure     0x16
 #define 	CAN_Hight        0x17
+#define 	CAN_PriAD        0x18
 #define 	CAN_LedMode      0x21
 #define 	CAN_LedFre       0x22
 #define 	CAN_KeyRet       0x31

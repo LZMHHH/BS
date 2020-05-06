@@ -30,14 +30,13 @@ void Car_uiconfigParamInit(void)
 	Car_uiconfigParam.Para_Index_Limit[2] = 8;
 	Car_uiconfigParam.Para_Index_Limit[3] = 4;
 	
-	Car_uiconfigParam.Step_Index_Limit    = 6;
+	Car_uiconfigParam.Step_Index_Limit    = 5;
 	
-	Car_uiconfigParam.Step_Size[0]        =   0.001;
-	Car_uiconfigParam.Step_Size[1]        =   0.01;
-	Car_uiconfigParam.Step_Size[2]        =   0.1;
-	Car_uiconfigParam.Step_Size[3]        =   1.0;
+	Car_uiconfigParam.Step_Size[0]        =   0.01;
+	Car_uiconfigParam.Step_Size[1]        =   0.1;
+	Car_uiconfigParam.Step_Size[2]        =   1.0;
+	Car_uiconfigParam.Step_Size[3]        =   10.0;
 	Car_uiconfigParam.Step_Size[4]        =  10.0;
-	Car_uiconfigParam.Step_Size[5]        = 100.0;
 	
 	Show_Para_Con(&Car_uiconfigParam);
 	

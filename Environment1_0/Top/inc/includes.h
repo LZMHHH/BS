@@ -112,6 +112,8 @@
 #include "bsp_gy30.h"
 #include "bsp_bme280.h"
 #include "bsp_can.h"
+#include "bsp_adc.h"
+
 
 /* UI */
 #include "bmp.h"

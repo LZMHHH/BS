@@ -493,7 +493,7 @@ void OLED_ShowString(u8 x,u8 y,u8 *chr,u8 size)
 			   x+=8;                   //¼ä¾à
 			else
 				x+=6;
-		if(x>120){x=0;y+=2;}
+		if(x>122){x=0;y+=2;}
 			j++;
 	}
 }

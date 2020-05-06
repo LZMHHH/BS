@@ -70,6 +70,7 @@
 .\objects\ff.o: ..\Basic\GY\bsp_gy30.h
 .\objects\ff.o: ..\Basic\BME\bsp_bme280.h
 .\objects\ff.o: ..\Basic\CAN\bsp_can.h
+.\objects\ff.o: ..\Basic\ADC\bsp_adc.h
 .\objects\ff.o: ..\Zui\inc\bmp.h
 .\objects\ff.o: ..\Zui\inc\main_ui.h
 .\objects\ff.o: ..\Zui\inc\car_ui.h

@@ -49,6 +49,7 @@
 ".\objects\bsp_usart2.o"
 ".\objects\bsp_bme280.o"
 ".\objects\bsp_can.o"
+".\objects\bsp_adc.o"
 ".\objects\heap_4.o"
 ".\objects\port.o"
 ".\objects\croutine.o"

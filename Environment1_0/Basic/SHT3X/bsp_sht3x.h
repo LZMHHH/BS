@@ -56,6 +56,17 @@ struct class_huimiture
 {
 	float temperature;     //温度
 	float huimidity;			 //湿度
+	
+	float temp_offset;     //偏差（用于调零）
+	float huim_offset;     //偏差（用于调零）
+	
+	float tempAdd_shieldVal;   //加热阈值
+	float tempRed_shieldVal;   //降温阈值
+	float huim_shieldVal;      //阈值
+	
+	u8    tempAdd_mode;       //制热模式
+	u8    tempRed_mode;       //制冷模式
+	u8    huim_mode;          //模式
 };
 	
 /* soft iic*/

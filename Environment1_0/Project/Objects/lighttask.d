@@ -67,6 +67,7 @@
 .\objects\lighttask.o: ..\Basic\GY\bsp_gy30.h
 .\objects\lighttask.o: ..\Basic\BME\bsp_bme280.h
 .\objects\lighttask.o: ..\Basic\CAN\bsp_can.h
+.\objects\lighttask.o: ..\Basic\ADC\bsp_adc.h
 .\objects\lighttask.o: ..\Zui\inc\bmp.h
 .\objects\lighttask.o: ..\Zui\inc\main_ui.h
 .\objects\lighttask.o: ..\Zui\inc\car_ui.h

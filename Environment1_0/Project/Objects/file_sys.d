@@ -67,6 +67,7 @@
 .\objects\file_sys.o: ..\Basic\GY\bsp_gy30.h
 .\objects\file_sys.o: ..\Basic\BME\bsp_bme280.h
 .\objects\file_sys.o: ..\Basic\CAN\bsp_can.h
+.\objects\file_sys.o: ..\Basic\ADC\bsp_adc.h
 .\objects\file_sys.o: ..\Zui\inc\bmp.h
 .\objects\file_sys.o: ..\Zui\inc\main_ui.h
 .\objects\file_sys.o: ..\Zui\inc\car_ui.h

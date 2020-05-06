@@ -67,6 +67,7 @@
 .\objects\diskio.o: ..\Basic\GY\bsp_gy30.h
 .\objects\diskio.o: ..\Basic\BME\bsp_bme280.h
 .\objects\diskio.o: ..\Basic\CAN\bsp_can.h
+.\objects\diskio.o: ..\Basic\ADC\bsp_adc.h
 .\objects\diskio.o: ..\Zui\inc\bmp.h
 .\objects\diskio.o: ..\Zui\inc\main_ui.h
 .\objects\diskio.o: ..\Zui\inc\car_ui.h
