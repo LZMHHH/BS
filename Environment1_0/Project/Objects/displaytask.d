@@ -68,6 +68,7 @@
 .\objects\displaytask.o: ..\Basic\BME\bsp_bme280.h
 .\objects\displaytask.o: ..\Basic\CAN\bsp_can.h
 .\objects\displaytask.o: ..\Basic\ADC\bsp_adc.h
+.\objects\displaytask.o: ..\Basic\MOTOR\bsp_motor.h
 .\objects\displaytask.o: ..\Zui\inc\bmp.h
 .\objects\displaytask.o: ..\Zui\inc\main_ui.h
 .\objects\displaytask.o: ..\Zui\inc\car_ui.h

@@ -64,6 +64,9 @@ struct class_huimiture
 	float tempRed_shieldVal;   //降温阈值
 	float huim_shieldVal;      //阈值
 	
+	u16   AddPwm;             //加热风俗
+	u16   RedPwm;             //加热风俗
+	
 	u8    tempAdd_mode;       //制热模式
 	u8    tempRed_mode;       //制冷模式
 	u8    huim_mode;          //模式

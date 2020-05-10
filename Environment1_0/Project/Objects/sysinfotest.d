@@ -67,6 +67,7 @@
 .\objects\sysinfotest.o: ..\Basic\BME\bsp_bme280.h
 .\objects\sysinfotest.o: ..\Basic\CAN\bsp_can.h
 .\objects\sysinfotest.o: ..\Basic\ADC\bsp_adc.h
+.\objects\sysinfotest.o: ..\Basic\MOTOR\bsp_motor.h
 .\objects\sysinfotest.o: ..\Zui\inc\bmp.h
 .\objects\sysinfotest.o: ..\Zui\inc\main_ui.h
 .\objects\sysinfotest.o: ..\Zui\inc\car_ui.h

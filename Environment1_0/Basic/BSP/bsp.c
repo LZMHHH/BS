@@ -79,6 +79,11 @@ void bsp_Init(void)
 	/* 气体传感器初始化 */
 	Adc_Init();
 	
+	/* 制冷、制热和风扇初始化 */
+	DwtDelay_mS(100);
+	bsp_Motor_Init(7199,0);
+	DwtDelay_mS(100);
+	
 	/* CAN通讯初始化 */
 	bsp_CAN_Init();
 	

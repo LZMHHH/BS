@@ -157,9 +157,10 @@ typedef enum
 #define 	CAN_Light        0x13
 #define 	CAN_PM2_5        0x14
 #define 	CAN_PM10         0x15
-#define 	CAN_Pressure     0x16
-#define 	CAN_Hight        0x17
-#define 	CAN_PriAD        0x18
+#define 	CAN_AQI          0x16
+#define 	CAN_Pressure     0x17
+#define 	CAN_Hight        0x18
+#define 	CAN_PriAD        0x19
 #define 	CAN_LedMode      0x21
 #define 	CAN_LedFre       0x22
 #define 	CAN_KeyRet       0x31
@@ -180,7 +181,22 @@ typedef enum
 #define 	CAN_UIParaIfControl  0x55
 #define 	CAN_PwmOut       0x61
 #define 	CAN_Encoder      0x65
-
+#define 	CAN_Shield       0x70
+#define 	CAN_TempAddShield 0x71
+#define 	CAN_TempRedShield 0x72
+#define 	CAN_HuimShield  0x73
+#define 	CAN_PM2_5Shield 0x74
+#define 	CAN_PM10Shield  0x75
+#define 	CAN_MODE        0x80
+#define 	CAN_TempAddMode 0x81
+#define 	CAN_TempRedMode 0x82
+#define 	CAN_HuimMode    0x83
+#define 	CAN_FactorA     0x91
+#define 	CAN_Offset      0x9a
+#define 	CAN_TempOffset  0x9b
+#define 	CAN_HuimOffset  0x9c
+#define 	CAN_TempAddPwm  0xa1
+#define 	CAN_TempRedPwm  0xa2
 
 /* 把整形编码成字符串数据   5位数字 */
 char Protocol3_EncodeCInt(char* ProtocolString, const char *pSrc,long int pnum, u8 pSite);

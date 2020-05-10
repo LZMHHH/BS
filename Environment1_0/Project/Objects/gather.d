@@ -68,6 +68,7 @@
 .\objects\gather.o: ..\Basic\BME\bsp_bme280.h
 .\objects\gather.o: ..\Basic\CAN\bsp_can.h
 .\objects\gather.o: ..\Basic\ADC\bsp_adc.h
+.\objects\gather.o: ..\Basic\MOTOR\bsp_motor.h
 .\objects\gather.o: ..\Zui\inc\bmp.h
 .\objects\gather.o: ..\Zui\inc\main_ui.h
 .\objects\gather.o: ..\Zui\inc\car_ui.h

@@ -59,10 +59,10 @@
 /* 状态机表 */
 typedef enum
 {
-   LightMode_NO,
-	 LightMode_GS,    //跟随模式
-	 LightMode_RC,    //日常模式
-}  Light_Mode;
+   enLightMode_OFF,
+	 enLightMode_GS,    //跟随模式
+	 enLightMode_RC,    //日常模式
+}  enLight_Mode;
 
 typedef struct class_light CLASS_Light;
 

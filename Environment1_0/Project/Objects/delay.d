@@ -68,6 +68,7 @@
 .\objects\delay.o: ..\Basic\BME\bsp_bme280.h
 .\objects\delay.o: ..\Basic\CAN\bsp_can.h
 .\objects\delay.o: ..\Basic\ADC\bsp_adc.h
+.\objects\delay.o: ..\Basic\MOTOR\bsp_motor.h
 .\objects\delay.o: ..\Zui\inc\bmp.h
 .\objects\delay.o: ..\Zui\inc\main_ui.h
 .\objects\delay.o: ..\Zui\inc\car_ui.h

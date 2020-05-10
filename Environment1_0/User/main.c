@@ -119,7 +119,7 @@ int main(void)
 	__set_PRIMASK(1);
 	
 	//bsp初始化
-  bsp_Init();
+	bsp_Init();
 	
 	/* 参数初始化 */
 	ParametersInit();
@@ -186,11 +186,11 @@ static void AppTaskCreate (void)
                  &xHandleTaskKey );       /* 任务句柄  */
 
 		xTaskCreate( vTaskDisplay,   	      /* 任务函数  */
-							   "Task Display",          /* 任务名    */
-							   256,                   	/* 任务栈大小，单位word，也就是4字节 */
-							   NULL,              	    /* 任务参数  */
-							   6,                     	/* 任务优先级*/
-							   &xHandleTaskDisplay );   /* 任务句柄  */
+			   "Task Display",          /* 任务名    */
+			   512,                   	/* 任务栈大小，单位word，也就是4字节 */
+			   NULL,              	    /* 任务参数  */
+			   6,                     	/* 任务优先级*/
+			   &xHandleTaskDisplay );   /* 任务句柄  */
 
 
 //	  xTaskCreate( vTaskUart1Rx,   	        /* 任务函数  */
@@ -330,11 +330,11 @@ static void AppObjCreate (void)
                                 (UBaseType_t ) DEBUG1_TX_BSIZE);   /* 消息的大小 */
 					
 	/* xQueue_canTx */
-  xQueue_canRx = xQueueCreate((UBaseType_t ) 20,                  /* 消息队列的长度 */
+  xQueue_canRx = xQueueCreate((UBaseType_t ) 25,                  /* 消息队列的长度 */
                                 (UBaseType_t ) (sizeof(CanRxMsg)+2));   /* 消息的大小 */
 	
 	 /* xQueue_canRx */
-  xQueue_canTx = xQueueCreate((UBaseType_t ) 20,                  /* 消息队列的长度 */
+  xQueue_canTx = xQueueCreate((UBaseType_t ) 25,                  /* 消息队列的长度 */
                                 (UBaseType_t ) (sizeof(CanTxMsg)+2));   /* 消息的大小 */
 																
 

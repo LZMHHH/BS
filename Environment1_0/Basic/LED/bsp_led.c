@@ -38,6 +38,18 @@ CLASS_Led   Fmq ={ .led_name          = FMQ,
 										.config.gpio_pin  = GPIO_Pin_6,
 										};
 
+CLASS_Led   Jsq ={ .led_name          = JSQ,
+										.config.gpio_clk  = RCC_APB2Periph_GPIOB,
+										.config.gpio_port = GPIOB,
+										.config.gpio_pin  = GPIO_Pin_1,
+										};
+CLASS_Led   Flz ={ .led_name          = FLZ,
+										.config.gpio_clk  = RCC_APB2Periph_GPIOB,
+										.config.gpio_port = GPIOB,
+										.config.gpio_pin  = GPIO_Pin_0,
+										};
+
+
 
 /**************************************************************************
 函数功能：单个初始化,配置引脚
@@ -71,12 +83,17 @@ void bsp_LED_Init(void)
 			led_init(&LedB);
 //			led_init(&LedC);
 			led_init(&Fmq);
+	
+			led_init(&Jsq);
+			led_init(&Flz);
    
 	    GPIO_SetBits(LedA.config.gpio_port,LedA.config.gpio_pin);    //输出
 			GPIO_SetBits(LedB.config.gpio_port,LedB.config.gpio_pin);    //输出
 //			GPIO_SetBits(LedC.config.gpio_port,LedC.config.gpio_pin);    //输出
 			GPIO_ResetBits(Fmq.config.gpio_port,Fmq.config.gpio_pin);      //输出
 	        
+			GPIO_ResetBits(Jsq.config.gpio_port,Jsq.config.gpio_pin);      //输出
+			GPIO_ResetBits(Flz.config.gpio_port,Flz.config.gpio_pin);      //输出
 }
 
 

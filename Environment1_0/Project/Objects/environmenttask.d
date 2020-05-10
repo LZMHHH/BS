@@ -68,6 +68,7 @@
 .\objects\environmenttask.o: ..\Basic\BME\bsp_bme280.h
 .\objects\environmenttask.o: ..\Basic\CAN\bsp_can.h
 .\objects\environmenttask.o: ..\Basic\ADC\bsp_adc.h
+.\objects\environmenttask.o: ..\Basic\MOTOR\bsp_motor.h
 .\objects\environmenttask.o: ..\Zui\inc\bmp.h
 .\objects\environmenttask.o: ..\Zui\inc\main_ui.h
 .\objects\environmenttask.o: ..\Zui\inc\car_ui.h

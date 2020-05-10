@@ -31,6 +31,8 @@ void vTaskLed( void * pvParameters )
 	while(1)
 	{
 		Led_Ctrl();
+		Fmq_Ctrl();
+		
 		
 		if((xTaskGetTickCount()-100) > SendLedDataTickCount)
 		{
@@ -87,11 +89,28 @@ static void Led_Ctrl(void)
 					break;
 		default:break;
 	}
+	
 }
 
 static void Fmq_Ctrl(void)
 {
-	
+	switch(Fmq.flag_mode)
+	{
+		case enON:
+					digitalHi(Fmq.config.gpio_port,Fmq.config.gpio_pin);
+					break;
+		case enOFF:
+					digitalLo(Fmq.config.gpio_port,Fmq.config.gpio_pin);
+					break;
+		case enFre:
+					bsp_Led_Flash(&Fmq,Fmq.cycle);
+					break;
+		default:break;
+	}
+	if(Pms.AQI == 7)
+	{
+		digitalHi(Fmq.config.gpio_port,Fmq.config.gpio_pin);
+	}
 }
 
 void canSendLedData(void)
@@ -106,7 +125,7 @@ void canSendLedData(void)
 	/* 向CAN网络发送8个字节数据 */
 	p.DLC = 8;          /* 每包数据支持0-8个字节，这里设置为发送8个字节 */
 	p.Data[0] = enIDEnvironment;   
-  p.Data[1] = enDATA;
+    p.Data[1] = enDATA;
 	p.Data[2] = CAN_LEDA;
 	p.Data[3] = CAN_LedMode;
 	p.Data[4] = LedA.flag_mode;
@@ -120,7 +139,7 @@ void canSendLedData(void)
 	/* 向CAN网络发送8个字节数据 */
 	p.DLC = 8;          /* 每包数据支持0-8个字节，这里设置为发送8个字节 */
 	p.Data[0] = enIDEnvironment;   
-  p.Data[1] = enDATA;
+    p.Data[1] = enDATA;
 	p.Data[2] = CAN_LEDA;
 	p.Data[3] = CAN_LedFre;
 	memcpy(p.Data+4, &(LedA.cycle), sizeof(LedA.cycle));  /* 特别留意，低字节在前 */

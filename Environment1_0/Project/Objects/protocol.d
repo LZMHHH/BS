@@ -68,6 +68,7 @@
 .\objects\protocol.o: ..\Basic\BME\bsp_bme280.h
 .\objects\protocol.o: ..\Basic\CAN\bsp_can.h
 .\objects\protocol.o: ..\Basic\ADC\bsp_adc.h
+.\objects\protocol.o: ..\Basic\MOTOR\bsp_motor.h
 .\objects\protocol.o: ..\Zui\inc\bmp.h
 .\objects\protocol.o: ..\Zui\inc\main_ui.h
 .\objects\protocol.o: ..\Zui\inc\car_ui.h

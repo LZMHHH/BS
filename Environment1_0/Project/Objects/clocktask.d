@@ -68,6 +68,7 @@
 .\objects\clocktask.o: ..\Basic\BME\bsp_bme280.h
 .\objects\clocktask.o: ..\Basic\CAN\bsp_can.h
 .\objects\clocktask.o: ..\Basic\ADC\bsp_adc.h
+.\objects\clocktask.o: ..\Basic\MOTOR\bsp_motor.h
 .\objects\clocktask.o: ..\Zui\inc\bmp.h
 .\objects\clocktask.o: ..\Zui\inc\main_ui.h
 .\objects\clocktask.o: ..\Zui\inc\car_ui.h

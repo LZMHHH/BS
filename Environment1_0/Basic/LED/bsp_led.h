@@ -35,10 +35,15 @@
 /* 设备机表 */
 typedef enum
 {
+	/* 3.3v IO */
 	LED_A,              //红
 	LED_B,              //蓝
 	LED_C,              //黄
 	FMQ,                //蜂鸣器
+	
+	/* 5v IO */
+	JSQ,                //加湿器
+	FLZ,                //负离子
 }LEDN_Status;
 
 
@@ -88,6 +93,8 @@ extern CLASS_Led   LedB;
 extern CLASS_Led   LedC;
 extern CLASS_Led   Fmq;
 
+extern CLASS_Led   Jsq;
+extern CLASS_Led   Flz;
 
 
 
@@ -96,4 +103,6 @@ void   bsp_LED_Init      (void);  //初始化
 void   bsp_Led_Flash    (CLASS_Led* led_n,int time);
 #endif
 
+
+		
 

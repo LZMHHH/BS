@@ -280,8 +280,8 @@ void OLED_ShowChar(u8 x,u8 y,u8 chr,u8 size)
 					{
 						if(temp&0x80)oled_drawPoint(x,y,!Oled_Colour);
 						else         oled_drawPoint(x,y,Oled_Colour);
-						if(temp1&0x80)oled_drawPoint(x,y+8,!Oled_Colour);
-						else         oled_drawPoint(x,y+8,Oled_Colour);
+						if(temp1&0x80)oled_drawPoint(x,y-8,!Oled_Colour);
+						else         oled_drawPoint(x,y-8,Oled_Colour);
 						temp<<=1;
 						temp1<<=1;
 						y++;

@@ -68,6 +68,7 @@
 .\objects\pmstask.o: ..\Basic\BME\bsp_bme280.h
 .\objects\pmstask.o: ..\Basic\CAN\bsp_can.h
 .\objects\pmstask.o: ..\Basic\ADC\bsp_adc.h
+.\objects\pmstask.o: ..\Basic\MOTOR\bsp_motor.h
 .\objects\pmstask.o: ..\Zui\inc\bmp.h
 .\objects\pmstask.o: ..\Zui\inc\main_ui.h
 .\objects\pmstask.o: ..\Zui\inc\car_ui.h

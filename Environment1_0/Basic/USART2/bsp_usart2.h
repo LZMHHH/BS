@@ -54,12 +54,20 @@
 #define  DEBUG2_UART_Rx_DMA_IRQHandler     DMA1_Channel6_IRQHandler
 
 
+
 typedef struct class_pms CLASS_Pms;
 
 struct class_pms
 {
 	u16  PM2_5_Vol;   //pm2.5数值
 	u16  PM10_Vol;    //pm10数值
+	
+	u16  shieldPM2_5Val;
+	u16  shieldPM10Val;
+	
+	u8   AQI;
+	
+	u8   mode;
 };
 
 

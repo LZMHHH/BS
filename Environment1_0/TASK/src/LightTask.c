@@ -44,7 +44,8 @@ void vTaskLight( void * pvParameters )
 
 static void Para_Init(void)
 {
-
+	Light.shieldVal = 2000;
+	Light.a         = 1.0;
 }
 
 void canSendGy30Data(void)
@@ -60,10 +61,21 @@ void canSendGy30Data(void)
 	/* 向CAN网络发送8个字节数据 */
 	p.DLC = 8;          /* 每包数据支持0-8个字节，这里设置为发送8个字节 */
 	p.Data[0] = enIDEnvironment;   
-  p.Data[1] = enDATA;
+    p.Data[1] = enDATA;
 	p.Data[2] = CAN_GY30;
 	p.Data[3] = CAN_Light;
 	intdata = (int)((Light.BH_Voltage)*100);
+	memcpy(p.Data+4, &(intdata), sizeof(intdata));  /* 特别留意，低字节在前 */
+	xQueueSend(xQueue_canTx, &p, 30);
+	p.Data[3] = CAN_Shield;
+	intdata = (int)((Light.shieldVal)*100);
+	memcpy(p.Data+4, &(intdata), sizeof(intdata));  /* 特别留意，低字节在前 */
+	xQueueSend(xQueue_canTx, &p, 30);
+	p.Data[3] = CAN_MODE;
+	p.Data[4] = Light.a;
+	xQueueSend(xQueue_canTx, &p, 30);
+	p.Data[3] = CAN_FactorA;
+	intdata = (int)((Light.a)*100);
 	memcpy(p.Data+4, &(intdata), sizeof(intdata));  /* 特别留意，低字节在前 */
 	xQueueSend(xQueue_canTx, &p, 30);
 	

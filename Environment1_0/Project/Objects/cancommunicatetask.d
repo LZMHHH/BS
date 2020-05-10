@@ -68,6 +68,7 @@
 .\objects\cancommunicatetask.o: ..\Basic\BME\bsp_bme280.h
 .\objects\cancommunicatetask.o: ..\Basic\CAN\bsp_can.h
 .\objects\cancommunicatetask.o: ..\Basic\ADC\bsp_adc.h
+.\objects\cancommunicatetask.o: ..\Basic\MOTOR\bsp_motor.h
 .\objects\cancommunicatetask.o: ..\Zui\inc\bmp.h
 .\objects\cancommunicatetask.o: ..\Zui\inc\main_ui.h
 .\objects\cancommunicatetask.o: ..\Zui\inc\car_ui.h

@@ -369,7 +369,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Libraries\CMSIS;..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\User;..\User\OLED_SPI;..\Top\inc;..\Basic\SYSTICK;..\Basic\LED;..\FreeRTOS\inc;..\Basic\SYS;..\Basic\DWT;..\Basic\BSP;..\Basic\CONFIG;..\Basic\KEY;..\TASK\inc;..\Basic\USART1;..\Basic\SDIO;..\FATFS\src;..\FATFS\src\option;..\Basic\USMART;..\Zui\inc;..\Basic\OLED;..\Basic\SHT3X;..\Basic\COLOCK;..\Basic\GY;..\Basic\USART2;..\Basic\BME;..\Basic\CAN;..\Basic\ADC</IncludePath>
+              <IncludePath>..\Libraries\CMSIS;..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\User;..\User\OLED_SPI;..\Top\inc;..\Basic\SYSTICK;..\Basic\LED;..\FreeRTOS\inc;..\Basic\SYS;..\Basic\DWT;..\Basic\BSP;..\Basic\CONFIG;..\Basic\KEY;..\TASK\inc;..\Basic\USART1;..\Basic\SDIO;..\FATFS\src;..\FATFS\src\option;..\Basic\USMART;..\Zui\inc;..\Basic\OLED;..\Basic\SHT3X;..\Basic\COLOCK;..\Basic\GY;..\Basic\USART2;..\Basic\BME;..\Basic\CAN;..\Basic\ADC;..\Basic\MOTOR</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -716,6 +716,11 @@
               <FileName>bsp_adc.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Basic\ADC\bsp_adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Basic\MOTOR\bsp_motor.c</FilePath>
             </File>
           </Files>
         </Group>

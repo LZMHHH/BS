@@ -113,6 +113,8 @@
 #include "bsp_bme280.h"
 #include "bsp_can.h"
 #include "bsp_adc.h"
+#include "bsp_motor.h"
+
 
 
 /* UI */

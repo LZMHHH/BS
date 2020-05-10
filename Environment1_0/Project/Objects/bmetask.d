@@ -68,6 +68,7 @@
 .\objects\bmetask.o: ..\Basic\BME\bsp_bme280.h
 .\objects\bmetask.o: ..\Basic\CAN\bsp_can.h
 .\objects\bmetask.o: ..\Basic\ADC\bsp_adc.h
+.\objects\bmetask.o: ..\Basic\MOTOR\bsp_motor.h
 .\objects\bmetask.o: ..\Zui\inc\bmp.h
 .\objects\bmetask.o: ..\Zui\inc\main_ui.h
 .\objects\bmetask.o: ..\Zui\inc\car_ui.h
