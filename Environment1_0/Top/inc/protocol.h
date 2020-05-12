@@ -124,9 +124,12 @@ typedef enum
 #define 	CAN_TIMEID   0x034
 #define 	CAN_UIID     0x035
 #define 	CAN_MOTORID  0x036
+#define 	CAN_CARDATAID 0x037
+#define 	CAN_BZID     0x038
 
 /* data[2] 为一分 */
 /* 器件kind */
+#define 	CAN_EMPTY    0x00   /* 保留 */
 #define 	CAN_SHTX     0x11
 #define 	CAN_GY30     0x12
 #define 	CAN_PMS      0x13
@@ -145,13 +148,20 @@ typedef enum
 #define   CAN_DS3231   0x41
 #define   CAN_SETCLOCK 0x42
 #define   CAN_CARUI    0x51
+#define   CAN_ENVUI    0x52
+#define   CAN_CARMOTOR     0x60
 #define   CAN_CARMOTORA    0x61
 #define   CAN_CARMOTORB    0x62
 #define   CAN_CARMOTORC    0x63
 #define   CAN_CARMOTORD    0x64
+#define   CAN_HWBZ         0x81
+#define   CAN_VL53L0X      0x82
 
 /* data[3] 为二分 */
 /* 环境参数kind */
+#define 	CAN_Empty        0x00   /* 保留 */
+#define 	CAN_Val          0x0a  
+#define 	CAN_MaxVal       0x0b   
 #define 	CAN_Temperature  0x11
 #define 	CAN_Humidity     0x12
 #define 	CAN_Light        0x13
@@ -179,8 +189,12 @@ typedef enum
 #define 	CAN_UIPageIndexLast  0x53
 #define 	CAN_UIPareIndex  0x54
 #define 	CAN_UIParaIfControl  0x55
+#define 	CAN_UIPageReq    0x5a
 #define 	CAN_PwmOut       0x61
 #define 	CAN_Encoder      0x65
+#define 	CAN_P            0x6a
+#define 	CAN_I            0x6b
+#define 	CAN_D            0x6c
 #define 	CAN_Shield       0x70
 #define 	CAN_TempAddShield 0x71
 #define 	CAN_TempRedShield 0x72

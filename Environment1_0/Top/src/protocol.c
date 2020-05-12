@@ -289,6 +289,20 @@ void canmsgAnalyze(CanRxMsg *p)
 				
 				switch(*(p->Data+2))
 				{
+					case CAN_CARMOTOR:
+						   switch(*(p->Data+3))
+								{
+									case CAN_P:
+												MotorAllPID.p = (float)(((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4))/100.0);
+												break;
+									case CAN_I:
+												MotorAllPID.i = (float)(((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4))/100.0);
+												break;
+									case CAN_D:
+												MotorAllPID.d = (float)(((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4))/100.0);
+												break;
+								}
+								break;
 					case CAN_CARMOTORA:
 						   switch(*(p->Data+3))
 								{
@@ -330,6 +344,72 @@ void canmsgAnalyze(CanRxMsg *p)
 												break;
 									case CAN_Encoder:
 												Encoder.motorD = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+								}
+								break;
+				}
+			}
+		}
+	}
+	
+	/* 小车数据 */
+	if((p->IDE == CAN_ID_STD) && (p->StdId == CAN_CARDATAID))
+	{
+		if(*(p->Data) == enIDCar)
+		{
+			if(*(p->Data+1) == enDATA)
+			{
+				
+				switch(*(p->Data+2))
+				{
+					case CAN_EMPTY:
+						   switch(*(p->Data+3))
+								{
+									case CAN_MODE:
+												Car.mode = (u8)*(p->Data+4);
+												break;
+									case CAN_MaxVal:
+												Car.MaxPwm = (u16)((*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+								}
+								break;
+				}
+			}
+		}
+	}
+	
+	/* 避障 */
+	if((p->IDE == CAN_ID_STD) && (p->StdId == CAN_BZID))
+	{
+		if(*(p->Data) == enIDCar)
+		{
+			if(*(p->Data+1) == enDATA)
+			{
+				
+				switch(*(p->Data+2))
+				{
+					case CAN_HWBZ:
+						   switch(*(p->Data+3))
+								{
+									case CAN_Empty:
+												Hwbz_LD.status = (u8)*(p->Data+4);
+												Hwbz_LU.status = (u8)*(p->Data+5);
+												Hwbz_RU.status = (u8)*(p->Data+6);
+												Hwbz_RD.status = (u8)*(p->Data+7);
+												break;
+								}
+								break;
+					case CAN_VL53L0X:
+						   switch(*(p->Data+3))
+								{
+									case CAN_Val:
+												Distance.xmm = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+									case CAN_Offset:
+												Distance.offset = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
+												break;
+									case CAN_Shield:
+												Distance.shieldVal = (int)((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4));
 												break;
 								}
 								break;

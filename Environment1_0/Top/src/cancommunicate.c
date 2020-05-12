@@ -23,13 +23,13 @@ led_t     carLEDA;
 led_t     carFMQ;
 encoder_t Encoder;
 motor_t   Motorpwm;
-
-/*********************** 外发 ***********************/
-
-
-/*********************** 接收 ***********************/
-
-
+car_t     Car;
+hwbz_t    Hwbz_LD;
+hwbz_t    Hwbz_LU;
+hwbz_t    Hwbz_RU;
+hwbz_t    Hwbz_RD;
+distance_t Distance;
+pid_t     MotorAllPID;
 
 
 void canCommunicateParaInit(void)

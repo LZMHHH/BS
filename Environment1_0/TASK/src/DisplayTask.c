@@ -19,8 +19,12 @@
 ui_mode Show_ui = MAIN_ui;
 
 volatile TickType_t SendUITickCount; //用于定时上传数据
+volatile TickType_t SendUITickCountA; //用于定时上传数据
 
 static void Para_Init(void);
+
+
+void canSendUIREQ(void);
 
 void vTaskDisplay( void * pvParameters )
 {
@@ -50,7 +54,7 @@ void vTaskDisplay( void * pvParameters )
 			if(carUIPara.Sync == true)
 			{
 				/* 触发一个事件 */
-				xEventGroupSetBits(Event_canSendData,EVENT_canCARUIREQ);	
+				xEventGroupSetBits(Event_canSendData,EVENT_canCARUIREQ);
 			}
 					
 			SendUITickCount = xTaskGetTickCount();
@@ -58,6 +62,20 @@ void vTaskDisplay( void * pvParameters )
 		if(SendUITickCount > xTaskGetTickCount())
 		{
 			SendUITickCount = xTaskGetTickCount();
+		}
+		
+		if((xTaskGetTickCount()-100) > SendUITickCountA)
+		{
+			if(Show_ui == CAR_ui)
+			{
+				canSendUIREQ();
+			}
+					
+			SendUITickCountA = xTaskGetTickCount();
+		}
+		if(SendUITickCountA > xTaskGetTickCount())
+		{
+			SendUITickCountA = xTaskGetTickCount();
 		}
 		
 		OLED_Refresh_Gram();
@@ -141,7 +159,23 @@ void Change_UIMode(void)
 }
 
 /* 通讯 */
-
+void canSendUIREQ(void)
+{
+	CanTxMsg p;
+	
+	p.StdId = CAN_UIID;
+	p.ExtId = 0x01;  /* 该函数使用STD帧ID，所以ExtID用不到 */
+	p.RTR = CAN_RTR_DATA;
+	p.IDE = CAN_ID_STD;	
+	/* 向CAN网络发送8个字节数据 */
+	p.DLC = 8;          /* 每包数据支持0-8个字节，这里设置为发送8个字节 */
+	p.Data[0] = enIDEnvironment;   
+	p.Data[1] = enCMD;
+	p.Data[2] = CAN_CARUI;
+	p.Data[3] = CAN_UIPageReq;
+	p.Data[4] = Car_uiconfigParam.Page_Index;
+	xQueueSend(xQueue_canTx, &p, 10);
+}
 void canSendCarUIData(void)
 {
 	static u8 flag = 0;
