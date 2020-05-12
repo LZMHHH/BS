@@ -87,10 +87,21 @@ void vTaskSendData( void * pvParameters )
 															 |EVENT_LED
 															 |EVENT_KEYACK
 															 |EVENT_uart1CARUI
+															 |EVENT_uart1ENVUI
 															 |EVENT_uart1SHT3X
 															 |EVENT_uart1GY30
 															 |EVENT_uart1PMS
-															 |EVENT_uart1BME,/* 接收线程感兴趣的事件 */
+															 |EVENT_uart1BME
+															 |EVENT_uart1CARPAGE0
+															 |EVENT_uart1CARPAGE1
+															 |EVENT_uart1CARPAGE2
+															 |EVENT_uart1CARPAGE3
+															 |EVENT_uart1ENVPAGE0
+															 |EVENT_uart1ENVPAGE1
+															 |EVENT_uart1ENVPAGE2
+															 |EVENT_uart1ENVPAGE3
+															 |EVENT_uart1ENVPAGE4
+															 |EVENT_uart1ENVPAGE5,/* 接收线程感兴趣的事件 */
 																pdTRUE,   /* 退出时清除事件位 */
 																pdFALSE,   /* 满足感兴趣的如何一个事件 */
 																portMAX_DELAY);/* 指定超时事件,一直等 */
@@ -103,7 +114,7 @@ void vTaskSendData( void * pvParameters )
 			Motorpwm.pwmoutC = MotorC.pwmout;
 			Motorpwm.pwmoutD = MotorD.pwmout;
 			/*发送电机数据*/
-			sendData(UP_DATA,enIDCar, KIND_MOTOR, (u8*)&Motorpwm, sizeof(Motorpwm), 20);
+//			sendData(UP_DATA,enIDCar, KIND_MOTOR, (u8*)&Motorpwm, sizeof(Motorpwm), 20);
     }
 		/* 编码器事件 */
 		if((r_event & EVENT_ENCODER) == (EVENT_ENCODER)) 
@@ -113,43 +124,126 @@ void vTaskSendData( void * pvParameters )
 			Encoder.motorC = MotorC.encoderVal;
 			Encoder.motorD = MotorD.encoderVal;
 			/*发送编码器数据*/
-			sendData(UP_DATA,enIDCar, KIND_ENCODER, (u8*)&Encoder, sizeof(Encoder), 20);
+//			sendData(UP_DATA,enIDCar, KIND_ENCODER, (u8*)&Encoder, sizeof(Encoder), 20);
     }
 		/* LED事件 */
 		if((r_event & EVENT_LED) == (EVENT_LED)) 
     {		
-			sendLedData();
+			uart1SendLedData(20);
     }
 		/* UIACK事件 */
 		if((r_event & EVENT_KEYACK) == (EVENT_KEYACK)) 
     {		
 			sendKeyAckData();
     }
-		/* CARUI事件 */
+		/* ENVUI事件 */
 		if((r_event & EVENT_uart1CARUI) == (EVENT_uart1CARUI)) 
     {		
 			SendCarUIData();
     }
+		/* CARUI事件 */
+		if((r_event & EVENT_uart1CARUI) == (EVENT_uart1ENVUI)) 
+    {		
+			SendEnvUIData();
+    }
 		/* EVENT_uart1SHT3X事件 */
 		if((r_event & EVENT_uart1SHT3X) == (EVENT_uart1SHT3X)) 
     {		
-			sendSht3xData(30);
+			uart1SendSht3xData(20);
     }
 		/* EVENT_uart1GY30事件 */
 		if((r_event & EVENT_uart1GY30) == (EVENT_uart1GY30)) 
     {		
-			sendGy30Data(30);
+			uart1SendGy30Data(20);
     }
 		/* EVENT_uart1PMS事件 */
 		if((r_event & EVENT_uart1PMS) == (EVENT_uart1PMS)) 
     {		
-			sendPmsData(30);
+			uart1SendPmsData(20);
     }
 		/* EVENT_uart1BME事件 */
 		if((r_event & EVENT_uart1BME) == (EVENT_uart1BME)) 
     {		
-			sendBmeData(30);
+			uart1SendBmeData(20);
     }
+		/* CARUI Page 0事件 */
+		if((r_event & EVENT_uart1CARPAGE0) == (EVENT_uart1CARPAGE0)) 
+    {		
+			uart1SendEncoderData();
+			uart1SendCarData();
+			uart1SendHwbzData();
+			uart1SendVl53l0xData();
+		}
+		/* CARUI Page 1事件 */
+		if((r_event & EVENT_uart1CARPAGE1) == (EVENT_uart1CARPAGE1)) 
+    {		
+			uart1SendEncoderData();
+			uart1SendCarData();
+			uart1SendHwbzData();
+		}
+		/* CARUI Page 2事件 */
+		if((r_event & EVENT_uart1CARPAGE2) == (EVENT_uart1CARPAGE2)) 
+    {	
+			uart1SendCarData();
+			uart1SendVl53l0xData();			
+			uart1SendMotorPidData();
+		}
+		/* CARUI Page 3事件 */
+		if((r_event & EVENT_uart1CARPAGE3) == (EVENT_uart1CARPAGE3)) 
+    {		
+			uart1SendLedData(20);
+		}
+		/* ENVUI Page 0事件 */
+		if((r_event & EVENT_uart1ENVPAGE0) == (EVENT_uart1ENVPAGE0)) 
+    {		
+			uart1SendClockData(20);
+			uart1SendHuimitureData(20);
+			uart1SendPmsData(20);
+			uart1SendBmeData(20);
+		}
+		/* ENVUI Page 1事件 */
+		if((r_event & EVENT_uart1ENVPAGE1) == (EVENT_uart1ENVPAGE1)) 
+    {		
+			uart1SendClockData(20);
+			uart1SendHuimitureData(20);
+			uart1SendGy30Data(20);
+			uart1SendPmsData(20);
+			uart1SendBmeData(20);
+			uart1SendSmogData(20);
+			uart1SendHydrogenData(20);
+			uart1SendCOData(20);
+		}
+		/* ENVUI Page 2事件 */
+		if((r_event & EVENT_uart1ENVPAGE2) == (EVENT_uart1ENVPAGE2)) 
+    {		
+			uart1SendClockData(20);
+			uart1SendSht3xData(20);
+			uart1SendGy30Data(20);
+			uart1SendPmsData(20);
+			uart1SendBmeData(20);
+			uart1SendSmogData(20);
+			uart1SendHydrogenData(20);
+			uart1SendCOData(20);
+		}
+		/* ENVUI Page 3事件 */
+		if((r_event & EVENT_uart1ENVPAGE3) == (EVENT_uart1ENVPAGE3)) 
+    {		
+			uart1SendClockData(20);
+			uart1SendLedData(20);
+		}
+		/* ENVUI Page 4事件 */
+		if((r_event & EVENT_uart1ENVPAGE4) == (EVENT_uart1ENVPAGE4)) 
+    {		
+			uart1SendClockData(20);
+			uart1SendSetClockData(20);
+		}
+		/* ENVUI Page 5事件 */
+		if((r_event & EVENT_uart1ENVPAGE5) == (EVENT_uart1ENVPAGE5)) 
+    {		
+			uart1SendSht3xData(20);
+			uart1SendGy30Data(20);
+			uart1SendPmsData(20);
+		}
 		
 	}
 }

@@ -30,20 +30,55 @@
 /* 广播 */
 
 /*********************** 中间 ***********************/
+/* 状态机表 */
+typedef enum
+{
+   enLightMode_OFF,
+	 enLightMode_GS,    //跟随模式
+	 enLightMode_RC,    //日常模式
+}  enLight_Mode;
 /*通讯数据结构*/
 typedef struct 
 {
 	float temperature;     //温度
 	float huimidity;			 //湿度
+	
+	float temp_offset;     //偏差（用于调零）
+	float huim_offset;     //偏差（用于调零）
+	
+	float tempAdd_shieldVal;   //加热阈值
+	float tempRed_shieldVal;   //降温阈值
+	float huim_shieldVal;      //阈值
+	
+	u16   AddPwm;             //加热风俗
+	u16   RedPwm;             //加热风俗
+	
+	u8    tempAdd_mode;       //制热模式
+	u8    tempRed_mode;       //制冷模式
+	u8    huim_mode;          //模式
+	
 }huimiture_t;
 typedef struct
 {
 	float BH_Voltage;        //正常数据
+	
+	float shieldVal;   //阈值
+	
+	float a;           //亮度系数
+	
+	u8    mode;        //enON：正向，enOFF：反向
 }light_t;
 typedef struct
 {
 	u16  PM2_5_Vol;   //pm2.5数值
 	u16  PM10_Vol;    //pm10数值
+	
+	u16  shieldPM2_5Val;
+	u16  shieldPM10Val;
+	
+	u8   AQI;
+	
+	u8   mode;
 }pms_t;
 typedef struct
 {
@@ -52,6 +87,12 @@ typedef struct
 	float   humidity;
 	float   asl;
 }bme_t;
+typedef struct 
+{	
+	int    PriVal;      //原始的气体AD值
+	int    ShieldVal;   //阈值
+	
+}gas_t;
 /* canled的结构体在另外一个通信头文件 */
 typedef struct
 {
@@ -80,7 +121,9 @@ extern clock_t     ClockA;
 extern clock_t     SetClock;
 extern ui_t        envUIPara;
 extern ui_t        carUIPara;
-
+extern gas_t       Smog;
+extern gas_t       Hydrogen;
+extern gas_t       CO;
 
 void canCommunicateParaInit(void);
 

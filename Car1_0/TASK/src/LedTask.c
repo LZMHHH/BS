@@ -36,26 +36,27 @@ void vTaskLed( void * pvParameters )
 		Led_Ctrl();
 		Fmq_Ctrl();
 		
-		if((xTaskGetTickCount()-100) > SendLedDataTickCount)
-		{
-			/* 触发事件 */
-			xEventGroupSetBits(Event_canSendData,EVENT_canLED);			
-			SendLedDataTickCount = xTaskGetTickCount();
-		}
-		if(SendLedDataTickCount > xTaskGetTickCount())
-		{
-			SendLedDataTickCount = xTaskGetTickCount();
-		}
-		if((xTaskGetTickCount()-500) > SendLedDataTickCountA)
-		{
-			/* 触发一个事件*/
-			xEventGroupSetBits(Event_SendData,EVENT_LED);	
-			SendLedDataTickCountA = xTaskGetTickCount();
-		}
-		if(SendLedDataTickCountA > xTaskGetTickCount())
-		{
-			SendLedDataTickCountA = xTaskGetTickCount();
-		}
+//		/*定时上报*/
+//		if((xTaskGetTickCount()-100) > SendLedDataTickCount)
+//		{
+//			/* 触发事件 */
+//			xEventGroupSetBits(Event_canSendData,EVENT_canLED);			
+//			SendLedDataTickCount = xTaskGetTickCount();
+//		}
+//		if(SendLedDataTickCount > xTaskGetTickCount())
+//		{
+//			SendLedDataTickCount = xTaskGetTickCount();
+//		}
+//		if((xTaskGetTickCount()-500) > SendLedDataTickCountA)
+//		{
+//			/* 触发一个事件*/
+//			xEventGroupSetBits(Event_SendData,EVENT_LED);	
+//			SendLedDataTickCountA = xTaskGetTickCount();
+//		}
+//		if(SendLedDataTickCountA > xTaskGetTickCount())
+//		{
+//			SendLedDataTickCountA = xTaskGetTickCount();
+//		}
 		
 		vTaskDelay( 10 );
 	}
@@ -157,7 +158,7 @@ void canSendLedData(void)
 
 }
 
-void sendLedData(void)
+void uart1SendLedData(TickType_t xTicksToWait)
 {
 	msg_t p;
 	p.msg_head = MSG_HEAD;
@@ -176,5 +177,5 @@ void sendLedData(void)
 	memcpy(p.data+2+1+4+1, 
 				&(Fmq.cycle), 4);  /* 特别留意，低字节在前 */
 
-	xQueueSend(xQueue_uart1Tx, &p, 20);
+	xQueueSend(xQueue_uart1Tx, &p, xTicksToWait);
 }

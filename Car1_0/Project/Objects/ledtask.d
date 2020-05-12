@@ -67,6 +67,8 @@
 .\objects\ledtask.o: ..\Basic\MPU\bsp_mpu6050.h
 .\objects\ledtask.o: ..\Basic\EXTI\bsp_exti.h
 .\objects\ledtask.o: ..\Basic\CAN\bsp_can.h
+.\objects\ledtask.o: ..\Basic\BZ\bsp_hwbz.h
+.\objects\ledtask.o: ..\Basic\JG\bsp_vl53l0x.h
 .\objects\ledtask.o: ..\Basic\MPU\inv_mpu.h
 .\objects\ledtask.o: ..\Basic\MPU\inv_mpu_dmp_motion_driver.h
 .\objects\ledtask.o: ..\Basic\MPU\dmpKey.h
@@ -86,3 +88,4 @@
 .\objects\ledtask.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\ledtask.o: ..\TASK\inc\MoveCtrlTask.h
 .\objects\ledtask.o: ..\TASK\inc\MpuTask.h
+.\objects\ledtask.o: ..\TASK\inc\DistanceTask.h

@@ -162,9 +162,9 @@ void Set_Pwm(CLASS_Motor *motor)
 		case enMotorA:
 				/* 方向 */
 				if(motor->pwmout < 0)
-					AINA = 0;
-				else
 					AINA = 1;
+				else
+					AINA = 0;
 				if(myabs(motor->pwmout) > 7200) PWMA = 0;
 				else                            PWMA=7200 - myabs(motor->pwmout);        // 转速大小
 				break;
@@ -189,9 +189,9 @@ void Set_Pwm(CLASS_Motor *motor)
 		case enMotorD:
 				/* 方向 */
 				if(motor->pwmout > 0)
-					AIND = 0;
-				else
 					AIND = 1;
+				else
+					AIND = 0;
 				if(myabs(motor->pwmout) > 7200) PWMD = 0;
 				else                            PWMD=7200 - myabs(motor->pwmout);        // 转速大小
 				break;

@@ -67,6 +67,8 @@
 .\objects\diskio.o: ..\Basic\MPU\bsp_mpu6050.h
 .\objects\diskio.o: ..\Basic\EXTI\bsp_exti.h
 .\objects\diskio.o: ..\Basic\CAN\bsp_can.h
+.\objects\diskio.o: ..\Basic\BZ\bsp_hwbz.h
+.\objects\diskio.o: ..\Basic\JG\bsp_vl53l0x.h
 .\objects\diskio.o: ..\Basic\MPU\inv_mpu.h
 .\objects\diskio.o: ..\Basic\MPU\inv_mpu_dmp_motion_driver.h
 .\objects\diskio.o: ..\Basic\MPU\dmpKey.h
@@ -86,3 +88,4 @@
 .\objects\diskio.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\diskio.o: ..\TASK\inc\MoveCtrlTask.h
 .\objects\diskio.o: ..\TASK\inc\MpuTask.h
+.\objects\diskio.o: ..\TASK\inc\DistanceTask.h

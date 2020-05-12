@@ -112,6 +112,8 @@
 #include "bsp_mpu6050.h"
 #include "bsp_exti.h"
 #include "bsp_can.h"
+#include "bsp_hwbz.h"
+#include "bsp_vl53l0x.h"
 
 //6050µÄ
 #include "inv_mpu.h"
@@ -148,6 +150,7 @@
 #endif
 #include "MoveCtrlTask.h"
 #include "MpuTask.h"	
+#include "DistanceTask.h"
 
 
 /*  

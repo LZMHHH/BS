@@ -270,7 +270,11 @@ void msgAnalyze(msg_t *p)
 									if(p->data[2] == UIREQ_CAR) 
 									{
 										xEventGroupSetBits(Event_SendData,EVENT_uart1CARUI);	
-									}										
+									}		
+									if(p->data[2] == UIREQ_ENVIRONMENT) 
+									{
+										xEventGroupSetBits(Event_SendData,EVENT_uart1ENVUI);	
+									}		
 									break;
 				}
 			}
@@ -301,25 +305,62 @@ void msgAnalyze(msg_t *p)
 													Fmq.cycle = (int)((*(p->data+9) <<24)|(*(p->data+8) <<16)|(*(p->data+7) <<8)|*(p->data+6));						
 													break;
 									}
-									break;
-//						case KIND_UI:
-//									if(*(p->data+2) == true)
-//									{
-//										Main_uiconfigParam.Sync = true;
-//										
-//										Main_uiconfigParam.Step_Index      = *(p->data+3);
-//										Main_uiconfigParam.Page_Index      = *(p->data+4);
-//										Main_uiconfigParam.Page_Index_Last = *(p->data+5);
-//										Main_uiconfigParam.Para_Index      = *(p->data+6);
-//										Main_uiconfigParam.Para_IfControl  = *(p->data+7);
-//										
-//										Show_Para_Con(&Main_uiconfigParam);
-//										OLED_Fill(0,0,128,64,0);
-//									}
-//									/* 触发一个上传led数据的事件  目的是回传更新数据*/
-//									xEventGroupSetBits(Event_SendData,EVENT_LED);		
-//									break;
 					}
+				}
+			}
+		}
+		if(p->msgID == DOWN_REQ)
+		{
+			if(p->data[0] == enCMD)
+			{
+				switch(p->data[1])
+				{
+					case KIND_UIPAGEREQ:
+									switch(p->data[2])
+									{
+										case KIND_CARUIPAGE0:
+														/* 触发一个回传据的事件  目的是回传更新数据*/
+														xEventGroupSetBits(Event_SendData,EVENT_uart1CARPAGE0);		
+														break;
+										case KIND_CARUIPAGE1:
+														/* 触发一个回传据的事件  目的是回传更新数据*/
+														xEventGroupSetBits(Event_SendData,EVENT_uart1CARPAGE1);		
+														break;
+										case KIND_CARUIPAGE2:
+														/* 触发一个回传据的事件  目的是回传更新数据*/
+														xEventGroupSetBits(Event_SendData,EVENT_uart1CARPAGE2);		
+														break;
+										case KIND_CARUIPAGE3:
+														/* 触发一个回传据的事件  目的是回传更新数据*/
+														xEventGroupSetBits(Event_SendData,EVENT_uart1CARPAGE3);		
+														break;
+										case KIND_ENVUIPAGE0:
+														/* 触发一个回传据的事件  目的是回传更新数据*/
+														xEventGroupSetBits(Event_SendData,EVENT_uart1ENVPAGE0);		
+														break;
+										case KIND_ENVUIPAGE1:
+														/* 触发一个回传据的事件  目的是回传更新数据*/
+														xEventGroupSetBits(Event_SendData,EVENT_uart1ENVPAGE1);		
+														break;
+										case KIND_ENVUIPAGE2:
+														/* 触发一个回传据的事件  目的是回传更新数据*/
+														xEventGroupSetBits(Event_SendData,EVENT_uart1ENVPAGE2);		
+														break;
+										case KIND_ENVUIPAGE3:
+														/* 触发一个回传据的事件  目的是回传更新数据*/
+														xEventGroupSetBits(Event_SendData,EVENT_uart1ENVPAGE3);		
+														break;
+										case KIND_ENVUIPAGE4:
+														/* 触发一个回传据的事件  目的是回传更新数据*/
+														xEventGroupSetBits(Event_SendData,EVENT_uart1ENVPAGE4);		
+														break;
+										case KIND_ENVUIPAGE5:
+														/* 触发一个回传据的事件  目的是回传更新数据*/
+														xEventGroupSetBits(Event_SendData,EVENT_uart1ENVPAGE5);		
+														break;
+									}
+									break;
+					
 				}
 			}
 		}
@@ -335,7 +376,7 @@ void msgAnalyze(msg_t *p)
 
 /******************** 解码部分 ********************/
 
-/*来自串口解码*/
+/*来自can解码*/
 void canmsgAnalyze(CanRxMsg *p)
 {
 	u8 Page_Index_Last;
@@ -356,8 +397,38 @@ void canmsgAnalyze(CanRxMsg *p)
 									case CAN_Temperature:
 												Huimiture.temperature = (float)(((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4))/100.0);
 												break;
+									case CAN_TempAddShield:
+												Huimiture.tempAdd_shieldVal   = (float)(((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4))/100.0);
+												break;
+									case CAN_TempRedShield:
+												Huimiture.tempRed_shieldVal   = (float)(((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4))/100.0);
+												break;
+									case CAN_TempOffset:
+												Huimiture.temp_offset   = (float)(((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4))/100.0);
+												break;
+									case CAN_TempAddMode:
+												Huimiture.tempAdd_mode = (u8)(*(p->Data+4));
+												break;
+									case CAN_TempRedMode:
+												Huimiture.tempRed_mode = (u8)(*(p->Data+4));
+												break;
+									case CAN_TempAddPwm:
+												Huimiture.AddPwm = (u16)(((*(p->Data+5) <<8)|*(p->Data+4)));
+												break;
 									case CAN_Humidity:
 												Huimiture.huimidity   = (float)(((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4))/100.0);
+												break;
+									case CAN_HuimShield:
+												Huimiture.huim_shieldVal   = (float)(((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4))/100.0);
+												break;
+									case CAN_HuimOffset:
+												Huimiture.huim_offset   = (float)(((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4))/100.0);
+												break;
+									case CAN_HuimMode:
+												Huimiture.huim_mode = (u8)(*(p->Data+4));
+												break;
+									case CAN_TempRedPwm:
+												Huimiture.RedPwm = (u16)(((*(p->Data+5) <<8)|*(p->Data+4)));
 												break;
 								}
 								break;
@@ -366,6 +437,15 @@ void canmsgAnalyze(CanRxMsg *p)
 								{
 									case CAN_Light:
 												Light.BH_Voltage = (float)(((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4))/100.0);
+												break;
+									case CAN_Shield:
+												Light.shieldVal   = (float)(((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4))/100.0);
+												break;
+									case CAN_FactorA:
+												Light.a   = (float)(((*(p->Data+7) <<24)|(*(p->Data+6) <<16)|(*(p->Data+5) <<8)|*(p->Data+4))/100.0);
+												break;
+									case CAN_MODE:
+												Light.mode = (u8)(*(p->Data+4));
 												break;
 								}
 								break;
@@ -377,6 +457,18 @@ void canmsgAnalyze(CanRxMsg *p)
 												break;
 									case CAN_PM10:
 												Pms.PM10_Vol = (u16)(((*(p->Data+5) <<8)|*(p->Data+4)));
+												break;
+									case CAN_PM2_5Shield:
+												Pms.shieldPM2_5Val = (u16)(((*(p->Data+5) <<8)|*(p->Data+4)));
+												break;
+									case CAN_PM10Shield:
+												Pms.shieldPM10Val = (u16)(((*(p->Data+5) <<8)|*(p->Data+4)));
+												break;
+									case CAN_AQI:
+												Pms.AQI = (u8)(*(p->Data+4));
+												break;
+									case CAN_MODE:
+												Pms.mode = (u8)(*(p->Data+4));
 												break;
 								}
 								break;
@@ -627,12 +719,31 @@ void canmsgAnalyze(CanRxMsg *p)
 				switch(*(p->Data+2))
 				{
 					case CAN_CARUI:
-						   if(*(p->Data+3) == CAN_UIReq)
+							 switch(*(p->Data+3))
 								{
-									xEventGroupSetBits(Event_canSendData,EVENT_canCARUI);		
+									case CAN_UIReq:
+												xEventGroupSetBits(Event_canSendData,EVENT_canCARUI);		
+												break;
+									case CAN_UIPageReq:
+												switch(*(p->Data+4))
+												{
+													case 0:
+															 xEventGroupSetBits(Event_canSendData,EVENT_canCARPAGE0);		
+															 break;
+													case 1:
+															 xEventGroupSetBits(Event_canSendData,EVENT_canCARPAGE1);		
+															 break;
+													case 2:
+															 xEventGroupSetBits(Event_canSendData,EVENT_canCARPAGE2);		
+															 break;
+													case 3:
+															 xEventGroupSetBits(Event_canSendData,EVENT_canCARPAGE3);		
+															 break;
+												}
+												break;
 								}
 								break;
-				}
+					}
 			}
 		}
 	}

@@ -22,28 +22,25 @@ CLASS_UIconfigParam Main_uiconfigParam;
 
 void Main_uiconfigParamInit(void)
 {
-	Main_uiconfigParam.Page_Index_Limit    = 5;
+	Main_uiconfigParam.Page_Index_Limit    = 3;
 	
 	Main_uiconfigParam.Para_Index_Limit[0] = 7;
-	Main_uiconfigParam.Para_Index_Limit[1] = 7;
+	Main_uiconfigParam.Para_Index_Limit[1] = 9;
 	Main_uiconfigParam.Para_Index_Limit[2] = 8;
 	Main_uiconfigParam.Para_Index_Limit[3] = 7;
-	Main_uiconfigParam.Para_Index_Limit[4] = 7;
-	Main_uiconfigParam.Para_Index_Limit[5] = 7;
 	
-	Main_uiconfigParam.Step_Index_Limit    = 6;
+	Main_uiconfigParam.Step_Index_Limit    = 4;
 	
-	Main_uiconfigParam.Step_Size[0]        =   0.001;
-	Main_uiconfigParam.Step_Size[1]        =   0.01;
-	Main_uiconfigParam.Step_Size[2]        =   0.1;
-	Main_uiconfigParam.Step_Size[3]        =   1.0;
-	Main_uiconfigParam.Step_Size[4]        =  10.0;
-	Main_uiconfigParam.Step_Size[5]        = 100.0;
+	Main_uiconfigParam.Step_Size[0]        =   0.01;
+	Main_uiconfigParam.Step_Size[1]        =   0.1;
+	Main_uiconfigParam.Step_Size[2]        =   1.0;
+	Main_uiconfigParam.Step_Size[3]        =   10.0;
+	Main_uiconfigParam.Step_Size[4]        =  100.0;
 	
 	Show_Para_Con(&Main_uiconfigParam);
 	
-	Main_uiconfigParam.Step_Index          = 1;
-	Main_uiconfigParam.Page_Index          = 2;
+	Main_uiconfigParam.Step_Index          = 2;
+	Main_uiconfigParam.Page_Index          = 0;
 	Main_uiconfigParam.Page_Index_Last     = 0;
 	Main_uiconfigParam.Para_Index          = 0;
 	Main_uiconfigParam.Para_IfControl      = false;
@@ -83,7 +80,42 @@ void Main_ZUI(void)
 	//第 0 页
 	if(Main_uiconfigParam.Page_Index == 0)
 	{  
-	
+		//边角
+		OLED_ShowNum(0,(7-6)*8,Hwbz_LD.status,1,0,2);
+		OLED_ShowNum(0,(7-1)*8,Hwbz_LU.status,1,0,2);
+		OLED_ShowNum(120,(7-1)*8,Hwbz_RU.status,1,0,2);
+		OLED_ShowNum(120,(7-6)*8,Hwbz_RD.status,1,0,2);
+		OLED_ShowNum(0,(7-5)*8,MotorA.encoderVal,4,0,1);
+		OLED_ShowNum(0,(7-3)*8,MotorB.encoderVal,4,0,1);
+		OLED_ShowNum(104,(7-3)*8,MotorC.encoderVal,4,0,1);
+		OLED_ShowNum(104,(7-5)*8,MotorD.encoderVal,4,0,1);
+		
+		//1、2行
+		switch(Car.mode)
+		{
+			case enPWM:
+						OLED_ShowString(48,(7-1)*8,(u8 *)"pwm ",2);
+						break;
+			case enPID:
+						OLED_ShowString(48,(7-1)*8,(u8 *)"pid ",2);
+						break;
+			case enPWMSelf:
+						OLED_ShowString(48,(7-1)*8,(u8 *)"pwmS",2);
+						break;
+			case enPIDSelf:
+						OLED_ShowString(48,(7-1)*8,(u8 *)"pidS",2);
+						break;
+			case enPWMGS:
+						OLED_ShowString(48,(7-1)*8,(u8 *)"pwmG",2);
+						break;
+			case enPIDGS:
+						OLED_ShowString(48,(7-1)*8,(u8 *)"pidG",2);
+						break;
+			default:break;
+		}
+		
+		//4行
+		OLED_ShowNum(40,(7-h)*8,Distance.xmm,5,0,2);
 	}
 	
 	//第 1 页
@@ -234,6 +266,260 @@ void Main_ZUI(void)
 			h++;
 	  }
 		
+		//9行
+	  Ph = 9;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"bzABCD:",1);
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"bzABCD:",1);
+			}		
+			OLED_ShowString(122,(7-h)*8,(u8 *)" ",1);
+			OLED_ShowNum(92,(7-h)*8,Hwbz_LD.status,1,0,1);
+			OLED_ShowNum(100,(7-h)*8,Hwbz_LU.status,1,0,1);
+			OLED_ShowNum(108,(7-h)*8,Hwbz_RU.status,1,0,1);
+			OLED_ShowNum(116,(7-h)*8,Hwbz_RD.status,1,0,1);
+			h++;
+	  }
+		
+		
+	}
+	
+	//第 2 页
+	if(Main_uiconfigParam.Page_Index == 2)
+	{  
+		OLED_ShowNum(49,56,Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index],3,3,1);
+		
+		h = 1;
+		//1行
+	  Ph = 1;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"CarM :",1);
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"CarM :",1);
+			}		
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					switch(Car.mode)
+					{
+						case enPWM:
+									OLED_ShowString(104,(7-h)*8,(u8 *)"pwm ",1);
+									break;
+						case enPID:
+									OLED_ShowString(104,(7-h)*8,(u8 *)"pid ",1);
+									break;
+						case enPWMSelf:
+									OLED_ShowString(104,(7-h)*8,(u8 *)"pwmS",1);
+									break;
+						case enPIDSelf:
+									OLED_ShowString(104,(7-h)*8,(u8 *)"pidS",1);
+									break;
+						case enPWMGS:
+									OLED_ShowString(104,(7-h)*8,(u8 *)"pwmG",1);
+									break;
+						case enPIDGS:
+									OLED_ShowString(104,(7-h)*8,(u8 *)"pidG",1);
+									break;
+						default:break;
+					}
+					Oled_Colour = 0;				
+			}
+			else
+			{
+					switch(Car.mode)
+					{
+						case enPWM:
+									OLED_ShowString(104,(7-h)*8,(u8 *)"pwm ",1);
+									break;
+						case enPID:
+									OLED_ShowString(104,(7-h)*8,(u8 *)"pid ",1);
+									break;
+						case enPWMSelf:
+									OLED_ShowString(104,(7-h)*8,(u8 *)"pwmS",1);
+									break;
+						case enPIDSelf:
+									OLED_ShowString(104,(7-h)*8,(u8 *)"pidS",1);
+									break;
+						case enPWMGS:
+									OLED_ShowString(104,(7-h)*8,(u8 *)"pwmG",1);
+									break;
+						case enPIDGS:
+									OLED_ShowString(104,(7-h)*8,(u8 *)"pidG",1);
+									break;
+						default:break;
+					}
+			}
+			h++;
+	  }
+		//2行
+	  Ph = 2;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"CarMP:",1);
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"CarMP:",1);
+			}		
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowNum(98,(7-h)*8,Car.MaxPwm,5,0,1);
+					Oled_Colour = 0;				
+			}
+			else
+			{
+					OLED_ShowNum(98,(7-h)*8,Car.MaxPwm,5,0,1);
+			}
+			h++;
+	  }
+		//3行
+	  Ph = 3;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"bzxmm :",1);
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"bzxmm :",1);
+			}		
+			OLED_ShowNum(92,(7-h)*8,Distance.xmm,6,0,1);
+			h++;
+	  }
+		//4行
+	  Ph = 4;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"bzOfs :",1);
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"bzOfs :",1);
+			}		
+			OLED_ShowNum(92,(7-h)*8,Distance.offset,6,0,1);
+			h++;
+	  }
+		//5行
+	  Ph = 5;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"bzShi :",1);
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"bzShi :",1);
+			}		
+			OLED_ShowNum(92,(7-h)*8,Distance.shieldVal,6,0,1);
+			h++;
+	  }
+		//6行
+	  Ph = 6;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"MtP  :",1);
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"MtP  :",1);
+			}		
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowNum(98,(7-h)*8,MotorAllPID.p,3,1,1);
+					Oled_Colour = 0;				
+			}
+			else
+			{
+					OLED_ShowNum(98,(7-h)*8,MotorAllPID.p,3,1,1);
+			}
+			h++;
+	  }
+		//7行
+	  Ph = 7;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"MtI  :",1);
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"MtI  :",1);
+			}		
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowNum(98,(7-h)*8,MotorAllPID.i,3,1,1);
+					Oled_Colour = 0;				
+			}
+			else
+			{
+					OLED_ShowNum(98,(7-h)*8,MotorAllPID.i,3,1,1);
+			}
+			h++;
+	  }
+		//8行
+	  Ph = 8;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"MtD  :",1);
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"MtD  :",1);
+			}		
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowNum(98,(7-h)*8,MotorAllPID.d,3,1,1);
+					Oled_Colour = 0;				
+			}
+			else
+			{
+					OLED_ShowNum(98,(7-h)*8,MotorAllPID.d,3,1,1);
+			}
+			h++;
+	  }
 	}
 	
 	//第 3 页
@@ -263,13 +549,13 @@ void Main_ZUI(void)
 					switch(LedA.flag_mode)
 					{
 						case enON:
-									OLED_ShowString(108,(7-h)*8,(u8 *)" ON",1);
+									OLED_ShowString(98,(7-h)*8,(u8 *)"   ON",1);
 									break;
 						case enOFF:
-									OLED_ShowString(108,(7-h)*8,(u8 *)"OFF",1);
+									OLED_ShowString(98,(7-h)*8,(u8 *)"  OFF",1);
 									break;
 						case enFre:
-									OLED_ShowString(108,(7-h)*8,(u8 *)"Cyc",1);
+									OLED_ShowString(98,(7-h)*8,(u8 *)"  Cyc",1);
 									break;
 						default:break;
 					}
@@ -279,14 +565,14 @@ void Main_ZUI(void)
 			{
 					switch(LedA.flag_mode)
 					{
-						case enON:
-									OLED_ShowString(108,(7-h)*8,(u8 *)" ON",1);
+						case enON:  
+									OLED_ShowString(98,(7-h)*8,(u8 *)"   ON",1);
 									break;
 						case enOFF:
-									OLED_ShowString(108,(7-h)*8,(u8 *)"OFF",1);
+									OLED_ShowString(98,(7-h)*8,(u8 *)"  OFF",1);
 									break;
 						case enFre:
-									OLED_ShowString(108,(7-h)*8,(u8 *)"Cyc",1);
+									OLED_ShowString(98,(7-h)*8,(u8 *)"  Cyc",1);
 									break;
 						default:break;
 					}
@@ -341,13 +627,13 @@ void Main_ZUI(void)
 					switch(Fmq.flag_mode)
 					{
 						case enON:
-									OLED_ShowString(108,(7-h)*8,(u8 *)" ON",1);
+									OLED_ShowString(98,(7-h)*8,(u8 *)"   ON",1);
 									break;
 						case enOFF:
-									OLED_ShowString(108,(7-h)*8,(u8 *)"OFF",1);
+									OLED_ShowString(98,(7-h)*8,(u8 *)"  OFF",1);
 									break;
 						case enFre:
-									OLED_ShowString(108,(7-h)*8,(u8 *)"Cyc",1);
+									OLED_ShowString(98,(7-h)*8,(u8 *)"  Cyc",1);
 									break;
 						default:break;
 					}
@@ -358,13 +644,13 @@ void Main_ZUI(void)
 					switch(Fmq.flag_mode)
 					{
 						case enON:
-									OLED_ShowString(108,(7-h)*8,(u8 *)" ON",1);
+									OLED_ShowString(98,(7-h)*8,(u8 *)"   ON",1);
 									break;
 						case enOFF:
-									OLED_ShowString(108,(7-h)*8,(u8 *)"OFF",1);
+									OLED_ShowString(98,(7-h)*8,(u8 *)"  OFF",1);
 									break;
 						case enFre:
-									OLED_ShowString(108,(7-h)*8,(u8 *)"Cyc",1);
+									OLED_ShowString(98,(7-h)*8,(u8 *)"  Cyc",1);
 									break;
 						default:break;
 					}
@@ -398,16 +684,9 @@ void Main_ZUI(void)
 			}
 			h++;
 	  }
+		
 	}
 	
-	//第  页
-	if(Main_uiconfigParam.Page_Index == 4)
-	{  
-		OLED_ShowNum(0,0,mpu_data.Acceleration_X,4,2,1);
-		OLED_ShowNum(0,8,mpu_data.Acceleration_Y,4,2,1);
-		OLED_ShowNum(0,16,mpu_data.Acceleration_Z,4,2,1);		
-		OLED_ShowNum(60,16,mpu_data.Gyro_BalanceZ,4,2,1);
-	}
 	
 	
 }
@@ -523,6 +802,67 @@ void Main_uictrl(void)
     }
     else
     { 
+			
+			
+			if(Main_uiconfigParam.Page_Index==2)     //修改第2参数
+      {
+				//参数行
+				switch(Main_uiconfigParam.Para_Index)
+				{
+					case 1:
+							switch(Car.mode)
+							{
+								case enPWM:
+											Car.mode = enPID;
+											break;
+								case enPID:
+											Car.mode = enPWMSelf;
+											break;
+								case enPWMSelf:
+											Car.mode = enPIDSelf;
+											break;
+								case enPIDSelf:
+											Car.mode = enPWMGS;
+											break;
+								case enPWMGS:
+											Car.mode = enPIDGS;
+											break;
+								case enPIDGS:
+											Car.mode = enPWM;
+											break;
+								default:
+											Car.mode = enPWM;
+											break;
+							}
+							break;;
+					case 2:
+							Car.MaxPwm += Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index];
+							if(Car.MaxPwm > 30000) Car.MaxPwm = 30000;
+							break;
+					case 4:
+							Distance.offset += Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index];
+							if(Distance.offset > 30000) Distance.offset = 30000;
+							break;
+					case 5:
+							Distance.shieldVal += Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index];
+							if(Distance.shieldVal > 30000) Distance.shieldVal = 30000;
+							break;
+					case 6:
+							MotorAllPID.p += Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index];
+							if(MotorAllPID.p > 999) MotorAllPID.p = 999;
+							break;
+					case 7:
+							MotorAllPID.i += Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index];
+							if(MotorAllPID.i > 999) MotorAllPID.i = 999;
+							break;
+					case 8:
+							MotorAllPID.d += Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index];
+							if(MotorAllPID.d > 999) MotorAllPID.d = 999;
+							break;
+					default:break;
+				}
+			}
+			
 			if(Main_uiconfigParam.Page_Index==3)     //修改第3参数
       {
 				//参数行
@@ -581,6 +921,34 @@ void Main_uictrl(void)
 			
 		}
 
+		if(Main_uiconfigParam.Page_Index==0)     //修改第0参数
+		{
+			switch(Car.mode)
+			{
+				case enPWM:
+							Car.mode = enPID;
+							break;
+				case enPID:
+							Car.mode = enPWMSelf;
+							break;
+				case enPWMSelf:
+							Car.mode = enPIDSelf;
+							break;
+				case enPIDSelf:
+							Car.mode = enPWMGS;
+							break;
+				case enPWMGS:
+							Car.mode = enPIDGS;
+							break;
+				case enPIDGS:
+							Car.mode = enPWM;
+							break;
+				default:
+							Car.mode = enPWM;
+							break;
+			}
+		}
+		
 		Key_PU.Key_RetVal = enKey_No;   //标志复位
 	}
 	
@@ -614,6 +982,67 @@ void Main_uictrl(void)
     }
     else
     { 
+			
+			
+			if(Main_uiconfigParam.Page_Index==2)     //修改第2参数
+      {
+				//参数行
+				switch(Main_uiconfigParam.Para_Index)
+				{
+					case 1:
+							switch(Car.mode)
+							{
+								case enPIDGS:
+											Car.mode = enPWMGS;
+											break;
+								case enPWMGS:
+											Car.mode = enPIDSelf;
+											break;
+								case enPIDSelf:
+											Car.mode = enPWMSelf;
+											break;
+								case enPWMSelf:
+											Car.mode = enPID;
+											break;
+								case enPID:
+											Car.mode = enPWM;
+											break;
+								case enPWM:
+											Car.mode = enPIDGS;
+											break;
+								default:
+											Car.mode = enPWM;
+											break;
+							}
+							break;;
+					case 2:
+							Car.MaxPwm -= Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index];
+							if(Car.MaxPwm <= 0) Car.MaxPwm = 0;
+							break;
+					case 4:
+							Distance.offset -= Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index];
+							if(Distance.offset < -5000) Distance.offset = -5000;
+							break;
+					case 5:
+							Distance.shieldVal += Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index];
+							if(Distance.shieldVal <= 0) Distance.shieldVal = 0;
+							break;
+					case 6:
+							MotorAllPID.p += Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index];
+							if(MotorAllPID.p < -99) MotorAllPID.p = -99;
+							break;
+					case 7:
+							MotorAllPID.i += Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index];
+							if(MotorAllPID.i < -99) MotorAllPID.i = -99;
+							break;
+					case 8:
+							MotorAllPID.d += Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index];
+							if(MotorAllPID.d < -99) MotorAllPID.d = -99;
+							break;
+					default:break;
+				}
+			}
+			
 			if(Main_uiconfigParam.Page_Index==3)     //修改第3页参数
       {
 				//参数行
@@ -672,6 +1101,34 @@ void Main_uictrl(void)
 			
 		}
 
+		if(Main_uiconfigParam.Page_Index==0)     //修改第0参数
+      {
+				switch(Car.mode)
+				{
+					case enPIDGS:
+								Car.mode = enPWMGS;
+								break;
+					case enPWMGS:
+								Car.mode = enPIDSelf;
+								break;
+					case enPIDSelf:
+								Car.mode = enPWMSelf;
+								break;
+					case enPWMSelf:
+								Car.mode = enPID;
+								break;
+					case enPID:
+								Car.mode = enPWM;
+								break;
+					case enPWM:
+								Car.mode = enPIDGS;
+								break;
+					default:
+								Car.mode = enPWM;
+								break;
+				}
+			}
+		
 		Key_PD.Key_RetVal = enKey_No;   //标志复位
 	}
 	//下键被长按中

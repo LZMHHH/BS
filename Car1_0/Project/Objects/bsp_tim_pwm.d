@@ -67,6 +67,8 @@
 .\objects\bsp_tim_pwm.o: ..\Basic\MPU\bsp_mpu6050.h
 .\objects\bsp_tim_pwm.o: ..\Basic\EXTI\bsp_exti.h
 .\objects\bsp_tim_pwm.o: ..\Basic\CAN\bsp_can.h
+.\objects\bsp_tim_pwm.o: ..\Basic\BZ\bsp_hwbz.h
+.\objects\bsp_tim_pwm.o: ..\Basic\JG\bsp_vl53l0x.h
 .\objects\bsp_tim_pwm.o: ..\Basic\MPU\inv_mpu.h
 .\objects\bsp_tim_pwm.o: ..\Basic\MPU\inv_mpu_dmp_motion_driver.h
 .\objects\bsp_tim_pwm.o: ..\Basic\MPU\dmpKey.h
@@ -86,3 +88,4 @@
 .\objects\bsp_tim_pwm.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\bsp_tim_pwm.o: ..\TASK\inc\MoveCtrlTask.h
 .\objects\bsp_tim_pwm.o: ..\TASK\inc\MpuTask.h
+.\objects\bsp_tim_pwm.o: ..\TASK\inc\DistanceTask.h

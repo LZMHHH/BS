@@ -22,11 +22,16 @@
 
 void vTaskEnvironment( void * pvParameters );
 
-void sendSht3xData(TickType_t xTicksToWait);
-void sendGy30Data(TickType_t xTicksToWait);
-void sendPmsData(TickType_t xTicksToWait);
-void sendBmeData(TickType_t xTicksToWait);
-
+void uart1SendSht3xData(TickType_t xTicksToWait);
+void uart1SendGy30Data(TickType_t xTicksToWait);
+void uart1SendPmsData(TickType_t xTicksToWait);
+void uart1SendBmeData(TickType_t xTicksToWait);
+void uart1SendClockData(TickType_t xTicksToWait);
+void uart1SendSetClockData(TickType_t xTicksToWait);
+void uart1SendSmogData(TickType_t xTicksToWait);
+void uart1SendHydrogenData(TickType_t xTicksToWait);
+void uart1SendCOData(TickType_t xTicksToWait);
+void uart1SendHuimitureData(TickType_t xTicksToWait);
 #endif
 
 

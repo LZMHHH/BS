@@ -81,11 +81,11 @@ void vTaskcanSendData( void * pvParameters )
 	while(1)
 	{
 		 r_event = xEventGroupWaitBits(Event_canSendData,  /* 事件对象句柄 */
-																EVENT_canSHT3X
-															 |EVENT_canGY30
-															 |EVENT_canPMS
-															 |EVENT_canBME
-															 |EVENT_canLED
+																EVENT_canLED
+															 |EVENT_canCARPAGE0
+															 |EVENT_canCARPAGE1
+															 |EVENT_canCARPAGE2
+															 |EVENT_canCARPAGE3
 															 |EVENT_canCARUI
 															 |EVENT_canMOTOR
 															 |EVENT_canENCODER
@@ -98,14 +98,39 @@ void vTaskcanSendData( void * pvParameters )
 		if((r_event & EVENT_canLED) == (EVENT_canLED)) 
     {		
 			canSendLedData();
-    }
-		
+    }		
 		/* CARUI事件 */
 		if((r_event & EVENT_canCARUI) == (EVENT_canCARUI)) 
     {		
 			canSendCarUIData();
     }
-		
+		/* CARUI Page 0事件 */
+		if((r_event & EVENT_canCARPAGE0) == (EVENT_canCARPAGE0)) 
+    {		
+			canSendEncoderData();
+			canSendCarData();
+			canSendHwbzData();
+			canSendVl53l0xData();
+    }		
+		/* CARUI Page 1事件 */
+		if((r_event & EVENT_canCARPAGE1) == (EVENT_canCARPAGE1)) 
+    {		
+			canSendMotorData();
+			canSendEncoderData();
+			canSendHwbzData();
+    }		
+		/* CARUI Page 2事件 */
+		if((r_event & EVENT_canCARPAGE2) == (EVENT_canCARPAGE2)) 
+    {		
+			canSendCarData();
+			canSendVl53l0xData();
+			canSendMotorPidData();
+    }		
+		/* CARUI Page 3事件 */
+		if((r_event & EVENT_canCARPAGE3) == (EVENT_canCARPAGE3)) 
+    {		
+			canSendLedData();
+    }		
 		/* 电机事件 */
 		if((r_event & EVENT_canMOTOR) == (EVENT_canMOTOR)) 
     {		

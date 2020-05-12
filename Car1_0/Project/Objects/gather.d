@@ -67,6 +67,8 @@
 .\objects\gather.o: ..\Basic\MPU\bsp_mpu6050.h
 .\objects\gather.o: ..\Basic\EXTI\bsp_exti.h
 .\objects\gather.o: ..\Basic\CAN\bsp_can.h
+.\objects\gather.o: ..\Basic\BZ\bsp_hwbz.h
+.\objects\gather.o: ..\Basic\JG\bsp_vl53l0x.h
 .\objects\gather.o: ..\Basic\MPU\inv_mpu.h
 .\objects\gather.o: ..\Basic\MPU\inv_mpu_dmp_motion_driver.h
 .\objects\gather.o: ..\Basic\MPU\dmpKey.h
@@ -86,3 +88,4 @@
 .\objects\gather.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\gather.o: ..\TASK\inc\MoveCtrlTask.h
 .\objects\gather.o: ..\TASK\inc\MpuTask.h
+.\objects\gather.o: ..\TASK\inc\DistanceTask.h

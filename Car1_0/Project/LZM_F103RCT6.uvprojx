@@ -369,7 +369,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Libraries\CMSIS;..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\User;..\User\OLED_SPI;..\Top\inc;..\Basic\SYSTICK;..\Basic\LED;..\FreeRTOS\inc;..\Basic\SYS;..\Basic\DWT;..\Basic\BSP;..\Basic\CONFIG;..\Basic\KEY;..\TASK\inc;..\Basic\USART1;..\Basic\SDIO;..\FATFS\src;..\FATFS\src\option;..\Basic\USMART;..\Zui\inc;..\Basic\OLED;..\Basic\MOTOR;..\Basic\ENCODER;..\Basic\IIC;..\Basic\MPU;..\Basic\EXTI;..\Basic\CAN</IncludePath>
+              <IncludePath>..\Libraries\CMSIS;..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\User;..\User\OLED_SPI;..\Top\inc;..\Basic\SYSTICK;..\Basic\LED;..\FreeRTOS\inc;..\Basic\SYS;..\Basic\DWT;..\Basic\BSP;..\Basic\CONFIG;..\Basic\KEY;..\TASK\inc;..\Basic\USART1;..\Basic\SDIO;..\FATFS\src;..\FATFS\src\option;..\Basic\USMART;..\Zui\inc;..\Basic\OLED;..\Basic\MOTOR;..\Basic\ENCODER;..\Basic\IIC;..\Basic\MPU;..\Basic\EXTI;..\Basic\CAN;..\Basic\BZ;..\Basic\JG</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -727,6 +727,16 @@
               <FileType>1</FileType>
               <FilePath>..\Basic\CAN\bsp_can.c</FilePath>
             </File>
+            <File>
+              <FileName>bsp_hwbz.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Basic\BZ\bsp_hwbz.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_vl53l0x.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Basic\JG\bsp_vl53l0x.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -826,6 +836,16 @@
               <FileName>canCommunicateTask.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\TASK\src\canCommunicateTask.c</FilePath>
+            </File>
+            <File>
+              <FileName>EnvironmentTask.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\TASK\src\EnvironmentTask.c</FilePath>
+            </File>
+            <File>
+              <FileName>DistanceTask.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\TASK\src\DistanceTask.c</FilePath>
             </File>
           </Files>
         </Group>

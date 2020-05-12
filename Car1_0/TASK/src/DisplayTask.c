@@ -184,4 +184,15 @@ void SendCarUIData(void)
 	carUIPara.Para_IfControl = Main_uiconfigParam.Para_IfControl;
 	sendData(UP_DATA,enIDCar,KIND_UI,(u8 *)&carUIPara,sizeof(carUIPara),20);
 	
-}				
+}	
+
+void SendEnvUIData(void)
+{
+	envUIPara.Step_Index = Envi_uiconfigParam.Step_Index;
+	envUIPara.Page_Index = Envi_uiconfigParam.Page_Index;
+	envUIPara.Page_Index_Last = Envi_uiconfigParam.Page_Index_Last;
+	envUIPara.Para_Index = Envi_uiconfigParam.Para_Index;
+	envUIPara.Para_IfControl = Envi_uiconfigParam.Para_IfControl;
+	sendData(UP_DATA,enIDCar,KIND_UI,(u8 *)&envUIPara,sizeof(envUIPara),20);
+	
+}	

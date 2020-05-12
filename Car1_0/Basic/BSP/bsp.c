@@ -57,9 +57,9 @@ void bsp_Init(void)
 	
 	bsp_LED_Init();
 	
-	DwtDelay_mS(100);
+	DwtDelay_mS(10);
 	bsp_Motor_Init(7199,0);
-	DwtDelay_mS(100);
+	DwtDelay_mS(10);
 
 	Encoder1_Init_TIM();
 	Encoder2_Init_TIM();
@@ -75,6 +75,10 @@ void bsp_Init(void)
 // 	EXTI_Pxy_Config();                  //=====MPU6050 5ms定时中断初始化
 	
 	bsp_KEY_Init();
+
+	bsp_Hwbz_Init();
+
+	bsp_VL53L0X_Init();
 
 	bsp_CAN_Init();
 	

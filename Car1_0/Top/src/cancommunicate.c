@@ -26,6 +26,9 @@ pms_t       Pms;
 bme_t       Bme;
 clock_t     ClockA;
 clock_t     SetClock;
+gas_t       Smog;
+gas_t       Hydrogen;
+gas_t       CO;
 
 
 /*********************** Õ‚∑¢ ***********************/
@@ -42,6 +45,8 @@ void canCommunicateParaInit(void)
 	canConnect.tickCount = xTaskGetTickCount();
 	canConnect.status    = enBreak;
 	
+	Huimiture.temp_offset = 0;
+	Huimiture.huim_offset = 0;
 }
 
 

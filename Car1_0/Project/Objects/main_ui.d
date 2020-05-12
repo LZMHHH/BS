@@ -67,6 +67,8 @@
 .\objects\main_ui.o: ..\Basic\MPU\bsp_mpu6050.h
 .\objects\main_ui.o: ..\Basic\EXTI\bsp_exti.h
 .\objects\main_ui.o: ..\Basic\CAN\bsp_can.h
+.\objects\main_ui.o: ..\Basic\BZ\bsp_hwbz.h
+.\objects\main_ui.o: ..\Basic\JG\bsp_vl53l0x.h
 .\objects\main_ui.o: ..\Basic\MPU\inv_mpu.h
 .\objects\main_ui.o: ..\Basic\MPU\inv_mpu_dmp_motion_driver.h
 .\objects\main_ui.o: ..\Basic\MPU\dmpKey.h
@@ -86,3 +88,4 @@
 .\objects\main_ui.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\main_ui.o: ..\TASK\inc\MoveCtrlTask.h
 .\objects\main_ui.o: ..\TASK\inc\MpuTask.h
+.\objects\main_ui.o: ..\TASK\inc\DistanceTask.h

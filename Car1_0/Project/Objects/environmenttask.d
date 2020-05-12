@@ -67,6 +67,8 @@
 .\objects\environmenttask.o: ..\Basic\MPU\bsp_mpu6050.h
 .\objects\environmenttask.o: ..\Basic\EXTI\bsp_exti.h
 .\objects\environmenttask.o: ..\Basic\CAN\bsp_can.h
+.\objects\environmenttask.o: ..\Basic\BZ\bsp_hwbz.h
+.\objects\environmenttask.o: ..\Basic\JG\bsp_vl53l0x.h
 .\objects\environmenttask.o: ..\Basic\MPU\inv_mpu.h
 .\objects\environmenttask.o: ..\Basic\MPU\inv_mpu_dmp_motion_driver.h
 .\objects\environmenttask.o: ..\Basic\MPU\dmpKey.h
@@ -86,3 +88,4 @@
 .\objects\environmenttask.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\environmenttask.o: ..\TASK\inc\MoveCtrlTask.h
 .\objects\environmenttask.o: ..\TASK\inc\MpuTask.h
+.\objects\environmenttask.o: ..\TASK\inc\DistanceTask.h

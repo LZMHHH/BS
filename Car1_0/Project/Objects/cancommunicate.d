@@ -67,6 +67,8 @@
 .\objects\cancommunicate.o: ..\Basic\MPU\bsp_mpu6050.h
 .\objects\cancommunicate.o: ..\Basic\EXTI\bsp_exti.h
 .\objects\cancommunicate.o: ..\Basic\CAN\bsp_can.h
+.\objects\cancommunicate.o: ..\Basic\BZ\bsp_hwbz.h
+.\objects\cancommunicate.o: ..\Basic\JG\bsp_vl53l0x.h
 .\objects\cancommunicate.o: ..\Basic\MPU\inv_mpu.h
 .\objects\cancommunicate.o: ..\Basic\MPU\inv_mpu_dmp_motion_driver.h
 .\objects\cancommunicate.o: ..\Basic\MPU\dmpKey.h
@@ -86,3 +88,4 @@
 .\objects\cancommunicate.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\cancommunicate.o: ..\TASK\inc\MoveCtrlTask.h
 .\objects\cancommunicate.o: ..\TASK\inc\MpuTask.h
+.\objects\cancommunicate.o: ..\TASK\inc\DistanceTask.h

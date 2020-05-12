@@ -66,6 +66,8 @@
 .\objects\stm32f10x_it.o: ..\Basic\MPU\bsp_mpu6050.h
 .\objects\stm32f10x_it.o: ..\Basic\EXTI\bsp_exti.h
 .\objects\stm32f10x_it.o: ..\Basic\CAN\bsp_can.h
+.\objects\stm32f10x_it.o: ..\Basic\BZ\bsp_hwbz.h
+.\objects\stm32f10x_it.o: ..\Basic\JG\bsp_vl53l0x.h
 .\objects\stm32f10x_it.o: ..\Basic\MPU\inv_mpu.h
 .\objects\stm32f10x_it.o: ..\Basic\MPU\inv_mpu_dmp_motion_driver.h
 .\objects\stm32f10x_it.o: ..\Basic\MPU\dmpKey.h
@@ -85,3 +87,4 @@
 .\objects\stm32f10x_it.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\stm32f10x_it.o: ..\TASK\inc\MoveCtrlTask.h
 .\objects\stm32f10x_it.o: ..\TASK\inc\MpuTask.h
+.\objects\stm32f10x_it.o: ..\TASK\inc\DistanceTask.h

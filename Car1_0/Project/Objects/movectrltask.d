@@ -67,6 +67,8 @@
 .\objects\movectrltask.o: ..\Basic\MPU\bsp_mpu6050.h
 .\objects\movectrltask.o: ..\Basic\EXTI\bsp_exti.h
 .\objects\movectrltask.o: ..\Basic\CAN\bsp_can.h
+.\objects\movectrltask.o: ..\Basic\BZ\bsp_hwbz.h
+.\objects\movectrltask.o: ..\Basic\JG\bsp_vl53l0x.h
 .\objects\movectrltask.o: ..\Basic\MPU\inv_mpu.h
 .\objects\movectrltask.o: ..\Basic\MPU\inv_mpu_dmp_motion_driver.h
 .\objects\movectrltask.o: ..\Basic\MPU\dmpKey.h
@@ -86,3 +88,4 @@
 .\objects\movectrltask.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\movectrltask.o: ..\TASK\inc\MoveCtrlTask.h
 .\objects\movectrltask.o: ..\TASK\inc\MpuTask.h
+.\objects\movectrltask.o: ..\TASK\inc\DistanceTask.h

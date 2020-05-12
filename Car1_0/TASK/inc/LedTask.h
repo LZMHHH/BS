@@ -21,7 +21,7 @@
 void vTaskLed( void * pvParameters );
 void canSendLedData(void);
 
-void sendLedData(void);
+void uart1SendLedData(TickType_t xTicksToWait);
 
 #endif
 

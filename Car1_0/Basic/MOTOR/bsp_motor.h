@@ -91,7 +91,8 @@ typedef enum
 
 
 typedef struct class_motor CLASS_Motor;
-	
+typedef struct class_pid   CLASS_Pid;	
+
 struct class_motor
 {
 	MOTOR_status name;
@@ -105,6 +106,16 @@ struct class_motor
 //	__IO uint16_t ccr;         /* ccr¼Ä´æÆ÷ */
 	
 };
+struct class_pid
+{
+	
+	/* Öµ */
+	float p;
+	float i;
+	float d;
+	
+};
+
 
 
 //void MiniBalance_PWM_Init(u16 arr,u16 psc);

@@ -46,7 +46,7 @@ void AppObjCreate  ( void );
 //void vTaskCanTx    ( void * pvParameters );
 //void vTaskMoveCtrl ( void * pvParameters );
 //void vTaskMpu      ( void * pvParameters );
-
+//void vTaskDistance ( void * pvParameters );
 
 
 /*
@@ -69,6 +69,7 @@ static TaskHandle_t xHandleTaskCan       = NULL;  //Can任务
 			 TaskHandle_t xHandleTaskMpu       = NULL;  //陀螺仪任务
 			 TaskHandle_t xHandleTaskSendData  = NULL;  //上传数据处理任务
 			 TaskHandle_t xHandleTaskEnvironment = NULL;  //上报环境数据任务
+			 TaskHandle_t xHandleTaskDistance  = NULL;  //距离任务
 /********************************** 内核对象句柄 *********************************/
 /*
  * 信号量，消息队列，事件标志组，软件定时器这些都属于内核的对象，要想使用这些内核
@@ -182,6 +183,13 @@ static void AppTaskCreate (void)
 							   256,                   	/* 任务栈大小，单位word，也就是4字节 */
 							   NULL,              	    /* 任务参数  */
 							   11,                     	/* 任务优先级*/
+							   &xHandleTaskMoveCtrl );   /* 任务句柄  */
+								 
+		xTaskCreate( vTaskDistance,   	      /* 任务函数  */
+							   "Task Distance",         /* 任务名    */
+							   128,                   	/* 任务栈大小，单位word，也就是4字节 */
+							   NULL,              	    /* 任务参数  */
+							   10,                     	/* 任务优先级*/
 							   &xHandleTaskMoveCtrl );   /* 任务句柄  */
 								 
 //		xTaskCreate( vTaskMpu,   	             /* 任务函数  */

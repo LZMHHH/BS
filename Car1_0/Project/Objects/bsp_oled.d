@@ -67,6 +67,8 @@
 .\objects\bsp_oled.o: ..\Basic\MPU\bsp_mpu6050.h
 .\objects\bsp_oled.o: ..\Basic\EXTI\bsp_exti.h
 .\objects\bsp_oled.o: ..\Basic\CAN\bsp_can.h
+.\objects\bsp_oled.o: ..\Basic\BZ\bsp_hwbz.h
+.\objects\bsp_oled.o: ..\Basic\JG\bsp_vl53l0x.h
 .\objects\bsp_oled.o: ..\Basic\MPU\inv_mpu.h
 .\objects\bsp_oled.o: ..\Basic\MPU\inv_mpu_dmp_motion_driver.h
 .\objects\bsp_oled.o: ..\Basic\MPU\dmpKey.h
@@ -86,4 +88,5 @@
 .\objects\bsp_oled.o: ..\TASK\inc\EnvironmentTask.h
 .\objects\bsp_oled.o: ..\TASK\inc\MoveCtrlTask.h
 .\objects\bsp_oled.o: ..\TASK\inc\MpuTask.h
+.\objects\bsp_oled.o: ..\TASK\inc\DistanceTask.h
 .\objects\bsp_oled.o: ..\Basic\OLED\bsp_oledfont.h
