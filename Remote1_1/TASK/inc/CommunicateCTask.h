@@ -23,7 +23,7 @@
 #define EVENT_uart3OLEDCLEAR (0x01 << 8)
 #define EVENT_uart3CARUI    (0x01 << 16)
 #define EVENT_uart3CARUIREQ (0x01 << 17)
-
+#define EVENT_uart3ENVUIREQ (0x01 << 18)
 
 
 

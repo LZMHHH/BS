@@ -95,11 +95,10 @@ typedef struct _connect_t
 /*下行指令ID*/
 typedef enum 
 {
-	/* car */
 	DOWN_COMMAND	= 0x01,
 	DOWN_ACK		  = 0x02,
 	DOWN_REMOTOR	= 0x50,
-	
+	DOWN_REQ      = 0x03,
 }downmsgID_e;
 
 
@@ -111,17 +110,40 @@ typedef enum
 	KIND_MOTOR	  = 0x03,
 	KIND_ENCODER	= 0x04,
 	KIND_KEY     	= 0x05,
-	KIND_UI     	= 0x11,
-	KIND_UIREQ    = 0x12,
-	KIND_SHT3X    = 0x21,
-	KIND_GY30     = 0x22,
-	KIND_PMS      = 0x23,
-	KIND_BME      = 0x24,
+	KIND_CARDATA	= 0x06,
+	KIND_MOTORPID	= 0x06,
+	KIND_HWBZ    	= 0x07,
+	KIND_Vl53l0XDATA = 0x08,
+	KIND_UI     	= 0x31,
+	KIND_UIREQ    = 0x32,
+	KIND_UIPAGEREQ = 0x33,
+	KIND_SHT3X    = 0xa1,
+	KIND_SHT3XCON = 0xa2,
+	KIND_SHT3XMODE = 0xa3,
+	KIND_GY30     = 0xa4,
+	KIND_PMS      = 0xa5,
+	KIND_BME      = 0xa6,
+	KIND_SMOG     = 0xa7,
+	KIND_HYDROGEN = 0xa8,
+	KIND_CO       = 0xa9,
+	KIND_DATE     = 0xb1,
+	KIND_TIME     = 0xb2,
+	KIND_SETDATE  = 0xb3,
+	KIND_SETTIME  = 0xb4,
+  KIND_CARUIPAGE0 = 0xc1,
+	KIND_CARUIPAGE1 = 0xc2,
+	KIND_CARUIPAGE2 = 0xc3,
+	KIND_CARUIPAGE3 = 0xc4,
+	KIND_ENVUIPAGE0 = 0xc5,
+	KIND_ENVUIPAGE1 = 0xc6,
+	KIND_ENVUIPAGE2 = 0xc7,
+	KIND_ENVUIPAGE3 = 0xc8,
+	KIND_ENVUIPAGE4 = 0xc9,
+	KIND_ENVUIPAGE5 = 0xca,
 	
 	CMD_CHANGE_MODE	=	0x21,	/*切换模式*/
 	
 }kind_e;
-
 
 /* KIND_UIREQ 用于CMD,下为请求哪一个MCU的UI*/
 #define UIREQ_CAR          0x01

@@ -183,7 +183,7 @@
           <Type>0</Type>
           <LineNumber>635</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134251856</Address>
+          <Address>134252408</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -194,28 +194,27 @@
           <ExecCommand></ExecCommand>
           <Expression>\\LZM_F103C8T6\../Zui/src/car_ui.c\635</Expression>
         </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
-          <LineNumber>882</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134259378</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\Zui\src\envi_ui.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\LZM_F103C8T6\../Zui/src/envi_ui.c\882</Expression>
-        </Bp>
       </Breakpoint>
       <WatchWindow1>
         <Ww>
           <count>0</count>
           <WinNumber>1</WinNumber>
           <ItemText>p</ItemText>
+        </Ww>
+        <Ww>
+          <count>1</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>p</ItemText>
+        </Ww>
+        <Ww>
+          <count>2</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>p</ItemText>
+        </Ww>
+        <Ww>
+          <count>3</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>SendBuff</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>
@@ -783,7 +782,7 @@
 
   <Group>
     <GroupName>BAISE</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>

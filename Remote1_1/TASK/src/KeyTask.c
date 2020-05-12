@@ -112,6 +112,17 @@ void  Key_Control(void)
 					xEventGroupSetBits(Event_uart3SendData,EVENT_uart3CARUIREQ);	
 				}
 		}
+		/* 同步参数 */
+		if(Show_ui == ENVI_ui)
+		{
+				if(envUIPara.Sync == true) envUIPara.Sync = false;
+				else                       
+				{
+					envUIPara.Sync = true;
+					/* 触发一个事件 */
+					xEventGroupSetBits(Event_uart3SendData,EVENT_uart3ENVUIREQ);	
+				}
+		}
 		
 		
 		Key_PB.Flag_LongPress = false; //标志复位

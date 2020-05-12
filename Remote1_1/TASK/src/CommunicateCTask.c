@@ -84,6 +84,7 @@ void vTaskuart3SendData( void * pvParameters )
 		 r_event = xEventGroupWaitBits(Event_uart3SendData,  /* 事件对象句柄 */
 															  EVENT_uart3CARUI
 															 |EVENT_uart3CARUIREQ
+															 |EVENT_uart3ENVUIREQ
 															 |EVENT_uart3OLEDCLEAR,/* 接收线程感兴趣的事件 */
 																pdTRUE,   /* 退出时清除事件位 */
 																pdFALSE,   /* 满足感兴趣的如何一个事件 */
@@ -93,7 +94,12 @@ void vTaskuart3SendData( void * pvParameters )
 		/* CARUI请求事件 */
 		if((r_event & EVENT_uart3CARUIREQ) == (EVENT_uart3CARUIREQ)) 
     {		
-			canSendCarUIReqCmd();
+			uart3SendCarUIReqCmd();
+    }
+		/* ENVUI请求事件 */
+		if((r_event & EVENT_uart3ENVUIREQ) == (EVENT_uart3ENVUIREQ)) 
+    {		
+			uart3SendEnvUIReqCmd();
     }
 		/* 清屏事件 */
 		if((r_event & EVENT_uart3OLEDCLEAR) == (EVENT_uart3OLEDCLEAR)) 

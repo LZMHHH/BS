@@ -19,8 +19,11 @@
 ui_mode Show_ui = MAIN_ui;
 
 volatile TickType_t SendUITickCount; //用于定时上传数据
+volatile TickType_t SendUITickCountA; //用于定时上传数据
 
 static void Para_Init(void);
+void uart3SendCARUIREQ(void);
+void uart3SendENVUIREQ(void);
 
 void vTaskDisplay( void * pvParameters )
 {
@@ -54,12 +57,36 @@ void vTaskDisplay( void * pvParameters )
 				/* 触发一个事件 */
 				xEventGroupSetBits(Event_uart3SendData,EVENT_uart3CARUIREQ);	
 			}
+			if(envUIPara.Sync == true)
+			{
+				/* 触发一个事件 */
+				xEventGroupSetBits(Event_uart3SendData,EVENT_uart3ENVUIREQ);	
+			}
 					
 			SendUITickCount = xTaskGetTickCount();
 		}
 		if(SendUITickCount > xTaskGetTickCount())
 		{
 			SendUITickCount = xTaskGetTickCount();
+		}
+		
+		
+		if((xTaskGetTickCount()-100) > SendUITickCountA)
+		{
+			if(Show_ui == CAR_ui)
+			{
+				uart3SendCARUIREQ();
+			}
+			if(Show_ui == ENVI_ui)
+			{
+				uart3SendENVUIREQ();
+			}
+					
+			SendUITickCountA = xTaskGetTickCount();
+		}
+		if(SendUITickCountA > xTaskGetTickCount())
+		{
+			SendUITickCountA = xTaskGetTickCount();
 		}
 		
 		OLED_Refresh_Gram();
@@ -140,12 +167,76 @@ void Change_UIMode(void)
 
 
 /* 通讯 */
-void canSendCarUIReqCmd(void)
+void uart3SendCarUIReqCmd(void)
 {
 	sendCmd(DOWN_REMOTOR,KIND_UIREQ,UIREQ_CAR,20);
 }
 
+/* 通讯 */
+void uart3SendEnvUIReqCmd(void)
+{
+	sendCmd(DOWN_REMOTOR,KIND_UIREQ,UIREQ_ENVIRONMENT,20);
+}
 
+void uart3SendCARUIREQ(void)
+{
+	sendCmd(DOWN_REQ,KIND_UIPAGEREQ,UIREQ_CAR,20);
+	msg_t p;
+	p.msg_head = MSG_HEAD;
+	p.msgID = DOWN_REQ;
+	p.mcuID = enIDRemote;
+	p.dataLen = 3;
+	p.data[0] = enCMD;
+	p.data[1] = KIND_UIPAGEREQ;
+	switch(Car_uiconfigParam.Page_Index)
+	{
+		case 0:
+					p.data[2] = KIND_CARUIPAGE0;
+					break;
+		case 1:
+					p.data[2] = KIND_CARUIPAGE1;
+					break;
+		case 2:
+					p.data[2] = KIND_CARUIPAGE2;
+					break;
+		case 3:
+					p.data[2] = KIND_CARUIPAGE3;
+					break;
+	}
+	
+	xQueueSend(xQueue_uart3Tx, &p, 20);
+}
 
-
-
+void uart3SendENVUIREQ(void)
+{
+	msg_t p;
+	p.msg_head = MSG_HEAD;
+	p.msgID = DOWN_REQ;
+	p.mcuID = enIDRemote;
+	p.dataLen = 3;
+	p.data[0] = enCMD;
+	p.data[1] = KIND_UIPAGEREQ;
+	switch(Envi_uiconfigParam.Page_Index)
+	{
+		case 0:
+					p.data[2] = KIND_ENVUIPAGE0;
+					break;
+		case 1:
+					p.data[2] = KIND_ENVUIPAGE1;
+					break;
+		case 2:
+					p.data[2] = KIND_ENVUIPAGE2;
+					break;
+		case 3:
+					p.data[2] = KIND_ENVUIPAGE3;
+					break;
+		case 4:
+					p.data[2] = KIND_ENVUIPAGE4;
+					break;
+		case 5:
+					p.data[2] = KIND_ENVUIPAGE5;
+					break;
+	}
+	
+	xQueueSend(xQueue_uart3Tx, &p, 20);
+}

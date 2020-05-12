@@ -58,8 +58,8 @@ void setShow_ui(ui_mode ui);
 void vTaskDisplay( void * pvParameters );
 void Show_Para_Con(CLASS_UIconfigParam* ui_configparam);
 void Change_UIMode(void);
-void canSendCarUIReqCmd(void);
-
+void uart3SendCarUIReqCmd(void);
+void uart3SendEnvUIReqCmd(void);
 #endif
 
 

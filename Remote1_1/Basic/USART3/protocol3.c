@@ -319,9 +319,11 @@ void msgAnalyze(msg_t *p)
 				{
 					case KIND_SHT3X:
 								floatdata = (float)(((*(p->data+5) <<24)|(*(p->data+4) <<16)|(*(p->data+3) <<8)|*(p->data+2))/100.0);
-								if(myabs(floatdata) < 500.0) Huimiture.temperature = floatdata;
+								if((myabs(floatdata) < 500.0) && (((Huimiture.temperature>5.0) && myabs(floatdata) != 0)|| Huimiture.temperature <= 5.0)) 
+									Huimiture.temperature = floatdata;
 								floatdata = (float)(((*(p->data+9) <<24)|(*(p->data+8) <<16)|(*(p->data+7) <<8)|*(p->data+6))/100.0);
-								if(myabs(floatdata) < 500.0) Huimiture.huimidity = floatdata;
+								if((myabs(floatdata) < 500.0) && (((Huimiture.huimidity>5.0) && myabs(floatdata) != 0)|| Huimiture.huimidity <= 5.0)) 
+									Huimiture.huimidity = floatdata;
 								break;
 					case KIND_GY30:
 								floatdata = (float)(((*(p->data+5) <<24)|(*(p->data+4) <<16)|(*(p->data+3) <<8)|*(p->data+2))/100.0);
@@ -338,9 +340,9 @@ void msgAnalyze(msg_t *p)
 								if(myabs(floatdata) < 5000.0) Bme.pressure = floatdata;
 								floatdata = (float)(((*(p->data+9) <<24)|(*(p->data+8) <<16)|(*(p->data+7) <<8)|*(p->data+6))/100.0);
 								if(myabs(floatdata) < 1000.0) Bme.asl = floatdata;
-								floatdata = (float)(((*(p->data+5) <<24)|(*(p->data+4) <<16)|(*(p->data+3) <<8)|*(p->data+2))/100.0);
+								floatdata = (float)(((*(p->data+13) <<24)|(*(p->data+12) <<16)|(*(p->data+11) <<8)|*(p->data+10))/100.0);
 								if(myabs(floatdata) < 1000.0) Bme.temperature = floatdata;
-								floatdata = (float)(((*(p->data+9) <<24)|(*(p->data+8) <<16)|(*(p->data+7) <<8)|*(p->data+6))/100.0);
+								floatdata = (float)(((*(p->data+17) <<24)|(*(p->data+16) <<16)|(*(p->data+15) <<8)|*(p->data+14))/100.0);
 								if(myabs(floatdata) < 1000.0) Bme.humidity = floatdata;
 								break;
 					
