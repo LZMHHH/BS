@@ -141,8 +141,8 @@ void vTaskSendData( void * pvParameters )
     {		
 			SendCarUIData();
     }
-		/* CARUI事件 */
-		if((r_event & EVENT_uart1CARUI) == (EVENT_uart1ENVUI)) 
+		/* ENVUI事件 */
+		if((r_event & EVENT_uart1ENVUI) == (EVENT_uart1ENVUI)) 
     {		
 			SendEnvUIData();
     }
@@ -170,22 +170,27 @@ void vTaskSendData( void * pvParameters )
 		if((r_event & EVENT_uart1CARPAGE0) == (EVENT_uart1CARPAGE0)) 
     {		
 			uart1SendEncoderData();
-			uart1SendCarData();
+			vTaskDelay( 5 );
 			uart1SendHwbzData();
+			vTaskDelay( 10 );
+			uart1SendCarData();
+			vTaskDelay( 10 );
 			uart1SendVl53l0xData();
 		}
 		/* CARUI Page 1事件 */
 		if((r_event & EVENT_uart1CARPAGE1) == (EVENT_uart1CARPAGE1)) 
     {		
 			uart1SendEncoderData();
-			uart1SendCarData();
+			vTaskDelay( 5 );
 			uart1SendHwbzData();
 		}
 		/* CARUI Page 2事件 */
 		if((r_event & EVENT_uart1CARPAGE2) == (EVENT_uart1CARPAGE2)) 
     {	
 			uart1SendCarData();
-			uart1SendVl53l0xData();			
+			vTaskDelay( 5 );
+			uart1SendVl53l0xData();		
+			vTaskDelay( 10 );
 			uart1SendMotorPidData();
 		}
 		/* CARUI Page 3事件 */
@@ -197,51 +202,72 @@ void vTaskSendData( void * pvParameters )
 		if((r_event & EVENT_uart1ENVPAGE0) == (EVENT_uart1ENVPAGE0)) 
     {		
 			uart1SendClockData(20);
+			vTaskDelay( 5 );
 			uart1SendHuimitureData(20);
+			vTaskDelay( 5 );
 			uart1SendPmsData(20);
+			vTaskDelay( 5 );
 			uart1SendBmeData(20);
 		}
 		/* ENVUI Page 1事件 */
 		if((r_event & EVENT_uart1ENVPAGE1) == (EVENT_uart1ENVPAGE1)) 
     {		
 			uart1SendClockData(20);
+			vTaskDelay( 5 );
 			uart1SendHuimitureData(20);
+			vTaskDelay( 10 );
 			uart1SendGy30Data(20);
+			vTaskDelay( 10 );
 			uart1SendPmsData(20);
+			vTaskDelay( 10 );
 			uart1SendBmeData(20);
+			vTaskDelay( 10 );
 			uart1SendSmogData(20);
+			vTaskDelay( 10 );
 			uart1SendHydrogenData(20);
+			vTaskDelay( 10 );
 			uart1SendCOData(20);
 		}
 		/* ENVUI Page 2事件 */
 		if((r_event & EVENT_uart1ENVPAGE2) == (EVENT_uart1ENVPAGE2)) 
     {		
 			uart1SendClockData(20);
+			vTaskDelay( 5 );
 			uart1SendSht3xData(20);
+			vTaskDelay( 10 );
 			uart1SendGy30Data(20);
+			vTaskDelay( 10 );
 			uart1SendPmsData(20);
+			vTaskDelay( 10 );
 			uart1SendBmeData(20);
+			vTaskDelay( 10 );
 			uart1SendSmogData(20);
+			vTaskDelay( 10 );
 			uart1SendHydrogenData(20);
+			vTaskDelay( 10 );
 			uart1SendCOData(20);
 		}
 		/* ENVUI Page 3事件 */
 		if((r_event & EVENT_uart1ENVPAGE3) == (EVENT_uart1ENVPAGE3)) 
     {		
 			uart1SendClockData(20);
+			vTaskDelay( 5 );
 			uart1SendLedData(20);
 		}
 		/* ENVUI Page 4事件 */
 		if((r_event & EVENT_uart1ENVPAGE4) == (EVENT_uart1ENVPAGE4)) 
     {		
 			uart1SendClockData(20);
+			vTaskDelay( 5 );
 			uart1SendSetClockData(20);
 		}
 		/* ENVUI Page 5事件 */
 		if((r_event & EVENT_uart1ENVPAGE5) == (EVENT_uart1ENVPAGE5)) 
     {		
 			uart1SendSht3xData(20);
+			vTaskDelay( 5 );
 			uart1SendGy30Data(20);
+			vTaskDelay( 10 );
 			uart1SendPmsData(20);
 		}
 		
@@ -258,7 +284,7 @@ void sendKeyAckData(void)
 	p.mcuID = enIDCar;
 	p.dataLen = 2; 
 	p.data[0] = enCMD;
-	p.data[1] = KIND_KEY;
+	p.data[1] = KIND_CARKEY;
 
 	xQueueSend(xQueue_uart1Tx, &p, 20);
 }

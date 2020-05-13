@@ -234,12 +234,12 @@ static void AppTaskCreate (void)
 								 10,                 	    /* 任务优先级*/
 								 &xHandleTaskSendData );  /* 任务句柄  */
 						
-		xTaskCreate( vTaskEnvironment,   	      /* 任务函数  */
-								 "Task Environment",        /* 任务名    */
-								 256,                   	  /* 任务栈大小，单位word，也就是4字节 */
-								 NULL,              	      /* 任务参数  */
-								 10,                 	      /* 任务优先级*/
-								 &xHandleTaskEnvironment ); /* 任务句柄  */
+//		xTaskCreate( vTaskEnvironment,   	      /* 任务函数  */
+//								 "Task Environment",        /* 任务名    */
+//								 256,                   	  /* 任务栈大小，单位word，也就是4字节 */
+//								 NULL,              	      /* 任务参数  */
+//								 10,                 	      /* 任务优先级*/
+//								 &xHandleTaskEnvironment ); /* 任务句柄  */
 		
 		xTaskCreate( vTaskSendData,   	      /* 任务函数  */
 								 "Task Uart1Tx",          /* 任务名    */

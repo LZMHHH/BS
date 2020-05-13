@@ -146,7 +146,6 @@ void canSendCarUIData(void)
 					break;
 		case 1:
 					flag = 0;
-					/* 发送sht3x的温度数据 */
 					p.StdId = CAN_UIID;
 					p.ExtId = 0x01;  /* 该函数使用STD帧ID，所以ExtID用不到 */
 					p.RTR = CAN_RTR_DATA;
@@ -175,6 +174,25 @@ void canSendCarUIData(void)
 	
 }				
 
+void canSendEnvUIReqCmd(void)
+{
+	CanTxMsg p;
+
+	p.StdId = CAN_UIID;
+	p.ExtId = 0x01;  /* 该函数使用STD帧ID，所以ExtID用不到 */
+	p.RTR = CAN_RTR_DATA;
+	p.IDE = CAN_ID_STD;	
+	/* 向CAN网络发送8个字节数据 */
+	p.DLC = 8;          /* 每包数据支持0-8个字节，这里设置为发送8个字节 */
+	p.Data[0] = enIDCar;   
+	p.Data[1] = enCMD;
+	p.Data[2] = CAN_ENVUI;
+	p.Data[3] = CAN_UIReq;
+	xQueueSend(xQueue_canTx, &p, 10);
+					
+	
+}	
+
 void SendCarUIData(void)
 {
 	carUIPara.Step_Index = Main_uiconfigParam.Step_Index;
@@ -188,11 +206,12 @@ void SendCarUIData(void)
 
 void SendEnvUIData(void)
 {
+	canSendEnvUIReqCmd();
 	envUIPara.Step_Index = Envi_uiconfigParam.Step_Index;
 	envUIPara.Page_Index = Envi_uiconfigParam.Page_Index;
 	envUIPara.Page_Index_Last = Envi_uiconfigParam.Page_Index_Last;
 	envUIPara.Para_Index = Envi_uiconfigParam.Para_Index;
 	envUIPara.Para_IfControl = Envi_uiconfigParam.Para_IfControl;
-	sendData(UP_DATA,enIDCar,KIND_UI,(u8 *)&envUIPara,sizeof(envUIPara),20);
+	sendData(UP_DATA,enIDEnvironment,KIND_UI,(u8 *)&envUIPara,sizeof(envUIPara),20);
 	
 }	

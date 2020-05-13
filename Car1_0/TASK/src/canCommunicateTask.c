@@ -87,6 +87,7 @@ void vTaskcanSendData( void * pvParameters )
 															 |EVENT_canCARPAGE2
 															 |EVENT_canCARPAGE3
 															 |EVENT_canCARUI
+															 |EVENT_canENVUIREQ
 															 |EVENT_canMOTOR
 															 |EVENT_canENCODER
 															 |EVENT_canOLEDCLEAR,/* 接收线程感兴趣的事件 */
@@ -103,6 +104,11 @@ void vTaskcanSendData( void * pvParameters )
 		if((r_event & EVENT_canCARUI) == (EVENT_canCARUI)) 
     {		
 			canSendCarUIData();
+    }
+		/* ENVUI请求事件 */
+		if((r_event & EVENT_canENVUIREQ) == (EVENT_canENVUIREQ)) 
+    {		
+			canSendEnvUIReqCmd();
     }
 		/* CARUI Page 0事件 */
 		if((r_event & EVENT_canCARPAGE0) == (EVENT_canCARPAGE0)) 

@@ -31,6 +31,7 @@ void vTaskcanSendData( void * pvParameters );
 #define EVENT_canCARPAGE2 (0x01 << 5)
 #define EVENT_canCARPAGE3 (0x01 << 6)
 #define EVENT_canCARUI    (0x01 << 7)
+#define EVENT_canENVUIREQ (0x01 << 8)
 #define EVENT_canMOTOR    (0x01 << 18)
 #define EVENT_canENCODER  (0x01 << 19)
 #endif

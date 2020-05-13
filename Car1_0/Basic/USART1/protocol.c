@@ -257,14 +257,19 @@ void msgAnalyze(msg_t *p)
 			{
 				switch(p->data[1])
 				{
-					case KIND_KEY:
+					case KIND_CARKEY:
 									if(p->data[2] == NAME_KEYU) Key_PU.Key_RetVal = enKey_Click;
 									if(p->data[2] == NAME_KEYD) Key_PD.Key_RetVal = enKey_Click;
 									if(p->data[2] == NAME_KEYL) Key_PL.Key_RetVal = enKey_Click;
 									if(p->data[2] == NAME_KEYR) Key_PR.Key_RetVal = enKey_Click;
 									if(p->data[2] == NAME_KEYM) Key_PM.Key_RetVal = enKey_Click;
-									/* 触发一个上传keyack数据的事件  目的是回传更新数据*/
-									xEventGroupSetBits(Event_SendData,EVENT_KEYACK);		
+									break;
+					case KIND_ENVKEY:
+									if(p->data[2] == NAME_KEYU) canSendKeyClickData(CAN_KEYU,30);
+									if(p->data[2] == NAME_KEYD) canSendKeyClickData(CAN_KEYD,30);
+									if(p->data[2] == NAME_KEYL) canSendKeyClickData(CAN_KEYL,30);
+									if(p->data[2] == NAME_KEYR) canSendKeyClickData(CAN_KEYR,30);
+									if(p->data[2] == NAME_KEYM) canSendKeyClickData(CAN_KEYM,30);
 									break;
 					case KIND_UIREQ:
 									if(p->data[2] == UIREQ_CAR) 
@@ -708,6 +713,26 @@ void canmsgAnalyze(CanRxMsg *p)
 												break;
 									case CAN_UIParaIfControl:
 												Main_uiconfigParam.Para_IfControl = (u8)(*(p->Data+4));
+												break;
+								}
+								break;
+						case CAN_ENVUI:
+						   switch(*(p->Data+3))
+								{
+									case CAN_UIStepIndex:
+												Envi_uiconfigParam.Step_Index = (u8)(*(p->Data+4));
+												break;
+									case CAN_UIPageIndex:
+												Envi_uiconfigParam.Page_Index = (u8)(*(p->Data+4));
+												break;
+									case CAN_UIPageIndexLast:
+												Envi_uiconfigParam.Page_Index_Last = (u8)(*(p->Data+4));
+												break;
+									case CAN_UIPareIndex:
+												Envi_uiconfigParam.Para_Index = (u8)(*(p->Data+4));
+												break;
+									case CAN_UIParaIfControl:
+												Envi_uiconfigParam.Para_IfControl = (u8)(*(p->Data+4));
 												break;
 								}
 								break;

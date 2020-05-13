@@ -72,6 +72,8 @@ void uart1SendSht3xData(TickType_t xTicksToWait)
 	memcpy(p.data+14, &(intdata), sizeof(intdata));
 	xQueueSend(xQueue_uart1Tx, &p, xTicksToWait);
 	
+	vTaskDelay( 5 );
+	
 	p.dataLen = 4*4 + 2; 
 	p.data[1] = KIND_SHT3XCON;
 	intdata   = (int)((Huimiture.tempAdd_shieldVal)*100);
@@ -83,6 +85,8 @@ void uart1SendSht3xData(TickType_t xTicksToWait)
 	memcpy(p.data+14, &(Huimiture.AddPwm), sizeof(Huimiture.AddPwm));
 	memcpy(p.data+16, &(Huimiture.RedPwm), sizeof(Huimiture.RedPwm));
 	xQueueSend(xQueue_uart1Tx, &p, xTicksToWait);
+	
+	vTaskDelay( 10 );
 	
 	p.dataLen = 3 + 2; 
 	p.data[1] = KIND_SHT3XMODE;
@@ -108,6 +112,10 @@ void uart1SendHuimitureData(TickType_t xTicksToWait)
 	memcpy(p.data+2, &(intdata), sizeof(intdata)); 
 	intdata   = (int)((Huimiture.huimidity)*100);
 	memcpy(p.data+6, &(intdata), sizeof(intdata));
+	intdata   = (int)((Huimiture.temp_offset)*100);
+	memcpy(p.data+10, &(intdata), sizeof(intdata)); 
+	intdata   = (int)((Huimiture.huim_offset)*100);
+	memcpy(p.data+14, &(intdata), sizeof(intdata));
 	xQueueSend(xQueue_uart1Tx, &p, xTicksToWait);
 
 }
@@ -131,7 +139,7 @@ void uart1SendGy30Data(TickType_t xTicksToWait)
 	memcpy(p.data+6, &(intdata), sizeof(intdata));
 	intdata   = (int)((Light.a)*100);
 	memcpy(p.data+10, &(intdata), sizeof(intdata));
-	memcpy(p.data+12, &(Light.mode), sizeof(Light.mode));
+	memcpy(p.data+14, &(Light.mode), sizeof(Light.mode));
 	xQueueSend(xQueue_uart1Tx, &p, xTicksToWait);
 }
 void uart1SendPmsData(TickType_t xTicksToWait)
@@ -148,8 +156,8 @@ void uart1SendPmsData(TickType_t xTicksToWait)
 	memcpy(p.data+4, &(Pms.PM10_Vol), sizeof(Pms.PM10_Vol));
 	memcpy(p.data+6, &(Pms.shieldPM2_5Val), sizeof(Pms.shieldPM2_5Val));
 	memcpy(p.data+8, &(Pms.shieldPM10Val), sizeof(Pms.shieldPM10Val));
-	memcpy(p.data+11, &(Pms.AQI), sizeof(Pms.AQI));
-	memcpy(p.data+12, &(Pms.mode), sizeof(Pms.mode));
+	memcpy(p.data+10, &(Pms.AQI), sizeof(Pms.AQI));
+	memcpy(p.data+11, &(Pms.mode), sizeof(Pms.mode));
 	xQueueSend(xQueue_uart1Tx, &p, xTicksToWait);
 }
 void uart1SendBmeData(TickType_t xTicksToWait)
@@ -189,7 +197,7 @@ void uart1SendClockData(TickType_t xTicksToWait)
 	memcpy(p.data+10, &(ClockA.Hour), sizeof(ClockA.Hour));
 	memcpy(p.data+14, &(ClockA.num_save), sizeof(ClockA.num_save));
 	xQueueSend(xQueue_uart1Tx, &p, xTicksToWait);
-	
+	vTaskDelay( 10 );
 	p.dataLen = 4*4 + 2; 
 	p.data[0] = enDATA;
 	p.data[1] = KIND_DATE;
@@ -215,7 +223,7 @@ void uart1SendSetClockData(TickType_t xTicksToWait)
 	memcpy(p.data+10, &(SetClock.Hour), sizeof(SetClock.Hour));
 	memcpy(p.data+14, &(SetClock.num_save), sizeof(SetClock.num_save));
 	xQueueSend(xQueue_uart1Tx, &p, xTicksToWait);
-	
+	vTaskDelay( 10 );
 	p.dataLen = 4*4 + 2; 
 	p.data[0] = enDATA;
 	p.data[1] = KIND_SETDATE;

@@ -61,6 +61,8 @@ void Change_UIMode(void);
 void canSendCarUIData(void);
 void SendCarUIData(void);
 void SendEnvUIData(void);
+void canSendEnvUIReqCmd(void);
+
 #endif
 
 
