@@ -31,7 +31,8 @@ void vTaskcanSendData( void * pvParameters );
 #define EVENT_canLED      (0x01 << 11)
 #define EVENT_canOLEDCLEAR (0x01 << 8)
 #define EVENT_canCARUI    (0x01 << 16)
-#define EVENT_canCARUIREQ (0x01 << 17)
+#define EVENT_canENVUI    (0x01 << 17)
+#define EVENT_canCARUIREQ (0x01 << 18)
 
 //上传数据任务
 void vTaskcanSendData( void * pvParameters );

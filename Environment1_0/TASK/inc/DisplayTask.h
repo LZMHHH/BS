@@ -58,7 +58,7 @@ void Show_Para_Con(CLASS_UIconfigParam *ui_configparam);
 
 void Change_UIMode(void);
 
-void canSendCarUIData(void);
+void canSendEevUIData(void);
 void canSendCarUIReqCmd(void);
 #endif
 

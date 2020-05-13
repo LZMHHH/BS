@@ -176,17 +176,12 @@ void canSendUIREQ(void)
 	p.Data[4] = Car_uiconfigParam.Page_Index;
 	xQueueSend(xQueue_canTx, &p, 10);
 }
-void canSendCarUIData(void)
+void canSendEevUIData(void)
 {
 	static u8 flag = 0;
 	
 	CanTxMsg p;
 	
-	carUIPara.Step_Index = Car_uiconfigParam.Step_Index;
-	carUIPara.Page_Index = Car_uiconfigParam.Page_Index;
-	carUIPara.Page_Index_Last = Car_uiconfigParam.Page_Index_Last;
-	carUIPara.Para_Index = Car_uiconfigParam.Para_Index;
-	carUIPara.Para_IfControl = Car_uiconfigParam.Para_IfControl;
 
 	switch(flag)
 	{
@@ -200,18 +195,17 @@ void canSendCarUIData(void)
 					p.DLC = 8;          /* 每包数据支持0-8个字节，这里设置为发送8个字节 */
 					p.Data[0] = enIDEnvironment;   
 					p.Data[1] = enDATA;
-					p.Data[2] = CAN_CARUI;
+					p.Data[2] = CAN_ENVUI;
 					p.Data[3] = CAN_UIStepIndex;
-					p.Data[4] = carUIPara.Step_Index;
-					xQueueSend(xQueue_canTx, &p, 10);
+					p.Data[4] = Main_uiconfigParam.Step_Index;
+					xQueueSend(xQueue_canTx, &p, 30);
 					
 					p.Data[3] = CAN_UIPageIndex;
-					p.Data[4] = carUIPara.Page_Index;
-					xQueueSend(xQueue_canTx, &p, 10);
+					p.Data[4] = Main_uiconfigParam.Page_Index;
+					xQueueSend(xQueue_canTx, &p, 30);
 					break;
 		case 1:
 					flag = 0;
-					/* 发送sht3x的温度数据 */
 					p.StdId = CAN_UIID;
 					p.ExtId = 0x01;  /* 该函数使用STD帧ID，所以ExtID用不到 */
 					p.RTR = CAN_RTR_DATA;
@@ -220,25 +214,25 @@ void canSendCarUIData(void)
 					p.DLC = 8;          /* 每包数据支持0-8个字节，这里设置为发送8个字节 */
 					p.Data[0] = enIDEnvironment;   
 					p.Data[1] = enDATA;
-					p.Data[2] = CAN_CARUI;
+					p.Data[2] = CAN_ENVUI;
 					p.Data[3] = CAN_UIPageIndexLast;
-					p.Data[4] = carUIPara.Page_Index_Last;
-					xQueueSend(xQueue_canTx, &p, 10);				
+					p.Data[4] = Main_uiconfigParam.Page_Index_Last;
+					xQueueSend(xQueue_canTx, &p, 30);				
 		
 					p.Data[3] = CAN_UIPareIndex;
-					p.Data[4] = carUIPara.Para_Index;
-					xQueueSend(xQueue_canTx, &p, 10);
+					p.Data[4] = Main_uiconfigParam.Para_Index;
+					xQueueSend(xQueue_canTx, &p, 30);
 		
 					p.Data[3] = CAN_UIParaIfControl;
-					p.Data[4] = carUIPara.Para_IfControl;
-					xQueueSend(xQueue_canTx, &p, 10);
+					p.Data[4] = Main_uiconfigParam.Para_IfControl;
+					xQueueSend(xQueue_canTx, &p, 30);
 					break;
 					default:
 								flag = 0;	
 								break;
 	}
 	
-}						
+}								
 
 void canSendCarUIReqCmd(void)
 {

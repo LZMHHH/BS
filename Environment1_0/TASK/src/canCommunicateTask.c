@@ -102,6 +102,7 @@ void vTaskcanSendData( void * pvParameters )
 															 |EVENT_canBME
 															 |EVENT_canLED
 															 |EVENT_canCARUI
+															 |EVENT_canENVUI
 															 |EVENT_canCARUIREQ
 															 |EVENT_canOLEDCLEAR,/* 接收线程感兴趣的事件 */
 																pdTRUE,   /* 退出时清除事件位 */
@@ -113,12 +114,11 @@ void vTaskcanSendData( void * pvParameters )
     {		
 			canSendLedData();
     }
-		
-//		/* CARUI事件（下达数据） */
-//		if((r_event & EVENT_canCARUI) == (EVENT_canCARUI)) 
-//    {		
-//			canSendCarUIData();
-//    }
+		/* ENVUI事件 */
+		if((r_event & EVENT_canENVUI) == (EVENT_canENVUI)) 
+    {		
+			canSendEevUIData();
+    }
 		/* CARUI请求事件 */
 		if((r_event & EVENT_canCARUIREQ) == (EVENT_canCARUIREQ)) 
     {		

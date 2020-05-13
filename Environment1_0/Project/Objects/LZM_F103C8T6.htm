@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\LZM_F103C8T6.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\LZM_F103C8T6.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050169: Last Updated: Tue May 12 17:48:55 2020
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050169: Last Updated: Thu May 14 02:15:29 2020
 <BR><P>
 <H3>Maximum Stack Usage =        312 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1469,7 +1469,7 @@ Global Symbols
 
 <P><STRONG><a name="[2fd]"></a>DataHeadFind</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, protocol.o(.text), UNUSED)
 
-<P><STRONG><a name="[95]"></a>canmsgAnalyze</STRONG> (Thumb, 1070 bytes, Stack size 32 bytes, protocol.o(.text))
+<P><STRONG><a name="[95]"></a>canmsgAnalyze</STRONG> (Thumb, 1284 bytes, Stack size 32 bytes, protocol.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = canmsgAnalyze &rArr; xEventGroupSetBits &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xEventGroupSetBits
@@ -3286,7 +3286,7 @@ Global Symbols
 <LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;canSendSht3xData
 <LI><a href="#[20f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;canSendGasData
 <LI><a href="#[20e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;canSendCarUIReqCmd
-<LI><a href="#[20d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;canSendCarUIData
+<LI><a href="#[20d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;canSendEevUIData
 <LI><a href="#[204]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;canSendUIREQ
 <LI><a href="#[203]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;canSendLedData
 <LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;canSendKeyClickData
@@ -3867,8 +3867,12 @@ Global Symbols
 <LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_uictrl
 </UL>
 
-<P><STRONG><a name="[20d]"></a>canSendCarUIData</STRONG> (Thumb, 316 bytes, Stack size 24 bytes, displaytask.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[1c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
+<P><STRONG><a name="[20d]"></a>canSendEevUIData</STRONG> (Thumb, 288 bytes, Stack size 24 bytes, displaytask.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = canSendEevUIData &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
+</UL>
+<BR>[Calls]<UL><LI><a href="#[1c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
+</UL>
+<BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskcanSendData
 </UL>
 
 <P><STRONG><a name="[20e]"></a>canSendCarUIReqCmd</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, displaytask.o(.text))
@@ -4054,11 +4058,12 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(.text)
 </UL>
-<P><STRONG><a name="[4e]"></a>vTaskcanSendData</STRONG> (Thumb, 80 bytes, Stack size 8 bytes, cancommunicatetask.o(.text))
+<P><STRONG><a name="[4e]"></a>vTaskcanSendData</STRONG> (Thumb, 94 bytes, Stack size 8 bytes, cancommunicatetask.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = vTaskcanSendData &rArr; canSendCarUIReqCmd &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Fill
 <LI><a href="#[20e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;canSendCarUIReqCmd
+<LI><a href="#[20d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;canSendEevUIData
 <LI><a href="#[203]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;canSendLedData
 <LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xEventGroupWaitBits
 </UL>
@@ -4129,19 +4134,15 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDisplay
 </UL>
 
-<P><STRONG><a name="[209]"></a>Car_uictrl</STRONG> (Thumb, 1314 bytes, Stack size 16 bytes, car_ui.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = Car_uictrl &rArr; canSendKeyClickData &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
+<P><STRONG><a name="[209]"></a>Car_uictrl</STRONG> (Thumb, 778 bytes, Stack size 8 bytes, car_ui.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = Car_uictrl &rArr; canSendKeyClickData &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
-<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
-<LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Clear
+<BR>[Calls]<UL><LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Clear
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xEventGroupSetBits
 <LI><a href="#[228]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Para_Prepare
-<LI><a href="#[226]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 <LI><a href="#[20c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Change_UIMode
 <LI><a href="#[224]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Show_Para_Con
 <LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;canSendKeyClickData
-<LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDisplay
 </UL>
@@ -4233,7 +4234,6 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_frsub
 <LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Main_uictrl
-<LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_uictrl
 <LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
 </UL>
 
@@ -4243,7 +4243,6 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[226]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Main_uictrl
-<LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_uictrl
 <LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;presssureFilter
 </UL>
 
@@ -4347,7 +4346,6 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Updata_BH1750
 <LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Main_uictrl
 <LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Main_ZUI
-<LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_uictrl
 <LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_ZUI
 </UL>
 
@@ -4389,7 +4387,6 @@ Global Symbols
 <LI><a href="#[218]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;canSendGy30Data
 <LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;canSendSht3xData
 <LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Main_uictrl
-<LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Car_uictrl
 </UL>
 
 <P><STRONG><a name="[219]"></a>__aeabi_f2uiz</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, ffixui.o(.text))

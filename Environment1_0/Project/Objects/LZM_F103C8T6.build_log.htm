@@ -27,7 +27,22 @@ Project File Date:  05/08/2020
 <h2>Output:</h2>
 *** Using Compiler 'V5.05 update 2 (build 169)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
-".\Objects\LZM_F103C8T6.axf" - 0 Error(s), 0 Warning(s).
+compiling protocol.c...
+..\Top\src\protocol.c(256): warning:  #188-D: enumerated type mixed with another type
+                                                                                                Key_PU.Key_RetVal = (u8)(*(p->Data+4));
+..\Top\src\protocol.c(264): warning:  #188-D: enumerated type mixed with another type
+                                                                                                Key_PD.Key_RetVal = (u8)(*(p->Data+4));
+..\Top\src\protocol.c(272): warning:  #188-D: enumerated type mixed with another type
+                                                                                                Key_PL.Key_RetVal = (u8)(*(p->Data+4));
+..\Top\src\protocol.c(280): warning:  #188-D: enumerated type mixed with another type
+                                                                                                Key_PR.Key_RetVal = (u8)(*(p->Data+4));
+..\Top\src\protocol.c(288): warning:  #188-D: enumerated type mixed with another type
+                                                                                                Key_PM.Key_RetVal = (u8)(*(p->Data+4));
+..\Top\src\protocol.c: 5 warnings, 0 errors
+linking...
+Program Size: Code=86860 RO-data=4556 RW-data=680 ZI-data=34544  
+FromELF: creating hex file...
+".\Objects\LZM_F103C8T6.axf" - 0 Error(s), 5 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   D:\MYjiezuo\STM32\BS\Environment\Environment1_0\Project\RTE

@@ -711,8 +711,7 @@ void Car_uictrl(void)
 	{
     if(Car_uiconfigParam.Para_IfControl==false && ((Car_uiconfigParam.Page_Index == 1)   
 																							   || (Car_uiconfigParam.Page_Index == 2)  
-																								 || (Car_uiconfigParam.Page_Index == 3)  
-																								 || (Car_uiconfigParam.Page_Index == 4))) 
+																								 || (Car_uiconfigParam.Page_Index == 3))) 
 			 Car_uiconfigParam.Para_IfControl=true;    //¿É¿ØÒ³
     else                                                                  
 			 Car_uiconfigParam.Para_IfControl=false;

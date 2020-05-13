@@ -239,6 +239,61 @@ void canmsgAnalyze(CanRxMsg *p)
 			}
 		}
 	}
+	/* KEYID */
+	if((p->IDE == CAN_ID_STD) && (p->StdId == CAN_KEYID))
+	{
+		if(*(p->Data) == enIDCar)
+		{
+			if(*(p->Data+1) == enDATA)
+			{
+				
+				switch(*(p->Data+2))
+				{
+					case CAN_KEYU:
+						   switch(*(p->Data+3))
+								{
+									case CAN_KeyRet:
+												Key_PU.Key_RetVal = (u8)(*(p->Data+4));
+												break;
+								}
+								break;
+					case CAN_KEYD:
+						   switch(*(p->Data+3))
+								{
+									case CAN_KeyRet:
+												Key_PD.Key_RetVal = (u8)(*(p->Data+4));
+												break;
+								}
+								break;
+					case CAN_KEYL:
+						   switch(*(p->Data+3))
+								{
+									case CAN_KeyRet:
+												Key_PL.Key_RetVal = (u8)(*(p->Data+4));
+												break;
+								}
+								break;
+					case CAN_KEYR:
+						   switch(*(p->Data+3))
+								{
+									case CAN_KeyRet:
+												Key_PR.Key_RetVal = (u8)(*(p->Data+4));
+												break;
+								}
+								break;
+					case CAN_KEYM:
+						   switch(*(p->Data+3))
+								{
+									case CAN_KeyRet:
+												Key_PM.Key_RetVal = (u8)(*(p->Data+4));
+												break;
+								}
+								break;
+					
+				}
+			}
+		}
+	}
 	/* UIID */
 	if((p->IDE == CAN_ID_STD) && (p->StdId == CAN_UIID))
 	{
@@ -268,6 +323,29 @@ void canmsgAnalyze(CanRxMsg *p)
 												break;
 									case CAN_UIParaIfControl:
 												Car_uiconfigParam.Para_IfControl = (u8)(*(p->Data+4));
+												break;
+								}
+								break;
+				}
+			}
+			if(*(p->Data+1) == enCMD)
+			{
+				
+				switch(*(p->Data+2))
+				{
+					case CAN_CARUI:
+							 switch(*(p->Data+3))
+								{
+									case CAN_UIReq:
+												xEventGroupSetBits(Event_canSendData,EVENT_canCARUI);		
+												break;
+								}
+								break;
+					case CAN_ENVUI:
+							 switch(*(p->Data+3))
+								{
+									case CAN_UIReq:
+												xEventGroupSetBits(Event_canSendData,EVENT_canENVUI);		
 												break;
 								}
 								break;
