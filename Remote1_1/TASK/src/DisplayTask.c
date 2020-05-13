@@ -180,7 +180,6 @@ void uart3SendEnvUIReqCmd(void)
 
 void uart3SendCARUIREQ(void)
 {
-	sendCmd(DOWN_REQ,KIND_UIPAGEREQ,UIREQ_CAR,20);
 	msg_t p;
 	p.msg_head = MSG_HEAD;
 	p.msgID = DOWN_REQ;
@@ -240,3 +239,7 @@ void uart3SendENVUIREQ(void)
 	
 	xQueueSend(xQueue_uart3Tx, &p, 20);
 }
+
+
+
+

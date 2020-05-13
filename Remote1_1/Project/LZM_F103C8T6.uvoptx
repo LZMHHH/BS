@@ -181,9 +181,25 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>635</LineNumber>
+          <LineNumber>443</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134252408</Address>
+          <Address>134229016</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\Basic\USART3\protocol3.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\LZM_F103C8T6\../Basic/USART3/protocol3.c\443</Expression>
+        </Bp>
+        <Bp>
+          <Number>1</Number>
+          <Type>0</Type>
+          <LineNumber>876</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134257442</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -192,7 +208,7 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>..\Zui\src\car_ui.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\LZM_F103C8T6\../Zui/src/car_ui.c\635</Expression>
+          <Expression>\\LZM_F103C8T6\../Zui/src/car_ui.c\876</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -215,6 +231,16 @@
           <count>3</count>
           <WinNumber>1</WinNumber>
           <ItemText>SendBuff</ItemText>
+        </Ww>
+        <Ww>
+          <count>4</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>p</ItemText>
+        </Ww>
+        <Ww>
+          <count>5</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Huimiture.tempAdd_mode</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>

@@ -32,14 +32,24 @@ ui_t   carUIPara;
 ui_t   envUIPara;
 
 /*********************** Ω” ’ ***********************/
-encoder_t Encoder;
-motor_t   Motorpwm;
+encoder_t   Encoder;
+motor_t     Motorpwm;
+car_t       Car;
+hwbz_t      Hwbz_LD;
+hwbz_t      Hwbz_LU;
+hwbz_t      Hwbz_RU;
+hwbz_t      Hwbz_RD;
+distance_t  Distance;
+pid_t       MotorAllPID;
 huimiture_t Huimiture;
 light_t     Light;
 pms_t       Pms;
 bme_t       Bme;
 clock_t     ClockA;
 clock_t     SetClock;
+gas_t       Smog;
+gas_t       Hydrogen;
+gas_t       CO;
 
 void CommunicateParaInit(void)
 {

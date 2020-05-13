@@ -67,7 +67,8 @@ void Main_ZUI(void)
 	}
 	
 	/* Ò³Ãæ */
-	OLED_ShowChar(109,56,'r',1);
+	OLED_ShowChar(97,56,'r',1);
+	OLED_ShowNum(103,56,Car_uiconfigParam.Para_Index,2,0,1);
 	OLED_ShowChar(115,56,'P',1);
   OLED_ShowNum(121,56,Car_uiconfigParam.Page_Index,1,0,1);
 	

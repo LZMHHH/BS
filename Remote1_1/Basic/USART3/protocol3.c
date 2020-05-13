@@ -280,7 +280,33 @@ void msgAnalyze(msg_t *p)
 								intdata = (int)((*(p->data+17)<<24)|(*(p->data+16)<<16)|(*(p->data+15)<<8)|*(p->data+14));
 								if(myabs(intdata) < 500) Encoder.motorD = intdata;
 								break;
-								
+					case KIND_CARDATA:
+								Car.mode = (u8)(*(p->data+2));
+								Car.MaxPwm = (u16)((*(p->data+4) <<8)|*(p->data+3));
+								break;
+					case KIND_HWBZ:
+								Hwbz_LD.status = (u8)(*(p->data+2));
+								Hwbz_LU.status = (u8)(*(p->data+3));
+								Hwbz_RU.status = (u8)(*(p->data+4));
+								Hwbz_RD.status = (u8)(*(p->data+5));
+								break;
+					case KIND_MOTORPID:
+								floatdata = (float)(((*(p->data+5) <<24)|(*(p->data+4) <<16)|(*(p->data+3) <<8)|*(p->data+2))/100.0);
+								if(myabs(floatdata) < 999.0) MotorAllPID.p = floatdata;
+								floatdata = (float)(((*(p->data+9) <<24)|(*(p->data+8) <<16)|(*(p->data+7) <<8)|*(p->data+6))/100.0);
+								if(myabs(floatdata) < 999.0) MotorAllPID.i = floatdata;
+								floatdata = (float)(((*(p->data+13) <<24)|(*(p->data+12) <<16)|(*(p->data+11) <<8)|*(p->data+10))/100.0);
+								if(myabs(floatdata) < 999.0) MotorAllPID.d = floatdata;
+								break;
+					case KIND_Vl53l0XDATA:
+								intdata = (int)((*(p->data+5) <<24)|(*(p->data+4) <<16)|(*(p->data+3) <<8)|*(p->data+2));
+								if(myabs(intdata) < 8000) Distance.xmm = intdata;
+								intdata = (int)((*(p->data+9) <<24)|(*(p->data+8) <<16)|(*(p->data+7) <<8)|*(p->data+6));
+								if(myabs(intdata) < 8000) Distance.offset = intdata;
+								intdata = (int)((*(p->data+13)<<24)|(*(p->data+12)<<16)|(*(p->data+11)<<8)|*(p->data+10));
+								if(myabs(intdata) < 8000) Distance.shieldVal = intdata;
+								break;	
+							
 					case KIND_LED:
 								carLEDA.mode = (u8)*(p->data+2);
 								intdata = (int)((*(p->data+6) <<24)|(*(p->data+5) <<16)|(*(p->data+4) <<8)|*(p->data+3));
@@ -312,6 +338,7 @@ void msgAnalyze(msg_t *p)
 	{
 		if(p->msgID == UP_DATA)
 		{
+			Page_Index_Last = Car_uiconfigParam.Page_Index;
 			if(p->data[0] == enDATA)
 			{
 				Page_Index_Last = Envi_uiconfigParam.Page_Index;
@@ -324,16 +351,42 @@ void msgAnalyze(msg_t *p)
 								floatdata = (float)(((*(p->data+9) <<24)|(*(p->data+8) <<16)|(*(p->data+7) <<8)|*(p->data+6))/100.0);
 								if((myabs(floatdata) < 500.0) && (((Huimiture.huimidity>5.0) && myabs(floatdata) != 0)|| Huimiture.huimidity <= 5.0)) 
 									Huimiture.huimidity = floatdata;
+								floatdata = (float)(((*(p->data+13) <<24)|(*(p->data+12) <<16)|(*(p->data+11) <<8)|*(p->data+10))/100.0);
+								if(myabs(floatdata) < 1000.0) Huimiture.temp_offset = floatdata;
+								floatdata = (float)(((*(p->data+17) <<24)|(*(p->data+6) <<16)|(*(p->data+15) <<8)|*(p->data+14))/100.0);
+								if(myabs(floatdata) < 1000.0) Huimiture.huim_offset = floatdata;
+								break;
+					case KIND_SHT3XCON:
+								floatdata = (float)(((*(p->data+5) <<24)|(*(p->data+4) <<16)|(*(p->data+3) <<8)|*(p->data+2))/100.0);
+								if(myabs(floatdata) < 1000.0) Huimiture.tempAdd_shieldVal = floatdata;
+								floatdata = (float)(((*(p->data+9) <<24)|(*(p->data+8) <<16)|(*(p->data+7) <<8)|*(p->data+6))/100.0);
+								if(myabs(floatdata) < 1000.0) Huimiture.tempRed_shieldVal = floatdata;
+								floatdata = (float)(((*(p->data+13) <<24)|(*(p->data+12) <<16)|(*(p->data+11) <<8)|*(p->data+10))/100.0);
+								if(myabs(floatdata) < 1000.0) Huimiture.huim_shieldVal = floatdata;
+								Huimiture.AddPwm = (u16)((*(p->data+15) <<8)|*(p->data+14));
+								Huimiture.RedPwm = (u16)((*(p->data+17) <<8)|*(p->data+16));
+								break;
+					case KIND_SHT3XMODE:
+								Huimiture.tempAdd_mode = (u8)*(p->data+2);
+								Huimiture.tempRed_mode = (u8)*(p->data+3);
+								Huimiture.huim_mode    = (u8)*(p->data+4);
 								break;
 					case KIND_GY30:
 								floatdata = (float)(((*(p->data+5) <<24)|(*(p->data+4) <<16)|(*(p->data+3) <<8)|*(p->data+2))/100.0);
-								if(myabs(floatdata) < 10000.0) Light.BH_Voltage = floatdata;
+								if(myabs(floatdata) < 9999.0) Light.BH_Voltage = floatdata;
+								floatdata = (float)(((*(p->data+9) <<24)|(*(p->data+8) <<16)|(*(p->data+7) <<8)|*(p->data+6))/100.0);
+								if(myabs(floatdata) < 9999.0) Light.shieldVal = floatdata;
+								floatdata = (float)(((*(p->data+13) <<24)|(*(p->data+12) <<16)|(*(p->data+11) <<8)|*(p->data+10))/100.0);
+								if(myabs(floatdata) < 9999.0) Light.a = floatdata;
+								Light.mode = (u8)*(p->data+14);
 								break;
 					case KIND_PMS:
-								floatdata = (float)(((*(p->data+5) <<24)|(*(p->data+4) <<16)|(*(p->data+3) <<8)|*(p->data+2))/100.0);
-								if(myabs(floatdata) < 1000.0) Pms.PM2_5_Vol = floatdata;
-								floatdata = (float)(((*(p->data+9) <<24)|(*(p->data+8) <<16)|(*(p->data+7) <<8)|*(p->data+6))/100.0);
-								if(myabs(floatdata) < 1000.0) Pms.PM10_Vol = floatdata;
+								Pms.PM2_5_Vol = (u16)((*(p->data+3) <<8)|*(p->data+2));
+								Pms.PM10_Vol = (u16)((*(p->data+5) <<8)|*(p->data+4));
+								Pms.shieldPM2_5Val = (u16)((*(p->data+7) <<8)|*(p->data+6));
+								Pms.shieldPM10Val = (u16)((*(p->data+9) <<8)|*(p->data+8));
+								Pms.AQI = (u8)*(p->data+10);
+								Pms.mode = (u8)*(p->data+11);
 								break;
 					case KIND_BME:
 								floatdata = (float)(((*(p->data+5) <<24)|(*(p->data+4) <<16)|(*(p->data+3) <<8)|*(p->data+2))/100.0);
@@ -345,11 +398,61 @@ void msgAnalyze(msg_t *p)
 								floatdata = (float)(((*(p->data+17) <<24)|(*(p->data+16) <<16)|(*(p->data+15) <<8)|*(p->data+14))/100.0);
 								if(myabs(floatdata) < 1000.0) Bme.humidity = floatdata;
 								break;
+					case KIND_TIME:
+								intdata = (int)((*(p->data+5) <<24)|(*(p->data+4) <<16)|(*(p->data+3) <<8)|*(p->data+2));
+								if(myabs(intdata) < 70) ClockA.Second = intdata;
+								intdata = (int)((*(p->data+9) <<24)|(*(p->data+8) <<16)|(*(p->data+7) <<8)|*(p->data+6));
+								if(myabs(intdata) < 70) ClockA.Minute = intdata;
+								intdata = (int)((*(p->data+13)<<24)|(*(p->data+12)<<16)|(*(p->data+11)<<8)|*(p->data+10));
+								if(myabs(intdata) < 25) ClockA.Hour = intdata;
+								intdata = (int)((*(p->data+17)<<24)|(*(p->data+16)<<16)|(*(p->data+15)<<8)|*(p->data+14));
+								if(myabs(intdata) < 8000) ClockA.num_save = intdata;
+								break;
+					case KIND_DATE:
+								intdata = (int)((*(p->data+5) <<24)|(*(p->data+4) <<16)|(*(p->data+3) <<8)|*(p->data+2));
+								if(myabs(intdata) < 33) ClockA.Day = intdata;
+								intdata = (int)((*(p->data+9) <<24)|(*(p->data+8) <<16)|(*(p->data+7) <<8)|*(p->data+6));
+								if(myabs(intdata) < 8) ClockA.Week = intdata;
+								intdata = (int)((*(p->data+13)<<24)|(*(p->data+12)<<16)|(*(p->data+11)<<8)|*(p->data+10));
+								if(myabs(intdata) < 13) ClockA.Month = intdata;
+								intdata = (int)((*(p->data+17)<<24)|(*(p->data+16)<<16)|(*(p->data+15)<<8)|*(p->data+14));
+								if(myabs(intdata) < 8000) ClockA.Year = intdata;
+								break;
+					case KIND_SETTIME:
+								intdata = (int)((*(p->data+5) <<24)|(*(p->data+4) <<16)|(*(p->data+3) <<8)|*(p->data+2));
+								if(myabs(intdata) < 70) SetClock.Second = intdata;
+								intdata = (int)((*(p->data+9) <<24)|(*(p->data+8) <<16)|(*(p->data+7) <<8)|*(p->data+6));
+								if(myabs(intdata) < 70) SetClock.Minute = intdata;
+								intdata = (int)((*(p->data+13)<<24)|(*(p->data+12)<<16)|(*(p->data+11)<<8)|*(p->data+10));
+								if(myabs(intdata) < 25) SetClock.Hour = intdata;
+								intdata = (int)((*(p->data+17)<<24)|(*(p->data+16)<<16)|(*(p->data+15)<<8)|*(p->data+14));
+								if(myabs(intdata) < 8000) SetClock.num_save = intdata;
+								break;
+					case KIND_SETDATE:
+								intdata = (int)((*(p->data+5) <<24)|(*(p->data+4) <<16)|(*(p->data+3) <<8)|*(p->data+2));
+								if(myabs(intdata) < 33) SetClock.Day = intdata;
+								intdata = (int)((*(p->data+9) <<24)|(*(p->data+8) <<16)|(*(p->data+7) <<8)|*(p->data+6));
+								if(myabs(intdata) < 8) SetClock.Week = intdata;
+								intdata = (int)((*(p->data+13)<<24)|(*(p->data+12)<<16)|(*(p->data+11)<<8)|*(p->data+10));
+								if(myabs(intdata) < 13) SetClock.Month = intdata;
+								intdata = (int)((*(p->data+17)<<24)|(*(p->data+16)<<16)|(*(p->data+15)<<8)|*(p->data+14));
+								if(myabs(intdata) < 8000) SetClock.Year = intdata;
+								break;
+								
+					case KIND_UI:
+								Envi_uiconfigParam.Step_Index      = *(p->data+3);
+								u8data                            = *(p->data+4);
+								if(u8data<Envi_uiconfigParam.Page_Index_Limit && u8data >=0)
+								Envi_uiconfigParam.Page_Index = u8data;
+								Envi_uiconfigParam.Page_Index_Last = *(p->data+5);
+								Envi_uiconfigParam.Para_Index      = *(p->data+6);
+								Envi_uiconfigParam.Para_IfControl  = *(p->data+7);
+								break;
 					
 				}
 				if(Page_Index_Last != Envi_uiconfigParam.Page_Index)
 				{
-//					xEventGroupSetBits(Event_uart3SendData,EVENT_uart3OLEDCLEAR);		
+					xEventGroupSetBits(Event_uart3SendData,EVENT_uart3OLEDCLEAR);		
 				}
 			}
 		}

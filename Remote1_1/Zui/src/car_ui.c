@@ -23,26 +23,25 @@ CLASS_UIconfigParam Car_uiconfigParam;
 
 void Car_uiconfigParamInit(void)
 {
-	Car_uiconfigParam.Page_Index_Limit    = 5;
+	Car_uiconfigParam.Page_Index_Limit    = 3;
 	
 	Car_uiconfigParam.Para_Index_Limit[0] = 7;
-	Car_uiconfigParam.Para_Index_Limit[1] = 7;
+	Car_uiconfigParam.Para_Index_Limit[1] = 9;
 	Car_uiconfigParam.Para_Index_Limit[2] = 8;
-	Car_uiconfigParam.Para_Index_Limit[3] = 4;
+	Car_uiconfigParam.Para_Index_Limit[3] = 7;
 	
-	Car_uiconfigParam.Step_Index_Limit    = 6;
+	Car_uiconfigParam.Step_Index_Limit    = 4;
 	
-	Car_uiconfigParam.Step_Size[0]        =   0.001;
-	Car_uiconfigParam.Step_Size[1]        =   0.01;
-	Car_uiconfigParam.Step_Size[2]        =   0.1;
-	Car_uiconfigParam.Step_Size[3]        =   1.0;
-	Car_uiconfigParam.Step_Size[4]        =  10.0;
-	Car_uiconfigParam.Step_Size[5]        = 100.0;
+	Car_uiconfigParam.Step_Size[0]        =   0.01;
+	Car_uiconfigParam.Step_Size[1]        =   0.1;
+	Car_uiconfigParam.Step_Size[2]        =   1.0;
+	Car_uiconfigParam.Step_Size[3]        =   10.0;
+	Car_uiconfigParam.Step_Size[4]        =  100.0;
 	
 	Show_Para_Con(&Car_uiconfigParam);
 	
-	Car_uiconfigParam.Step_Index          = 1;
-	Car_uiconfigParam.Page_Index          = 1;
+	Car_uiconfigParam.Step_Index          = 2;
+	Car_uiconfigParam.Page_Index          = 0;
 	Car_uiconfigParam.Page_Index_Last     = 0;
 	Car_uiconfigParam.Para_Index          = 0;
 	Car_uiconfigParam.Para_IfControl      = false;
@@ -81,10 +80,51 @@ void Car_ZUI(void)
 	
 	
 	/* 页面 */
-	OLED_ShowChar(109,56,'c',1);
+	OLED_ShowChar(97,56,'c',1);
+	OLED_ShowNum(103,56,Car_uiconfigParam.Para_Index,2,0,1);
 	OLED_ShowChar(115,56,'P',1);
   OLED_ShowNum(121,56,Car_uiconfigParam.Page_Index,1,0,1);
 
+	//第 0 页
+	if(Car_uiconfigParam.Page_Index == 0)
+	{  
+		//边角
+		OLED_ShowNum(0,(7-6)*8,Hwbz_LD.status,1,0,2);
+		OLED_ShowNum(0,(7-1)*8,Hwbz_LU.status,1,0,2);
+		OLED_ShowNum(120,(7-1)*8,Hwbz_RU.status,1,0,2);
+		OLED_ShowNum(120,(7-6)*8,Hwbz_RD.status,1,0,2);
+		OLED_ShowNum(0,(7-5)*8,Encoder.motorA,4,0,1);
+		OLED_ShowNum(0,(7-3)*8,Encoder.motorB,4,0,1);
+		OLED_ShowNum(104,(7-3)*8,Encoder.motorC,4,0,1);
+		OLED_ShowNum(104,(7-5)*8,Encoder.motorD,4,0,1);
+		
+		//1、2行
+		switch(Car.mode)
+		{
+			case enPWM:
+						OLED_ShowString(48,(7-1)*8,(u8 *)"pwm ",2);
+						break;
+			case enPID:
+						OLED_ShowString(48,(7-1)*8,(u8 *)"pid ",2);
+						break;
+			case enPWMSelf:
+						OLED_ShowString(48,(7-1)*8,(u8 *)"pwmS",2);
+						break;
+			case enPIDSelf:
+						OLED_ShowString(48,(7-1)*8,(u8 *)"pidS",2);
+						break;
+			case enPWMGS:
+						OLED_ShowString(48,(7-1)*8,(u8 *)"pwmG",2);
+						break;
+			case enPIDGS:
+						OLED_ShowString(48,(7-1)*8,(u8 *)"pidG",2);
+						break;
+			default:break;
+		}
+		
+		//4行
+		OLED_ShowNum(40,(7-4)*8,Distance.xmm,5,0,2);
+	}
 	
 	//第 1 页
 	if(Car_uiconfigParam.Page_Index == 1)
@@ -233,14 +273,283 @@ void Car_ZUI(void)
 			OLED_ShowNum(92,(7-h)*8,Encoder.motorD,6,0,1);
 			h++;
 	  }
+		//9行
+	  Ph = 9;
+	  if(Car_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Car_uiconfigParam.Para_Index == Ph && Car_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"bzABCD:",1);
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"bzABCD:",1);
+			}		
+			OLED_ShowString(122,(7-h)*8,(u8 *)" ",1);
+			OLED_ShowNum(92,(7-h)*8,Hwbz_LD.status,1,0,1);
+			OLED_ShowNum(100,(7-h)*8,Hwbz_LU.status,1,0,1);
+			OLED_ShowNum(108,(7-h)*8,Hwbz_RU.status,1,0,1);
+			OLED_ShowNum(116,(7-h)*8,Hwbz_RD.status,1,0,1);
+			h++;
+	  }
+	}
+	
+	//第 2 页
+	if(Car_uiconfigParam.Page_Index == 2)
+	{  
+		OLED_ShowNum(49,56,Car_uiconfigParam.Step_Size[Car_uiconfigParam.Step_Index],3,2,1);
 		
+		h = 1;
+		//1行
+	  Ph = 1;
+	  if(Car_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Car_uiconfigParam.Para_Index == Ph && Car_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"CarM :",1);
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"CarM :",1);
+			}		
+			if(Car_uiconfigParam.Para_Index == Ph && Car_uiconfigParam.Para_IfControl == true)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					switch(Car.mode)
+					{
+						case enPWM:
+									OLED_ShowString(104,(7-h)*8,(u8 *)"pwm ",1);
+									break;
+						case enPID:
+									OLED_ShowString(104,(7-h)*8,(u8 *)"pid ",1);
+									break;
+						case enPWMSelf:
+									OLED_ShowString(104,(7-h)*8,(u8 *)"pwmS",1);
+									break;
+						case enPIDSelf:
+									OLED_ShowString(104,(7-h)*8,(u8 *)"pidS",1);
+									break;
+						case enPWMGS:
+									OLED_ShowString(104,(7-h)*8,(u8 *)"pwmG",1);
+									break;
+						case enPIDGS:
+									OLED_ShowString(104,(7-h)*8,(u8 *)"pidG",1);
+									break;
+						default:break;
+					}
+					Oled_Colour = 0;				
+			}
+			else
+			{
+					switch(Car.mode)
+					{
+						case enPWM:
+									OLED_ShowString(104,(7-h)*8,(u8 *)"pwm ",1);
+									break;
+						case enPID:
+									OLED_ShowString(104,(7-h)*8,(u8 *)"pid ",1);
+									break;
+						case enPWMSelf:
+									OLED_ShowString(104,(7-h)*8,(u8 *)"pwmS",1);
+									break;
+						case enPIDSelf:
+									OLED_ShowString(104,(7-h)*8,(u8 *)"pidS",1);
+									break;
+						case enPWMGS:
+									OLED_ShowString(104,(7-h)*8,(u8 *)"pwmG",1);
+									break;
+						case enPIDGS:
+									OLED_ShowString(104,(7-h)*8,(u8 *)"pidG",1);
+									break;
+						default:break;
+					}
+			}
+			h++;
+	  }
+		//2行
+	  Ph = 2;
+	  if(Car_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Car_uiconfigParam.Para_Index == Ph && Car_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"CarMP:",1);
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"CarMP:",1);
+			}		
+			if(Car_uiconfigParam.Para_Index == Ph && Car_uiconfigParam.Para_IfControl == true)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowNum(98,(7-h)*8,Car.MaxPwm,5,0,1);
+					Oled_Colour = 0;				
+			}
+			else
+			{
+					OLED_ShowNum(98,(7-h)*8,Car.MaxPwm,5,0,1);
+			}
+			h++;
+	  }
+		//3行
+	  Ph = 3;
+	  if(Car_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Car_uiconfigParam.Para_Index == Ph && Car_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"bzxmm :",1);
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"bzxmm :",1);
+			}		
+			OLED_ShowNum(92,(7-h)*8,Distance.xmm,6,0,1);
+			h++;
+	  }
+		//4行
+	  Ph = 4;
+	  if(Car_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Car_uiconfigParam.Para_Index == Ph && Car_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"bzOfs :",1);
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"bzOfs :",1);
+			}
+			if(Car_uiconfigParam.Para_Index == Ph && Car_uiconfigParam.Para_IfControl == true)
+			{
+					Oled_Colour = 1;
+					OLED_ShowNum(92,(7-h)*8,Distance.offset,6,0,1);
+					Oled_Colour = 0;				
+			}
+			else
+			{
+					OLED_ShowNum(92,(7-h)*8,Distance.offset,6,0,1);
+			}
+			h++;
+	  }
+		//5行
+	  Ph = 5;
+	  if(Car_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Car_uiconfigParam.Para_Index == Ph && Car_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"bzShi :",1);
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"bzShi :",1);
+			}	
+			if(Car_uiconfigParam.Para_Index == Ph && Car_uiconfigParam.Para_IfControl == true)
+			{
+					Oled_Colour = 1;
+					OLED_ShowNum(92,(7-h)*8,Distance.shieldVal,6,0,1);
+					Oled_Colour = 0;				
+			}
+			else
+			{
+					OLED_ShowNum(92,(7-h)*8,Distance.shieldVal,6,0,1);
+			}
+			h++;
+	  }
+		//6行
+	  Ph = 6;
+	  if(Car_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Car_uiconfigParam.Para_Index == Ph && Car_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"MtP  :",1);
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"MtP  :",1);
+			}		
+			if(Car_uiconfigParam.Para_Index == Ph && Car_uiconfigParam.Para_IfControl == true)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowNum(98,(7-h)*8,MotorAllPID.p,3,1,1);
+					Oled_Colour = 0;				
+			}
+			else
+			{
+					OLED_ShowNum(98,(7-h)*8,MotorAllPID.p,3,1,1);
+			}
+			h++;
+	  }
+		//7行
+	  Ph = 7;
+	  if(Car_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Car_uiconfigParam.Para_Index == Ph && Car_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"MtI  :",1);
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"MtI  :",1);
+			}		
+			if(Car_uiconfigParam.Para_Index == Ph && Car_uiconfigParam.Para_IfControl == true)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowNum(98,(7-h)*8,MotorAllPID.i,3,1,1);
+					Oled_Colour = 0;				
+			}
+			else
+			{
+					OLED_ShowNum(98,(7-h)*8,MotorAllPID.i,3,1,1);
+			}
+			h++;
+	  }
+		//8行
+	  Ph = 8;
+	  if(Car_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Car_uiconfigParam.Para_Index == Ph && Car_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"MtD  :",1);
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"MtD  :",1);
+			}		
+			if(Car_uiconfigParam.Para_Index == Ph && Car_uiconfigParam.Para_IfControl == true)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowNum(98,(7-h)*8,MotorAllPID.d,3,1,1);
+					Oled_Colour = 0;				
+			}
+			else
+			{
+					OLED_ShowNum(98,(7-h)*8,MotorAllPID.d,3,1,1);
+			}
+			h++;
+	  }
 	}
 	
 	//第 3 页
 	if(Car_uiconfigParam.Page_Index == 3)
 	{  
 		
-		OLED_ShowNum(49,56,Car_uiconfigParam.Step_Size[Car_uiconfigParam.Step_Index],3,3,1);
+		OLED_ShowNum(49,56,Car_uiconfigParam.Step_Size[Car_uiconfigParam.Step_Index],3,2,1);
 		
 		h = 1;
 		//1行
@@ -263,13 +572,13 @@ void Car_ZUI(void)
 					switch(carLEDA.mode)
 					{
 						case enON:
-									OLED_ShowString(108,(7-h)*8,(u8 *)" ON",1);
+									OLED_ShowString(98,(7-h)*8,(u8 *)"   ON",1);
 									break;
 						case enOFF:
-									OLED_ShowString(108,(7-h)*8,(u8 *)"OFF",1);
+									OLED_ShowString(98,(7-h)*8,(u8 *)"  OFF",1);
 									break;
 						case enFre:
-									OLED_ShowString(108,(7-h)*8,(u8 *)"Cyc",1);
+									OLED_ShowString(98,(7-h)*8,(u8 *)"  Cyc",1);
 									break;
 						default:break;
 					}
@@ -280,13 +589,13 @@ void Car_ZUI(void)
 					switch(carLEDA.mode)
 					{
 						case enON:
-									OLED_ShowString(108,(7-h)*8,(u8 *)" ON",1);
+									OLED_ShowString(98,(7-h)*8,(u8 *)"   ON",1);
 									break;
 						case enOFF:
-									OLED_ShowString(108,(7-h)*8,(u8 *)"OFF",1);
+									OLED_ShowString(98,(7-h)*8,(u8 *)"  OFF",1);
 									break;
 						case enFre:
-									OLED_ShowString(108,(7-h)*8,(u8 *)"Cyc",1);
+									OLED_ShowString(98,(7-h)*8,(u8 *)"  Cyc",1);
 									break;
 						default:break;
 					}
@@ -341,13 +650,13 @@ void Car_ZUI(void)
 					switch(carFMQ.mode)
 					{
 						case enON:
-									OLED_ShowString(108,(7-h)*8,(u8 *)" ON",1);
+									OLED_ShowString(98,(7-h)*8,(u8 *)"   ON",1);
 									break;
 						case enOFF:
-									OLED_ShowString(108,(7-h)*8,(u8 *)"OFF",1);
+									OLED_ShowString(98,(7-h)*8,(u8 *)"  OFF",1);
 									break;
 						case enFre:
-									OLED_ShowString(108,(7-h)*8,(u8 *)"Cyc",1);
+									OLED_ShowString(98,(7-h)*8,(u8 *)"  Cyc",1);
 									break;
 						default:break;
 					}
@@ -358,13 +667,13 @@ void Car_ZUI(void)
 					switch(carFMQ.mode)
 					{
 						case enON:
-									OLED_ShowString(108,(7-h)*8,(u8 *)" ON",1);
+									OLED_ShowString(98,(7-h)*8,(u8 *)"   ON",1);
 									break;
 						case enOFF:
-									OLED_ShowString(108,(7-h)*8,(u8 *)"OFF",1);
+									OLED_ShowString(98,(7-h)*8,(u8 *)"  OFF",1);
 									break;
 						case enFre:
-									OLED_ShowString(108,(7-h)*8,(u8 *)"Cyc",1);
+									OLED_ShowString(98,(7-h)*8,(u8 *)"  Cyc",1);
 									break;
 						default:break;
 					}
@@ -414,11 +723,7 @@ static void Para_Prepare(void)
     Car_uiconfigParam.Page_Index_Last = Car_uiconfigParam.Page_Index;
     OLED_Clear();
   }
-  
-  if(Car_uiconfigParam.Page_Index==4)
-  {
-		
-  }
+
 
 }
 
@@ -429,8 +734,7 @@ void Car_uictrl(void)
 	{
     if(Car_uiconfigParam.Para_IfControl==false && ((Car_uiconfigParam.Page_Index == 1)   
 																							   || (Car_uiconfigParam.Page_Index == 2)  
-																								 || (Car_uiconfigParam.Page_Index == 3)  
-																								 || (Car_uiconfigParam.Page_Index == 4))) 
+																								 || (Car_uiconfigParam.Page_Index == 3))) 
 			 Car_uiconfigParam.Para_IfControl=true;    //可控页
     else                                                                  
 			 Car_uiconfigParam.Para_IfControl=false;
@@ -439,7 +743,7 @@ void Car_uictrl(void)
 		/* 同步 */
 		if(carUIPara.Sync == true)
 		{
-			sendCmd(DOWN_REMOTOR,KIND_KEY,NAME_KEYM,10);
+			sendCmd(DOWN_REMOTOR,KIND_CARKEY,NAME_KEYM,20);
 		}
 		
 		
@@ -477,7 +781,7 @@ void Car_uictrl(void)
 		/* 同步 */
 		if(carUIPara.Sync == true)
 		{
-			sendCmd(DOWN_REMOTOR,KIND_KEY,NAME_KEYL,10);
+			sendCmd(DOWN_REMOTOR,KIND_CARKEY,NAME_KEYL,20);
 		}
 
 		Key_PL.Key_RetVal = enKey_No;   //标志复位
@@ -512,7 +816,7 @@ void Car_uictrl(void)
 		/* 同步 */
 		if(carUIPara.Sync == true)
 		{
-			sendCmd(DOWN_REMOTOR,KIND_KEY,NAME_KEYR,10);
+			sendCmd(DOWN_REMOTOR,KIND_CARKEY,NAME_KEYR,20);
 		}
 		
 		Key_PR.Key_RetVal = enKey_No;   //标志复位
@@ -534,77 +838,14 @@ void Car_uictrl(void)
     }
     else
     { 
-			
-			if(Car_uiconfigParam.Page_Index==3)     //修改第3参数
-      {
-				//参数行
-				switch(Car_uiconfigParam.Para_Index)
-				{
-					case 1:
-							switch(carLEDA.mode)
-							{
-								case enON:
-											carLEDA.mode = enOFF;
-											break;
-								case enOFF:
-											carLEDA.mode = enFre;
-											break;
-								case enFre:
-											carLEDA.mode = enON;
-											break;
-								default:
-											carLEDA.mode = enON;
-											break;
-							}
-							/* 同步 */
-							if(carUIPara.Sync == false)
-								sendRmotorData(enIDRemote,KIND_LED,(u8*)&carLEDA,sizeof(carLEDA),10);						
-							break;
-					case 2:
-							carLEDA.cycle += Car_uiconfigParam.Step_Size[Car_uiconfigParam.Step_Index];
-							if(carLEDA.cycle > 10000) carLEDA.cycle = 10000;
-							/* 同步 */
-							if(carUIPara.Sync == false)
-								sendRmotorData(enIDRemote,KIND_LED,(u8*)&carLEDA,sizeof(carLEDA),10);
-							break;
-					case 3:
-							switch(carFMQ.mode)
-							{
-								case enON:
-											carFMQ.mode = enOFF;
-											break;
-								case enOFF:
-											carFMQ.mode = enFre;
-											break;
-								case enFre:
-											carFMQ.mode = enON;
-											break;
-								default:
-											carFMQ.mode = enON;
-											break;
-							}
-							/* 同步 */
-							if(carUIPara.Sync == false)
-								sendRmotorData(enIDRemote,KIND_LED,(u8*)&carFMQ,sizeof(carFMQ),10);
-							break;
-					case 4:
-							carFMQ.cycle += Car_uiconfigParam.Step_Size[Car_uiconfigParam.Step_Index];
-							if(carFMQ.cycle > 10000) carFMQ.cycle = 10000;
-							/* 同步 */
-							if(carUIPara.Sync == false)
-								sendRmotorData(enIDRemote,KIND_LED,(u8*)&carFMQ,sizeof(carFMQ),10);
-							break;
-					default:break;
-				}
-			}
-			
+	
 			
 		}
 		
 		/* 同步 */
 		if(carUIPara.Sync == true)
 		{
-			sendCmd(DOWN_REMOTOR,KIND_KEY,NAME_KEYU,10);
+			sendCmd(DOWN_REMOTOR,KIND_CARKEY,NAME_KEYU,20);
 		}
 
 		Key_PU.Key_RetVal = enKey_No;   //标志复位
@@ -640,74 +881,12 @@ void Car_uictrl(void)
     }
     else
     { 
-			if(Car_uiconfigParam.Page_Index==3)     //修改第3页参数
-      {
-				//参数行
-				switch(Car_uiconfigParam.Para_Index)
-				{
-					case 1:
-							switch(carLEDA.mode)
-							{
-								case enON:
-											carLEDA.mode = enFre;
-											break;
-								case enFre:
-											carLEDA.mode = enOFF;
-											break;
-								case enOFF:
-											carLEDA.mode = enON;
-											break;
-								default:
-											carLEDA.mode = enON;
-											break;
-							}
-							/* 同步 */
-							if(carUIPara.Sync == false)
-								sendRmotorData(enIDRemote,KIND_LED,(u8*)&carLEDA,sizeof(carLEDA),10);
-							break;
-					case 2:
-							carLEDA.cycle -= Car_uiconfigParam.Step_Size[Car_uiconfigParam.Step_Index];
-							if(carLEDA.cycle <  -1) carLEDA.cycle =  -1;
-							/* 同步 */
-							if(carUIPara.Sync == false)
-								sendRmotorData(enIDRemote,KIND_LED,(u8*)&carLEDA,sizeof(carLEDA),10);
-							break;
-					case 3:
-							switch(carFMQ.mode)
-							{
-								case enON:
-											carFMQ.mode = enFre;
-											break;
-								case enFre:
-											carFMQ.mode = enOFF;
-											break;
-								case enOFF:
-											carFMQ.mode = enON;
-											break;
-								default:
-											carFMQ.mode = enON;
-											break;
-							}
-							/* 同步 */
-							if(carUIPara.Sync == false)
-								sendRmotorData(enIDRemote,KIND_LED,(u8*)&carFMQ,sizeof(carFMQ),10);
-							break;
-					case 4:
-							carFMQ.cycle -= Car_uiconfigParam.Step_Size[Car_uiconfigParam.Step_Index];
-							if(carFMQ.cycle <  -1) carFMQ.cycle =  -1;
-							/* 同步 */
-							if(carUIPara.Sync == false)
-								sendRmotorData(enIDRemote,KIND_LED,(u8*)&carFMQ,sizeof(carFMQ),10);
-							break;
-					default:break;
-				}
-			}		
 			
 		}
 		/* 同步 */
 		if(carUIPara.Sync == true)
 		{
-			sendCmd(DOWN_REMOTOR,KIND_KEY,NAME_KEYD,10);
+			sendCmd(DOWN_REMOTOR,KIND_CARKEY,NAME_KEYD,20);
 		}
 
 		Key_PD.Key_RetVal = enKey_No;   //标志复位

@@ -27,11 +27,16 @@ Project File Date:  04/29/2020
 <h2>Output:</h2>
 *** Using Compiler 'V5.05 update 2 (build 169)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
-compiling DisplayTask.c...
+compiling protocol3.c...
+..\Basic\USART3\protocol3.c(322): warning:  #186-D: pointless comparison of unsigned integer with zero
+                                                                if(u8data<Car_uiconfigParam.Page_Index_Limit && u8data >=0)
+..\Basic\USART3\protocol3.c(445): warning:  #186-D: pointless comparison of unsigned integer with zero
+                                                                if(u8data<Envi_uiconfigParam.Page_Index_Limit && u8data >=0)
+..\Basic\USART3\protocol3.c: 2 warnings, 0 errors
 linking...
-Program Size: Code=46544 RO-data=4340 RW-data=584 ZI-data=15808  
+Program Size: Code=59824 RO-data=4340 RW-data=600 ZI-data=15896  
 FromELF: creating hex file...
-".\Objects\LZM_F103C8T6.axf" - 0 Error(s), 0 Warning(s).
+".\Objects\LZM_F103C8T6.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   D:\MYjiezuo\STM32\BS\Remote\Remote1_1\Project\RTE
