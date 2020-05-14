@@ -693,7 +693,7 @@ void canmsgAnalyze(CanRxMsg *p)
 		{
 			if(*(p->Data+1) == enDATA)
 			{
-				
+				Page_Index_Last = Envi_uiconfigParam.Page_Index;
 				switch(*(p->Data+2))
 				{
 					case CAN_CARUI:
@@ -736,6 +736,10 @@ void canmsgAnalyze(CanRxMsg *p)
 												break;
 								}
 								break;
+				}
+				if(Page_Index_Last != Envi_uiconfigParam.Page_Index)
+				{
+					xEventGroupSetBits(Event_canSendData,EVENT_canOLEDCLEAR);		
 				}
 			}
 			if(*(p->Data+1) == enCMD)

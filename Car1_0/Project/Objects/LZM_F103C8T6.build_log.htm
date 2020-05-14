@@ -27,7 +27,16 @@ Project File Date:  05/12/2020
 <h2>Output:</h2>
 *** Using Compiler 'V5.05 update 2 (build 169)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
-".\Objects\LZM_F103C8T6.axf" - 0 Error(s), 0 Warning(s).
+compiling CommunicateTask.c...
+..\TASK\src\CommunicateTask.c(23): warning:  #550-D: variable "xReturn" was set but never used
+        BaseType_t xReturn = pdTRUE;/* 定??一?龃唇???息返??值，默??为pdTRUE */
+..\TASK\src\CommunicateTask.c(48): warning:  #550-D: variable "xReturn" was set but never used
+        BaseType_t xReturn = pdTRUE;/* 定??一?龃唇???息返??值，默??为pdTRUE */
+..\TASK\src\CommunicateTask.c: 2 warnings, 0 errors
+linking...
+Program Size: Code=71956 RO-data=4408 RW-data=660 ZI-data=34156  
+FromELF: creating hex file...
+".\Objects\LZM_F103C8T6.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   D:\MYjiezuo\STM32\BS\Car\Car1_0\Project\RTE

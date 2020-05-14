@@ -252,7 +252,7 @@ void vTaskSendData( void * pvParameters )
     {		
 			uart1SendClockData(20);
 			vTaskDelay( 5 );
-			uart1SendLedData(20);
+			uart1SendEnvLedData(20);
 		}
 		/* ENVUI Page 4ÊÂ¼þ */
 		if((r_event & EVENT_uart1ENVPAGE4) == (EVENT_uart1ENVPAGE4)) 

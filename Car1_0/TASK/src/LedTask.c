@@ -179,3 +179,30 @@ void uart1SendLedData(TickType_t xTicksToWait)
 
 	xQueueSend(xQueue_uart1Tx, &p, xTicksToWait);
 }
+
+void uart1SendEnvLedData(TickType_t xTicksToWait)
+{
+	msg_t p;
+	p.msg_head = MSG_HEAD;
+	p.msgID = UP_DATA;
+	p.mcuID = enIDEnvironment;
+	p.dataLen = (1+4)*3 +2; 
+	p.data[0] = enDATA;
+	p.data[1] = KIND_LED;
+	
+	memcpy(p.data+2, 
+				&(envLEDA.mode), 1);  /* 特别留意，低字节在前 */
+	memcpy(p.data+3, 
+				&(envLEDA.cycle), 4);  /* 特别留意，低字节在前 */
+	memcpy(p.data+7, 
+				&(envLEDB.mode), 1);  /* 特别留意，低字节在前 */
+	memcpy(p.data+8, 
+				&(envLEDB.cycle), 4);  /* 特别留意，低字节在前 */
+	memcpy(p.data+12, 
+				&(envFMQ.mode), 1);  /* 特别留意，低字节在前 */
+	memcpy(p.data+13, 
+				&(envFMQ.cycle), 4);  /* 特别留意，低字节在前 */
+
+	xQueueSend(xQueue_uart1Tx, &p, xTicksToWait);
+}
+
