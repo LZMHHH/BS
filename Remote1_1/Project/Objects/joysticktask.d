@@ -49,8 +49,9 @@
 .\objects\joysticktask.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h
 .\objects\joysticktask.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\objects\joysticktask.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
-.\objects\joysticktask.o: ..\Top\inc\control.h
+.\objects\joysticktask.o: ..\Basic\FLASH\bsp_mcuFlash.h
 .\objects\joysticktask.o: ..\Top\inc\includes.h
+.\objects\joysticktask.o: ..\Top\inc\control.h
 .\objects\joysticktask.o: ..\Basic\BSP\bsp.h
 .\objects\joysticktask.o: ..\Basic\DWT\bsp_dwt_delay.h
 .\objects\joysticktask.o: ..\Basic\SYSTICK\delay.h

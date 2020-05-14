@@ -19,29 +19,29 @@
 
 
 CLASS_UIconfigParam Main_uiconfigParam;
-
+static u16 save_numA = 0;
+static u16 save_numB = 0;
 
 void Main_uiconfigParamInit(void)
 {
 	Main_uiconfigParam.Page_Index_Limit    = 3;
 	
 	Main_uiconfigParam.Para_Index_Limit[0] = 7;
-	Main_uiconfigParam.Para_Index_Limit[1] = 7;
-	Main_uiconfigParam.Para_Index_Limit[2] = 7;
-	Main_uiconfigParam.Para_Index_Limit[3] = 8;
+	Main_uiconfigParam.Para_Index_Limit[1] = 5;
+	Main_uiconfigParam.Para_Index_Limit[2] = 11;
+	Main_uiconfigParam.Para_Index_Limit[3] = 9;
 	
-	Main_uiconfigParam.Step_Index_Limit    = 6;
+	Main_uiconfigParam.Step_Index_Limit    = 4;
 	
-	Main_uiconfigParam.Step_Size[0]        =   0.001;
-	Main_uiconfigParam.Step_Size[1]        =   0.01;
-	Main_uiconfigParam.Step_Size[2]        =   0.1;
-	Main_uiconfigParam.Step_Size[3]        =   1.0;
-	Main_uiconfigParam.Step_Size[4]        =  10.0;
-	Main_uiconfigParam.Step_Size[5]        = 100.0;
+	Main_uiconfigParam.Step_Size[0]        =   0.01;
+	Main_uiconfigParam.Step_Size[1]        =   0.1;
+	Main_uiconfigParam.Step_Size[2]        =   1.0;
+	Main_uiconfigParam.Step_Size[3]        =   10.0;
+	Main_uiconfigParam.Step_Size[4]        =  100.0;
 	
 	Show_Para_Con(&Main_uiconfigParam);
 	
-	Main_uiconfigParam.Step_Index          = 1;
+	Main_uiconfigParam.Step_Index          = 2;
 	Main_uiconfigParam.Page_Index          = 1;
 	Main_uiconfigParam.Page_Index_Last     = 0;
 	Main_uiconfigParam.Para_Index          = 0;
@@ -55,7 +55,8 @@ void Main_ZUI(void)
 	u8 h;    //显示行系数
 	u8 Ph;   //参数行系数
 	
-
+	Show_Para_Con(&Main_uiconfigParam);
+	
 	/* 信号 */
 	if(uart3Connect.status == enBreak)
 	{
@@ -68,9 +69,9 @@ void Main_ZUI(void)
 	
 	/* 页面 */
 	OLED_ShowChar(97,56,'r',1);
-	OLED_ShowNum(103,56,Car_uiconfigParam.Para_Index,2,0,1);
+	OLED_ShowNum(103,56,Main_uiconfigParam.Para_Index,2,0,1);
 	OLED_ShowChar(115,56,'P',1);
-  OLED_ShowNum(121,56,Car_uiconfigParam.Page_Index,1,0,1);
+  OLED_ShowNum(121,56,Main_uiconfigParam.Page_Index,1,0,1);
 	
 	//第 0 页
 	if(Main_uiconfigParam.Page_Index == 0)
@@ -172,15 +173,348 @@ void Main_ZUI(void)
 			OLED_ShowNum(86,(7-h)*8,mpu_data.Angle_BalanceX,5,1,1);
 			h++;
 	  }
-
-		
+	}
+	
+	//第 2 页
+	if(Main_uiconfigParam.Page_Index == 2)
+	{  
+		OLED_ShowNum(49,56,Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index],3,2,1);
+		h = 1;
+		//1行
+	  Ph = 1;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"RJoyM:",1);
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"RJoyM:",1);
+			}
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					switch(Joystick_Right.Mode)
+					{
+						case enCar:
+									OLED_ShowString(92,(7-h)*8,(u8 *)"   Car",1);
+									break;
+						case enEnv:
+									OLED_ShowString(92,(7-h)*8,(u8 *)"   Env",1);
+									break;
+						default:break;
+					}
+					Oled_Colour = 0;				
+			}
+			else
+			{
+					switch(Joystick_Right.Mode)
+					{
+						case enCar:
+									OLED_ShowString(92,(7-h)*8,(u8 *)"   Car",1);
+									break;
+						case enEnv:
+									OLED_ShowString(92,(7-h)*8,(u8 *)"   Env",1);
+									break;
+						default:break;
+					}
+			}
+			h++;
+	  }
+		//2行
+	  Ph = 2;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"RJoyG:",1);
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"RJoyG:",1);
+			}
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					switch(Joystick_Right.Grade)
+					{
+						case enGA:
+									OLED_ShowString(92,(7-h)*8,(u8 *)"     A",1);
+									break;
+						case enGB:
+									OLED_ShowString(92,(7-h)*8,(u8 *)"     B",1);
+									break;
+						case enGC:
+									OLED_ShowString(92,(7-h)*8,(u8 *)"     C",1);
+									break;
+						default:break;
+					}
+					Oled_Colour = 0;				
+			}
+			else
+			{
+					switch(Joystick_Right.Grade)
+					{
+						case enGA:
+									OLED_ShowString(92,(7-h)*8,(u8 *)"     A",1);
+									break;
+						case enGB:
+									OLED_ShowString(92,(7-h)*8,(u8 *)"     B",1);
+									break;
+						case enGC:
+									OLED_ShowString(92,(7-h)*8,(u8 *)"     C",1);
+									break;
+						default:break;
+					}
+			}
+			h++;
+	  }
+		//3行
+	  Ph = 3;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"LXZS :",1);
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"LXZS :",1);
+			}
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowNum(92,(7-h)*8,Joystick_Left.XZeroSet,6,0,1);
+					Oled_Colour = 0;				
+			}
+			else
+			{
+					OLED_ShowNum(92,(7-h)*8,Joystick_Left.XZeroSet,6,0,1);
+			}
+			h++;
+	  }
+		//4行
+	  Ph = 4;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"LYZS :",1);
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"LYZS :",1);
+			}
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowNum(92,(7-h)*8,Joystick_Left.YZeroSet,6,0,1);
+					Oled_Colour = 0;				
+			}
+			else
+			{
+					OLED_ShowNum(92,(7-h)*8,Joystick_Left.YZeroSet,6,0,1);
+			}
+			h++;
+	  }
+		//5行
+	  Ph = 5;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"RXZS :",1);
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"RXZS :",1);
+			}
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowNum(92,(7-h)*8,Joystick_Right.XZeroSet,6,0,1);
+					Oled_Colour = 0;				
+			}
+			else
+			{
+					OLED_ShowNum(92,(7-h)*8,Joystick_Right.XZeroSet,6,0,1);
+			}
+			h++;
+	  }
+		//6行
+	  Ph = 6;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"RYZS :",1);
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"RYZS :",1);
+			}
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowNum(92,(7-h)*8,Joystick_Right.YZeroSet,6,0,1);
+					Oled_Colour = 0;				
+			}
+			else
+			{
+					OLED_ShowNum(92,(7-h)*8,Joystick_Right.YZeroSet,6,0,1);
+			}
+			h++;
+	  }
+		//7行
+	  Ph = 7;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"LXSV :",1);
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"LXSV :",1);
+			}
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowNum(92,(7-h)*8,Joystick_Left.XShieldVal,6,0,1);
+					Oled_Colour = 0;				
+			}
+			else
+			{
+					OLED_ShowNum(92,(7-h)*8,Joystick_Left.XShieldVal,6,0,1);
+			}
+			h++;
+	  }
+		//8行
+	  Ph = 8;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"LYSV :",1);
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"LYSV :",1);
+			}
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowNum(92,(7-h)*8,Joystick_Left.YShieldVal,6,0,1);
+					Oled_Colour = 0;				
+			}
+			else
+			{
+					OLED_ShowNum(92,(7-h)*8,Joystick_Left.YShieldVal,6,0,1);
+			}
+			h++;
+	  }
+		//9行
+	  Ph = 9;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"RXSV :",1);
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"RXSV :",1);
+			}
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowNum(92,(7-h)*8,Joystick_Right.XShieldVal,6,0,1);
+					Oled_Colour = 0;				
+			}
+			else
+			{
+					OLED_ShowNum(92,(7-h)*8,Joystick_Right.XShieldVal,6,0,1);
+			}
+			h++;
+	  }
+		//10行
+	  Ph = 10;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"RYSV :",1);
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"RYSV :",1);
+			}
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowNum(92,(7-h)*8,Joystick_Right.YShieldVal,6,0,1);
+					Oled_Colour = 0;				
+			}
+			else
+			{
+					OLED_ShowNum(92,(7-h)*8,Joystick_Right.YShieldVal,6,0,1);
+			}
+			h++;
+	  }
+		//11行
+	  Ph = 11;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"SaveA:",1); //LedB的闪烁周期
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"SaveA:",1);
+			}	
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowNum(92,(7-h)*8,save_numA,6,0,1);
+					Oled_Colour = 0;				
+			}
+			else
+			{
+					OLED_ShowNum(92,(7-h)*8,save_numA,6,0,1);
+			}
+			h++;
+	  }
 	}
 	
 	//第 3 页
 	if(Main_uiconfigParam.Page_Index == 3)
 	{  
 		
-		OLED_ShowNum(49,56,Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index],3,3,1);
+		OLED_ShowNum(49,56,Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index],3,2,1);
 		
 		h = 1;
 		//1行
@@ -494,6 +828,32 @@ void Main_ZUI(void)
 			}
 			h++;
 	  }
+		//9行
+	  Ph = 9;
+	  if(Main_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
+	  {
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == false)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowString(0,(7-h)*8,(u8 *)"SaveB:",1); //LedB的闪烁周期
+					Oled_Colour = 0;
+			}
+			else
+			{
+					OLED_ShowString(0,(7-h)*8,(u8 *)"SaveB:",1);
+			}	
+			if(Main_uiconfigParam.Para_Index == Ph && Main_uiconfigParam.Para_IfControl == true)
+			{
+					Oled_Colour = 1;     //fanzhuan
+					OLED_ShowNum(98,(7-h)*8,save_numB,5,0,1);
+					Oled_Colour = 0;				
+			}
+			else
+			{
+					OLED_ShowNum(98,(7-h)*8,save_numB,5,0,1);
+			}
+			h++;
+	  }
 		
 	}
 	
@@ -524,6 +884,8 @@ static void Para_Prepare(void)
 
 void Main_uictrl(void)
 {
+
+	
 	//中键被单击
 	if(Key_PM.Key_RetVal == enKey_Click)
 	{
@@ -612,6 +974,80 @@ void Main_uictrl(void)
     }
     else
     { 
+			if(Main_uiconfigParam.Page_Index==2)     //修改第2页参数
+      {
+				//参数行
+				switch(Main_uiconfigParam.Para_Index)
+				{
+					case 1:
+							switch(Joystick_Right.Mode)
+							{
+								case enCar:
+											Joystick_Right.Mode = enEnv;
+											break;
+								case enEnv:
+											Joystick_Right.Mode = enCar;
+											break;
+								default:
+											Joystick_Right.Mode = enCar;
+											break;
+							}
+							break;
+					case 2:
+							switch(Joystick_Right.Grade)
+							{
+								case enGA:
+											Joystick_Right.Grade = enGB;
+											break;
+								case enGB:
+											Joystick_Right.Grade = enGC;
+											break;
+								case enGC:
+											Joystick_Right.Grade = enGA;
+											break;
+								default:
+											Joystick_Right.Grade = enGA;
+											break;
+							}
+							break;
+					case 3:
+							Joystick_Left.XZeroSet += Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index];
+							if(Joystick_Left.XZeroSet > 10000) Joystick_Left.XZeroSet = 10000;
+							break;
+					case 4:
+							Joystick_Left.YZeroSet += Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index];
+							if(Joystick_Left.YZeroSet > 10000) Joystick_Left.YZeroSet = 10000;
+							break;
+					case 5:
+							Joystick_Right.XZeroSet += Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index];
+							if(Joystick_Right.XZeroSet > 10000) Joystick_Right.XZeroSet = 10000;
+							break;
+					case 6:
+							Joystick_Right.YZeroSet += Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index];
+							if(Joystick_Right.YZeroSet > 10000) Joystick_Right.YZeroSet = 10000;
+							break;
+					case 7:
+							Joystick_Left.XShieldVal += Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index];
+							if(Joystick_Left.XShieldVal > 10000) Joystick_Left.XShieldVal = 10000;
+							break;
+					case 8:
+							Joystick_Left.YShieldVal += Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index];
+							if(Joystick_Left.YShieldVal > 10000) Joystick_Left.YShieldVal = 10000;
+							break;
+					case 9:
+							Joystick_Right.XShieldVal += Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index];
+							if(Joystick_Right.XShieldVal > 10000) Joystick_Right.XShieldVal = 10000;
+							break;
+					case 10:
+							Joystick_Right.YShieldVal += Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index];
+							if(Joystick_Right.YShieldVal > 10000) Joystick_Right.YShieldVal = 10000;
+							break;
+					case 11:
+							SaveFlashJoyData();
+							save_numA++;
+							break;
+				}
+			}
 			
 			if(Main_uiconfigParam.Page_Index==3)     //修改第3页参数
       {
@@ -738,6 +1174,81 @@ void Main_uictrl(void)
     }
     else
     { 
+			if(Main_uiconfigParam.Page_Index==2)     //修改第2页参数
+      {
+				//参数行
+				switch(Main_uiconfigParam.Para_Index)
+				{
+					case 1:
+							switch(Joystick_Right.Mode)
+							{
+								case enCar:
+											Joystick_Right.Mode = enEnv;
+											break;
+								case enEnv:
+											Joystick_Right.Mode = enCar;
+											break;
+								default:
+											Joystick_Right.Mode = enCar;
+											break;
+							}
+							break;
+					case 2:
+							switch(Joystick_Right.Grade)
+							{
+								case enGC:
+											Joystick_Right.Grade = enGB;
+											break;
+								case enGB:
+											Joystick_Right.Grade = enGA;
+											break;
+								case enGA:
+											Joystick_Right.Grade = enGC;
+											break;
+								default:
+											Joystick_Right.Grade = enGA;
+											break;
+							}
+							break;
+					case 3:
+							Joystick_Left.XZeroSet -= Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index];
+							if(Joystick_Left.XZeroSet < -9999) Joystick_Left.XZeroSet = -9999;
+							break;
+					case 4:
+							Joystick_Left.YZeroSet -= Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index];
+							if(Joystick_Left.YZeroSet < -9999) Joystick_Left.YZeroSet = -9999;
+							break;
+					case 5:
+							Joystick_Right.XZeroSet -= Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index];
+							if(Joystick_Right.XZeroSet < -9999) Joystick_Right.XZeroSet = -9999;
+							break;
+					case 6:
+							Joystick_Right.YZeroSet -= Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index];
+							if(Joystick_Right.YZeroSet < -9999) Joystick_Right.YZeroSet = -9999;
+							break;
+					case 7:
+							Joystick_Left.XShieldVal -= Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index];
+							if(Joystick_Left.XShieldVal < -9999) Joystick_Left.XShieldVal = -9999;
+							break;
+					case 8:
+							Joystick_Left.YShieldVal -= Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index];
+							if(Joystick_Left.YShieldVal < -9999) Joystick_Left.YShieldVal = -9999;
+							break;
+					case 9:
+							Joystick_Right.XShieldVal -= Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index];
+							if(Joystick_Right.XShieldVal < -9999) Joystick_Right.XShieldVal = -9999;
+							break;
+					case 10:
+							Joystick_Right.YShieldVal -= Main_uiconfigParam.Step_Size[Main_uiconfigParam.Step_Index];
+							if(Joystick_Right.YShieldVal < -9999) Joystick_Right.YShieldVal = -9999;
+							break;
+					case 11:
+							SaveFlashJoyData();
+							save_numA++;
+							break;
+				}
+			}
+			
 			if(Main_uiconfigParam.Page_Index==3)     //修改第3页参数
       {
 				//参数行
@@ -849,3 +1360,9 @@ void Main_uictrl(void)
 		}
 	}	
 }
+
+
+
+
+
+

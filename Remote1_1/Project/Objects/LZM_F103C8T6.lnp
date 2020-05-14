@@ -47,6 +47,7 @@
 ".\objects\inv_mpu_dmp_motion_driver.o"
 ".\objects\bsp_iic.o"
 ".\objects\bsp_usart3.o"
+".\objects\bsp_mcuflash.o"
 ".\objects\heap_4.o"
 ".\objects\port.o"
 ".\objects\croutine.o"

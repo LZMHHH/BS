@@ -49,8 +49,9 @@
 .\objects\inv_mpu_dmp_motion_driver.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
-.\objects\inv_mpu_dmp_motion_driver.o: ..\Top\inc\control.h
+.\objects\inv_mpu_dmp_motion_driver.o: ..\Basic\FLASH\bsp_mcuFlash.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\Top\inc\includes.h
+.\objects\inv_mpu_dmp_motion_driver.o: ..\Top\inc\control.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\Basic\BSP\bsp.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\Basic\DWT\bsp_dwt_delay.h
 .\objects\inv_mpu_dmp_motion_driver.o: ..\Basic\SYSTICK\delay.h

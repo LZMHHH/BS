@@ -49,5 +49,6 @@ long map(long x, long in_min, long in_max, long out_min, long out_max);
 int myabs(int a);
 
 void ParaInit(void);
-
+void SaveFlashJoyData(void);
+void ReadFlashJoyData(void);
 #endif

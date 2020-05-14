@@ -66,6 +66,22 @@ typedef enum
 	ADC_RROW,         
 }ADCx_Kind;	
 
+/* 设备机表 */
+typedef enum
+{
+	enGA=0, 
+	enGB,
+	enGC,
+         
+}Grade_e;
+/* 设备机表 */
+typedef enum
+{
+	enCar=0, 
+	enEnv,
+         
+}JoyMode_e;
+
 
 /* 别名 */
 typedef  struct  class_joystick    CLASS_Joystick; 
@@ -86,7 +102,7 @@ struct class_joystick
 	int    YShieldVal;//屏蔽发送阈值  Y
 	
 	u8     Mode;     //当前模式
-	
+	u8     Grade;    //当前档位
 };
 
 void  Adc_Init(void);

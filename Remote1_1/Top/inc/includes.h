@@ -84,6 +84,7 @@
 #include  "stm32f10x.h"
 
 // 用户开发的头文件
+#include "bsp_mcuFlash.h"
 #include "control.h"
 #include "bsp.h"
 #include "bsp_dwt_delay.h"
@@ -97,6 +98,8 @@
 #include "bsp_iic.h"
 #include "bsp_mpu6050.h"
 #include "bsp_exti.h"
+
+
 
 //6050的
 #include "inv_mpu.h"

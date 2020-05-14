@@ -49,8 +49,9 @@
 .\objects\bsp_mpu6050.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h
 .\objects\bsp_mpu6050.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\objects\bsp_mpu6050.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
-.\objects\bsp_mpu6050.o: ..\Top\inc\control.h
+.\objects\bsp_mpu6050.o: ..\Basic\FLASH\bsp_mcuFlash.h
 .\objects\bsp_mpu6050.o: ..\Top\inc\includes.h
+.\objects\bsp_mpu6050.o: ..\Top\inc\control.h
 .\objects\bsp_mpu6050.o: ..\Basic\BSP\bsp.h
 .\objects\bsp_mpu6050.o: ..\Basic\DWT\bsp_dwt_delay.h
 .\objects\bsp_mpu6050.o: ..\Basic\SYSTICK\delay.h

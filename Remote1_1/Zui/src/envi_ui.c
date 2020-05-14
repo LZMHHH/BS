@@ -56,7 +56,7 @@ void Envi_ZUI(void)
 	u8 h;    //显示行系数
 	u8 Ph;   //参数行系数
 	
-	
+	Show_Para_Con(&Envi_uiconfigParam);
 	
 	/* 信号 */
 	if(uart3Connect.status == enBreak)
@@ -1232,7 +1232,6 @@ void Envi_ZUI(void)
 			}
 			h++;
 	  }
-		
 		//6行
 	  Ph = 6;
 	  if(Envi_uiconfigParam.Para_Index_Show[Ph] != 0 && h < 8)
@@ -1772,13 +1771,17 @@ void Envi_uictrl(void)
 		//中键被单击
 	if(Key_PM.Key_RetVal == enKey_Click)
 	{
-    if(Envi_uiconfigParam.Para_IfControl==false && ((Envi_uiconfigParam.Page_Index == 1)   
-																							   || (Envi_uiconfigParam.Page_Index == 2)  
-																								 || (Envi_uiconfigParam.Page_Index == 3))) 
-			 Envi_uiconfigParam.Para_IfControl=true;    //可控页
-    else                                                                  
-			 Envi_uiconfigParam.Para_IfControl=false;
-
+		if(envUIPara.Sync != true)
+		{
+			if(Envi_uiconfigParam.Para_IfControl==false && ((Envi_uiconfigParam.Page_Index == 1)   
+																									 || (Envi_uiconfigParam.Page_Index == 2)  
+																									 || (Envi_uiconfigParam.Page_Index == 3)
+																									 || (Envi_uiconfigParam.Page_Index == 4)
+																									 || (Envi_uiconfigParam.Page_Index == 5))) 
+				 Envi_uiconfigParam.Para_IfControl=true;    //可控页
+			else                                                                  
+				 Envi_uiconfigParam.Para_IfControl=false;
+		}
 		
 		/* 同步 */
 		if(envUIPara.Sync == true)
@@ -1798,7 +1801,7 @@ void Envi_uictrl(void)
 	//左键被单击
 	if(Key_PL.Key_RetVal == enKey_Click)
 	{
-		if(Envi_uiconfigParam.Para_IfControl)  
+		if(Envi_uiconfigParam.Para_IfControl && envUIPara.Sync != true)  
     {
       if(Envi_uiconfigParam.Step_Index >= Envi_uiconfigParam.Step_Index_Limit)
            Envi_uiconfigParam.Step_Index = 0
@@ -1807,15 +1810,17 @@ void Envi_uictrl(void)
     }
     else
     {
-      if(Envi_uiconfigParam.Page_Index<=0) 
-        Envi_uiconfigParam.Page_Index=Envi_uiconfigParam.Page_Index_Limit; 
-      else 
-        Envi_uiconfigParam.Page_Index--;		
-			Envi_uiconfigParam.Para_Index=1;         //参数索引复位
-			Show_Para_Con(&Envi_uiconfigParam);
-			Para_Prepare();
-      OLED_Clear();
-			
+			if(envUIPara.Sync != true)
+			{
+				if(Envi_uiconfigParam.Page_Index<=0) 
+					Envi_uiconfigParam.Page_Index=Envi_uiconfigParam.Page_Index_Limit; 
+				else 
+					Envi_uiconfigParam.Page_Index--;		
+				Envi_uiconfigParam.Para_Index=1;         //参数索引复位
+				Show_Para_Con(&Envi_uiconfigParam);
+				Para_Prepare();
+				OLED_Clear();
+		}
 			
     }
 		/* 同步 */
@@ -1835,7 +1840,7 @@ void Envi_uictrl(void)
 	//右键被单击
 	if(Key_PR.Key_RetVal == enKey_Click)
 	{
-		if(Envi_uiconfigParam.Para_IfControl)  
+		if(Envi_uiconfigParam.Para_IfControl && envUIPara.Sync != true)  
     {
       if(Envi_uiconfigParam.Step_Index <= 0)
            Envi_uiconfigParam.Step_Index = Envi_uiconfigParam.Step_Index_Limit;
@@ -1843,14 +1848,17 @@ void Envi_uictrl(void)
     }
     else
     {
-      if(Envi_uiconfigParam.Page_Index>=Envi_uiconfigParam.Page_Index_Limit) 
-        Envi_uiconfigParam.Page_Index=0; 
-      else 
-        Envi_uiconfigParam.Page_Index++;		
-			Envi_uiconfigParam.Para_Index=1;         //参数复位
-			Show_Para_Con(&Envi_uiconfigParam);
-			Para_Prepare();			
-      OLED_Clear();
+			if(envUIPara.Sync != true)
+			{
+				if(Envi_uiconfigParam.Page_Index>=Envi_uiconfigParam.Page_Index_Limit) 
+					Envi_uiconfigParam.Page_Index=0; 
+				else 
+					Envi_uiconfigParam.Page_Index++;		
+				Envi_uiconfigParam.Para_Index=1;         //参数复位
+				Show_Para_Con(&Envi_uiconfigParam);
+				Para_Prepare();			
+				OLED_Clear();
+			}
     }
 		
 		/* 同步 */
@@ -1870,7 +1878,7 @@ void Envi_uictrl(void)
 	//上键被单击
 	if(Key_PU.Key_RetVal == enKey_Click)
 	{
-		if(Envi_uiconfigParam.Para_IfControl == false) 
+		if(Envi_uiconfigParam.Para_IfControl == false && envUIPara.Sync != true) 
     {
       if(Envi_uiconfigParam.Para_Index<=1) Envi_uiconfigParam.Para_Index = Envi_uiconfigParam.Para_Index_Limit[Envi_uiconfigParam.Page_Index];
       else              Envi_uiconfigParam.Para_Index--;		
@@ -1913,7 +1921,7 @@ void Envi_uictrl(void)
 	//下键被单击
 	if(Key_PD.Key_RetVal == enKey_Click)
 	{
-		if(Envi_uiconfigParam.Para_IfControl == false) 
+		if(Envi_uiconfigParam.Para_IfControl == false && envUIPara.Sync != true) 
     {
 			if(Envi_uiconfigParam.Para_Index>=Envi_uiconfigParam.Para_Index_Limit[Envi_uiconfigParam.Page_Index]) Envi_uiconfigParam.Para_Index = 1;
       else              Envi_uiconfigParam.Para_Index++;

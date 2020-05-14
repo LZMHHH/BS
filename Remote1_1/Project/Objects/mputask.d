@@ -49,8 +49,9 @@
 .\objects\mputask.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h
 .\objects\mputask.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\objects\mputask.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
-.\objects\mputask.o: ..\Top\inc\control.h
+.\objects\mputask.o: ..\Basic\FLASH\bsp_mcuFlash.h
 .\objects\mputask.o: ..\Top\inc\includes.h
+.\objects\mputask.o: ..\Top\inc\control.h
 .\objects\mputask.o: ..\Basic\BSP\bsp.h
 .\objects\mputask.o: ..\Basic\DWT\bsp_dwt_delay.h
 .\objects\mputask.o: ..\Basic\SYSTICK\delay.h

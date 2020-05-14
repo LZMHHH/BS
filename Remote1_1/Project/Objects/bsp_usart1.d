@@ -49,8 +49,9 @@
 .\objects\bsp_usart1.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h
 .\objects\bsp_usart1.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\objects\bsp_usart1.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
-.\objects\bsp_usart1.o: ..\Top\inc\control.h
+.\objects\bsp_usart1.o: ..\Basic\FLASH\bsp_mcuFlash.h
 .\objects\bsp_usart1.o: ..\Top\inc\includes.h
+.\objects\bsp_usart1.o: ..\Top\inc\control.h
 .\objects\bsp_usart1.o: ..\Basic\BSP\bsp.h
 .\objects\bsp_usart1.o: ..\Basic\DWT\bsp_dwt_delay.h
 .\objects\bsp_usart1.o: ..\Basic\SYSTICK\delay.h

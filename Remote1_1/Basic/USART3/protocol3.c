@@ -338,10 +338,9 @@ void msgAnalyze(msg_t *p)
 	{
 		if(p->msgID == UP_DATA)
 		{
-			Page_Index_Last = Car_uiconfigParam.Page_Index;
+			Page_Index_Last = Envi_uiconfigParam.Page_Index;
 			if(p->data[0] == enDATA)
 			{
-				Page_Index_Last = Envi_uiconfigParam.Page_Index;
 				switch(p->data[1])
 				{
 					case KIND_SHT3X:
@@ -438,11 +437,22 @@ void msgAnalyze(msg_t *p)
 								intdata = (int)((*(p->data+17)<<24)|(*(p->data+16)<<16)|(*(p->data+15)<<8)|*(p->data+14));
 								if(myabs(intdata) < 8000) SetClock.Year = intdata;
 								break;
+					case KIND_LED:
+								envLEDA.mode = (u8)*(p->data+2);
+								intdata = (int)((*(p->data+6) <<24)|(*(p->data+5) <<16)|(*(p->data+4) <<8)|*(p->data+3));
+								if(myabs(intdata) < 1000) envLEDA.cycle = intdata;
+								envLEDB.mode = (u8)*(p->data+7);
+								intdata = (int)((*(p->data+11) <<24)|(*(p->data+10) <<16)|(*(p->data+9) <<8)|*(p->data+8));
+								if(myabs(intdata) < 1000) envLEDB.cycle = intdata;
+								envFMQ.mode = (u8)*(p->data+12);
+								intdata = (int)((*(p->data+16) <<24)|(*(p->data+15) <<16)|(*(p->data+14) <<8)|*(p->data+13));
+								if(myabs(intdata) < 1000) envFMQ.cycle = intdata;
+								break;
 								
 					case KIND_UI:
 								Envi_uiconfigParam.Step_Index      = *(p->data+3);
 								u8data                            = *(p->data+4);
-								if(u8data<Envi_uiconfigParam.Page_Index_Limit && u8data >=0)
+								if(u8data<=Envi_uiconfigParam.Page_Index_Limit && u8data >=0)
 								Envi_uiconfigParam.Page_Index = u8data;
 								Envi_uiconfigParam.Page_Index_Last = *(p->data+5);
 								Envi_uiconfigParam.Para_Index      = *(p->data+6);

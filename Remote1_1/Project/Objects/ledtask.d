@@ -49,8 +49,9 @@
 .\objects\ledtask.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h
 .\objects\ledtask.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\objects\ledtask.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
-.\objects\ledtask.o: ..\Top\inc\control.h
+.\objects\ledtask.o: ..\Basic\FLASH\bsp_mcuFlash.h
 .\objects\ledtask.o: ..\Top\inc\includes.h
+.\objects\ledtask.o: ..\Top\inc\control.h
 .\objects\ledtask.o: ..\Basic\BSP\bsp.h
 .\objects\ledtask.o: ..\Basic\DWT\bsp_dwt_delay.h
 .\objects\ledtask.o: ..\Basic\SYSTICK\delay.h

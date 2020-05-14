@@ -312,7 +312,7 @@
               <OCR_RVCT4>
                 <Type>1</Type>
                 <StartAddress>0x8000000</StartAddress>
-                <Size>0x10000</Size>
+                <Size>0x20000</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
                 <Type>1</Type>
@@ -369,7 +369,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER,STM32F10X_MD</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Libraries\CMSIS;..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\User;..\User\OLED_SPI;..\Top\inc;..\Basic\SYSTICK;..\Basic\LED;..\FreeRTOS\inc;..\Basic\SYS;..\Basic\DWT;..\TASK\inc;..\Basic\BSP;..\Basic\KEY;..\Basic\USART1;..\Basic\OLED;..\Zui\inc;..\Basic\ADC;..\Basic\IIC;..\Basic\EXTI;..\Basic\MPU;..\Basic\USART3</IncludePath>
+              <IncludePath>..\Libraries\CMSIS;..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\User;..\User\OLED_SPI;..\Top\inc;..\Basic\SYSTICK;..\Basic\LED;..\FreeRTOS\inc;..\Basic\SYS;..\Basic\DWT;..\TASK\inc;..\Basic\BSP;..\Basic\KEY;..\Basic\USART1;..\Basic\OLED;..\Zui\inc;..\Basic\ADC;..\Basic\IIC;..\Basic\EXTI;..\Basic\MPU;..\Basic\USART3;..\Basic\FLASH</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -701,6 +701,11 @@
               <FileName>bsp_usart3.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Basic\USART3\bsp_usart3.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_mcuFlash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Basic\FLASH\bsp_mcuFlash.c</FilePath>
             </File>
           </Files>
         </Group>

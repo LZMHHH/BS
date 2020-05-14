@@ -47,7 +47,7 @@ void vTaskJoystick( void * pvParameters )
 			CarMoveVal.MoveY = Joystick_Left.NorY;
 			CarMoveVal.MoveZ = Joystick_Right.NorX;
 			
-			if( myabs(CarMoveVal.MoveX) < 150 )
+			if( myabs(CarMoveVal.MoveX) < Joystick_Left.XShieldVal )
 			{
 				CarMoveVal.MoveX = 0;
 			}
@@ -55,7 +55,7 @@ void vTaskJoystick( void * pvParameters )
 			{
 				CarMoveVal.MoveX = map(CarMoveVal.MoveX,-2048,2048,-1000,1000);
 			}
-			if( myabs(CarMoveVal.MoveY) < 150 )
+			if( myabs(CarMoveVal.MoveY) < Joystick_Left.YShieldVal )
 			{
 				CarMoveVal.MoveY = 0;
 			}
@@ -63,7 +63,7 @@ void vTaskJoystick( void * pvParameters )
 			{
 				CarMoveVal.MoveY = map(CarMoveVal.MoveY,-2048,2048,-1000,1000);
 			}
-			if( myabs(CarMoveVal.MoveZ) < 150 )
+			if( myabs(CarMoveVal.MoveZ) < Joystick_Right.XShieldVal )
 			{
 				CarMoveVal.MoveZ = 0;
 			}
@@ -83,15 +83,17 @@ void vTaskJoystick( void * pvParameters )
 
 static void Para_Init(void)
 {
-	Joystick_Left.YZeroSet  = 2048;
-	Joystick_Left.XZeroSet  = 2048;
-	Joystick_Right.YZeroSet = 2048;
-	Joystick_Right.XZeroSet = 2048;
+//	Joystick_Left.YZeroSet  = 2048;
+//	Joystick_Left.XZeroSet  = 2048;
+//	Joystick_Right.YZeroSet = 2048;
+//	Joystick_Right.XZeroSet = 2048;
+//	
+//	Joystick_Left.XShieldVal  = 150;
+//	Joystick_Left.YShieldVal  = 150;
+//	Joystick_Right.XShieldVal = 150;
+//	Joystick_Right.YShieldVal = 150;
 	
-	Joystick_Left.XShieldVal  = 100;
-	Joystick_Left.YShieldVal  = 100;
-	Joystick_Right.XShieldVal = 100;
-	Joystick_Right.YShieldVal = 100;
+	ReadFlashJoyData();
 }
 
 static void UpJoystickData(void)

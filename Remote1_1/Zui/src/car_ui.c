@@ -57,7 +57,8 @@ void Car_ZUI(void)
 	u8 h;    //显示行系数
 	u8 Ph;   //参数行系数
 	
-
+	Show_Para_Con(&Car_uiconfigParam);
+	
 	/* 信号 */
 	if(uart3Connect.status == enBreak)
 	{
